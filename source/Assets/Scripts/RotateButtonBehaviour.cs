@@ -6,7 +6,9 @@ using UnityEngine.EventSystems;
 public enum Direction
 {
     Right,
-    Left
+    Left,
+    Up,
+    Down
 }
 public class RotateButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -28,13 +30,22 @@ public class RotateButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointe
         if (!pressed)
             return;
         CameraBehaviour cameraBehaviour = mainCamera.GetComponent<CameraBehaviour>();
-        if (direction == Direction.Right)
+        switch (direction)
         {
-            cameraBehaviour.RotateCameraToRight();
-        } else
-        {
-            cameraBehaviour.RotateCameraToLeft();
+            case Direction.Right:
+                cameraBehaviour.RotateCameraToRight();
+                break;
+            case Direction.Left:
+                cameraBehaviour.RotateCameraToLeft();
+                break;
+            case Direction.Up:
+                cameraBehaviour.RotateCameraToUp();
+                break;
+            case Direction.Down:
+                cameraBehaviour.RotateCameraToDown();
+                break;
         }
+        
         
     }
 }
