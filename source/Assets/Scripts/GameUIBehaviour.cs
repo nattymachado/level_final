@@ -11,6 +11,6 @@ public class GameUIBehaviour : MonoBehaviour
     public void RightButtonOnClick()
     {
         CameraBehaviour cameraBehaviour = mainCamera.GetComponent<CameraBehaviour>();
-        cameraBehaviour.RotateCameraToRight();
+        cameraBehaviour.RotateCameraToRight(90);
     }
 }

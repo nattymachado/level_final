@@ -33,16 +33,10 @@ public class RotateButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointe
         switch (direction)
         {
             case Direction.Right:
-                cameraBehaviour.RotateCameraToRight();
+                cameraBehaviour.RotateCameraToRight(90);
                 break;
             case Direction.Left:
-                cameraBehaviour.RotateCameraToLeft();
-                break;
-            case Direction.Up:
-                cameraBehaviour.RotateCameraToUp();
-                break;
-            case Direction.Down:
-                cameraBehaviour.RotateCameraToDown();
+                cameraBehaviour.RotateCameraToLeft(90);
                 break;
         }
         
