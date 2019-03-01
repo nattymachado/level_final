@@ -8,7 +8,9 @@ public class TouchManager : MonoBehaviour
     public float MinSwipeDistX;
 
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private CharacterBehaviour character;
     [SerializeField] private float speed = 10;
+    [SerializeField] private GameObject zoomPointer;
 
     private Vector2 startPos;
     private CameraBehaviour cameraBehaviour;
@@ -26,6 +28,9 @@ public class TouchManager : MonoBehaviour
             // Store both touches.
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
+
+
+            zoomPointer.transform.position = (new Vector3(touchZero.position.x, touchZero.position.y, 0f) + new Vector3(touchOne.position.x, touchOne.position.y, 0f)) / 2;
 
             // Find the position in the previous frame of each touch.
             Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
@@ -46,6 +51,7 @@ public class TouchManager : MonoBehaviour
         } else if (Input.touchCount == 1)
         {
             Touch touch = Input.touches[0];
+            bool isMoving = false;
             switch (touch.phase)
             {
                 case TouchPhase.Began:
@@ -54,8 +60,13 @@ public class TouchManager : MonoBehaviour
                 case TouchPhase.Moved:
                     RotateCamera(touch);
                     startPos = touch.position;
+                    isMoving = true;
                     break;
                 case TouchPhase.Ended:
+                    if (!isMoving)
+                    {
+                        character.transform.position = touch.position;
+                    }
                     break;
             }
 
