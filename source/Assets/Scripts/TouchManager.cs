@@ -14,7 +14,7 @@ public class TouchManager : MonoBehaviour
 
     private Vector2 startPos;
     private CameraBehaviour cameraBehaviour;
-    private float perspectiveZoomSpeed = 0.5f;
+    private float perspectiveZoomSpeed = 0.2f;
 
     private void Start()
     {
@@ -58,14 +58,13 @@ public class TouchManager : MonoBehaviour
                     startPos = touch.position;
                     break;
                 case TouchPhase.Moved:
-                    RotateCamera(touch);
+                    isMoving = RotateCamera(touch);
                     startPos = touch.position;
-                    isMoving = true;
                     break;
                 case TouchPhase.Ended:
                     if (!isMoving)
                     {
-                        character.transform.position = touch.position;
+                        character.Move(touch.position);
                     }
                     break;
             }
@@ -73,7 +72,7 @@ public class TouchManager : MonoBehaviour
         }
     }
 
-    private void RotateCamera(Touch touch)
+    private bool RotateCamera(Touch touch)
     {
         float swipeDistHorizontal = (new Vector3(touch.position.x, 0, 0) - new Vector3(startPos.x, 0, 0)).magnitude;
         if (swipeDistHorizontal > MinSwipeDistX)
@@ -89,6 +88,8 @@ public class TouchManager : MonoBehaviour
             {
                 cameraBehaviour.RotateCameraToRight(Mathf.Abs(swipeValue) * speed);
             }
+            return true;
         }
+        return false;
     }
 }
