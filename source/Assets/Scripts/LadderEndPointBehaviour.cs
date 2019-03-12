@@ -5,6 +5,7 @@ using UnityEngine;
 public class LadderEndPointBehaviour : MonoBehaviour
 {
     private LadderBehaviour ladderBehaviour;
+    private CharacterBehaviour characterBehaviour;
 
     private void Awake()
     {
@@ -12,13 +13,26 @@ public class LadderEndPointBehaviour : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        CharacterBehaviour characterBehaviour = other.transform.parent.GetComponent<CharacterBehaviour>();
-        Debug.Log("Trigou");
+        CheckCharacterToStartPoint(other);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        CheckCharacterToStartPoint(other);
+
+    }
+
+    void CheckCharacterToStartPoint(Collider other)
+    {
+        characterBehaviour = other.GetComponent<CharacterBehaviour>();
         if (characterBehaviour != null)
         {
-            Debug.Log("Vai chamenr");
-            ladderBehaviour.ToStartPoint(characterBehaviour);
-        }
+            if (ladderBehaviour.isActiveToMove && ladderBehaviour.action == LadderActionType.NONE)
+            {
+                ladderBehaviour.action = LadderActionType.DOWN;
+                ladderBehaviour.character = characterBehaviour;
+            }
 
+        }
     }
 }
