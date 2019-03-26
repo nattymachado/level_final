@@ -6,24 +6,19 @@ public class MouseManager : MonoBehaviour
 {
 
   public float MinSwipeDistX;
-  [SerializeField] private Camera mainCamera;
   [SerializeField] private CharacterBehaviour character;
   [SerializeField] private float speed = 10;
   [SerializeField] private GameObject zoomPointer;
 
   private Vector2 startPos;
-  private CameraBehaviour cameraBehaviour;
+  [SerializeField] private CameraBehaviour cameraBehaviour;
   [SerializeField] private float perspectiveZoomSpeed = 15f;
 
 
   private float mousewheelAxis;
   private bool hasMoved = false;
-  private void Start()
-  {
-    cameraBehaviour = mainCamera.GetComponent<CameraBehaviour>();
-  }
 
-#if UNITY_EDITOR
+
 
   void Update()
   {
@@ -33,10 +28,9 @@ public class MouseManager : MonoBehaviour
     if (mousewheelAxis != 0)
     {
       // increment zoom based on mouse wheel
-      mainCamera.fieldOfView += -mousewheelAxis * perspectiveZoomSpeed;
+      cameraBehaviour.ChangeFoV(-mousewheelAxis * perspectiveZoomSpeed);
 
-      // Clamp the field of view to make sure it's between 0 and 180.
-      mainCamera.fieldOfView = Mathf.Clamp(mainCamera.fieldOfView, 5f, 24f);
+
     }
 
     if (Input.GetMouseButtonDown(0))
@@ -59,7 +53,6 @@ public class MouseManager : MonoBehaviour
     }
   }
 
-#endif
   private bool RotateCamera(Vector3 position)
   {
     float swipeDistHorizontal = (new Vector3(position.x, 0, 0) - new Vector3(startPos.x, 0, 0)).magnitude;

@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinSwipeDistX: 1
-  mainCamera: {fileID: 0}
   character: {fileID: 0}
-  speed: 2
+  speed: 4
   zoomPointer: {fileID: 0}
+  perspectiveZoomSpeed: 0.05
+  cameraBehaviour: {fileID: 0}
 --- !u!114 &9096548277977613775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f025783e6ddeb34b8f38985973f88bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  cameraBehaviour: {fileID: 0}
 --- !u!114 &9096548277977613808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,8 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinSwipeDistX: 1
-  mainCamera: {fileID: 0}
   character: {fileID: 0}
   speed: 3
   zoomPointer: {fileID: 0}
+  cameraBehaviour: {fileID: 0}
   perspectiveZoomSpeed: 30

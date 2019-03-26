@@ -5,25 +5,18 @@ using UnityEngine.EventSystems;
 
 public class KeyboardManager : MonoBehaviour
 {
+  [SerializeField] private CameraBehaviour cameraBehaviour;
 
-    [SerializeField] private Camera mainCamera;
-    
-    private CameraBehaviour cameraBehaviour;
+  void Update()
+  {
 
-    private void Start()
+    if (Input.GetKeyDown(KeyCode.RightArrow))
     {
-        cameraBehaviour = mainCamera.GetComponent<CameraBehaviour>();
+      cameraBehaviour.RotateCameraToRight(90);
     }
-
-    void Update()
+    else if (Input.GetKeyDown(KeyCode.LeftArrow))
     {
-        
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            cameraBehaviour.RotateCameraToRight(90);
-        } else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            cameraBehaviour.RotateCameraToLeft(90);
-        }
+      cameraBehaviour.RotateCameraToLeft(90);
     }
+  }
 }
