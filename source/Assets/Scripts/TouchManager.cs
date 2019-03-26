@@ -7,20 +7,15 @@ public class TouchManager : MonoBehaviour
 {
   public float MinSwipeDistX;
 
-  [SerializeField] private Camera mainCamera;
   [SerializeField] private CharacterBehaviour character;
   [SerializeField] private float speed = 10;
   [SerializeField] private GameObject zoomPointer;
+  [SerializeField] private float perspectiveZoomSpeed = 0.2f;
 
   private Vector2 startPos;
-  private CameraBehaviour cameraBehaviour;
-  private float perspectiveZoomSpeed = 0.2f;
+  [SerializeField] private CameraBehaviour cameraBehaviour;
   private bool isMoving = false;
 
-  private void Start()
-  {
-    cameraBehaviour = mainCamera.GetComponent<CameraBehaviour>();
-  }
 
   void Update()
   {
@@ -45,10 +40,7 @@ public class TouchManager : MonoBehaviour
       float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
       // Otherwise change the field of view based on the change in distance between the touches.
-      mainCamera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
-
-      // Clamp the field of view to make sure it's between 0 and 180.
-      mainCamera.fieldOfView = Mathf.Clamp(mainCamera.fieldOfView, 5f, 24f);
+      cameraBehaviour.ChangeFoV(deltaMagnitudeDiff * perspectiveZoomSpeed);
     }
     else if (Input.touchCount == 1)
     {

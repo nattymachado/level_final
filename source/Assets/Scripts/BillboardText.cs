@@ -6,7 +6,6 @@ using UnityEngine;
 public class BillboardText : MonoBehaviour
 {
   void Update(){
-
       transform.LookAt(Camera.main.transform.position);
   }
 }
