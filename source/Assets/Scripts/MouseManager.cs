@@ -63,11 +63,11 @@ public class MouseManager : MonoBehaviour
 
       if (swipeValue > 0)
       {
-        cameraBehaviour.RotateCameraToLeft(Mathf.Abs(swipeValue) * speed);
+        cameraBehaviour.RotateCameraToLeft(Mathf.Abs(swipeValue) * speed * Time.deltaTime);
       }
       else if (swipeValue < 0)
       {
-        cameraBehaviour.RotateCameraToRight(Mathf.Abs(swipeValue) * speed);
+        cameraBehaviour.RotateCameraToRight(Mathf.Abs(swipeValue) * speed * Time.deltaTime);
       }
       return true;
     }
