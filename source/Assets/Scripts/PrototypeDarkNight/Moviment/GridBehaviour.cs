@@ -9,6 +9,7 @@ public class GridBehaviour : MonoBehaviour
     public Vector2 gridWorldSize;
     public float nodeRadius;
     public List<Node> path;
+    public string GridName;
 
     private float nodeDiameter;
     private int gridSizeX, gridSizeZ;
@@ -41,15 +42,16 @@ public class GridBehaviour : MonoBehaviour
 
     public Node NodeFromWorldPosition(Vector3 worldPosition)
     {
-        float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
-        float percentZ = (worldPosition.z + gridWorldSize.y / 2) / gridWorldSize.y;
-
+        Debug.Log("Poinst:"+ worldPosition);
+        float percentX = ((worldPosition.x - transform.position.x) + gridWorldSize.x / 2) / gridWorldSize.x;
+        float percentZ = ((worldPosition.z-transform.position.z)+ gridWorldSize.y / 2) / gridWorldSize.y;
+        Debug.Log("Grid Size" + gridWorldSize.x  + "Grip Size x:" + gridWorldSize.y);
         percentX = Mathf.Clamp01(percentX);
         percentZ = Mathf.Clamp01(percentZ);
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
         int z = Mathf.RoundToInt((gridSizeZ - 1) * percentZ);
-        Debug.Log("Z:" + worldPosition.z);
+        Debug.Log("Grid Name:" + GridName +"Grip Position:" + x + "-" + z);
         return grid[x, z];
 
 
@@ -68,7 +70,7 @@ public class GridBehaviour : MonoBehaviour
             //Node playerNode = NodeFromWorldPosition(player.position);
             foreach (Node n in grid)
             {
-                Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                Gizmos.color = (n.walkable) ? Color.green : Color.red;
                /*f (playerNode.Equals(n))
                 {
                     Gizmos.color = Color.green;

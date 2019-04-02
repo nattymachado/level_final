@@ -35,8 +35,7 @@ public class MouseManager2 : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer <= 0)
         {
-            Debug.Log("Mouse:" + Input.mousePosition);
-            character.PositionOnBoard(Input.mousePosition);
+            //character.PositionOnBoard(Input.mousePosition);
             mousePosition = Input.mousePosition;
             cooldownTimer = 0.1f;
         }

@@ -14,7 +14,7 @@ public class CameraBehaviour2 : MonoBehaviour
   [SerializeField] private float minFoV = 5f;
   [SerializeField] private float maxFoV = 24f;
 
-  private Vector3 targetPosition;
+    private Vector3 targetPosition;
   private float deadAreaOriginalScale;
   private float initialFoV;
   private float initialCharHeightDiff;
@@ -36,7 +36,6 @@ public class CameraBehaviour2 : MonoBehaviour
     
     if (character.transform.position != lastCharacterPosition)
     {
-            Debug.Log("Movendo");
         // follow player outside deadArea
         FollowPlayer();
         
