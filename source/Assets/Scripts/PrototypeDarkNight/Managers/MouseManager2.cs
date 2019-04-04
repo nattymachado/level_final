@@ -10,7 +10,7 @@ public class MouseManager2 : MonoBehaviour
     [SerializeField] private CharacterBehaviour2 character;
     [SerializeField] private float speed = 10;
     [SerializeField] private GameObject zoomPointer;
-    //[SerializeField] private InventaryCircleBehaviour inventary;
+    [SerializeField] private InventaryCircleBehaviour inventary;
 
     private Vector2 startPos;
     private CameraBehaviour2 cameraBehaviour;
@@ -63,7 +63,7 @@ public class MouseManager2 : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
-            /*if (!inventary.gameObject.activeSelf)
+            if (!inventary.gameObject.activeSelf)
             {
                 hasMoved = RotateCamera(Input.mousePosition) || hasMoved;
 
@@ -71,8 +71,8 @@ public class MouseManager2 : MonoBehaviour
             else
             {
                 hasMoved = RotateInventary(Input.mousePosition) || hasMoved;
-            }*/
-            hasMoved = RotateCamera(Input.mousePosition) || hasMoved;
+            }
+            //hasMoved = RotateCamera(Input.mousePosition) || hasMoved;
             startPos = Input.mousePosition;
 
         }
@@ -83,17 +83,17 @@ public class MouseManager2 : MonoBehaviour
                 
                 character.Move(Input.mousePosition);
             }
-            /*else if (inventary.gameObject.activeSelf)
+            else if (inventary.gameObject.activeSelf)
             {
                 inventary.FixRotation();
-            }*/
+            }
             hasMoved = false;
         }
     }
 
 #endif
 
-    /*private bool RotateInventary(Vector3 position)
+    private bool RotateInventary(Vector3 position)
     {
         float swipeDistHorizontal = (new Vector3(position.x, 0, 0) - new Vector3(startPos.x, 0, 0)).magnitude;
         if (swipeDistHorizontal > 1)
@@ -104,7 +104,7 @@ public class MouseManager2 : MonoBehaviour
             return true;
         }
         return false;
-    }*/
+    }
 
     private bool RotateCamera(Vector3 position)
     {

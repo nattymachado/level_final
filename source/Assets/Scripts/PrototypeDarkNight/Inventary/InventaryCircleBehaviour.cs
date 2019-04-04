@@ -8,9 +8,11 @@ public class InventaryCircleBehaviour : MonoBehaviour
     [SerializeField] float rotSpeed = 6;
     [SerializeField] List<Image> inventaryPositions = new List<Image>();
     [SerializeField] CharacterBehaviour2 character;
+    [SerializeField] Sprite emptySprite;
     float positionCircle = 0;
     bool lastIsRight = false;
     private int nextItemPosition = 0;
+
 
 
     public void RotateItem(bool isRight)
@@ -40,16 +42,17 @@ public class InventaryCircleBehaviour : MonoBehaviour
 
 
 
-    public void addNewItem(Sprite itemSprite)
+    public void addNewItem(InventaryObjectBehaviour2 item)
     {
-        inventaryPositions[nextItemPosition].sprite = itemSprite;
+        inventaryPositions[nextItemPosition].sprite = item.objectImage.GetComponent<Image>().sprite;
+        item.Position = nextItemPosition;
         nextItemPosition += 1;
 
     }
 
-    public void removeNewItem(Sprite itemSprite)
+    public void removeNewItem(int position)
     {
-        inventaryPositions[nextItemPosition].sprite = null;
+        inventaryPositions[position].sprite = emptySprite;
 
     }
 

@@ -25,6 +25,7 @@ public class ClientBehaviour : MonoBehaviour
             if (characterBehaviour.Inventary.Count > 0 && characterBehaviour.Inventary[characterBehaviour.SelectedItemPosition] != null
                 && characterBehaviour.Inventary[characterBehaviour.SelectedItemPosition].Name == "BrightSun")
             {
+                characterBehaviour.Inventary[characterBehaviour.SelectedItemPosition].RemoveItemOnInventary();
                 Debug.Log("End!!!");
                 Application.Quit();
             }

@@ -8,6 +8,7 @@ public class InventaryObjectBehaviour2 : MonoBehaviour
     [SerializeField] public string Name;
     [SerializeField] public Image objectImage;
     [SerializeField] public InventaryCircleBehaviour inventaryCircle;
+    [SerializeField] public int Position;
 
 
 
@@ -17,7 +18,7 @@ public class InventaryObjectBehaviour2 : MonoBehaviour
         if (character != null)
         {
             character.Inventary.Add(this);
-            //IncludeItemOnInventary();
+            IncludeItemOnInventary();
             //Destroy(gameObject);
             gameObject.SetActive(false);
         }
@@ -25,12 +26,12 @@ public class InventaryObjectBehaviour2 : MonoBehaviour
 
     private void IncludeItemOnInventary()
     {
-        inventaryCircle.addNewItem(objectImage.sprite);
+        inventaryCircle.addNewItem(this);
     }
 
     public void RemoveItemOnInventary()
     {
-        //inventaryCircle.removeNewItem(objectImage.sprite);
+        inventaryCircle.removeNewItem(Position);
         objectImage.gameObject.SetActive(false);
     }
 

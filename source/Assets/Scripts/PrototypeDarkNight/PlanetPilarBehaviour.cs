@@ -10,6 +10,8 @@ public class PlanetPilarBehaviour : MonoBehaviour
     [SerializeField] Transform sunPosition;
     [SerializeField] Transform otherPlanet;
     [SerializeField] Material newSunMaterial;
+    [SerializeField] public InventaryCircleBehaviour inventaryCircle;
+
     public bool isEnded = false;
 
     public IEnumerator HideSun(float interval, CharacterBehaviour2 character)
@@ -17,6 +19,7 @@ public class PlanetPilarBehaviour : MonoBehaviour
         yield return new WaitForSeconds(interval);
         sun.SetActive(false);
         character.Inventary.Add(sun.GetComponent<InventaryObjectBehaviour2>());
+        inventaryCircle.addNewItem(sun.GetComponent<InventaryObjectBehaviour2>());
         character.SelectedItemPosition = 1;
     }
 

@@ -54,6 +54,7 @@ public class SunPilarBehaviour : MonoBehaviour
         {
             if (isActiveToMove)
             {
+                characterBehaviour.Inventary[characterBehaviour.SelectedItemPosition].RemoveItemOnInventary();
                 MoveAndExecute();
             }
 
