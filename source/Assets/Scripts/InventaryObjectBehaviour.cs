@@ -8,10 +8,10 @@ public class InventaryObjectBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+        CharacterBehaviour2 character = other.GetComponent<CharacterBehaviour2>();
        if (character != null)
         {
-            character.inventary.Add(name);
+            //character.Inventary.Add(Name);
             Destroy(gameObject);
         }
     }
