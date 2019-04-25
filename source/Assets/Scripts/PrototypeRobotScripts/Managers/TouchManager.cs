@@ -79,10 +79,11 @@ namespace prototypeRobot
                 float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
                 // Otherwise change the field of view based on the change in distance between the touches.
-                mainCamera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
+                //mainCamera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
 
                 // Clamp the field of view to make sure it's between 0 and 180.
-                mainCamera.fieldOfView = Mathf.Clamp(mainCamera.fieldOfView, _zoomMin, _zoomMax);
+                //mainCamera.fieldOfView = Mathf.Clamp(mainCamera.fieldOfView, _zoomMin, _zoomMax);
+                cameraBehaviour.ChangeFoV(deltaMagnitudeDiff * perspectiveZoomSpeed);
             }
             else if (Input.touchCount == 1)
             {
