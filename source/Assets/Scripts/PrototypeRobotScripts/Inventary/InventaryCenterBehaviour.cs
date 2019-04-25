@@ -71,6 +71,10 @@ namespace prototypeRobot
         {
             if (item != null)
             {
+                if (_item != null)
+                {
+                    AddNewItem(_item);
+                }
                 _item = item;
                 GetComponent<Image>().sprite = _item.objectImageCentrer.sprite;
                 RemoveNewItem(_item.Name);
