@@ -62,10 +62,7 @@ namespace prototypeRobot
                      {
                          grid = hits[0].collider.GetComponentInParent<GridBehaviour>();
                      }*/
-                    Debug.Log(grid);
-                    //Debug.Log(hits[0].collider.gameObject);
-                    //Debug.Log(hits[1].collider.gameObject);
-                    //Debug.Log(hits[2].collider.gameObject);
+                   
                     if (grid)
                     {
                         Node boardNode = grid.NodeFromWorldPosition(hit.point);
@@ -75,7 +72,6 @@ namespace prototypeRobot
                         }
                         else
                         {
-                            //cubeMark.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y - 0.3f , boardNode.worldPosition.z );
                             cubeMark.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y - 0.3f, boardNode.worldPosition.z);
                         }
                         cubeMark.transform.eulerAngles = grid.MarkCubeRotation;
