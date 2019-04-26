@@ -54,14 +54,9 @@ namespace prototypeRobot
 
         void Update()
         {
-            childCamera.transform.LookAt(transform.position);
+           
 
-                if (character.transform.position != lastCharacterPosition)
-                {
-                    // follow player outside deadArea
-                    FollowPlayer();
-
-                }
+                
             
             
         }
@@ -87,6 +82,13 @@ namespace prototypeRobot
 
         private void FixedUpdate()
         {
+            childCamera.transform.LookAt(transform.position);
+            if (character.transform.position != lastCharacterPosition)
+            {
+                // follow player outside deadArea
+                FollowPlayer();
+
+            }
             if (!isMoving)
             {
                 changeAngle();
@@ -110,7 +112,7 @@ namespace prototypeRobot
             {
                 targetPosition = new Vector3(transform.position.x, character.transform.position.y - initialCharHeightDiff, transform.position.z);
             }
-            transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.smoothDeltaTime);
 
         }
 
