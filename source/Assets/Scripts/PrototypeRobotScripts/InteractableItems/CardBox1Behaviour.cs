@@ -19,6 +19,7 @@ namespace prototypeRobot
             if (character && character.checkInventaryObjectOnSelectedPosition(cardName))
             {
                 Destroy(gate);
+                SetActive(false);
             } else if (character && character.checkInventaryObjectOnSelectedPosition(cardName2))
             {
                 _canOpenDoor = true;
