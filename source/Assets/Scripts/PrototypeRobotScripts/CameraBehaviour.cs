@@ -51,6 +51,7 @@ namespace prototypeRobot
             changeAngle();
             
         }
+
         void Update()
         {
             childCamera.transform.LookAt(transform.position);

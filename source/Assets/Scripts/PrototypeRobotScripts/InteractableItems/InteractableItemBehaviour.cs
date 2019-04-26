@@ -11,7 +11,6 @@ namespace prototypeRobot
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Triggered");
             if (_isActive)
             {
                 ExecuteAction(other);
@@ -21,7 +20,6 @@ namespace prototypeRobot
 
         void OnTriggerStay(Collider other)
         {
-            Debug.Log("Triggered");
             if (_isActive)
             {
                 ExecuteAction(other);
