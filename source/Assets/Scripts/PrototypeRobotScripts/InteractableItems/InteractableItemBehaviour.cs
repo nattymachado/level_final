@@ -29,6 +29,17 @@ namespace prototypeRobot
         public void SetActive(bool isActive)
         {
             _isActive = isActive;
+            if (isActive)
+            {
+                StartCoroutine(WaitToInactivate());
+            }
+            
+        }
+
+        IEnumerator WaitToInactivate()
+        {
+            yield return new WaitForSeconds(10);
+            _isActive = false;
         }
 
         protected virtual void ExecuteAction(Collider other)
