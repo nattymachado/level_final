@@ -8,8 +8,8 @@ public class PlayerProgress
    public string playerName;
    public List<LevelProgress> levels;
 
-   public PlayerProgress(){
-       playerName = "";
+   public PlayerProgress(string name){
+       playerName = name;
        levels = new List<LevelProgress>();
    }
 }
