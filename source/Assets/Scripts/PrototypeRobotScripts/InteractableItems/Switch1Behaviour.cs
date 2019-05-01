@@ -26,6 +26,9 @@ namespace prototypeRobot
             {
                 Vector3 target = new Vector3(gate.transform.position.x, yPosition, gate.transform.position.z);
                 gate.transform.position = Vector3.MoveTowards(gate.transform.position, target, speed * Time.deltaTime);
+            } else if (gate.transform.position.y <= yPosition)
+            {
+                gate.SetActive(false);
             }
         }
 

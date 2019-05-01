@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b93eb8701ad55c44497756155cdc4c55, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_Sun: {fileID: 1138397355}
+  m_IndirectSpecularColor: {r: 0.041872114, g: 0.10670412, b: 0.193405, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -547,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679120334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 16.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid: {fileID: 510641910}
   gate: {fileID: 779642558}
-  yPosition: 0.7
+  yPosition: 18.2
   speed: 0.5
 --- !u!208 &779642587
 NavMeshObstacle:
@@ -1246,7 +1246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986738778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 16.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1475675338}
@@ -1430,13 +1430,19 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096371230}
   m_LocalRotation: {x: -0, y: 0.10151603, z: -0, w: 0.9948339}
-  m_LocalPosition: {x: 6, y: 2.81, z: -10.11}
+  m_LocalPosition: {x: 6, y: 19.56, z: -10.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 904286208}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 11.653001, z: 0}
+--- !u!108 &1138397355 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425381473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255805727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,22 +1701,27 @@ PrefabInstance:
     - target: {fileID: 3495668206689620671, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.1482734
+      value: 0.13069598
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206689620671, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.1925795
+      value: 0.3995992
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206689620671, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.26415092
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206689620671, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: field of view
       value: 45.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495668206689620671, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206959568173, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
@@ -1755,7 +1766,7 @@ PrefabInstance:
     - target: {fileID: 3495668208182603050, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9
+      value: 19.65
       objectReference: {fileID: 0}
     - target: {fileID: 3495668208182603050, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
@@ -1890,7 +1901,7 @@ PrefabInstance:
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_Range
-      value: 11.927427
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
@@ -1910,12 +1921,12 @@ PrefabInstance:
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_Intensity
-      value: 8.65
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 76.90578
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
@@ -1955,17 +1966,17 @@ PrefabInstance:
     - target: {fileID: 3495668206509609680, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8
+      value: -4.51
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609680, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8
+      value: 6.46
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609680, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 47.9
+      value: 40.48
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609680, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
@@ -2067,7 +2078,7 @@ MonoBehaviour:
   canFixRotation: 0
   ZAngle: 0
   XAngle: -20
-  targetAngle: 60
+  targetAngle: 50
   speedZoomInitAnimation: 20
   speedRotationInitAnimation: 80
   zoomInitAnimation: 7.9
@@ -2111,10 +2122,10 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475675337}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -2213,7 +2224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673986222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 16.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 510641908}
@@ -2846,7 +2857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037263661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 16.75, z: 0}
   m_LocalScale: {x: 0.39999998, y: 0.100000024, z: 0.4000001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2872,7 +2883,7 @@ PrefabInstance:
     - target: {fileID: 6296432066250864301, guid: 00f916f6f4db79f4188694ec000417f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 16.75
       objectReference: {fileID: 0}
     - target: {fileID: 6296432066250864301, guid: 00f916f6f4db79f4188694ec000417f0,
         type: 3}
@@ -3019,6 +3030,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gate1
       objectReference: {fileID: 0}
+    - target: {fileID: 6296432066250864343, guid: 00f916f6f4db79f4188694ec000417f0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6296432066251025073, guid: 00f916f6f4db79f4188694ec000417f0,
         type: 3}
       propertyPath: m_Name
@@ -3112,7 +3128,7 @@ PrefabInstance:
     - target: {fileID: 2767882274422452232, guid: 00f916f6f4db79f4188694ec000417f0,
         type: 3}
       propertyPath: m_Extents.y
-      value: 1.495
+      value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 2767882274422452232, guid: 00f916f6f4db79f4188694ec000417f0,
         type: 3}
@@ -3189,5 +3205,5 @@ MonoBehaviour:
   wrong: {fileID: 2100000, guid: f02593b62d24ed94ca29195668ba4162, type: 2}
   off: {fileID: 2100000, guid: 97e9f0a8a78c0ee4fa03d217d5458cbf, type: 2}
   gate: {fileID: 779642552}
-  yPosition: -0.5
+  yPosition: 18
   speed: 0.5
