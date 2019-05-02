@@ -155,7 +155,7 @@ namespace prototypeRobot
             bool hasItem = inventaryCenter.CheckItem(name);
             if (hasItem)
             {
-                inventaryCenter.ClearSelection();
+                inventaryCenter.UseSelectedItem();
             }
             return hasItem;
         }

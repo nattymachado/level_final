@@ -8,7 +8,6 @@ namespace prototypeRobot
 
         [SerializeField] public string Name;
         [SerializeField] public Image objectImage;
-        [SerializeField] public Image objectImageCentrer;
         [SerializeField] public InventaryCenterBehaviour inventaryCenter;
         [SerializeField] public int Position;
         [SerializeField] public AudioClip _audioClip;
