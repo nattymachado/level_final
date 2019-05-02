@@ -56,7 +56,7 @@ namespace prototypeRobot
         }
 
 
-
+#if UNITY_EDITOR
         void Update()
         {
             if (IsOnInventary())
@@ -112,7 +112,7 @@ namespace prototypeRobot
             }
         }
 
-
+#endif
 
         private bool RotateCamera(Vector3 position)
         {
