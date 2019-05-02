@@ -55,7 +55,6 @@ namespace prototypeRobot
             cameraBehaviour = mainCamera.GetComponentInParent<CameraBehaviour>();
         }
 
-#if UNITY_EDITOR
 
 
         void Update()
@@ -113,7 +112,7 @@ namespace prototypeRobot
             }
         }
 
-#endif
+
 
         private bool RotateCamera(Vector3 position)
         {

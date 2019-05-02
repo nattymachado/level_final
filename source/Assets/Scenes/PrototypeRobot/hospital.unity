@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: f3adb118f215fb44f9f10844260c8c08,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -192,8 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 0}
-  _emptySprite: {fileID: 21300000, guid: 39b486ffc8713b64fad77147f77ad558, type: 3}
   _inventaryCenter: {fileID: 1834261377}
+  _itemImage: {fileID: 0}
 --- !u!114 &18532029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,8 +911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 0}
-  _emptySprite: {fileID: 21300000, guid: 39b486ffc8713b64fad77147f77ad558, type: 3}
   _inventaryCenter: {fileID: 1834261377}
+  _itemImage: {fileID: 0}
 --- !u!114 &438144500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,8 +1883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 0}
-  _emptySprite: {fileID: 21300000, guid: 39b486ffc8713b64fad77147f77ad558, type: 3}
   _inventaryCenter: {fileID: 1834261377}
+  _itemImage: {fileID: 0}
 --- !u!114 &1640346550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2190,8 +2191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 0}
-  _emptySprite: {fileID: 21300000, guid: 39b486ffc8713b64fad77147f77ad558, type: 3}
   _inventaryCenter: {fileID: 1834261377}
+  _itemImage: {fileID: 0}
 --- !u!114 &1687006087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2512,6 +2513,8 @@ MonoBehaviour:
   - item1
   - item2
   - item3
+  _centerImage: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!114 &1834261378
 MonoBehaviour:
   m_ObjectHideFlags: 0
