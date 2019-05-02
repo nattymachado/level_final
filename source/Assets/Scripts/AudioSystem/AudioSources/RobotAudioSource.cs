@@ -14,6 +14,7 @@ public class RobotAudioSource : BaseSFXAudioController
     [Header("Control Variables")]
     [SerializeField] private float _timeToNotification;
     [SerializeField] private float _initialDelay;
+    [SerializeField] private float _delayNotifications;
 
     //Internal Variables
     private float _currentTimer;
@@ -37,13 +38,13 @@ public class RobotAudioSource : BaseSFXAudioController
             {
                 _currentAudio = 1;
                 PlayClip(_robotAlarm, false);
-                _currentTimer = 1f;
+                _currentTimer = _delayNotifications;
             }
             else if (_currentAudio == 1 && !_audioSource.isPlaying)
             {
                 _currentAudio = 2;
                 PlayClip(_robotTransmissionAlert, false);
-                _currentTimer = 1f;
+                _currentTimer = _delayNotifications;
             }
             else if (_currentAudio == 2 && !_audioSource.isPlaying)
             {
