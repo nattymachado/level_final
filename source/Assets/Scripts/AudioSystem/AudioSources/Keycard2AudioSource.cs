@@ -48,6 +48,6 @@ public class Keycard2AudioSource : BaseSFXAudioController
 
     private void PlayRandomButtonClick()
     {
-        PlayClip(_audioClipButtonClick[Random.Range(0, _audioClipButtonClick.Length)], false);
+        if(_audioSource != null && !_audioSource.isPlaying) PlayClip(_audioClipButtonClick[Random.Range(0, _audioClipButtonClick.Length)], false);
     }
 }
