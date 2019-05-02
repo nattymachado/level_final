@@ -16,6 +16,7 @@ namespace prototypeRobot
             {
                 item1.SetActive(true);
                 item2.SetActive(true);
+                GameEvents.RobotSceneAudioEvents.InsertedKeycardRed.SafeInvoke();
             }
 
         }
