@@ -7,19 +7,21 @@ namespace prototypeRobot
     public class InventaryItemBehaviour : MonoBehaviour
     {
         [SerializeField] public InventaryObjectBehaviour Item;
-        [SerializeField] private Sprite _emptySprite;
         [SerializeField] private InventaryCenterBehaviour _inventaryCenter;
+        [SerializeField] private Image _itemImage;
 
         public void AddItem(InventaryObjectBehaviour item)
         {
             this.Item = item;
-            GetComponent<Image>().sprite = Item.objectImage.sprite;
+            _itemImage.enabled = true;
+            _itemImage.sprite = Item.objectImage.sprite;
         }
 
         public void RemoveItem()
         {
             Item = null;
-            GetComponent<Image>().sprite = _emptySprite;
+            _itemImage.sprite = null;
+            _itemImage.enabled = false;
         }
 
         public bool IsEmpty()

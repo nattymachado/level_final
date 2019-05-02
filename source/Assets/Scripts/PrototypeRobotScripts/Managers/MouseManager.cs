@@ -55,9 +55,8 @@ namespace prototypeRobot
             cameraBehaviour = mainCamera.GetComponentInParent<CameraBehaviour>();
         }
 
+
 #if UNITY_EDITOR
-
-
         void Update()
         {
             if (IsOnInventary())

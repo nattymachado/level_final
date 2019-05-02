@@ -18,6 +18,7 @@ namespace prototypeRobot
         {
             if (sequece[position] == color)
             {
+                GameEvents.RobotSceneAudioEvents.Puzzle2ButtonClick.SafeInvoke();
                 colorMesh.material = right;
                 position += 1;
             } else
@@ -29,6 +30,7 @@ namespace prototypeRobot
             colorMesh.enabled = true;
             if (position == sequece.Length)
             {
+                GameEvents.RobotSceneAudioEvents.SuccessfulPuzzle2.SafeInvoke();
                 card3.SetActive(true);
                 item1.SetActive(true);
             }
@@ -37,6 +39,7 @@ namespace prototypeRobot
  
         private IEnumerator WaitAndClear(float waitTime)
         {
+            GameEvents.RobotSceneAudioEvents.FailedPuzzle2.SafeInvoke();
             yield return new WaitForSeconds(waitTime);
             ColorButtonBehaviour[] buttons = GetComponentsInChildren<ColorButtonBehaviour>();
             for (int i = 0; i < buttons.Length; i++)

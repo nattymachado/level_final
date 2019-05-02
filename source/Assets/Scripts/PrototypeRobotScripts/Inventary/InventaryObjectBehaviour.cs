@@ -8,11 +8,9 @@ namespace prototypeRobot
 
         [SerializeField] public string Name;
         [SerializeField] public Image objectImage;
-        [SerializeField] public Image objectImageCentrer;
         [SerializeField] public InventaryCenterBehaviour inventaryCenter;
         [SerializeField] public int Position;
-
-
+        [SerializeField] public AudioClip _audioClip;
 
         void OnTriggerEnter(Collider other)
         {
@@ -20,9 +18,14 @@ namespace prototypeRobot
             if (character != null)
             {
                 IncludeItemOnInventary();
-
+                PlayClipAtPosition();
                 gameObject.SetActive(false);
             }
+        }
+
+        private void PlayClipAtPosition()
+        {
+            if (_audioClip != null) AudioSource.PlayClipAtPoint(_audioClip, this.transform.position);
         }
 
         private void IncludeItemOnInventary()
