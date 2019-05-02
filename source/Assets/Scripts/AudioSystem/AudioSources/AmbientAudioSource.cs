@@ -8,17 +8,11 @@ public class AmbientAudioSource : BaseSFXAudioController
     [Header("Audio Clip Reference")]
     [SerializeField] protected AudioClip _audioClip;
 
-    //Control Variables
-    [Header("Control Variables")]
-    [SerializeField] protected bool _playOnAwake;
-
     //Start
-    protected override void Start()
+    private void OnEnable()
     {
-        base.Start();
         _audioSource.clip = _audioClip;
-        _audioSource.playOnAwake = _playOnAwake;
         _audioSource.loop = true;
-        if(_playOnAwake) _audioSource.Play();
+        _audioSource.Play();
     }
 }
