@@ -18,6 +18,7 @@ namespace prototypeRobot
         {
             if (sequece[position] == shape)
             {
+                GameEvents.RobotSceneAudioEvents.Puzzle1ButtonClick.SafeInvoke();
                 shapeMesh.material = right;
                 position += 1;
             } else
@@ -29,6 +30,7 @@ namespace prototypeRobot
             shapeMesh.enabled = true;
             if (position == sequece.Length)
             {
+                GameEvents.RobotSceneAudioEvents.SuccessfulPuzzle1.SafeInvoke();
                 card3.SetActive(true);
                 //item1.SetActive(true);
             }
@@ -37,6 +39,7 @@ namespace prototypeRobot
  
         private IEnumerator WaitAndClear(float waitTime)
         {
+            GameEvents.RobotSceneAudioEvents.FailedPuzzle1.SafeInvoke();
             yield return new WaitForSeconds(waitTime);
             ShapeButtonBehaviour[] buttons = GetComponentsInChildren<ShapeButtonBehaviour>();
             for (int i = 0; i < buttons.Length; i++)
