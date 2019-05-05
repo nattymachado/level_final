@@ -20,12 +20,12 @@ namespace prototypeRobot
             {
                 Destroy(gate);
                 SetActive(false);
-                GameEvents.RobotSceneAudioEvents.InsertedKeycardBlack1.SafeInvoke();
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
             }
             else if (character && character.checkInventaryObjectOnSelectedPosition(cardName2))
             {
                 _canOpenDoor = true;
-                GameEvents.RobotSceneAudioEvents.InsertedKeycardBlack2.SafeInvoke();
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
             }
 
         }
