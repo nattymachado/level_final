@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotAudioSource : BaseSFXAudioController
+public class RobotAudioSourceController : MonoBehaviour
 {
-    //Reference Variables
-    [Header("Audio Clips References")]
-    [SerializeField] private AudioClip _robotAlarm;
-    [SerializeField] private AudioClip _robotTransmissionAlert;
-    [SerializeField] private AudioClip _robotTransmissionData;
-
     //Control Variables
     [Header("Control Variables")]
-    [SerializeField] private float _timeToNotification;
+    [SerializeField] private float _timeToNotificationRepeat;
     [SerializeField] private float _initialDelay;
     [SerializeField] private float _delayNotifications;
 
@@ -21,9 +15,8 @@ public class RobotAudioSource : BaseSFXAudioController
     private int _currentAudio;
 
     //Start
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         _currentTimer = _initialDelay;
         _currentAudio = 0;
     }
@@ -34,23 +27,23 @@ public class RobotAudioSource : BaseSFXAudioController
         _currentTimer -= Time.deltaTime;
         if (_currentTimer <= 0f)
         {
-            if (_currentAudio == 0 && !_audioSource.isPlaying)
+            if (_currentAudio == 0)
             {
                 _currentAudio = 1;
-                PlayClip(_robotAlarm, false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Alarm", false);
                 _currentTimer = _delayNotifications;
             }
-            else if (_currentAudio == 1 && !_audioSource.isPlaying)
+            else if (_currentAudio == 1)
             {
                 _currentAudio = 2;
-                PlayClip(_robotTransmissionAlert, false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Transmission", false);
                 _currentTimer = _delayNotifications;
             }
-            else if (_currentAudio == 2 && !_audioSource.isPlaying)
+            else if (_currentAudio == 2)
             {
                 _currentAudio = 0;
-                PlayClip(_robotTransmissionData, false);
-                _currentTimer = _timeToNotification;
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Binary", false);
+                _currentTimer = _timeToNotificationRepeat;
             }
         }
     }
