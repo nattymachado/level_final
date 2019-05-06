@@ -4,5 +4,11 @@ using UnityEngine;
 
 public static class GameEnums
 {
-
+    public enum PatientEnum
+    {
+        None,
+        Deliveryman,
+        Security,
+        Operator
+    }
 }

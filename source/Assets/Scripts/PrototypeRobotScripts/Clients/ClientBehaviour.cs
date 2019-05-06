@@ -8,9 +8,8 @@ namespace prototypeRobot
         [SerializeField] public string FirstScene;
         [SerializeField] public GridBehaviour Grid;
         [SerializeField] public string  itemName;
+        [SerializeField] public GameEnums.PatientEnum _patient;
         private bool isActived = false;
-
-
 
         void OnTriggerEnter(Collider other)
         {
@@ -25,7 +24,7 @@ namespace prototypeRobot
         void DoAction(CharacterBehaviour character)
         {
             if (itemName == "" || (character && character.checkInventaryObjectOnSelectedPosition(itemName))) {
-                SceneManager.LoadScene(FirstScene, LoadSceneMode.Single);
+                GameEvents.UIEvents.OpenPatientRecord.SafeInvoke(_patient);
             }
         }
 
