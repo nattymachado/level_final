@@ -5,6 +5,11 @@ using UnityEngine;
 
 public static class GameEvents
 {
+    public static class UIEvents
+    {
+        public static Action<GameEnums.PatientEnum> OpenPatientRecord;
+    }
+
     public static class AudioEvents
     {
         public static Action<float> SetBGMVolume;
