@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1353249736560088847}
   - component: {fileID: 1353249736560088850}
   - component: {fileID: 1353249736560088845}
+  - component: {fileID: 8995331195696582008}
   - component: {fileID: 1353249736560088844}
-  - component: {fileID: 1353249736560088851}
   - component: {fileID: 5178874697429765807}
   m_Layer: 5
   m_Name: Center
@@ -78,6 +78,33 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &8995331195696582008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353249736560088846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720bf897de1db8b418a6a67b8fc2e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 0}
+  _specialItem: {fileID: 0}
+  _emptySprite: {fileID: 21300000, guid: d62918f22352c8e43992ef21bbddcbf1, type: 3}
+  _items:
+  - {fileID: 3968065768234246036}
+  - {fileID: 8733123777121262151}
+  - {fileID: 2184122543315903043}
+  - {fileID: 9174735399742049843}
+  _clientItems:
+  - 
+  - 
+  - 
+  - 
+  _centerImage: {fileID: 2628341612432069732}
+  _animator: {fileID: 3672507350199717295}
 --- !u!114 &1353249736560088844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1353249736560088851}
+      - m_Target: {fileID: 8995331195696582008}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -131,32 +158,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1353249736560088851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353249736560088846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349846b449b9ede439f91cd572224ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _item: {fileID: 0}
-  _specialItem: {fileID: 0}
-  _emptySprite: {fileID: 21300000, guid: d62918f22352c8e43992ef21bbddcbf1, type: 3}
-  _items:
-  - {fileID: 1353249737741731359}
-  - {fileID: 1353249737376665151}
-  - {fileID: 1353249737221701055}
-  - {fileID: 1353249737708244803}
-  _clientItems:
-  - item1
-  - item2
-  - item3
-  _centerImage: {fileID: 2628341612432069732}
-  _animator: {fileID: 3672507350199717295}
 --- !u!95 &5178874697429765807
 Animator:
   serializedVersion: 3
@@ -346,8 +347,8 @@ GameObject:
   - component: {fileID: 1353249737221701051}
   - component: {fileID: 1353249737221701054}
   - component: {fileID: 1353249737221701049}
+  - component: {fileID: 2184122543315903043}
   - component: {fileID: 1353249737221701048}
-  - component: {fileID: 1353249737221701055}
   - component: {fileID: 7503021772190175917}
   m_Layer: 5
   m_Name: Item3
@@ -413,6 +414,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &2184122543315903043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353249737221701050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776f610f1e4cb2640a5810c606f55f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  _inventaryCenter: {fileID: 8995331195696582008}
+  _itemImage: {fileID: 2780714331182195399}
 --- !u!114 &1353249737221701048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1353249737221701055}
+      - m_Target: {fileID: 2184122543315903043}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -466,21 +482,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1353249737221701055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353249737221701050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4468b0cd8df6e85439c2ddcac30f7591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  _inventaryCenter: {fileID: 1353249736560088851}
-  _itemImage: {fileID: 2780714331182195399}
 --- !u!95 &7503021772190175917
 Animator:
   serializedVersion: 3
@@ -511,8 +512,8 @@ GameObject:
   - component: {fileID: 1353249737376665147}
   - component: {fileID: 1353249737376665150}
   - component: {fileID: 1353249737376665145}
+  - component: {fileID: 8733123777121262151}
   - component: {fileID: 1353249737376665144}
-  - component: {fileID: 1353249737376665151}
   - component: {fileID: 2639201823520380324}
   m_Layer: 5
   m_Name: Item2
@@ -578,6 +579,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &8733123777121262151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353249737376665146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776f610f1e4cb2640a5810c606f55f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  _inventaryCenter: {fileID: 8995331195696582008}
+  _itemImage: {fileID: 7420999122423362656}
 --- !u!114 &1353249737376665144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1353249737376665151}
+      - m_Target: {fileID: 8733123777121262151}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -631,21 +647,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1353249737376665151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353249737376665146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4468b0cd8df6e85439c2ddcac30f7591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  _inventaryCenter: {fileID: 1353249736560088851}
-  _itemImage: {fileID: 7420999122423362656}
 --- !u!95 &2639201823520380324
 Animator:
   serializedVersion: 3
@@ -676,8 +677,8 @@ GameObject:
   - component: {fileID: 1353249737708244927}
   - component: {fileID: 1353249737708244802}
   - component: {fileID: 1353249737708244925}
+  - component: {fileID: 9174735399742049843}
   - component: {fileID: 1353249737708244924}
-  - component: {fileID: 1353249737708244803}
   - component: {fileID: 3984573372681174247}
   m_Layer: 5
   m_Name: Item4
@@ -743,6 +744,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &9174735399742049843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353249737708244926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776f610f1e4cb2640a5810c606f55f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  _inventaryCenter: {fileID: 8995331195696582008}
+  _itemImage: {fileID: 1966572596098682365}
 --- !u!114 &1353249737708244924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +799,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1353249737708244803}
+      - m_Target: {fileID: 9174735399742049843}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -796,21 +812,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1353249737708244803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353249737708244926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4468b0cd8df6e85439c2ddcac30f7591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  _inventaryCenter: {fileID: 1353249736560088851}
-  _itemImage: {fileID: 1966572596098682365}
 --- !u!95 &3984573372681174247
 Animator:
   serializedVersion: 3
@@ -841,8 +842,8 @@ GameObject:
   - component: {fileID: 1353249737741731355}
   - component: {fileID: 1353249737741731358}
   - component: {fileID: 1353249737741731353}
+  - component: {fileID: 3968065768234246036}
   - component: {fileID: 1353249737741731352}
-  - component: {fileID: 1353249737741731359}
   - component: {fileID: 8504632782523204589}
   m_Layer: 5
   m_Name: Item1
@@ -908,6 +909,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &3968065768234246036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353249737741731354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776f610f1e4cb2640a5810c606f55f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  _inventaryCenter: {fileID: 8995331195696582008}
+  _itemImage: {fileID: 1505890822124988493}
 --- !u!114 &1353249737741731352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,7 +964,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1353249737741731359}
+      - m_Target: {fileID: 3968065768234246036}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -961,21 +977,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1353249737741731359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353249737741731354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4468b0cd8df6e85439c2ddcac30f7591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  _inventaryCenter: {fileID: 1353249736560088851}
-  _itemImage: {fileID: 1505890822124988493}
 --- !u!95 &8504632782523204589
 Animator:
   serializedVersion: 3
