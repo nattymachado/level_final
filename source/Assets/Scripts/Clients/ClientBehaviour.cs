@@ -6,6 +6,7 @@ public class ClientBehaviour : InteractableItemBehaviour
     [SerializeField] public string FirstScene;
     [SerializeField] public GridBehaviour Grid;
     [SerializeField] public string itemName;
+    [SerializeField] public GameEnums.PatientEnum _patient;
 
 
     protected override void ExecuteAction(Collider other)
@@ -13,7 +14,7 @@ public class ClientBehaviour : InteractableItemBehaviour
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
         if (itemName == "" || (character && character.CheckInventaryObjectOnSelectedPosition(itemName)))
         {
-            SceneManager.LoadScene(FirstScene, LoadSceneMode.Single);
+            GameEvents.UIEvents.OpenPatientRecord.SafeInvoke(_patient);
         }
     }
 }

@@ -15,7 +15,7 @@ public class CardBox3Behaviour : InteractableItemBehaviour
         {
             item1.SetActive(true);
             item2.SetActive(true);
-            GameEvents.RobotSceneAudioEvents.InsertedKeycardRed.SafeInvoke();
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
         }
 
     }

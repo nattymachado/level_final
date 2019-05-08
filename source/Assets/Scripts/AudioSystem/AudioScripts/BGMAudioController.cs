@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMAudioSource : BaseAudioController
+public class BGMAudioController : BaseAudioController
 {
     //Control Variables
     [Header("Specific Configurations")]
@@ -13,9 +13,9 @@ public class BGMAudioSource : BaseAudioController
     [SerializeField] private AudioClip _audioClip;
 
     // Start is called before the first frame update
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         _audioSource.clip = _audioClip;
         _audioSource.loop = true;
         _audioSource.spatialBlend = 0f;

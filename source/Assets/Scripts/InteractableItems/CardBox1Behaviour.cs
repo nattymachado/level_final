@@ -18,12 +18,12 @@ public class CardBox1Behaviour : InteractableItemBehaviour
         {
             Destroy(gate);
             SetActive(false);
-            GameEvents.RobotSceneAudioEvents.InsertedKeycardBlack1.SafeInvoke();
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
         }
         else if (character && character.CheckInventaryObjectOnSelectedPosition(cardName2))
         {
             _canOpenDoor = true;
-            GameEvents.RobotSceneAudioEvents.InsertedKeycardBlack2.SafeInvoke();
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
         }
 
     }

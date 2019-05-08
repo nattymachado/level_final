@@ -16,7 +16,8 @@ namespace prototypeRobot
             if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
             {
                 item.SetActive(true);
-                GameEvents.RobotSceneAudioEvents.InsertedKeycardGreen.SafeInvoke();
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ComputerBeeps", true);
             }
 
         }
