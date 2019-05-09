@@ -2,12 +2,12 @@
 using UnityEngine.UI;
 
 
-public class InventaryObjectBehaviour : MonoBehaviour
+public class InventoryObjectBehaviour : MonoBehaviour
 {
 
     [SerializeField] public string Name;
     [SerializeField] public Image objectImage;
-    [SerializeField] public InventaryCenterBehaviour inventaryCenter;
+    [SerializeField] public InventoryCenterBehaviour inventaryCenter;
     [SerializeField] public int Position;
     [SerializeField] public AudioClip _audioClip;
 

@@ -9,7 +9,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
     [SerializeField] List<MeshRenderer> objects;
     [SerializeField] List<PlanetMachineButtonBehaviour> buttons;
     [SerializeField] List<Material> materials;
-    [SerializeField] InventaryObjectBehaviour itemSpecial;
+    [SerializeField] InventoryObjectBehaviour itemSpecial;
     [SerializeField] Material sunSpacialMaterial;
 
 
