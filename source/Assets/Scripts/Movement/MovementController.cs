@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MovimentController : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
 
     public float MinSwipeDistX;

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MouseManager : MonoBehaviour
 {
 
-    [SerializeField] private MovimentController controller;
+    [SerializeField] private MovementController controller;
 
 #if UNITY_EDITOR
     void Update()

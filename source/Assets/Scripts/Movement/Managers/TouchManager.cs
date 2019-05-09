@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TouchManager : MonoBehaviour
 {
 
-    [SerializeField] private MovimentController controller;
+    [SerializeField] private MovementController controller;
     [SerializeField] private CameraBehaviour camera;
 
 
