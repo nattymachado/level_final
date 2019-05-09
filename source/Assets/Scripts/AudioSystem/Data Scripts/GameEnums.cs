@@ -11,4 +11,13 @@ public static class GameEnums
         Security,
         Operator
     }
+
+    public enum FSMInteractionEnum
+    {
+        None,
+        Idle,
+        PickupItem,
+        ActivateItem,
+        UseLadder,
+    }
 }

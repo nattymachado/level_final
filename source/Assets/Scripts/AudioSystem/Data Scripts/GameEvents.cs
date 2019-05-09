@@ -17,4 +17,10 @@ public static class GameEvents
         public static Action<string, bool> TriggerSFX;
         public static Action<string, bool> TriggerRandomSFX;
     }
+
+    public static class FSMEvents
+    {
+        public static Action<GameEnums.FSMInteractionEnum> FinishedInteraction;
+        public static Action<GameEnums.FSMInteractionEnum> StartInteraction;
+    }
 }
