@@ -1,0 +1,1226 @@
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:41:51 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:41:57 PM hudson.util.Secret toString
+WARNING: Use of toString() on hudson.util.Secret from java.lang.String.valueOf(String.java:2994). Prefer getPlainText() or getEncryptedValue() depending your needs. see https://jenkins.io/redirect/hudson.util.Secret/
+Apr 29, 2019 1:41:57 PM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: has_recent_activity=1; path=/; expires=Mon, 29 Apr 2019 14:41:57 -0000". Invalid 'expires' attribute: Mon, 29 Apr 2019 14:41:57 -0000
+Apr 29, 2019 1:41:57 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:41:57 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:41:57 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:02 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:02 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:03 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:06 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/lynx/qa-cats-gui from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:06 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/lynx/qa-cats-gui from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:15 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:42:15 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:42:15 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:15 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.423
+Apr 29, 2019 1:42:25 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 5 computer(s)
+Apr 29, 2019 1:42:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:42:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:42:25 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:25 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:25 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.429
+Apr 29, 2019 1:42:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-dxjz2 in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:42:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-dxjz2
+Apr 29, 2019 1:42:27 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,174 from /100.122.1.142:51092
+Apr 29, 2019 1:42:31 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-dxjz2
+Apr 29, 2019 1:42:35 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 6 computer(s)
+Apr 29, 2019 1:42:35 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:35 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-zglr7 in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:42:35 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-zglr7
+Apr 29, 2019 1:42:37 PM org.jenkinsci.plugins.workflow.cps.DSL invokeStep
+WARNING: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class jenkins.plugins.git.GitSCMSourceDefaults
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeListAndRecordMutation(ArgumentsActionImpl.java:242)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:313)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:311)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:243)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:176)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:42:41 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-zglr7
+Apr 29, 2019 1:42:42 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (1/100): jnlp-zglr7
+Apr 29, 2019 1:42:42 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,175 from /100.126.0.197:55026
+Apr 29, 2019 1:42:43 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (2/100): jnlp-zglr7
+Apr 29, 2019 1:42:44 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (3/100): jnlp-zglr7
+Apr 29, 2019 1:42:45 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (4/100): jnlp-zglr7
+Apr 29, 2019 1:42:46 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (5/100): jnlp-zglr7
+Apr 29, 2019 1:42:47 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (6/100): jnlp-zglr7
+Apr 29, 2019 1:42:50 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:42:55 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:55 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:55 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:59 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:59 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:59 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:42:59 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-dxjz2
+Apr 29, 2019 1:42:59 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19089] for jnlp-dxjz2 terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:42:59 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: hpid/ping-ops/master #34 completed: SUCCESS
+Apr 29, 2019 1:42:59 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-dxjz2
+Apr 29, 2019 1:42:59 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-dxjz2
+Apr 29, 2019 1:42:59 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-dxjz2
+Apr 29, 2019 1:43:00 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:43:00 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:43:07 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/cwp/ems from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:43:08 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/cwp/ems from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:43:08 PM org.jenkinsci.plugins.github_branch_source.PullRequestGHEventSubscriber onEvent
+INFO: Received PULL_REQUEST for https://github.azc.ext.hp.com/cwp/ems from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:43:08 PM org.jenkinsci.plugins.github_branch_source.PullRequestGHEventSubscriber onEvent
+INFO: Received PULL_REQUEST for https://github.azc.ext.hp.com/cwp/ems from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:43:14 PM hudson.plugins.jira.JiraRestService getIssue
+WARNING: jira rest client get issue error. cause: RestClientException{statusCode=Optional.of(404), errorCollections=[ErrorCollection{status=404, errors={}, errorMessages=[Issue Does Not Exist]}]}
+java.util.concurrent.ExecutionException: RestClientException{statusCode=Optional.of(404), errorCollections=[ErrorCollection{status=404, errors={}, errorMessages=[Issue Does Not Exist]}]}
+	at com.google.common.util.concurrent.AbstractFuture$Sync.getValue(AbstractFuture.java:289)
+	at com.google.common.util.concurrent.AbstractFuture$Sync.get(AbstractFuture.java:262)
+	at com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:91)
+	at com.google.common.util.concurrent.ForwardingFuture.get(ForwardingFuture.java:69)
+	at com.atlassian.jira.rest.client.internal.async.DelegatingPromise.get(DelegatingPromise.java:107)
+	at hudson.plugins.jira.JiraRestService.getIssue(JiraRestService.java:134)
+	at hudson.plugins.jira.JiraSession.getIssue(JiraSession.java:122)
+	at hudson.plugins.jira.JiraSite$1.call(JiraSite.java:472)
+	at hudson.plugins.jira.JiraSite$1.call(JiraSite.java:467)
+	at com.google.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4767)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3568)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2350)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2313)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2228)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3965)
+	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4764)
+	at hudson.plugins.jira.JiraSite.getIssue(JiraSite.java:467)
+	at hudson.plugins.jira.JiraJobAction.setAction(JiraJobAction.java:99)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:130)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:122)
+	at hudson.model.listeners.RunListener.fireStarted(RunListener.java:240)
+	at org.jenkinsci.plugins.workflow.job.WorkflowRun.run(WorkflowRun.java:290)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+Caused by: RestClientException{statusCode=Optional.of(404), errorCollections=[ErrorCollection{status=404, errors={}, errorMessages=[Issue Does Not Exist]}]}
+	at com.atlassian.jira.rest.client.internal.async.AbstractAsynchronousRestClient$2.apply(AbstractAsynchronousRestClient.java:176)
+	at com.atlassian.jira.rest.client.internal.async.AbstractAsynchronousRestClient$2.apply(AbstractAsynchronousRestClient.java:170)
+	at com.atlassian.httpclient.api.ResponsePromiseMapFunction.apply(ResponsePromiseMapFunction.java:67)
+	at com.atlassian.httpclient.api.ResponsePromiseMapFunction.apply(ResponsePromiseMapFunction.java:11)
+	at com.atlassian.util.concurrent.Promises$Of$3.apply(Promises.java:268)
+	at com.atlassian.util.concurrent.Promises$2.onSuccess(Promises.java:158)
+	at com.google.common.util.concurrent.Futures$6.run(Futures.java:975)
+	at com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService.execute(MoreExecutors.java:253)
+	at com.google.common.util.concurrent.ExecutionList$RunnableExecutorPair.execute(ExecutionList.java:149)
+	at com.google.common.util.concurrent.ExecutionList.execute(ExecutionList.java:134)
+	at com.google.common.util.concurrent.AbstractFuture.set(AbstractFuture.java:170)
+	at com.google.common.util.concurrent.SettableFuture.set(SettableFuture.java:53)
+	at com.atlassian.util.concurrent.Promises$Of$3.apply(Promises.java:268)
+	at com.atlassian.util.concurrent.Promises$2.onSuccess(Promises.java:158)
+	at com.google.common.util.concurrent.Futures$6.run(Futures.java:975)
+	at com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService.execute(MoreExecutors.java:253)
+	at com.google.common.util.concurrent.ExecutionList$RunnableExecutorPair.execute(ExecutionList.java:149)
+	at com.google.common.util.concurrent.ExecutionList.execute(ExecutionList.java:134)
+	at com.google.common.util.concurrent.AbstractFuture.set(AbstractFuture.java:170)
+	at com.google.common.util.concurrent.SettableFuture.set(SettableFuture.java:53)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient$1$1.run(SettableFuturePromiseHttpPromiseAsyncClient.java:46)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient$ThreadLocalDelegateRunnable$1.run(SettableFuturePromiseHttpPromiseAsyncClient.java:197)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient.runInContext(SettableFuturePromiseHttpPromiseAsyncClient.java:90)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient$ThreadLocalDelegateRunnable.run(SettableFuturePromiseHttpPromiseAsyncClient.java:192)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:43:14 PM hudson.model.listeners.RunListener report
+WARNING: RunListener failed
+com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key PR-613.
+	at com.google.common.cache.LocalCache$Segment.getAndRecordStats(LocalCache.java:2383)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2351)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2313)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2228)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3965)
+	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4764)
+	at hudson.plugins.jira.JiraSite.getIssue(JiraSite.java:467)
+	at hudson.plugins.jira.JiraJobAction.setAction(JiraJobAction.java:99)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:130)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:122)
+	at hudson.model.listeners.RunListener.fireStarted(RunListener.java:240)
+	at org.jenkinsci.plugins.workflow.job.WorkflowRun.run(WorkflowRun.java:290)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+
+Apr 29, 2019 1:43:19 PM org.jenkinsci.plugins.workflow.cps.DSL invokeStep
+WARNING: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class jenkins.plugins.git.MergeWithGitSCMExtension
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeListAndRecordMutation(ArgumentsActionImpl.java:242)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:313)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:311)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:243)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:176)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:43:22 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:43:55 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:43:55 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:43:55 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:43:55 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.489
+Apr 29, 2019 1:44:00 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:01 PM jenkins.branch.MultiBranchProject$BranchIndexing run
+INFO: gdrs/lma-prism #20190429.134400 branch indexing action completed: SUCCESS in 1.8 sec
+Apr 29, 2019 1:44:05 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 6 computer(s)
+Apr 29, 2019 1:44:05 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:44:05 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:44:05 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:05 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:05 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-2xrp6 in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:44:05 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-2xrp6
+Apr 29, 2019 1:44:05 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.5
+Apr 29, 2019 1:44:11 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-2xrp6
+Apr 29, 2019 1:44:11 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,176 from /100.122.1.142:52012
+Apr 29, 2019 1:44:12 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (1/100): jnlp-2xrp6
+Apr 29, 2019 1:44:13 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (2/100): jnlp-2xrp6
+Apr 29, 2019 1:44:14 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (3/100): jnlp-2xrp6
+Apr 29, 2019 1:44:15 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 7 computer(s)
+Apr 29, 2019 1:44:15 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:15 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-00stf in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:44:15 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-00stf
+Apr 29, 2019 1:44:15 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (4/100): jnlp-2xrp6
+Apr 29, 2019 1:44:16 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (5/100): jnlp-2xrp6
+Apr 29, 2019 1:44:16 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-ds87v
+Apr 29, 2019 1:44:16 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19095] for jnlp-ds87v terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:44:16 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: cwp/hpid-health/PR-241 #4 completed: FAILURE
+Apr 29, 2019 1:44:16 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:16 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-ds87v
+Apr 29, 2019 1:44:16 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-ds87v
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-ds87v
+Apr 29, 2019 1:44:17 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:21 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-00stf
+Apr 29, 2019 1:44:21 PM org.jenkinsci.plugins.workflow.cps.DSL invokeStep
+WARNING: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class jenkins.plugins.git.GitSCMSourceDefaults
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeListAndRecordMutation(ArgumentsActionImpl.java:242)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:313)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:311)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:243)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:176)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:44:21 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,177 from /100.122.1.143:51620
+Apr 29, 2019 1:44:22 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (1/100): jnlp-00stf
+Apr 29, 2019 1:44:23 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (2/100): jnlp-00stf
+Apr 29, 2019 1:44:24 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (3/100): jnlp-00stf
+Apr 29, 2019 1:44:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (4/100): jnlp-00stf
+Apr 29, 2019 1:44:26 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (5/100): jnlp-00stf
+Apr 29, 2019 1:44:27 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (6/100): jnlp-00stf
+Apr 29, 2019 1:44:35 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:39 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:44:39 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:44:39 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:44:41 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-2xrp6
+Apr 29, 2019 1:44:41 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19108] for jnlp-2xrp6 terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:44:41 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: hpid/ping-ops/master #35 completed: FAILURE
+Apr 29, 2019 1:44:41 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-2xrp6
+Apr 29, 2019 1:44:41 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-2xrp6
+Apr 29, 2019 1:44:41 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-2xrp6
+Apr 29, 2019 1:44:45 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:44:45 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:21 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-w4gq8
+Apr 29, 2019 1:47:21 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19110] for jnlp-w4gq8 terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:47:21 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:21 PM org.jenkinsci.plugins.workflow.cps.CpsThreadGroup run
+WARNING: Stale closures in CpsFlowExecution[Owner[hpid/hpid-token-exchanger/PR-52/47:hpid/hpid-token-exchanger/PR-52 #47]]: [66, 100, 132, 69, 72, 139, 79, 111, 19, 22, 86, 120, 29, 93, 125]
+Apr 29, 2019 1:47:21 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: hpid/hpid-token-exchanger/PR-52 #47 completed: FAILURE
+Apr 29, 2019 1:47:21 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-w4gq8
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-w4gq8
+Apr 29, 2019 1:47:21 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-w4gq8
+Apr 29, 2019 1:47:21 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:33 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:47:33 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:47:33 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:47:38 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:38 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:38 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:39 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:47:49 PM org.jenkinsci.plugins.workflow.cps.DSL invokeStep
+WARNING: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class jenkins.plugins.git.GitSCMSourceDefaults
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeListAndRecordMutation(ArgumentsActionImpl.java:242)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:313)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:311)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:243)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:176)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:47:59 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:48:03 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:04 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:04 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:08 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:08 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:08 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:08 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-00stf
+Apr 29, 2019 1:48:08 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19113] for jnlp-00stf terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:48:08 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: hpid/ping-ops/master #36 completed: SUCCESS
+Apr 29, 2019 1:48:08 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:48:08 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-00stf
+Apr 29, 2019 1:48:08 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-00stf
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-00stf
+Apr 29, 2019 1:48:09 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:48:09 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:48:21 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/lynx/qa-cats-gui from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:21 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/lynx/qa-cats-gui from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:48:26 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:48:26 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:48:30 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:49:25 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:49:25 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:25 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.567
+Apr 29, 2019 1:49:35 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 4 computer(s)
+Apr 29, 2019 1:49:35 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:49:35 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:49:35 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:35 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:35 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.52
+Apr 29, 2019 1:49:35 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-604gl in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:49:35 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-604gl
+Apr 29, 2019 1:49:41 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-604gl
+Apr 29, 2019 1:49:41 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,178 from /100.122.1.142:54832
+Apr 29, 2019 1:49:42 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (1/100): jnlp-604gl
+Apr 29, 2019 1:49:43 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (2/100): jnlp-604gl
+Apr 29, 2019 1:49:44 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (3/100): jnlp-604gl
+Apr 29, 2019 1:49:45 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 5 computer(s)
+Apr 29, 2019 1:49:45 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Excess workload after pending Kubernetes agents: 1
+Apr 29, 2019 1:49:45 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud provision
+INFO: Template: Kubernetes Pod Template
+Apr 29, 2019 1:49:45 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:45 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:45 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
+INFO: Started provisioning Kubernetes Pod Template from HP ID Kubernetes Cluster with 1 executors. Remaining excess workload: -0.568
+Apr 29, 2019 1:49:45 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-ch2bq in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:49:45 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-ch2bq
+Apr 29, 2019 1:49:45 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (4/100): jnlp-604gl
+Apr 29, 2019 1:49:46 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (5/100): jnlp-604gl
+Apr 29, 2019 1:49:47 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,179 from /100.122.1.143:54438
+Apr 29, 2019 1:49:51 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-ch2bq
+Apr 29, 2019 1:49:52 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (1/100): jnlp-ch2bq
+Apr 29, 2019 1:49:55 PM org.jenkinsci.plugins.workflow.cps.DSL invokeStep
+WARNING: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class jenkins.plugins.git.GitSCMSourceDefaults
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeListAndRecordMutation(ArgumentsActionImpl.java:242)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:313)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:311)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:243)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:176)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:49:55 PM hudson.slaves.NodeProvisioner$2 run
+INFO: Kubernetes Pod Template provisioning successfully completed. We have now 6 computer(s)
+Apr 29, 2019 1:49:55 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:49:55 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Created Pod: jnlp-s90hx in namespace cwp-jenkinsci-master-production
+Apr 29, 2019 1:49:55 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for Pod to be scheduled (0/100): jnlp-s90hx
+Apr 29, 2019 1:50:01 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (0/100): jnlp-s90hx
+Apr 29, 2019 1:50:01 PM hudson.TcpSlaveAgentListener$ConnectionHandler run
+INFO: Accepted JNLP4-connect connection #1,180 from /100.126.0.208:58780
+Apr 29, 2019 1:50:02 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (1/100): jnlp-s90hx
+Apr 29, 2019 1:50:03 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (2/100): jnlp-s90hx
+Apr 29, 2019 1:50:04 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (3/100): jnlp-s90hx
+Apr 29, 2019 1:50:05 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (4/100): jnlp-s90hx
+Apr 29, 2019 1:50:06 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesLauncher launch
+INFO: Waiting for agent to connect (5/100): jnlp-s90hx
+Apr 29, 2019 1:50:08 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:50:13 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:50:13 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:50:13 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/ping-ops from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:50:14 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-604gl
+Apr 29, 2019 1:50:14 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19133] for jnlp-604gl terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:50:14 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: hpid/ping-ops/master #37 completed: FAILURE
+Apr 29, 2019 1:50:14 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:50:14 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-604gl
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-604gl
+Apr 29, 2019 1:50:14 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-604gl
+Apr 29, 2019 1:50:18 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:50:18 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:50:28 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:50:34 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-j793v
+Apr 29, 2019 1:50:34 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19132] for jnlp-j793v terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:50:34 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: lynx/qa-cats-gui/master #151 completed: SUCCESS
+Apr 29, 2019 1:50:34 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:50:34 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-j793v
+Apr 29, 2019 1:50:34 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-j793v
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-j793v
+Apr 29, 2019 1:51:05 PM org.jenkinsci.plugins.github_branch_source.PullRequestGHEventSubscriber onEvent
+INFO: Received PULL_REQUEST for https://github.azc.ext.hp.com/hpid/hpid-token-exchanger from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:05 PM org.jenkinsci.plugins.github_branch_source.PullRequestGHEventSubscriber onEvent
+INFO: Received PULL_REQUEST for https://github.azc.ext.hp.com/hpid/hpid-token-exchanger from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:05 PM org.jenkinsci.plugins.github_branch_source.PullRequestGHEventSubscriber onEvent
+INFO: Received PULL_REQUEST for https://github.azc.ext.hp.com/hpid/hpid-token-exchanger from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:06 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/hpid-token-exchanger from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:06 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/hpid-token-exchanger from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:06 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/hpid/hpid-token-exchanger from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:10 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:51:10 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:51:10 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:51:12 PM hudson.plugins.jira.JiraRestService getIssue
+WARNING: jira rest client get issue error. cause: RestClientException{statusCode=Optional.of(404), errorCollections=[ErrorCollection{status=404, errors={}, errorMessages=[Issue Does Not Exist]}]}
+java.util.concurrent.ExecutionException: RestClientException{statusCode=Optional.of(404), errorCollections=[ErrorCollection{status=404, errors={}, errorMessages=[Issue Does Not Exist]}]}
+	at com.google.common.util.concurrent.AbstractFuture$Sync.getValue(AbstractFuture.java:289)
+	at com.google.common.util.concurrent.AbstractFuture$Sync.get(AbstractFuture.java:262)
+	at com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:91)
+	at com.google.common.util.concurrent.ForwardingFuture.get(ForwardingFuture.java:69)
+	at com.atlassian.jira.rest.client.internal.async.DelegatingPromise.get(DelegatingPromise.java:107)
+	at hudson.plugins.jira.JiraRestService.getIssue(JiraRestService.java:134)
+	at hudson.plugins.jira.JiraSession.getIssue(JiraSession.java:122)
+	at hudson.plugins.jira.JiraSite$1.call(JiraSite.java:472)
+	at hudson.plugins.jira.JiraSite$1.call(JiraSite.java:467)
+	at com.google.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4767)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3568)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2350)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2313)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2228)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3965)
+	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4764)
+	at hudson.plugins.jira.JiraSite.getIssue(JiraSite.java:467)
+	at hudson.plugins.jira.JiraJobAction.setAction(JiraJobAction.java:99)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:130)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:122)
+	at hudson.model.listeners.RunListener.fireStarted(RunListener.java:240)
+	at org.jenkinsci.plugins.workflow.job.WorkflowRun.run(WorkflowRun.java:290)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+Caused by: RestClientException{statusCode=Optional.of(404), errorCollections=[ErrorCollection{status=404, errors={}, errorMessages=[Issue Does Not Exist]}]}
+	at com.atlassian.jira.rest.client.internal.async.AbstractAsynchronousRestClient$2.apply(AbstractAsynchronousRestClient.java:176)
+	at com.atlassian.jira.rest.client.internal.async.AbstractAsynchronousRestClient$2.apply(AbstractAsynchronousRestClient.java:170)
+	at com.atlassian.httpclient.api.ResponsePromiseMapFunction.apply(ResponsePromiseMapFunction.java:67)
+	at com.atlassian.httpclient.api.ResponsePromiseMapFunction.apply(ResponsePromiseMapFunction.java:11)
+	at com.atlassian.util.concurrent.Promises$Of$3.apply(Promises.java:268)
+	at com.atlassian.util.concurrent.Promises$2.onSuccess(Promises.java:158)
+	at com.google.common.util.concurrent.Futures$6.run(Futures.java:975)
+	at com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService.execute(MoreExecutors.java:253)
+	at com.google.common.util.concurrent.ExecutionList$RunnableExecutorPair.execute(ExecutionList.java:149)
+	at com.google.common.util.concurrent.ExecutionList.execute(ExecutionList.java:134)
+	at com.google.common.util.concurrent.AbstractFuture.set(AbstractFuture.java:170)
+	at com.google.common.util.concurrent.SettableFuture.set(SettableFuture.java:53)
+	at com.atlassian.util.concurrent.Promises$Of$3.apply(Promises.java:268)
+	at com.atlassian.util.concurrent.Promises$2.onSuccess(Promises.java:158)
+	at com.google.common.util.concurrent.Futures$6.run(Futures.java:975)
+	at com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService.execute(MoreExecutors.java:253)
+	at com.google.common.util.concurrent.ExecutionList$RunnableExecutorPair.execute(ExecutionList.java:149)
+	at com.google.common.util.concurrent.ExecutionList.execute(ExecutionList.java:134)
+	at com.google.common.util.concurrent.AbstractFuture.set(AbstractFuture.java:170)
+	at com.google.common.util.concurrent.SettableFuture.set(SettableFuture.java:53)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient$1$1.run(SettableFuturePromiseHttpPromiseAsyncClient.java:46)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient$ThreadLocalDelegateRunnable$1.run(SettableFuturePromiseHttpPromiseAsyncClient.java:197)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient.runInContext(SettableFuturePromiseHttpPromiseAsyncClient.java:90)
+	at com.atlassian.httpclient.apache.httpcomponents.SettableFuturePromiseHttpPromiseAsyncClient$ThreadLocalDelegateRunnable.run(SettableFuturePromiseHttpPromiseAsyncClient.java:192)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:51:12 PM hudson.model.listeners.RunListener report
+WARNING: RunListener failed
+com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key PR-52.
+	at com.google.common.cache.LocalCache$Segment.getAndRecordStats(LocalCache.java:2383)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2351)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2313)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2228)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3965)
+	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4764)
+	at hudson.plugins.jira.JiraSite.getIssue(JiraSite.java:467)
+	at hudson.plugins.jira.JiraJobAction.setAction(JiraJobAction.java:99)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:130)
+	at hudson.plugins.jira.JiraJobAction$RunListenerImpl.onStarted(JiraJobAction.java:122)
+	at hudson.model.listeners.RunListener.fireStarted(RunListener.java:240)
+	at org.jenkinsci.plugins.workflow.job.WorkflowRun.run(WorkflowRun.java:290)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+
+Apr 29, 2019 1:51:16 PM org.jenkinsci.plugins.workflow.cps.DSL invokeStep
+WARNING: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class jenkins.plugins.git.MergeWithGitSCMExtension
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeListAndRecordMutation(ArgumentsActionImpl.java:242)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:313)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:311)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:243)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:176)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor542.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor538.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:136)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:174)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:347)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:259)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:247)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:51:41 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:51:51 PM org.jenkinsci.plugins.github.webhook.subscriber.DefaultPushGHEventSubscriber onEvent
+INFO: Received PushEvent for https://github.azc.ext.hp.com/cwp/gcd-k8s-clusters from 172.20.224.143 ⇒ https://superlab.id.hpcwp.com/github-webhook/
+Apr 29, 2019 1:51:56 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:53:59 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminating Kubernetes instance for agent jnlp-zglr7
+Apr 29, 2019 1:53:59 PM jenkins.slaves.DefaultJnlpSlaveReceiver channelClosed
+WARNING: Computer.threadPoolForRemoting [#19140] for jnlp-zglr7 terminated
+java.nio.channels.ClosedChannelException
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer.onReadClosed(ChannelApplicationLayer.java:209)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.onRecvClosed(ApplicationLayer.java:222)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:816)
+	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:287)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:181)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.switchToNoSecure(SSLEngineFilterLayer.java:283)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processWrite(SSLEngineFilterLayer.java:503)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processQueuedWrites(SSLEngineFilterLayer.java:248)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doSend(SSLEngineFilterLayer.java:200)
+	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.doCloseSend(SSLEngineFilterLayer.java:213)
+	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.doCloseSend(ProtocolStack.java:784)
+	at org.jenkinsci.remoting.protocol.ApplicationLayer.doCloseWrite(ApplicationLayer.java:173)
+	at org.jenkinsci.remoting.protocol.impl.ChannelApplicationLayer$ByteBufferCommandTransport.closeWrite(ChannelApplicationLayer.java:314)
+	at hudson.remoting.Channel.close(Channel.java:1450)
+	at hudson.remoting.Channel.close(Channel.java:1403)
+	at hudson.slaves.SlaveComputer.closeChannel(SlaveComputer.java:821)
+	at hudson.slaves.SlaveComputer.access$800(SlaveComputer.java:105)
+	at hudson.slaves.SlaveComputer$3.run(SlaveComputer.java:737)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Apr 29, 2019 1:53:59 PM okhttp3.internal.platform.Platform log
+INFO: ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?
+Apr 29, 2019 1:53:59 PM org.jenkinsci.plugins.workflow.cps.CpsThreadGroup run
+WARNING: Stale closures in CpsFlowExecution[Owner[cwp/ems/PR-613/8:cwp/ems/PR-613 #8]]: [129, 68, 102, 71, 74, 81, 113, 21, 24, 88, 120, 31, 95]
+Apr 29, 2019 1:53:59 PM org.jenkinsci.plugins.workflow.job.WorkflowRun finish
+INFO: cwp/ems/PR-613 #8 completed: FAILURE
+Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-zglr7
+Apr 29, 2019 1:53:59 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Terminated Kubernetes instance for agent cwp-jenkinsci-master-production/jnlp-zglr7
+Apr 29, 2019 1:53:59 PM org.csanchez.jenkins.plugins.kubernetes.KubernetesSlave _terminate
+INFO: Disconnected computer jnlp-zglr7
+Apr 29, 2019 1:53:59 PM com.squareup.okhttp.internal.Platform$JdkWithJettyBootPlatform getSelectedProtocol
+INFO: ALPN callback dropped: SPDY and HTTP/2 are disabled. Is alpn-boot on the boot class path?
