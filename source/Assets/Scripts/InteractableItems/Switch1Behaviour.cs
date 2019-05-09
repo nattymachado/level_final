@@ -33,7 +33,7 @@ public class Switch1Behaviour : InteractableItemBehaviour
 
     private void Update()
     {
-        base.Update();
+        base.Shine();
         if (_canOpenGate && gate.transform.position.y > yPosition)
         {
             Vector3 target = new Vector3(gate.transform.position.x, yPosition, gate.transform.position.z);

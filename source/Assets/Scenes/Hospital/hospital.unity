@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45104045, g: 0.49951386, b: 0.56689847, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1573,25 +1573,6 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
---- !u!1 &564414655 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5385189051491165912, guid: 8205d88f787d1694d98fdb1515bbc721,
-    type: 3}
-  m_PrefabInstance: {fileID: 5385189051322752444}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &564414659
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564414655}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 4.999999, z: 0.17826125}
-  m_Center: {x: 0, y: 0, z: 0.08849676}
 --- !u!1 &646971505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,6 +2426,56 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 1.5, y: -86.5, z: 3.6}
   m_TimeToStationary: 0.5
+--- !u!1 &955488862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955488863}
+  - component: {fileID: 955488864}
+  m_Layer: 0
+  m_Name: mainGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &955488863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955488862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5385189051322752449}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955488864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955488862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225543b4d4f78504d9a48cde4f3ca15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gridWorldSize: {x: 8, y: 7.4}
+  nodeRadius: 0
+  IsVertical: 1
+  GridRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &1012118186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,7 +5114,7 @@ PrefabInstance:
     - target: {fileID: 5385189051491165866, guid: 8205d88f787d1694d98fdb1515bbc721,
         type: 3}
       propertyPath: m_Name
-      value: hospital_colorido
+      value: hospital
       objectReference: {fileID: 0}
     - target: {fileID: 5385189051491165866, guid: 8205d88f787d1694d98fdb1515bbc721,
         type: 3}
@@ -5373,6 +5404,12 @@ Transform:
 --- !u!1 &5385189051322752448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5385189051491165916, guid: 8205d88f787d1694d98fdb1515bbc721,
+    type: 3}
+  m_PrefabInstance: {fileID: 5385189051322752444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5385189051322752449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5385189051491138232, guid: 8205d88f787d1694d98fdb1515bbc721,
     type: 3}
   m_PrefabInstance: {fileID: 5385189051322752444}
   m_PrefabAsset: {fileID: 0}

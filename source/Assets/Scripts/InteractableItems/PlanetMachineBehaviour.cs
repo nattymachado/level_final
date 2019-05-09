@@ -36,7 +36,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
 
     private void Update()
     {
-        base.Update();
+        base.Shine();
     }
 
     public void CheckPlanets()

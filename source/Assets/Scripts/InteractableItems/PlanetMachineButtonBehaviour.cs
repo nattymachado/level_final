@@ -32,7 +32,7 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
         {
             return;
         }
-        base.Update();
+        base.Shine();
         if (_canRotate && planet != null)
         {
             planet.transform.RotateAround(rotatePoint.position, Vector3.up, speed);

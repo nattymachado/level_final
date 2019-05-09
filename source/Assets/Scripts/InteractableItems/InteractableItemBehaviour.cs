@@ -30,7 +30,7 @@ public class InteractableItemBehaviour : MonoBehaviour
         }
     }
 
-    protected void Update()
+    protected void Shine()
     {
 
         if (toUp)
