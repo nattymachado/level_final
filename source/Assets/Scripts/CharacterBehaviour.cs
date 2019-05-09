@@ -10,7 +10,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     [SerializeField] public CameraBehaviour cameraBehaviour;
     [SerializeField] public Animator animator;
-    [SerializeField] public InventaryCenterBehaviour inventaryCenter;
+    [SerializeField] public InventoryCenterBehaviour inventaryCenter;
 
     public bool canMove = true;
 

@@ -5,18 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-public class InventaryCenterBehaviour : MonoBehaviour
+public class InventoryCenterBehaviour : MonoBehaviour
 {
-    [SerializeField] private InventaryObjectBehaviour _item;
-    [SerializeField] private InventaryObjectBehaviour _specialItem;
+    [SerializeField] private InventoryObjectBehaviour _item;
+    [SerializeField] private InventoryObjectBehaviour _specialItem;
     [SerializeField] private Sprite _emptySprite;
-    [SerializeField] private List<InventaryItemBehaviour> _items;
+    [SerializeField] private List<InventoryItemBehaviour> _items;
     [SerializeField] private List<string> _clientItems;
     [SerializeField] private Image _centerImage;
     [SerializeField] private Animator _animator;
     private bool _isShowingItems = false;
 
-    public void AddNewItem(InventaryObjectBehaviour item)
+    public void AddNewItem(InventoryObjectBehaviour item)
     {
         for (int i = 0; i < _items.Count; i++)
         {
@@ -35,7 +35,7 @@ public class InventaryCenterBehaviour : MonoBehaviour
         bool haveAllItems = true;
         for (int i = 0; i < _clientItems.Count; i++)
         {
-            IEnumerable<InventaryItemBehaviour> hasItem = _items.Where(x => x.Item != null && x.Item.Name == _clientItems[i]);
+            IEnumerable<InventoryItemBehaviour> hasItem = _items.Where(x => x.Item != null && x.Item.Name == _clientItems[i]);
             Debug.Log(hasItem.Any());
             Debug.Log(hasItem);
             if (!hasItem.Any())
@@ -59,7 +59,7 @@ public class InventaryCenterBehaviour : MonoBehaviour
 
     public void RemoveNewItem(string name)
     {
-        InventaryItemBehaviour item = _items.Find(x => x.Item != null && x.Item.Name == name);
+        InventoryItemBehaviour item = _items.Find(x => x.Item != null && x.Item.Name == name);
         if (item)
         {
             item.RemoveItem();
@@ -67,7 +67,7 @@ public class InventaryCenterBehaviour : MonoBehaviour
 
     }
 
-    public void SelectItem(InventaryObjectBehaviour item)
+    public void SelectItem(InventoryObjectBehaviour item)
     {
         if (item != null)
         {

@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class InventaryItemBehaviour : MonoBehaviour
+public class InventoryItemBehaviour : MonoBehaviour
 {
-    [SerializeField] public InventaryObjectBehaviour Item;
-    [SerializeField] private InventaryCenterBehaviour _inventaryCenter;
+    [SerializeField] public InventoryObjectBehaviour Item;
+    [SerializeField] private InventoryCenterBehaviour _inventaryCenter;
     [SerializeField] private Image _itemImage;
 
-    public void AddItem(InventaryObjectBehaviour item)
+    public void AddItem(InventoryObjectBehaviour item)
     {
         this.Item = item;
         _itemImage.enabled = true;
