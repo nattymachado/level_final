@@ -14,12 +14,10 @@ namespace prototypeRobot
         protected override void ExecuteAction(Collider other)
         {
             _character = other.GetComponent<CharacterBehaviour>();
-            if (_character && !_canMove && _character.canMove)
+            if (_character && !_canMove)
             {
-                
                 _canMove = true;
             }
-            
         }
 
         IEnumerator WaitToMove()
@@ -34,7 +32,6 @@ namespace prototypeRobot
             if (_canMove && _character != null)
             {
                 _canMove = false;
-                _character.canMove = false;
                 _character.GetComponent<NavMeshAgent>().enabled = false;
                 _character.animator.enabled = true;
                 _character.animator.SetBool("onTeletransport", true);
@@ -49,10 +46,8 @@ namespace prototypeRobot
             _character.transform.position = new Vector3(endPosition.position.x, endPosition.position.y + 0.1f, endPosition.position.z);
             _character.GetComponent<NavMeshAgent>().enabled = true;
             _isLocked = true;
-            _character.canMove = true;
             _character.animator.enabled = false;
             _character = null;
         }
-
     }
 }

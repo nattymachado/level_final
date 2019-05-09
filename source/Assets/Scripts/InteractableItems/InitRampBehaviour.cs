@@ -12,17 +12,6 @@ public class InitRampBehaviour : MonoBehaviour
             return;
 
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
-        if (!character.canMove)
-        {
-            character.canMove = true;
-        }
-        else
-        {
-            
-            character.Stop();
-            character.Move(endPosition.position);
-            character.canMove = false;
-        }
-
+        character.Move(endPosition.position);
     }
 }

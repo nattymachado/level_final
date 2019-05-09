@@ -9,7 +9,7 @@ public class FSMState_PickupItem : FSMState
 
     public override void OnStateEnter()
     {
-        FSMControllerRef.lockedByInteraction = true;
+        FSMControllerRef.LockedByInteraction = true;
     }
 
     public override void OnStateExit()

@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
-
 public class CharacterBehaviour : MonoBehaviour
 {
+    //Reference Variables
+    [Header("Required References")]
+    public CameraBehaviour cameraBehaviour;
+    public Animator animator;
+    public InventoryCenterBehaviour inventaryCenter;
 
-    [SerializeField] public CameraBehaviour cameraBehaviour;
-    [SerializeField] public Animator animator;
-    [SerializeField] public InventoryCenterBehaviour inventaryCenter;
-
-    public bool canMove = true;
-
-    
+    //Control Variables
+    private FSMController _FSMController;
     private NavMeshAgent _navMeshAgent;
 
     private void Awake()
@@ -22,23 +20,33 @@ public class CharacterBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = true;
-        
+    }
+
+    //Start
+    private void Start()
+    {
+        _FSMController = new FSMController(this);
+    }
+
+    //OnDestroy
+    private void OnDestroy()
+    {
+        _FSMController.OnDestroy();
     }
 
     public void Move(Vector3 position)
     {
-        if (!canMove)
-            return;
-        _navMeshAgent.destination = position;
-        _navMeshAgent.isStopped = false;
-
-
+        if (!_FSMController.LockedByInteraction)
+        {
+            _navMeshAgent.destination = position;
+            _navMeshAgent.isStopped = false;
+            _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Moving);
+        }
     }
 
-    public void Stop()
+    public void SetNavMeshStopped(bool status)
     {
-        _navMeshAgent.isStopped = true;
-
+        _navMeshAgent.isStopped = status;
     }
 
     public bool CheckInventaryObjectOnSelectedPosition(string name)
@@ -51,5 +59,10 @@ public class CharacterBehaviour : MonoBehaviour
         return hasItem;
     }
 
-    
+    //Update
+    private void Update()
+    {
+        if(this.transform.position == _navMeshAgent.destination) _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
+        _FSMController.UpdateFSM();
+    }
 }

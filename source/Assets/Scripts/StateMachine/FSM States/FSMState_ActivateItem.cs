@@ -10,7 +10,7 @@ public class FSMState_ActivateItem : FSMState
     //Methods
     public override void OnStateEnter()
     {
-        FSMControllerRef.lockedByInteraction = true;
+        FSMControllerRef.LockedByInteraction = true;
     }
 
     public override void OnStateExit()
