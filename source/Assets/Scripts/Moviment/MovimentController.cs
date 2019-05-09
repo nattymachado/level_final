@@ -82,7 +82,7 @@ public class MovimentController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit[] hits = new RaycastHit[1];
-        Physics.RaycastNonAlloc(ray, hits, Mathf.Infinity, _raycastMaskFloor);
+        Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskFloor);
 
         if (hits[0].collider != null)
         {
@@ -92,13 +92,14 @@ public class MovimentController : MonoBehaviour
         }
     }
 
-    private void ActiveItem(Vector3 position)
+    private bool ActiveItem(Vector3 position)
     {
         RaycastHit hitInfo;
+        bool activateItem = false;
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit[] hits = new RaycastHit[1];
-        Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskItem);
+        Physics.RaycastNonAlloc(ray, hits, 100f, _raycastMaskItem);
 
         if (hits[0].collider != null)
         {
@@ -106,9 +107,11 @@ public class MovimentController : MonoBehaviour
             if (item)
             {
                 item.SetActive(true);
+                activateItem = true;
             }
             
         }
+        return activateItem;
     }
 
     public void Zoom(float zoomAxis)
