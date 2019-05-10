@@ -29,6 +29,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (!canMove)
             return;
+        Debug.Log("Move:" + position);
         _navMeshAgent.destination = position;
         _navMeshAgent.isStopped = false;
 

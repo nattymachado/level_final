@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8795931739635011832}
   - component: {fileID: 6010380753714873011}
   - component: {fileID: 1085257345565198919}
+  - component: {fileID: 5339269897629462348}
   m_Layer: 0
   m_Name: InputManagers
   m_TagString: Untagged
@@ -46,16 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a08e55b1834174fa46fa1b299f34cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSwipeDistX: 0
-  startPosition: {x: 0, y: 0, z: 0}
   _character: {fileID: 0}
-  _cameraBehaviour: {fileID: 0}
-  _speed: 5
-  _zoomMin: 0
-  _zoomMax: 0
-  _raycaster: {fileID: 0}
-  _eventSystem: {fileID: 0}
-  perspectiveZoomSpeed: 15
   pointer: {fileID: 6499306761887315404}
 --- !u!114 &6010380753714873011
 MonoBehaviour:
@@ -69,8 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711a79da61d118f458c5ab9b7b82f608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 8795931739635011832}
-  camera: {fileID: 0}
+  pinchScale: 1
 --- !u!114 &1085257345565198919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +74,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc875c442698eb34caae9d95dfc099b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 8795931739635011832}
+  mouseWheelScale: 200
+--- !u!114 &5339269897629462348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173853214644101085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff495a3e5ce291488e1106afbe52789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraBehaviour: {fileID: 0}
+  _raycaster: {fileID: 0}
+  _eventSystem: {fileID: 0}
 --- !u!1 &6265791364952359163
 GameObject:
   m_ObjectHideFlags: 0
