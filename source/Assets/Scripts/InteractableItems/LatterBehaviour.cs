@@ -29,7 +29,7 @@ public class LatterBehaviour : InteractableItemBehaviour
 
     private void Update()
     {
-        base.Shine();
+        //base.Shine();
         if (!_canMove)
         {
             return;

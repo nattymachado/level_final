@@ -22,6 +22,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private float perspectiveZoomSpeed = 15f;
     [SerializeField] private Pointer pointer;
+    private float updatePointerTimer=-1;
+    private Vector3 positionToMove;
     private bool _hasMoved;
 
 
@@ -29,6 +31,22 @@ public class MovementController : MonoBehaviour
     {
         _raycastMaskFloor = LayerMask.GetMask(new string[] { "Floor"});
         _raycastMaskItem = LayerMask.GetMask(new string[] { "Interactable" });
+    }
+
+    private void Update()
+    {
+        UpdatePointer();
+    }
+
+    private void UpdatePointer()
+    {
+        updatePointerTimer -= Time.deltaTime;
+        if (updatePointerTimer <= 0)
+        {
+            PositionOnBoard(Input.mousePosition);
+
+            updatePointerTimer = 0.1f;
+        }
     }
 
     public bool IsOnInventary(Vector3 position)
@@ -69,27 +87,33 @@ public class MovementController : MonoBehaviour
             if (!_hasMoved)
             {
                 ActiveItem(position);
-                Move(position);
+                Move(pointer.transform.position);
                 
             }
             _hasMoved = false;
         }
     }
 
-    private void Move(Vector3 position)
+    public void PositionOnBoard(Vector3 position)
     {
-        RaycastHit hitInfo;
+
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit[] hits = new RaycastHit[1];
         Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskFloor);
 
-        if (hits[0].collider != null)
+        if (hits[0].collider != null && hits[0].collider.GetComponent<GridBehaviour>())
         {
-            pointer.gameObject.SetActive(true);
-            pointer.transform.position = hits[0].point;
-            _character.Move(hits[0].point);
+            GridBehaviour grid = hits[0].collider.GetComponent<GridBehaviour>();
+            Node boardNode = grid.NodeFromWorldPosition(hits[0].point);
+            pointer.transform.position = new Vector3(boardNode.worldPosition.x, grid.transform.position.y + 0.35f, boardNode.worldPosition.z);
+
         }
+    }
+
+    private void Move(Vector3 position)
+    {
+        _character.Move(position);
     }
 
     private bool ActiveItem(Vector3 position)

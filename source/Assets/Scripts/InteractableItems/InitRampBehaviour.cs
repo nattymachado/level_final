@@ -8,17 +8,19 @@ public class InitRampBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!isActive)
-            return;
-
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+
         if (!character.canMove)
         {
             character.canMove = true;
+            return;
         }
-        else
-        {
-            
+
+        if (!isActive)
+            return;
+
+        
+        if (character.canMove) { 
             character.Stop();
             character.Move(endPosition.position);
             character.canMove = false;

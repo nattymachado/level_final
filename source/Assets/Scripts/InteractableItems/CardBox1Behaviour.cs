@@ -30,7 +30,7 @@ public class CardBox1Behaviour : InteractableItemBehaviour
 
     private void Update()
     {
-        base.Shine();
+        //  base.Shine();
         if (_canOpenDoor && gate2.transform.position.y > yPosition)
         {
             Vector3 target = new Vector3(gate2.transform.position.x, yPosition, gate2.transform.position.z);
