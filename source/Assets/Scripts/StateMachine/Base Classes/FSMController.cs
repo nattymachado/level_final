@@ -2,18 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMController : MonoBehaviour
+public class FSMController
 {
+    //Public Variables
+    public CharacterBehaviour characterBehavior;
+
     //Control Variables
-    [HideInInspector] public bool lockedByInteraction;
+    private bool lockedByInteraction;
     private FSMState _currentState;
     private FSMState _nextState;
     private bool _requestChangeState;
     private Dictionary<GameEnums.FSMInteractionEnum, FSMState> _dictionaryEnumToState;
 
-    //Constructor
-    public FSMController()
+    //Properties
+    public bool LockedByInteraction
     {
+        get
+        {
+            return lockedByInteraction;
+        }
+        set
+        {
+            characterBehavior.SetNavMeshStopped(value);
+            lockedByInteraction = value;
+        }
+    }
+
+    //Constructor
+    public FSMController(CharacterBehaviour characterBehavior)
+    {
+        this.characterBehavior = characterBehavior;
         _requestChangeState = false;
         lockedByInteraction = false;
         SetupStates();
@@ -27,8 +45,8 @@ public class FSMController : MonoBehaviour
         GameEvents.FSMEvents.FinishedInteraction += FinishInteraction;
     }
 
-    //OnDestroy Memory Leak Safeguard
-    private void OnDestroy()
+    //OnDestroy Memory Leak Safeguard (Not MonoBehavior! Call from Parent!)
+    public void OnDestroy()
     {
         GameEvents.FSMEvents.StartInteraction -= SetNextState;
         GameEvents.FSMEvents.FinishedInteraction -= FinishInteraction;
@@ -42,6 +60,8 @@ public class FSMController : MonoBehaviour
 
         //Create States
         _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.Idle, new FSMState_Idle(this));
+        _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.Moving, new FSMState_Moving(this));
+        _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.ActivateItem, new FSMState_ActivateItem(this));
         _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.PickupItem, new FSMState_PickupItem(this));
 
         //Finally...
@@ -54,18 +74,22 @@ public class FSMController : MonoBehaviour
         FSMState state;
         if(_dictionaryEnumToState.TryGetValue(requestedAction, out state))
         {
-            _nextState = state;
+            if (state != _currentState)
+            {
+                _nextState = state;
+                _requestChangeState = true;
+            }
         }
     }
 
     //Finished Interaction
-    private void FinishInteraction(GameEnums.FSMInteractionEnum finishedAction)
+    private void FinishInteraction()
     {
-        if (_currentState.interactionType == finishedAction) _requestChangeState = true;
+        _requestChangeState = true;
     }
 
     //Update
-    private void Update()
+    public void UpdateFSM()
     {
         if(_requestChangeState)
         {
@@ -74,6 +98,7 @@ public class FSMController : MonoBehaviour
             _currentState = _nextState;
             _currentState.OnStateEnter();
             _nextState = null;
+            _requestChangeState = false;
         }
         else
         {

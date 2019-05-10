@@ -17,11 +17,9 @@ public class LatterBehaviour : InteractableItemBehaviour
     {
         _character = other.GetComponent<CharacterBehaviour>();
        
-        if (_character && !_canMove && _character.canMove)
+        if (_character && !_canMove)
         {
             toUpOnLatter = (_character.transform.position.y < 0);
-           
-            
             _canMove = true;
         }
 

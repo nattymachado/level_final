@@ -16,8 +16,10 @@ public static class GameEnums
     {
         None,
         Idle,
+        Moving,
         PickupItem,
         ActivateItem,
         UseLadder,
+        Victory
     }
 }

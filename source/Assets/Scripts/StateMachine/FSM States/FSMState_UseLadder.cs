@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMState_UseLadder : MonoBehaviour
+public class FSMState_UseLadder : FSMState
 {
-    // Start is called before the first frame update
-    void Start()
+    //Constructor
+    public FSMState_UseLadder(FSMController FSMControllerRef) : base(FSMControllerRef, GameEnums.FSMInteractionEnum.UseLadder) { }
+
+    //Methods
+    public override void OnStateEnter()
     {
-        
+        FSMControllerRef.characterBehavior.animator.SetBool("UsingLadder", true);
+        FSMControllerRef.LockedByInteraction = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStateExit()
     {
-        
+        FSMControllerRef.characterBehavior.animator.SetBool("UsingLadder", false);
+        FSMControllerRef.SetNextState(GameEnums.FSMInteractionEnum.Idle);
     }
+
+    public override void OnStateUpdate() { }
 }
