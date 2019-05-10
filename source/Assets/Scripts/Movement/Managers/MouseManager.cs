@@ -7,28 +7,43 @@ using UnityEngine.UI;
 public class MouseManager : MonoBehaviour
 {
 
-    [SerializeField] private MovimentController controller;
+  private InputController controller;
+  [SerializeField] private float mouseWheelScale = 0.2f;
+  private float mousewheelAxis = 0f;
 
-#if UNITY_EDITOR
-    void Update()
+  void Awake()
+  {
+    controller = GetComponent<InputController>();
+  }
+
+  void Update()
+  {
+    if (controller.IsOnInventary(Input.mousePosition))
     {
-        if (controller.IsOnInventary(Input.mousePosition))
-        {
-            return;
-        }
-
-        float mousewheelAxis = Input.GetAxis("Mouse ScrollWheel");
-
-        if (mousewheelAxis != 0)
-        {
-            controller.Zoom(-mousewheelAxis);
-        }
-        else
-        {
-            controller.MoveOrRotate(Input.mousePosition, Input.GetMouseButtonDown(0), Input.GetMouseButton(0), Input.GetMouseButtonUp(0));
-        }
+      return;
     }
 
-#endif
+    mousewheelAxis = Input.GetAxis("Mouse ScrollWheel");
+
+    if (mousewheelAxis != 0)
+    {
+      controller.Pinch(-mousewheelAxis * mouseWheelScale * Time.deltaTime);
+    }
+    else
+    {
+      if (Input.GetMouseButtonDown(0))
+      {
+        controller.Drag(TouchPhase.Began, Input.mousePosition);
+      }
+      else if (Input.GetMouseButtonUp(0))
+      {
+        controller.Drag(TouchPhase.Ended, Input.mousePosition);
+      }
+      else if (Input.GetMouseButton(0))
+      {
+        controller.Drag(TouchPhase.Moved, Input.mousePosition);
+      }
+    }
+  }
 
 }
