@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMState_ActivateItem : FSMState
+public class FSMState_Victory : FSMState
 {
     //Constructor
-    public FSMState_ActivateItem(FSMController FSMControllerRef) : base(FSMControllerRef, GameEnums.FSMInteractionEnum.ActivateItem) { }
+    public FSMState_Victory(FSMController FSMControllerRef) : base(FSMControllerRef, GameEnums.FSMInteractionEnum.Victory) { }
 
     //Methods
     public override void OnStateEnter()
     {
-        FSMControllerRef.characterBehavior.animator.SetTrigger("ActivateItem");
+        FSMControllerRef.characterBehavior.animator.SetTrigger("Victory");
         FSMControllerRef.LockedByInteraction = true;
     }
 

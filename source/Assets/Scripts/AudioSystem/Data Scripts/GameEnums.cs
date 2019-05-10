@@ -20,5 +20,6 @@ public static class GameEnums
         PickupItem,
         ActivateItem,
         UseLadder,
+        Victory
     }
 }

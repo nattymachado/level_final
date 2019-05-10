@@ -14,6 +14,7 @@ public class ClientBehaviour : InteractableItemBehaviour
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
         if (itemName == "" || (character && character.CheckInventaryObjectOnSelectedPosition(itemName)))
         {
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
             GameEvents.UIEvents.OpenPatientRecord.SafeInvoke(_patient);
         }
     }

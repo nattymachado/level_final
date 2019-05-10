@@ -9,6 +9,7 @@ public class FSMState_PickupItem : FSMState
 
     public override void OnStateEnter()
     {
+        FSMControllerRef.characterBehavior.animator.SetTrigger("PickupItem");
         FSMControllerRef.LockedByInteraction = true;
     }
 

@@ -16,6 +16,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
         if (character != null)
         {
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
             IncludeItemOnInventary();
             PlayClipAtPosition();
             gameObject.SetActive(false);

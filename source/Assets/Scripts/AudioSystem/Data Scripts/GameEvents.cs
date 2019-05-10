@@ -20,7 +20,7 @@ public static class GameEvents
 
     public static class FSMEvents
     {
-        public static Action<GameEnums.FSMInteractionEnum> FinishedInteraction;
+        public static Action FinishedInteraction;
         public static Action<GameEnums.FSMInteractionEnum> StartInteraction;
     }
 }

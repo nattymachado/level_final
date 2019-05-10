@@ -83,9 +83,9 @@ public class FSMController
     }
 
     //Finished Interaction
-    private void FinishInteraction(GameEnums.FSMInteractionEnum finishedAction)
+    private void FinishInteraction()
     {
-        if (_currentState.interactionType == finishedAction) _requestChangeState = true;
+        _requestChangeState = true;
     }
 
     //Update
