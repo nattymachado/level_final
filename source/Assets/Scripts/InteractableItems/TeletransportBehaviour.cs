@@ -28,7 +28,7 @@ namespace prototypeRobot
 
         private void Update()
         {
-            base.Update();
+            //base.Shine();
             if (_canMove && _character != null)
             {
                 _canMove = false;

@@ -11,11 +11,8 @@ public class GridBehaviour : MonoBehaviour
     public Vector2 gridWorldSize;
     public float nodeRadius;
     public List<Node> path;
-    public string GridName;
     public bool IsVertical = true;
     public Vector3 GridRotation;
-    public Mesh GridMesh;
-    public Vector3 MarkCubeRotation;
 
     private float nodeDiameter;
     private int gridSizeX, gridSizeZ;
@@ -45,7 +42,6 @@ public class GridBehaviour : MonoBehaviour
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (z * nodeDiameter + nodeRadius);
                 if (!IsVertical)
                 {
-                    //worldPoint = Quaternion.AngleAxis(-45, Vector3.left) * worldPoint;
                     oldWorldPoint = worldPoint;
                     worldPoint = Quaternion.Euler(GridRotation) * worldPoint;
                     worldPoint.z = oldWorldPoint.z;
@@ -61,17 +57,15 @@ public class GridBehaviour : MonoBehaviour
 
     public Node NodeFromWorldPosition(Vector3 worldPosition)
     {
-        Debug.Log("Poinst:" + worldPosition);
         float percentX = ((worldPosition.x - transform.position.x) + gridWorldSize.x / 2) / gridWorldSize.x;
         float percentZ;
+
         percentZ = ((worldPosition.z - transform.position.z) + gridWorldSize.y / 2) / gridWorldSize.y;
-        Debug.Log("Grid Size" + gridWorldSize.x + "Grip Size x:" + gridWorldSize.y);
         percentX = Mathf.Clamp01(percentX);
         percentZ = Mathf.Clamp01(percentZ);
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
         int z = Mathf.RoundToInt((gridSizeZ - 1) * percentZ);
-        Debug.Log("Grid Name:" + GridName + "Grip Position:" + x + "-" + z);
         return grid[x, z];
 
     }
@@ -86,15 +80,9 @@ public class GridBehaviour : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
         if (grid != null)
         {
-            //Node playerNode = NodeFromWorldPosition(player.position);
             foreach (Node n in grid)
             {
                 Gizmos.color = (n.walkable) ? Color.green : Color.red;
-                /*f (playerNode.Equals(n))
-                 {
-                     Gizmos.color = Color.green;
-                 }*/
-
                 Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
             }
         }
