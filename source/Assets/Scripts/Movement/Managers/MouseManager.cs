@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class MouseManager : MonoBehaviour
 {
-
   private InputController controller;
   [SerializeField] private float mouseWheelScale = 0.2f;
-  private float mousewheelAxis = 0f;
-
+  private float mousewheelAxis;
+  
   void Awake()
   {
     controller = GetComponent<InputController>();
@@ -18,6 +17,7 @@ public class MouseManager : MonoBehaviour
 
   void Update()
   {
+
     if (controller.IsOnInventary(Input.mousePosition))
     {
       return;
@@ -44,6 +44,7 @@ public class MouseManager : MonoBehaviour
         controller.Drag(TouchPhase.Moved, Input.mousePosition);
       }
     }
+
   }
 
 }

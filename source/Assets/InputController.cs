@@ -17,6 +17,8 @@ public class InputController : MonoBehaviour
 
   void Awake()
   {
+    Input.simulateMouseWithTouches = false; // desablita reconhecimento de evento de muse no mobile
+
     _movementController = GetComponent<MovimentController>();
   }
 
@@ -30,19 +32,16 @@ public class InputController : MonoBehaviour
   {
     if (touchPhase == TouchPhase.Began)
     {
-      Debug.Log("Touch Started");
       _hasRotated = false;
       startDragPosition = screenPosition;
     }
     else if (touchPhase == TouchPhase.Moved)
     {
-      Debug.Log("Touch Moved");
       _hasRotated = _cameraBehaviour.RotateCamera(startDragPosition, screenPosition) || _hasRotated;
       startDragPosition = screenPosition;
     }
     else if (touchPhase == TouchPhase.Ended)
     {
-      Debug.Log("Touch Rotated");
       if (!_hasRotated)
       {
         Click(screenPosition);

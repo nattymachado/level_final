@@ -19,7 +19,7 @@ public class CameraBehaviour : MonoBehaviour
   // [SerializeField] private float rotateAngle = 90;
   [SerializeField] private float rotationSpeed = 10;
   [SerializeField] private float rotationLerpFactor = 10;
-  private float targetAngle = 0;
+  private Quaternion targetRotation;
   [Header("Zoom")]
   [SerializeField] private float minFoV = 5f;
   [SerializeField] private float maxFoV = 24f;
@@ -52,7 +52,7 @@ public class CameraBehaviour : MonoBehaviour
     // InitAnimationIsEnded = false;
 
     // inicia com o angulo alvo zerado
-    targetAngle = transform.rotation.eulerAngles.y;
+    targetRotation = transform.rotation;
 
     lastCharacterPosition = character.transform.position;
 
@@ -114,9 +114,10 @@ public class CameraBehaviour : MonoBehaviour
 
   private void UpdateRotation()
   {
-    if (Mathf.Abs(targetAngle - transform.rotation.eulerAngles.y) > 0.005f)
+    if (Mathf.Abs(targetRotation.eulerAngles.y - transform.rotation.eulerAngles.y) > 0.005f)
     {
-      transform.RotateAround(transform.position, Vector3.up, Mathf.Lerp(0, Mathf.Clamp(targetAngle - transform.rotation.eulerAngles.y, -45, 45), rotationLerpFactor * Time.deltaTime));
+      transform.rotation = Quaternion.Lerp(transform.rotation,targetRotation,rotationLerpFactor * Time.deltaTime);
+      // transform.RotateAround(transform.position, Vector3.up, Mathf.Lerp(0, (transform.rotation * incrementRotation).y, rotationLerpFactor * Time.deltaTime));
     }
   }
 
@@ -172,7 +173,7 @@ public class CameraBehaviour : MonoBehaviour
 
     if (absSwipeDist > minDistToRotate)
     {
-      targetAngle = transform.rotation.eulerAngles.y + swipeDistHorizontal * rotationSpeed;
+      targetRotation =  transform.rotation * Quaternion.Euler(0,swipeDistHorizontal * rotationSpeed,0);
       return true;
     }
     return false;

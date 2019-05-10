@@ -35,7 +35,6 @@ public class TouchManager : MonoBehaviour
       {
         isTouching = false;
         isPinching = false;
-        Debug.Log("removed fingers");
       }
       firstFingerId = -1000;
     }
@@ -47,14 +46,12 @@ public class TouchManager : MonoBehaviour
       {
         firstFingerId = touch.fingerId;
         isTouching = true;
-        Debug.Log("first finger");
       }
 
       if (!isPinching)
       {
         if (touch.fingerId == firstFingerId)
         {
-          Debug.Log("first finger");
           controller.Drag(touch.phase, touch.position);
         }
       }
@@ -63,7 +60,6 @@ public class TouchManager : MonoBehaviour
     {
       isTouching = true;
       isPinching = true;
-      Debug.Log("second finger");
 
       // Store both touches.
       Touch touchZero = Input.GetTouch(0);
