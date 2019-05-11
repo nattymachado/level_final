@@ -32,10 +32,9 @@ public class MovementController : MonoBehaviour
 
         if (hits[0].collider != null && hits[0].collider.GetComponent<GridBehaviour>())
         {
-            Debug.Log("Colidiou");
             GridBehaviour grid = hits[0].collider.GetComponent<GridBehaviour>();
             Node boardNode = grid.NodeFromWorldPosition(hits[0].point);
-            pointer.transform.position = new Vector3(boardNode.worldPosition.x, grid.transform.position.y + 0.35f, boardNode.worldPosition.z);
+            pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
 
         }
     }

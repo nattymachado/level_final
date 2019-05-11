@@ -11,7 +11,6 @@ public class CardBox1Behaviour : InteractableItemBehaviour
 
     protected override void ExecuteAction(Collider other)
     {
-        gateAnimator.SetBool("isOpen", true);
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
             gateAnimator.SetBool("isOpen", true);

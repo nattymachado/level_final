@@ -11,6 +11,7 @@ public class GridBehaviour : MonoBehaviour
     public Vector2 gridWorldSize;
     public float nodeRadius;
     public List<Node> path;
+    public float pointerPosition;
     public bool IsVertical = true;
     public Vector3 GridRotation;
 

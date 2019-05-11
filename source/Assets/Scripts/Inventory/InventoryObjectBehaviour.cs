@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -10,6 +11,12 @@ public class InventoryObjectBehaviour : MonoBehaviour
     [SerializeField] public InventoryCenterBehaviour inventaryCenter;
     [SerializeField] public int Position;
     [SerializeField] public AudioClip _audioClip;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -19,7 +26,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
             IncludeItemOnInventary();
             PlayClipAtPosition();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 
@@ -30,6 +37,15 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     private void IncludeItemOnInventary()
     {
+        _animator.SetBool("IsGoingToInventary", true);
         inventaryCenter.AddNewItem(this);
+        StartCoroutine(WaitToCloseOrOpenInventary(1));
+        StartCoroutine(WaitToCloseOrOpenInventary(2));
+    }
+
+    IEnumerator WaitToCloseOrOpenInventary(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        inventaryCenter.CloseOrOpen(false);
     }
 }
