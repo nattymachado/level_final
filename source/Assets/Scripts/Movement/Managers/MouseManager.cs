@@ -27,7 +27,7 @@ public class MouseManager : MonoBehaviour
 
     if (mousewheelAxis != 0)
     {
-      controller.Pinch(-mousewheelAxis * mouseWheelScale * Time.deltaTime);
+      controller.Pinch(-mousewheelAxis * mouseWheelScale * Time.deltaTime, Input.mousePosition);
     }
     else
     {

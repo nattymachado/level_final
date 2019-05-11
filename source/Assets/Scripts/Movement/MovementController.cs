@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MovementController : MonoBehaviour
 {
-    private LayerMask _raycastMaskFloor;
+
     private LayerMask _raycastMaskItem;
     [SerializeField] private CharacterBehaviour _character;
     [SerializeField] private Pointer pointer;
@@ -16,9 +16,7 @@ public class MovementController : MonoBehaviour
 
     private void Awake()
     {
-        _raycastMaskFloor = LayerMask.GetMask(new string[] { "Floor" });
         _raycastMaskItem = LayerMask.GetMask(new string[] { "Interactable" });
-
     }
 
 
@@ -28,14 +26,12 @@ public class MovementController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit[] hits = new RaycastHit[1];
-        Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskFloor);
-
-        if (hits[0].collider != null && hits[0].collider.GetComponent<GridBehaviour>())
+        RaycastHit hit;
+        if (InputController.IsPointOnBoard(position, out hit))
         {
-            GridBehaviour grid = hits[0].collider.GetComponent<GridBehaviour>();
-            Node boardNode = grid.NodeFromWorldPosition(hits[0].point);
+            GridBehaviour grid = hit.collider.GetComponent<GridBehaviour>();
+            Node boardNode = grid.NodeFromWorldPosition(hit.point);
             pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
-
         }
     }
 

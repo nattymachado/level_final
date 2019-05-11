@@ -12,20 +12,24 @@ public class CameraBehaviour : MonoBehaviour
   [Header("Translation")]
   [SerializeField] private Collider deadArea;
   [SerializeField] private float translationLerpFactor = 2f;
-  private bool isTranslating = false;
+  private bool isFollowingPlayer = false;
   private Vector3 targetPosition;
+  private Vector3 playerTargetPosition;
   [Header("Rotation")]
   [SerializeField] private float minDistToRotate = 0.01f;
   // [SerializeField] private float rotateAngle = 90;
   [SerializeField] private float rotationSpeed = 10;
   [SerializeField] private float rotationLerpFactor = 10;
+  private bool isRotating;
   private Quaternion targetRotation;
   [Header("Zoom")]
   [SerializeField] private float minFoV = 5f;
   [SerializeField] private float maxFoV = 24f;
   [SerializeField] private float zoomLerpFactor = 10;
   [SerializeField] private float zoomSpeed = 15f;
+  private Vector3 targetZoomPosition;
   private float targetFoV;
+  private bool zoomDislocated;
 
   private float initialFoV;
   // [SerializeField] private Vector3[] cornerPositions;
@@ -85,17 +89,11 @@ public class CameraBehaviour : MonoBehaviour
 
   // }
 
-  private void Update()
+  private void LateUpdate()
   {
-    if (character.transform.position != lastCharacterPosition)
-    {
-      // follow player outside deadArea
-      UpdateTranslation();
-    }
-
+    UpdateTranslation();
     UpdateRotation();
     UpdateZoom();
-
   }
 
   private void UpdateZoom()
@@ -116,49 +114,47 @@ public class CameraBehaviour : MonoBehaviour
   {
     if (Mathf.Abs(targetRotation.eulerAngles.y - transform.rotation.eulerAngles.y) > 0.005f)
     {
-      transform.rotation = Quaternion.Lerp(transform.rotation,targetRotation,rotationLerpFactor * Time.deltaTime);
-      // transform.RotateAround(transform.position, Vector3.up, Mathf.Lerp(0, (transform.rotation * incrementRotation).y, rotationLerpFactor * Time.deltaTime));
+      transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationLerpFactor * Time.deltaTime);
     }
   }
 
   private void UpdateTranslation()
   {
-    Bounds currentBounds = deadArea.bounds;
-    bool isOutside = false;
+    // update target position if locked at player    
+    playerTargetPosition = new Vector3(character.transform.position.x, character.transform.position.y - initialCharHeightDiff, character.transform.position.z);
 
-    if (!currentBounds.Contains(character.transform.position))
+    if (!deadArea.bounds.Contains(character.transform.position))
     {
-      isOutside = true;
+      isFollowingPlayer = true;
+    }
+
+    // calculate target Position
+    if (zoomDislocated)
+    {
+      targetPosition = targetZoomPosition;
     }
     else
     {
-      if (isTranslating)
+      if (isFollowingPlayer)
       {
-        currentBounds.Expand(0.7f);
-        if (!currentBounds.Contains(character.transform.position))
-        {
-          isOutside = true;
-        }
+        targetPosition = playerTargetPosition;
+      }
+      else
+      {
+        targetPosition = new Vector3(transform.position.x, character.transform.position.y - initialCharHeightDiff, transform.position.z);
       }
     }
 
-    if (isOutside)
+    if ((targetPosition - playerTargetPosition).magnitude > 0.01)
     {
-      targetPosition = new Vector3(character.transform.position.x, character.transform.position.y - initialCharHeightDiff, character.transform.position.z);
-    }
-    else
-    {
-      targetPosition = new Vector3(transform.position.x, character.transform.position.y - initialCharHeightDiff, transform.position.z);
+      isFollowingPlayer = false;
     }
 
+
+    // translate camera
     if ((targetPosition - transform.position).magnitude > 0.01f)
     {
       transform.position = Vector3.Lerp(transform.position, targetPosition, translationLerpFactor * Time.deltaTime);
-      isTranslating = true;
-    }
-    else
-    {
-      isTranslating = false;
     }
 
   }
@@ -171,20 +167,37 @@ public class CameraBehaviour : MonoBehaviour
     float swipeDistHorizontal = positionViewport.x - startPosViewport.x;
     float absSwipeDist = Mathf.Abs(swipeDistHorizontal);
 
-    if (absSwipeDist > minDistToRotate)
+    if (isRotating || absSwipeDist > minDistToRotate)
     {
-      targetRotation =  transform.rotation * Quaternion.Euler(0,swipeDistHorizontal * rotationSpeed,0);
+      isRotating = true;
+      targetRotation = transform.rotation * Quaternion.Euler(0, swipeDistHorizontal * rotationSpeed, 0);
       return true;
     }
     return false;
   }
 
+  public void StopRotating()
+  {
+    isRotating = false;
+  }
 
-  public void ChangeFoV(float increment)
+  public void ResetZoomDislocation()
+  {
+    zoomDislocated = false;
+  }
+
+  public void ChangeFoV(float increment, Vector3 screenPosition)
   {
     // calculate new fov
     targetFoV = childCamera.fieldOfView + increment * zoomSpeed;
     targetFoV = Mathf.Clamp(targetFoV, minFoV, maxFoV);
+
+    zoomDislocated = true;
+    RaycastHit hit;
+    if (InputController.IsPointOnBoard(screenPosition, out hit))
+    {
+      targetZoomPosition =  Vector3.Lerp(hit.point,playerTargetPosition,(targetFoV-minFoV)/(maxFoV-minFoV));
+    } 
   }
 
 }

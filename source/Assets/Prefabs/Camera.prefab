@@ -95,7 +95,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3495668206689620641}
-  m_LocalRotation: {x: 0.09976824, y: 0.7000331, z: -0.09976824, w: 0.70003307}
+  m_LocalRotation: {x: 0.12319697, y: 0.696292, z: -0.123196974, w: 0.69629204}
   m_LocalPosition: {x: -27.84, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -175,8 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3495668206959568174}
-  - component: {fileID: 3495668206959568173}
-  m_Layer: 0
+  - component: {fileID: 4796518150386014369}
+  m_Layer: 2
   m_Name: DeadArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,13 +192,13 @@ Transform:
   m_GameObject: {fileID: 3495668206959568175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_LocalScale: {x: 4.500005, y: 4.500005, z: 4.5000043}
   m_Children: []
   m_Father: {fileID: 3495668208182603050}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3495668206959568173
-BoxCollider:
+--- !u!136 &4796518150386014369
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -207,8 +207,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5028598, y: 2.236174, z: 0.37853116}
+  m_Radius: 0.38
+  m_Height: 18.59
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3495668208182603051
 GameObject:
@@ -239,8 +240,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3495668206689620670}
-  - {fileID: 3495668206959568174}
   - {fileID: 7287871110339917070}
+  - {fileID: 3495668206959568174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 35.448, z: 0}
@@ -259,9 +260,9 @@ MonoBehaviour:
   target: {fileID: 3495668208182603050}
   childCamera: {fileID: 3495668206689620671}
   character: {fileID: 0}
-  deadArea: {fileID: 3495668206959568173}
+  deadArea: {fileID: 4796518150386014369}
   translationLerpFactor: 2
-  minDistToRotate: 0.001
+  minDistToRotate: 0.005
   rotationSpeed: 2500
   rotationLerpFactor: 6
   minFoV: 12
@@ -292,9 +293,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8083664768314600382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.9, z: 0}
+  m_LocalPosition: {x: 0, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3495668208182603050}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

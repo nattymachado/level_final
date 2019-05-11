@@ -78,7 +78,9 @@ public class TouchManager : MonoBehaviour
       // Find the difference in the distances between each frame.
       float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-      controller.Pinch(deltaMagnitudeDiff * pinchScale * Time.deltaTime);
+      Vector2 pontoMedio = (touchZero.position + touchOne.position)/2;
+
+      controller.Pinch(deltaMagnitudeDiff * pinchScale * Time.deltaTime, pontoMedio);
 
     }
   }
