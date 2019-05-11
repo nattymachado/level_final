@@ -44,10 +44,11 @@ public class InputController : MonoBehaviour
     {
       if (!_hasRotated)
       {
-                Debug.Log(screenPosition);
         Click(screenPosition);
+      } else {
+        _cameraBehaviour.StopRotating();
+        _hasRotated = false;
       }
-      _hasRotated = false;
     }
   }
 
@@ -58,6 +59,7 @@ public class InputController : MonoBehaviour
       _cameraBehaviour.ChangeFoV(zoomAxis);
     }
   }
+
 
   public bool IsOnInventary(Vector3 position)
   {
