@@ -11,7 +11,8 @@ public class InteractableItemBehaviour : MonoBehaviour
     protected bool _isLocked = false;
     private float _elapsed = 0f;
     private bool toUp = true;
-    [SerializeField] private Animator _animator;
+    [SerializeField] public Vector3 pointOnNavMesh;
+    [SerializeField] public GridBehaviour grid;
 
     void OnTriggerEnter(Collider other)
     {

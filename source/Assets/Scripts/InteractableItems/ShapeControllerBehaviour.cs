@@ -10,17 +10,19 @@ namespace prototypeRobot
         [SerializeField] public string[] sequece = new string[4];
         [SerializeField] public Material right;
         [SerializeField] public Material wrong;
-        [SerializeField] public GameObject card3;
+        [SerializeField] public GameObject card;
         //[SerializeField] public GameObject item1;
         private int position = 0;
 
-        public void CheckShapePosition(string shape, MeshRenderer shapeMesh)
+        public bool CheckShapePosition(string shape, MeshRenderer shapeMesh)
         {
+            bool isRight = false;
             if (sequece[position] == shape)
             {
                 GameEvents.AudioEvents.TriggerRandomSFX.SafeInvoke("ButtonClick", false);
                 shapeMesh.material = right;
                 position += 1;
+                isRight = true;
             } else
             {
                 shapeMesh.material = wrong;
@@ -31,9 +33,10 @@ namespace prototypeRobot
             if (position == sequece.Length)
             {
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false);
-                card3.SetActive(true);
+                card.SetActive(true);
                 //item1.SetActive(true);
             }
+            return isRight;
         }
 
  

@@ -6,21 +6,31 @@ namespace prototypeRobot
     public class ShapeButtonBehaviour : InteractableItemBehaviour
     {
 
-        [SerializeField] public GridBehaviour Grid;
         [SerializeField] public string shape;
+        [SerializeField] public bool isRight;
+        private Animator _animator;
+        private Material _original;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _original = GetComponentInChildren<MeshRenderer>().material;
+        }
 
 
         protected override void ExecuteAction(Collider other)
         {
-            if (!GetComponent<MeshRenderer>().enabled)
-            {
-                GetComponentInParent<ShapeControllerBehaviour>().CheckShapePosition(shape, GetComponent<MeshRenderer>());
-            }
+            if (isRight)
+                return;
+            _animator.SetBool("isPressed", true);
+            isRight = GetComponentInParent<ShapeControllerBehaviour>().CheckShapePosition(shape, GetComponentInChildren<MeshRenderer>());
         }
 
         public void Clear()
         {
-            GetComponent<MeshRenderer>().enabled = false;
+            _animator.SetBool("isPressed", false);
+            GetComponentInChildren<MeshRenderer>().material = _original;
+            isRight = false;
             SetActive(false);
         }
 

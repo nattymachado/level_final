@@ -29,16 +29,27 @@ public class MovementController : MonoBehaviour
         RaycastHit hit;
         if (InputController.IsPointOnBoard(position, out hit))
         {
-            GridBehaviour grid = hit.collider.GetComponent<GridBehaviour>();
-            Node boardNode = grid.NodeFromWorldPosition(hit.point);
-            pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
+            MoveToPosition(hit.collider.GetComponent<GridBehaviour>(), hit.point);
         }
+    }
+
+    public void MoveToPosition(GridBehaviour grid, Vector3 point)
+    {
+        Node boardNode = grid.NodeFromWorldPosition(point);
+        pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
+        _character.Move(pointer.transform.position);
+    }
+
+    public void ActiveItemOrMove(Vector3 position)
+    {
+        bool hasItem = ActiveItem(position);
+        if (!hasItem)
+            Move(position);
     }
 
     public void Move(Vector3 position)
     {
         PositionOnBoard(position);
-        _character.Move(pointer.transform.position);
     }
 
     public bool ActiveItem(Vector3 position)
@@ -54,6 +65,14 @@ public class MovementController : MonoBehaviour
             if (item)
             {
                 item.SetActive(true);
+                Vector3 point = hits[0].point;
+                if (item.pointOnNavMesh != null && item.grid != null)
+                {
+                    MoveToPosition(item.grid, item.pointOnNavMesh);
+                } else
+                {
+                    Move(position);
+                }           
                 activateItem = true;
             }
 

@@ -26,8 +26,7 @@ public class InputController : MonoBehaviour
 
   private void Click(Vector3 position)
   {
-    _movementController.ActiveItem(position);
-    _movementController.Move(position);
+    _movementController.ActiveItemOrMove(position);
     _cameraBehaviour.ResetZoomDislocation();
   }
 
