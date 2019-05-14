@@ -18,7 +18,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
         if (character && character.CheckInventaryObjectOnSelectedPosition(itemName))
         {
             itemSpecial.gameObject.SetActive(true);
-            itemSpecial.GetComponent<BoxCollider>().enabled = false;
+            itemSpecial.GetComponent<SphereCollider>().enabled = false;
             int index = 0;
             foreach (MeshRenderer renderer in objects)
             {
@@ -58,7 +58,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
         if (allPlanetsOnSameAngle)
         {
             itemSpecial.GetComponent<MeshRenderer>().material = sunSpacialMaterial;
-            itemSpecial.GetComponent<BoxCollider>().enabled = true;
+            itemSpecial.GetComponent<SphereCollider>().enabled = true;
         }
 
 
