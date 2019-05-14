@@ -9,7 +9,6 @@ public class InitRampBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entrei ...");
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
 
         if (!isActive)
@@ -19,7 +18,6 @@ public class InitRampBehaviour : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("SAi ...");
         if (!isActive && end.isActive)
         {
             isActive = true;
