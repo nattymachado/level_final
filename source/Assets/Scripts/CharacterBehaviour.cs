@@ -44,6 +44,19 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
+    public void DisableNavegation()
+    {
+        _navMeshAgent.enabled = false;
+    }
+
+
+    public void EnableNavegation()
+    {
+        
+        _navMeshAgent.enabled = true;
+    }
+
+
     public void SetNavMeshStopped(bool status)
     {
         _navMeshAgent.isStopped = status;

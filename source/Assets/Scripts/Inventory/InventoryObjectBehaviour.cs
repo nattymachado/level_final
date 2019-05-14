@@ -37,10 +37,18 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     private void IncludeItemOnInventary()
     {
-        _animator.SetBool("IsGoingToInventary", true);
+        if (_animator != null)
+        {
+            _animator.SetBool("IsGoingToInventary", true);
+        }
+        
         inventaryCenter.AddNewItem(this);
         StartCoroutine(WaitToCloseOrOpenInventary(1));
         StartCoroutine(WaitToCloseOrOpenInventary(2));
+        if (_animator == null)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     IEnumerator WaitToCloseOrOpenInventary(float seconds)

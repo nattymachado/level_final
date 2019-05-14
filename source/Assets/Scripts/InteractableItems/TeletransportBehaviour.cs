@@ -7,7 +7,6 @@ namespace prototypeRobot
     public class TeletransportBehaviour : InteractableItemBehaviour
     {
         [SerializeField] Transform endPosition;
-        [SerializeField] float yCharacther;
         private CharacterBehaviour _character;
         private bool _canMove = false;
 
@@ -32,9 +31,7 @@ namespace prototypeRobot
             if (_canMove && _character != null)
             {
                 _canMove = false;
-                _character.GetComponent<NavMeshAgent>().enabled = false;
-                _character.animator.enabled = true;
-                _character.animator.SetBool("onTeletransport", true);
+                _character.DisableNavegation();
                 _character.transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
                 StartCoroutine(WaitToMove());
             }
@@ -42,11 +39,10 @@ namespace prototypeRobot
 
         private void Move()
         {
-            _character.animator.SetBool("onTeletransport", false);
+            if (!_character)
+                return;
             _character.transform.position = new Vector3(endPosition.position.x, endPosition.position.y + 0.1f, endPosition.position.z);
-            _character.GetComponent<NavMeshAgent>().enabled = true;
-            _isLocked = true;
-            _character.animator.enabled = false;
+            _character.EnableNavegation();
             _character = null;
         }
     }

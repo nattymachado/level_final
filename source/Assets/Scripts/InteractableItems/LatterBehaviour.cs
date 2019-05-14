@@ -19,7 +19,8 @@ public class LatterBehaviour : InteractableItemBehaviour
        
         if (_character && !_canMove)
         {
-            toUpOnLatter = (_character.transform.position.y < 0);
+            toUpOnLatter = (_character.transform.position.y < endPosition.position.y -1);
+            Debug.Log(toUpOnLatter);
             _canMove = true;
         }
 
@@ -41,7 +42,7 @@ public class LatterBehaviour : InteractableItemBehaviour
             {
                 _canMove = false;
                 _character.transform.position = endPosition.position;
-                _character.GetComponent<NavMeshAgent>().enabled = true;
+                _character.EnableNavegation();
             }
         } else
         {
@@ -49,12 +50,12 @@ public class LatterBehaviour : InteractableItemBehaviour
             {
                 _canMove = false;
                 _character.transform.position = initPosition.position;
-                _character.GetComponent<NavMeshAgent>().enabled = true;
+                _character.EnableNavegation();
             }
         }
         if (_canMove && _character != null)
         {
-            _character.GetComponent<NavMeshAgent>().enabled = false;
+            _character.DisableNavegation();
             _character.transform.position = new Vector3(movePosition.transform.position.x, _character.transform.position.y, movePosition.transform.position.z);
             _character.transform.Translate(new Vector3(0, y, 0) * Time.deltaTime * _speed);
         }

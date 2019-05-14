@@ -12,11 +12,9 @@ namespace prototypeRobot
         [SerializeField] public Material right;
         [SerializeField] public Material wrong;
         [SerializeField] public Material off;
-        [SerializeField] public GameObject gate;
+        [SerializeField] public Animator gateAnimator;
+        [SerializeField] public GameObject item;
         [SerializeField] public InitRampBehaviour initRamp;
-        [SerializeField] float yPosition;
-        [SerializeField] float speed;
-        private bool _canOpenGate = false;
         private int _position = 0;
 
         public void CheckSwitchPosition(int switchId)
@@ -33,7 +31,8 @@ namespace prototypeRobot
             }
             if (_position == sequece.Length)
             {
-                _canOpenGate = true;
+                gateAnimator.SetBool("isOpen", true);
+                item.SetActive(true);
             }
         }
 
@@ -49,20 +48,6 @@ namespace prototypeRobot
             }
             _position = 0;
 
-        }
-
-        private void Update()
-       {
-            if (_canOpenGate && gate.transform.position.y > yPosition)
-            {
-                Vector3 target = new Vector3(gate.transform.position.x, yPosition, gate.transform.position.z);
-                gate.transform.position = Vector3.MoveTowards(gate.transform.position, target, speed * Time.deltaTime);
-            }
-            else if (gate.transform.position.y <= yPosition)
-            {
-                gate.SetActive(false);
-                initRamp.isActive = true;
-            }
         }
 
 

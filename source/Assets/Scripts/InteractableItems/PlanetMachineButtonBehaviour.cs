@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
 {
-    [SerializeField] GameObject planet;
+    [SerializeField] public GameObject planet;
     [SerializeField] GameObject support;
     [SerializeField] float speed;
     [SerializeField] public bool isOn = false;

@@ -13,9 +13,9 @@ namespace prototypeRobot
         {
             if (!_isOn)
             {
-                transform.Rotate(0, 0, 180);
-                GetComponentInParent<SwitchControllerBehaviour>().CheckSwitchPosition(id);
                 SetActive(false);
+                transform.parent.transform.Rotate(0, 0, 180);
+                GetComponentInParent<SwitchControllerBehaviour>().CheckSwitchPosition(id);
                 _isOn = true;
                 _isLocked = true;
             }
@@ -27,7 +27,7 @@ namespace prototypeRobot
             if (_isOn)
             {
                 SetActive(false);
-                transform.Rotate(0, 0, -180);
+                transform.parent.transform.Rotate(0, 0, -180);
                 _isOn = false;
                 _isLocked = false;
             }

@@ -10,16 +10,18 @@ namespace prototypeRobot
         [SerializeField] public string[] sequece = new string[4];
         [SerializeField] public Material right;
         [SerializeField] public Material wrong;
-        [SerializeField] public GameObject card3;
-        [SerializeField] public GameObject item1;
+        [SerializeField] public GameObject card;
+        [SerializeField] public Animator gateAnimator;
         private int position = 0;
 
-        public void CheckColorPosition(string color, MeshRenderer colorMesh)
+        public bool CheckColorPosition(string color, MeshRenderer colorMesh)
         {
+            bool isRight = false;
             if (sequece[position] == color)
             {
                 GameEvents.AudioEvents.TriggerRandomSFX.SafeInvoke("ButtonClick", false);
                 colorMesh.material = right;
+                isRight = true;
                 position += 1;
             } else
             {
@@ -31,9 +33,10 @@ namespace prototypeRobot
             if (position == sequece.Length)
             {
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false);
-                card3.SetActive(true);
-                item1.SetActive(true);
+                card.SetActive(true);
+                gateAnimator.SetBool("isOpen", true);
             }
+            return isRight;
         }
 
  
@@ -48,6 +51,17 @@ namespace prototypeRobot
             }
             position = 0;
            
+        }
+
+        public void turnOnColors()
+        {
+            ColorButtonBehaviour[] buttons = GetComponentsInChildren<ColorButtonBehaviour>();
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].turnOn();
+            }
+            position = 0;
+
         }
 
 
