@@ -79,7 +79,11 @@ public class InputController : MonoBehaviour
 
     //Raycast using the Graphics Raycaster and mouse click position
     _raycaster.Raycast(_pointerEventData, results);
-
+    
+    if (results.Count > 0)
+        {
+            Debug.Log("E inventario");
+        }
     return results.Count > 0;
   }
 
