@@ -8,6 +8,7 @@ public class PauseMenuController : MonoBehaviour
     //Reference Variables
     [Header("Required References")]
     [SerializeField] private GameObject pauseMenuGameObject;
+    [SerializeField] private GameObject patientReportGameObject;
 
     public void OpenClosePauseMenu(bool state)
     {
@@ -15,6 +16,11 @@ public class PauseMenuController : MonoBehaviour
         else Time.timeScale = 1f;
         pauseMenuGameObject.SetActive(state);
         GameEvents.UIEvents.PauseMenuStatusEvent.SafeInvoke(state);
+    }
+
+    public void OpenClosePatientReport(bool state)
+    {
+        patientReportGameObject.SetActive(state);
     }
 
     public void ExitLevelButton()
