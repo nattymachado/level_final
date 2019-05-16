@@ -58,10 +58,7 @@ public class InputController : MonoBehaviour
 
   public void Pinch(float zoomAxis, Vector3 screenPosition)
   {
-    if (zoomAxis != 0)
-    {
       _cameraBehaviour.ChangeFoV(zoomAxis, screenPosition);
-    }
   }
 
 

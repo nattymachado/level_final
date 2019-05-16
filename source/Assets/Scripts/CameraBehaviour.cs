@@ -27,9 +27,16 @@ public class CameraBehaviour : MonoBehaviour
   [SerializeField] private float maxFoV = 24f;
   [SerializeField] private float zoomLerpFactor = 10;
   [SerializeField] private float zoomSpeed = 15f;
-  private Vector3 targetZoomPosition;
+  [SerializeField] private float minDistToZoom = 0.01f;
+  private Vector3 targetDislocatedPosition;
+  private bool isCameraDislocated;
   private float targetFoV;
-  private bool zoomDislocated;
+  private bool isZooming;
+  [Header("Pan")]
+  [SerializeField] private float minDistToPan = 0.01f;
+  [SerializeField] private float panLerpFactor = 10;
+  [SerializeField] private float panSpeed = 15f;
+  private bool isPanning;
 
   private float initialFoV;
   // [SerializeField] private Vector3[] cornerPositions;
@@ -129,9 +136,9 @@ public class CameraBehaviour : MonoBehaviour
     }
 
     // calculate target Position
-    if (zoomDislocated)
+    if (isCameraDislocated)
     {
-      targetPosition = targetZoomPosition;
+      targetPosition = targetDislocatedPosition;
     }
     else
     {
@@ -183,21 +190,39 @@ public class CameraBehaviour : MonoBehaviour
 
   public void ResetZoomDislocation()
   {
-    zoomDislocated = false;
+    isCameraDislocated = false;
+    isZooming = false;
   }
 
   public void ChangeFoV(float increment, Vector3 screenPosition)
   {
-    // calculate new fov
-    targetFoV = childCamera.fieldOfView + increment * zoomSpeed;
-    targetFoV = Mathf.Clamp(targetFoV, minFoV, maxFoV);
-
-    zoomDislocated = true;
-    RaycastHit hit;
-    if (InputController.IsPointOnBoard(screenPosition, out hit))
+    if (isZooming || Mathf.Abs(increment) >= minDistToZoom)
     {
-      targetZoomPosition =  Vector3.Lerp(hit.point,playerTargetPosition,(targetFoV-minFoV)/(maxFoV-minFoV));
-    } 
+      // calculate new fov
+      targetFoV = childCamera.fieldOfView + increment * zoomSpeed;
+      targetFoV = Mathf.Clamp(targetFoV, minFoV, maxFoV);
+
+      isCameraDislocated = true;
+      if (!isZooming)
+      {
+        RaycastHit hit;
+        if (InputController.IsPointOnBoard(screenPosition, out hit))
+        {
+          targetDislocatedPosition = hit.point;
+        }
+      }
+
+      isZooming = true;
+    }
+  }
+
+  public void Pan(float horrizontalAxis, float verticalAxis)
+  {
+    if (Mathf.Abs(horrizontalAxis) > minDistToPan || Mathf.Abs(verticalAxis) > minDistToPan)
+    {
+      isCameraDislocated = true;
+      isPanning = true;
+    }
   }
 
 }

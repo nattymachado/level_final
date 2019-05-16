@@ -33,15 +33,14 @@ public class TouchManager : MonoBehaviour
 
     if (touchCount == 0)
     {
-      if (isTouching)
-      {
-        isTouching = false;
-        isPinching = false;
-      }
+      isTouching = false;
+      isPinching = false;
       firstFingerId = -1000;
     }
     else if (touchCount == 1)
     {
+      isPinching = false;
+
       Touch touch = Input.GetTouch(0);
 
       if (!isTouching)
@@ -60,9 +59,6 @@ public class TouchManager : MonoBehaviour
     }
     else
     {
-      isTouching = true;
-      isPinching = true;
-
       // Store both touches.
       Touch touchZero = Input.GetTouch(0);
       Touch touchOne = Input.GetTouch(1);
@@ -78,10 +74,15 @@ public class TouchManager : MonoBehaviour
       // Find the difference in the distances between each frame.
       float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-      Vector2 pontoMedio = (touchZero.position + touchOne.position)/2;
+      Vector2 pontoMedio = (touchZero.position + touchOne.position) / 2;
 
-      controller.Pinch(deltaMagnitudeDiff * pinchScale * Time.deltaTime, pontoMedio);
+      if (deltaMagnitudeDiff != 0)
+      {
+        controller.Pinch(deltaMagnitudeDiff * pinchScale * Time.deltaTime, pontoMedio);
+        isPinching = true;
+      }
 
+      isTouching = true;
     }
   }
 
