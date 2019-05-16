@@ -5,10 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
+    //Reference Variables
+    [Header("Required References")]
+    [SerializeField] private GameObject pauseMenuGameObject;
 
-
-    public void QuitButton()
+    public void OpenClosePauseMenu(bool state)
     {
+        if (state) Time.timeScale = 0f;
+        else Time.timeScale = 1f;
+        pauseMenuGameObject.SetActive(state);
+        GameEvents.UIEvents.PauseMenuStatusEvent.SafeInvoke(state);
+    }
+
+    public void ExitLevelButton()
+    {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("start", LoadSceneMode.Single);
     }
 }
