@@ -25,8 +25,8 @@ public class CameraBehaviour : MonoBehaviour
   [Header("Zoom")]
   [SerializeField] private float minFoV = 5f;
   [SerializeField] private float maxFoV = 24f;
-  [SerializeField] private float zoomLerpFactor = 10;
-  [SerializeField] private float zoomSpeed = 15f;
+  [SerializeField] private float camDislocationLerpFactor = 10;
+  [SerializeField] private float camDislocationSpeed = 15f;
   [SerializeField] private float minDistToZoom = 0.01f;
   private Vector3 targetDislocatedPosition;
   private bool isCameraDislocated;
@@ -34,8 +34,9 @@ public class CameraBehaviour : MonoBehaviour
   private bool isZooming;
   [Header("Pan")]
   [SerializeField] private float minDistToPan = 0.01f;
-  [SerializeField] private float panLerpFactor = 10;
-  [SerializeField] private float panSpeed = 15f;
+  [SerializeField] private float panFactor = 10f;
+  [SerializeField] private bool panInverseX = false;
+  [SerializeField] private bool panInverseY = false;
   private bool isPanning;
 
   private float initialFoV;
@@ -107,7 +108,7 @@ public class CameraBehaviour : MonoBehaviour
   {
     if (Mathf.Abs(targetFoV - childCamera.fieldOfView) > 0.005f)
     {
-      float newFov = Mathf.Lerp(childCamera.fieldOfView, targetFoV, zoomLerpFactor * Time.deltaTime);
+      float newFov = Mathf.Lerp(childCamera.fieldOfView, targetFoV, camDislocationLerpFactor * Time.deltaTime);
 
       // Clamp the field of view to make sure it's between 0 and 180.
       childCamera.fieldOfView = newFov;
@@ -188,18 +189,21 @@ public class CameraBehaviour : MonoBehaviour
     isRotating = false;
   }
 
-  public void ResetZoomDislocation()
+  public void ResetPanZoomDislocation()
   {
     isCameraDislocated = false;
     isZooming = false;
+    isPanning = false;
   }
 
-  public void ChangeFoV(float increment, Vector3 screenPosition)
+  public bool Zoom(float increment, Vector3 screenPosition)
   {
+    Debug.Log(targetDislocatedPosition);
+    
     if (isZooming || Mathf.Abs(increment) >= minDistToZoom)
     {
       // calculate new fov
-      targetFoV = childCamera.fieldOfView + increment * zoomSpeed;
+      targetFoV = childCamera.fieldOfView + increment * camDislocationSpeed;
       targetFoV = Mathf.Clamp(targetFoV, minFoV, maxFoV);
 
       isCameraDislocated = true;
@@ -210,19 +214,58 @@ public class CameraBehaviour : MonoBehaviour
         {
           targetDislocatedPosition = hit.point;
         }
+        else
+        {
+          targetDislocatedPosition = transform.position;
+        }
       }
 
       isZooming = true;
+      
+      return true;
     }
+
+    return false;
   }
 
-  public void Pan(float horrizontalAxis, float verticalAxis)
+  public void StopZoom(){
+    isZooming = false;
+  }
+
+  public bool Pan(Vector3 startPos, Vector3 position)
   {
-    if (Mathf.Abs(horrizontalAxis) > minDistToPan || Mathf.Abs(verticalAxis) > minDistToPan)
+    Vector3 positionViewport = childCamera.ScreenToViewportPoint(position);
+    Vector3 startPosViewport = childCamera.ScreenToViewportPoint(startPos);
+
+    float swipeDistHorizontal = positionViewport.x - startPosViewport.x;
+    float swipeDistVertical = positionViewport.y - startPosViewport.y;
+    float absSw = Mathf.Abs(swipeDistHorizontal);
+
+    if (isPanning || Mathf.Abs(swipeDistHorizontal) > minDistToPan || Mathf.Abs(swipeDistVertical) > minDistToPan)
     {
       isCameraDislocated = true;
+      if (!isPanning)
+      {
+        if (!isZooming)
+        {
+          targetDislocatedPosition = transform.position;
+        }
+      }
+      Vector3 verticalDisloc = Vector3.down * swipeDistVertical * panFactor;
+      Vector3 horizontalDisloc = Vector3.Cross(childCamera.transform.forward, Vector3.up).normalized * swipeDistHorizontal * panFactor;
+      targetDislocatedPosition += (panInverseY ? -1 : 1) * verticalDisloc + (panInverseX ? -1 : 1) * horizontalDisloc;
+
       isPanning = true;
+
+      return true;
     }
+    return false;
+
+  }
+
+  public void StopPan()
+  {
+    isPanning = false;
   }
 
 }

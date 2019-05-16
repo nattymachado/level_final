@@ -9,7 +9,10 @@ public class MouseManager : MonoBehaviour
   private InputController controller;
   [SerializeField] private float mouseWheelScale = 0.2f;
   private float mousewheelAxis;
-  
+  private bool botaoEsquerdo = false;
+  private bool botaoDireito = false;
+  private bool pinched = false;
+
   void Awake()
   {
     controller = GetComponent<InputController>();
@@ -27,24 +30,64 @@ public class MouseManager : MonoBehaviour
 
     if (mousewheelAxis != 0)
     {
-      controller.Pinch(-mousewheelAxis * mouseWheelScale * Time.deltaTime, Input.mousePosition);
+      controller.Pinch(-mousewheelAxis * mouseWheelScale, Input.mousePosition);
+      pinched = true;
     }
     else
     {
-      if (Input.GetMouseButtonDown(0))
+      // stop pinching
+      if (pinched)
       {
-        controller.Drag(TouchPhase.Began, Input.mousePosition);
+        controller.StopPinch();
+        pinched = false;
       }
-      else if (Input.GetMouseButtonUp(0))
+
+      // botao esquerdo
+      if (!botaoDireito)
       {
-        controller.Drag(TouchPhase.Ended, Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))
+        {
+          botaoEsquerdo = true;
+          controller.Drag(TouchPhase.Began, Input.mousePosition);
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+          botaoEsquerdo = true;
+          controller.Drag(TouchPhase.Ended, Input.mousePosition);
+        }
+        else if (Input.GetMouseButton(0))
+        {
+          botaoEsquerdo = true;
+          controller.Drag(TouchPhase.Moved, Input.mousePosition);
+        }
+        else
+        {
+          botaoEsquerdo = false;
+        }
       }
-      else if (Input.GetMouseButton(0))
+      // botao direito
+      if (!botaoEsquerdo)
       {
-        controller.Drag(TouchPhase.Moved, Input.mousePosition);
+        if (Input.GetMouseButtonDown(1))
+        {
+          botaoDireito = true;
+          // controller.TwoFingersDrag(TouchPhase.Began, Input.mousePosition);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+          botaoDireito = true;
+          controller.StopMultiFingerDrag();
+        }
+        else if (Input.GetMouseButton(1))
+        {
+          botaoDireito = true;
+          controller.MultiFingerDrag(Input.mousePosition);
+        }
+        else
+        {
+          botaoDireito = false;
+        }
       }
     }
-
   }
-
 }

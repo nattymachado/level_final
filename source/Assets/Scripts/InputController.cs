@@ -13,7 +13,10 @@ public class InputController : MonoBehaviour
   [SerializeField] private EventSystem _eventSystem;
   private MovementController _movementController;
   private bool _hasRotated = false;
+  private bool _hasPannedOnce = false;
+  private Vector3 startMultiFingersDragPosition;
   private Vector3 startDragPosition;
+  private bool startedMultiFingerDrag = false;
 
   void Awake()
   {
@@ -27,7 +30,7 @@ public class InputController : MonoBehaviour
   private void Click(Vector3 position)
   {
     _movementController.ActiveItemOrMove(position);
-    _cameraBehaviour.ResetZoomDislocation();
+    _cameraBehaviour.ResetPanZoomDislocation();
   }
 
   public void Drag(TouchPhase touchPhase, Vector3 screenPosition)
@@ -56,9 +59,38 @@ public class InputController : MonoBehaviour
     }
   }
 
-  public void Pinch(float zoomAxis, Vector3 screenPosition)
+  public bool Pinch(float zoomAxis, Vector3 screenPosition)
   {
-      _cameraBehaviour.ChangeFoV(zoomAxis, screenPosition);
+    return _cameraBehaviour.Zoom(zoomAxis, screenPosition);
+  }
+
+  public void StopPinch(){
+    _cameraBehaviour.StopZoom();
+  }
+
+  public bool MultiFingerDrag(Vector3 screenPosition)
+  {
+    Debug.Log(startedMultiFingerDrag);
+    if (!startedMultiFingerDrag)
+    {
+      startMultiFingersDragPosition = screenPosition;
+      startedMultiFingerDrag = true;
+    }
+    bool panned = _cameraBehaviour.Pan(startMultiFingersDragPosition, screenPosition);
+    _hasPannedOnce = panned || _hasPannedOnce;
+    if(panned) startMultiFingersDragPosition = screenPosition;
+
+    return panned;
+  }
+
+  public void StopMultiFingerDrag()
+  {
+    if (_hasPannedOnce)
+    {
+      _cameraBehaviour.StopPan();
+    }
+    _hasPannedOnce = false;
+    startedMultiFingerDrag = false;
   }
 
 
@@ -76,11 +108,11 @@ public class InputController : MonoBehaviour
 
     //Raycast using the Graphics Raycaster and mouse click position
     _raycaster.Raycast(_pointerEventData, results);
-    
+
     if (results.Count > 0)
-        {
-            Debug.Log("E inventario");
-        }
+    {
+      Debug.Log("E inventario");
+    }
     return results.Count > 0;
   }
 

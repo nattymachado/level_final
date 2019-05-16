@@ -267,12 +267,13 @@ MonoBehaviour:
   rotationLerpFactor: 6
   minFoV: 12
   maxFoV: 30
-  zoomLerpFactor: 6
-  zoomSpeed: 15
-  minDistToZoom: 0.005
-  minDistToPan: 0.005
-  panLerpFactor: 6
-  panSpeed: 20
+  camDislocationLerpFactor: 5
+  camDislocationSpeed: 15
+  minDistToZoom: 0.1
+  minDistToPan: 0.05
+  panFactor: 20
+  panInverseX: 0
+  panInverseY: 0
 --- !u!1 &8083664768314600382
 GameObject:
   m_ObjectHideFlags: 0
