@@ -67,8 +67,10 @@ public class InputController : MonoBehaviour
 
   public bool IsOnInventary(Vector3 position)
   {
-    if (!_raycaster || _eventSystem)
+    Debug.Log("Checking inventary");
+    if (!_raycaster || !_eventSystem)
       return false;
+    Debug.Log("Checking inventary 2");
     //Set up the new Pointer Event
     PointerEventData _pointerEventData = new PointerEventData(_eventSystem);
     //Set the Pointer Event Position to that of the mouse position
@@ -83,6 +85,9 @@ public class InputController : MonoBehaviour
     if (results.Count > 0)
         {
             Debug.Log("E inventario");
+        } else
+        {
+            Debug.Log("Não é inventario");
         }
     return results.Count > 0;
   }

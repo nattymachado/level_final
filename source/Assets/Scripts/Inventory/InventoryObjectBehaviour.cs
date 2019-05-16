@@ -23,11 +23,16 @@ public class InventoryObjectBehaviour : MonoBehaviour
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
         if (character != null)
         {
-            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
-            IncludeItemOnInventary();
-            PlayClipAtPosition();
-            //gameObject.SetActive(false);
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+            StartCoroutine(WaitToIncludeOnInventary(1f));
         }
+    }
+
+    IEnumerator WaitToIncludeOnInventary(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        IncludeItemOnInventary();
+        PlayClipAtPosition();
     }
 
     private void PlayClipAtPosition()
@@ -41,7 +46,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
         {
             _animator.SetBool("IsGoingToInventary", true);
         }
-        
         inventaryCenter.AddNewItem(this);
         StartCoroutine(WaitToCloseOrOpenInventary(1));
         StartCoroutine(WaitToCloseOrOpenInventary(2));

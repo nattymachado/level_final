@@ -13,6 +13,7 @@ namespace prototypeRobot
         {
             if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
             {
+                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
                 colorController.turnOnColors();
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ComputerBeeps", true);

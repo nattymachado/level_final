@@ -12,6 +12,7 @@ public class PacientOnDreamBehaviour : InteractableItemBehaviour
         CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
         if (character && character.CheckInventaryObjectOnSelectedPosition(itemName))
         {
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
             SceneManager.LoadScene(SCENE);
         }
