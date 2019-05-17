@@ -7,7 +7,8 @@ public class PacientOnHospitalBehaviour : InteractableItemBehaviour
 
 
     protected override void ExecuteAction(Collider other)
-    { 
+    {
+        SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
         GameEvents.UIEvents.OpenPatientRecord.SafeInvoke(_patient);
     }
