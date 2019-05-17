@@ -8,6 +8,7 @@ public static class GameEvents
     public static class UIEvents
     {
         public static Action<GameEnums.PatientEnum> OpenPatientRecord;
+        public static Action<bool> PauseMenuStatusEvent;
     }
 
     public static class AudioEvents
