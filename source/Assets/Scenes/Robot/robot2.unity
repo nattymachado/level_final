@@ -1938,7 +1938,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155687778}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.845, y: 0.32, z: 0.72}
@@ -11995,7 +11995,7 @@ GameObject:
   - component: {fileID: 1154595192}
   - component: {fileID: 1153498040}
   m_Layer: 0
-  m_Name: botoes_cores.001
+  m_Name: colorReferences
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12106,7 +12106,7 @@ GameObject:
   - component: {fileID: 1153498046}
   - component: {fileID: 1155687807}
   m_Layer: 0
-  m_Name: botoes_cores
+  m_Name: colorButtonsController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12129,8 +12129,7 @@ MonoBehaviour:
   - yellow
   - green
   - blue
-  right: {fileID: 2100000, guid: eb1df594b4b2ca548aa2be07271cbde4, type: 2}
-  wrong: {fileID: 2100000, guid: 1103aa32d484c234183b102e4c589bc6, type: 2}
+  wrongColor: {fileID: 0}
   card: {fileID: 1155687790}
   gateAnimator: {fileID: 1155687709}
 --- !u!65 &1155687808
@@ -26553,7 +26552,7 @@ PrefabInstance:
     - target: {fileID: 5032378422084077551, guid: b95d008847d7246458c23ff17960c217,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6593110794255580151, guid: b95d008847d7246458c23ff17960c217,
         type: 3}
