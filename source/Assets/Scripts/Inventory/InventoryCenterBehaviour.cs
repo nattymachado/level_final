@@ -14,7 +14,7 @@ public class InventoryCenterBehaviour : MonoBehaviour
     [SerializeField] private List<string> _clientItems;
     [SerializeField] private Image _centerImage;
     [SerializeField] private Animator _animator;
-    private bool _isShowingItems = false;
+    private bool _isOpen = false;
 
     public void AddNewItem(InventoryObjectBehaviour item)
     {
@@ -79,8 +79,7 @@ public class InventoryCenterBehaviour : MonoBehaviour
             _centerImage.enabled = true;
             _centerImage.sprite = _item.objectImage.sprite;
             RemoveNewItem(_item.Name);
-
-            CloseOrOpen(true);
+            CloseOrOpen();
         }
 
     }
@@ -109,12 +108,10 @@ public class InventoryCenterBehaviour : MonoBehaviour
         _centerImage.sprite = _emptySprite;
     }
 
-    private void showOrHideItems(bool show)
+    private void SetAnimation(bool status)
     {
-        _isShowingItems = show;
-
         // executa a animação
-        _animator.SetBool("opened", show);
+        _animator.SetBool("opened", status);
     }
 
     public void OnClick()
@@ -124,17 +121,13 @@ public class InventoryCenterBehaviour : MonoBehaviour
             AddNewItem(_item);
         }
         ClearSelection();
-        CloseOrOpen(false);
+        CloseOrOpen();
     }
 
-    public void CloseOrOpen(bool forceClose)
+    public void CloseOrOpen()
     {
-
-        if (forceClose)
-        {
-            _isShowingItems = true;
-        }
-        showOrHideItems(!_isShowingItems);
-        if (!_isShowingItems && _item == null) ShowBag();
+        _isOpen = !_isOpen;
+        SetAnimation(_isOpen);
+        if (!_isOpen && _item == null) ShowBag();
     }
 }

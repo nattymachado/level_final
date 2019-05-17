@@ -58,6 +58,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
     IEnumerator WaitToCloseOrOpenInventary(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        inventaryCenter.CloseOrOpen(false);
+        inventaryCenter.CloseOrOpen();
     }
 }
