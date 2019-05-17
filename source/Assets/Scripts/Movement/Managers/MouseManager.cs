@@ -45,6 +45,11 @@ public class MouseManager : MonoBehaviour
 
     void Update()
     {
+        if (controller.IsOnInventary(Input.mousePosition))
+        {
+            return;
+        }
+
         if (isEnabled)
         {
 
