@@ -42,6 +42,7 @@ public class PatientRecordUIController : MonoBehaviour
             if (patientRecord.patient == requestedPatient)
             {
                 patientRecord.gameObject.SetActive(false);
+                GameEvents.UIEvents.OpenMenu.SafeInvoke(false);
                 return;
             }
         }

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
-
     private static LayerMask _raycastMaskFloor;
     [SerializeField] private CameraBehaviour _cameraBehaviour;
     [SerializeField] private GraphicRaycaster _raycaster;

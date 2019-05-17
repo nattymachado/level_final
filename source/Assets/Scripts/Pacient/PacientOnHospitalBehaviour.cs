@@ -11,6 +11,7 @@ public class PacientOnHospitalBehaviour : InteractableItemBehaviour
         SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
         GameEvents.UIEvents.OpenPatientRecord.SafeInvoke(_patient);
+        GameEvents.UIEvents.OpenMenu.SafeInvoke(true);
     }
 }
 

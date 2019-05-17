@@ -15,7 +15,7 @@ public class PauseMenuController : MonoBehaviour
         if (state) Time.timeScale = 0f;
         else Time.timeScale = 1f;
         pauseMenuGameObject.SetActive(state);
-        GameEvents.UIEvents.PauseMenuStatusEvent.SafeInvoke(state);
+        GameEvents.UIEvents.OpenMenu.SafeInvoke(state);
     }
 
     public void OpenClosePatientReport(bool state)

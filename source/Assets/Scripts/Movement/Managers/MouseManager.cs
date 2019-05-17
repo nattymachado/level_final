@@ -21,15 +21,14 @@ public class MouseManager : MonoBehaviour
         isEnabled = true;
     }
 
-
     private void Start()
     {
-        GameEvents.UIEvents.PauseMenuStatusEvent += setActive;
+        GameEvents.UIEvents.OpenMenu += setActive;
     }
 
     private void OnDestroy()
     {
-        GameEvents.UIEvents.PauseMenuStatusEvent -= setActive;
+        GameEvents.UIEvents.OpenMenu -= setActive;
     }
 
     private void setActive(bool status)
@@ -52,7 +51,6 @@ public class MouseManager : MonoBehaviour
 
         if (isEnabled)
         {
-
             mousewheelAxis = Input.GetAxis("Mouse ScrollWheel");
 
             if (mousewheelAxis != 0)
