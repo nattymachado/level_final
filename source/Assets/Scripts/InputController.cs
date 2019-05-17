@@ -97,7 +97,7 @@ public class InputController : MonoBehaviour
 
     public bool IsOnInventary(Vector3 position)
     {
-        if (!_raycaster || _eventSystem)
+        if (!_raycaster || !_eventSystem)
             return false;
         //Set up the new Pointer Event
         PointerEventData _pointerEventData = new PointerEventData(_eventSystem);
