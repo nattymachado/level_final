@@ -110,10 +110,6 @@ public class InputController : MonoBehaviour
         //Raycast using the Graphics Raycaster and mouse click position
         _raycaster.Raycast(_pointerEventData, results);
 
-        if (results.Count > 0)
-        {
-            Debug.Log("E inventario");
-        }
         return results.Count > 0;
     }
 
@@ -121,9 +117,11 @@ public class InputController : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
 
-        RaycastHit[] hits = new RaycastHit[1];
+        RaycastHit[] hits = new RaycastHit[2];
 
-        Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskFloor);
+        Physics.RaycastNonAlloc(ray, hits, 100f, _raycastMaskFloor);
+        Debug.Log("Peguei algo:" + hits[0].collider);
+        Debug.Log("Peguei algo 1:" + hits[1].collider);
         hit = hits[0];
 
         if (hits[0].collider != null && hits[0].collider.GetComponent<GridBehaviour>())

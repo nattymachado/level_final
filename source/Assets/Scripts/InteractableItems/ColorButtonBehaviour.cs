@@ -38,7 +38,7 @@ namespace prototypeRobot
             {
                 _animator.SetBool("isPressed", true);
                 GetComponentInChildren<MeshRenderer>().material = colorMaterial;
-                isRight = GetComponentInParent<ColorControllerBehaviour>().CheckColorPosition(color, GetComponentInChildren<MeshRenderer>());
+                isRight = GetComponentInParent<ColorControllerBehaviour>().CheckColorPosition(color, this);
             }
         }
 
@@ -49,6 +49,16 @@ namespace prototypeRobot
                 float step = 0.5f * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, _target, step);
             }
+        }
+
+        public void SetWrongColor(Material wrongColor)
+        {
+            GetComponentInChildren<MeshRenderer>().material = wrongColor;
+        }
+
+        public void SetRightColor()
+        {
+            GetComponentInChildren<MeshRenderer>().material = colorMaterial;
         }
 
         public void Clear()
