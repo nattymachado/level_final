@@ -18,7 +18,7 @@ namespace prototypeRobot
         {
             _animator = GetComponent<Animator>();
             _original = GetComponentInChildren<MeshRenderer>().material;
-            _target = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            _target = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
             isOn = false;
         }
 

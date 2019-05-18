@@ -96,10 +96,8 @@ public class InputController : MonoBehaviour
 
     public bool IsOnInventary(Vector3 position)
     {
-        Debug.Log("Checking inventary");
-        if (!_raycaster || !_eventSystem)
+       if (!_raycaster || !_eventSystem)
             return false;
-        Debug.Log("Checking inventary 2");
         //Set up the new Pointer Event
         PointerEventData _pointerEventData = new PointerEventData(_eventSystem);
         //Set the Pointer Event Position to that of the mouse position
@@ -110,10 +108,7 @@ public class InputController : MonoBehaviour
 
         //Raycast using the Graphics Raycaster and mouse click position
         _raycaster.Raycast(_pointerEventData, results);
-        if (results.Count > 0)
-        {
-            Debug.Log("Is Canvas");
-        }
+        
         return results.Count > 0;
     }
 
