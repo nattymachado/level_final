@@ -15,7 +15,7 @@ public class StartAudioTriggers : MonoBehaviour
         {
             foreach(AudioClipTrigger trigger in _triggers)
             {
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke(trigger.trigger, trigger.loop);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke(trigger.trigger, trigger.loop, false);
             }
         }
     }

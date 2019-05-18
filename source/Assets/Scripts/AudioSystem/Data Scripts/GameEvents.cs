@@ -15,8 +15,8 @@ public static class GameEvents
     {
         public static Action<float> SetBGMVolume;
         public static Action<float> SetSFXVolume;
-        public static Action<string, bool> TriggerSFX;
-        public static Action<string, bool> TriggerRandomSFX;
+        public static Action<string, bool, bool> TriggerSFX;
+        public static Action<string, bool, bool> TriggerRandomSFX;
     }
 
     public static class FSMEvents

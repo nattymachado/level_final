@@ -18,7 +18,7 @@ namespace prototypeRobot
             bool isRight = false;
             if (sequece[position] == color)
             {
-                GameEvents.AudioEvents.TriggerRandomSFX.SafeInvoke("ButtonClick", false);
+                GameEvents.AudioEvents.TriggerRandomSFX.SafeInvoke("ButtonClick", false, false);
                 colorButton.SetRightColor();
                 isRight = true;
                 position += 1;
@@ -30,7 +30,7 @@ namespace prototypeRobot
             }
             if (position == sequece.Length)
             {
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false, true);
                 card.SetActive(true);
                 gateAnimator.SetBool("isOpen", true);
             }
@@ -40,7 +40,7 @@ namespace prototypeRobot
  
         private IEnumerator WaitAndClear(float waitTime)
         {
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Does-not-compute", false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Does-not-compute", false, true);
             yield return new WaitForSeconds(waitTime);
             ColorButtonBehaviour[] buttons = GetComponentsInChildren<ColorButtonBehaviour>();
             for (int i = 0; i < buttons.Length; i++)

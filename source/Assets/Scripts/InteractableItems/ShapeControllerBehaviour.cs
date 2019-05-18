@@ -19,20 +19,21 @@ namespace prototypeRobot
             bool isRight = false;
             if (sequece[position] == shape)
             {
-                GameEvents.AudioEvents.TriggerRandomSFX.SafeInvoke("ButtonClick", false);
+                GameEvents.AudioEvents.TriggerRandomSFX.SafeInvoke("ButtonClick", false, false);
                 shapeMesh.material = right;
                 position += 1;
                 isRight = true;
             } else
             {
                 shapeMesh.material = wrong;
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Does-not-compute", false, true);
                 IEnumerator  coroutine = WaitAndClear(1.0f);
                 StartCoroutine(coroutine);
             }
             shapeMesh.enabled = true;
             if (position == sequece.Length)
             {
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false, true);
                 card.SetActive(true);
                 //item1.SetActive(true);
             }
@@ -42,7 +43,6 @@ namespace prototypeRobot
  
         private IEnumerator WaitAndClear(float waitTime)
         {
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Does-not-compute", false);
             yield return new WaitForSeconds(waitTime);
             ShapeButtonBehaviour[] buttons = GetComponentsInChildren<ShapeButtonBehaviour>();
             for (int i = 0; i < buttons.Length; i++)

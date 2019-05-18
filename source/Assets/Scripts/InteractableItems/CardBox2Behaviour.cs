@@ -15,8 +15,8 @@ namespace prototypeRobot
             {
                 GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
                 colorController.turnOnColors();
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ComputerBeeps", true);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ComputerBeeps", true, false);
             }
 
         }

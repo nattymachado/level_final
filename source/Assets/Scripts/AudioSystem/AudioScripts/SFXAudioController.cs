@@ -37,9 +37,9 @@ public class SFXAudioController : BaseAudioController
     }
 
     //Trigger Audio Clip
-    public void TriggerAudioClip(string AudioClip, bool loop)
+    public void TriggerAudioClip(string AudioClip, bool loop, bool forcePlay)
     {
-        if(_audioClips != null)
+        if(_audioClips != null && (!_audioSource.isPlaying || forcePlay))
         {
             foreach (AudioClipTriggerInfo triggerInfo in _audioClips)
             {
@@ -49,9 +49,9 @@ public class SFXAudioController : BaseAudioController
     }
 
     //Trigger Random Audio Clip
-    public void TriggerRandomAudioClip(string AudioClip, bool loop)
+    public void TriggerRandomAudioClip(string AudioClip, bool loop, bool forcePlay)
     {
-        if (_randomAudioClips != null)
+        if (_randomAudioClips != null && (!_audioSource.isPlaying || forcePlay))
         {
             foreach (AudioClipArrayTriggerInfo triggerInfo in _randomAudioClips)
             {

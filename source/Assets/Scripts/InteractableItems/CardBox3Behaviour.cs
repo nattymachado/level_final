@@ -16,7 +16,7 @@ public class CardBox3Behaviour : InteractableItemBehaviour
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             card.SetActive(true);
             gateAnimator.SetBool("isOpen", true);
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
         }
 
     }

@@ -17,14 +17,14 @@ public class CardBox1Behaviour : InteractableItemBehaviour
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             gateAnimator.SetBool("isOpen", true);
             SetActive(false);
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
         }
         else if (character && character.CheckInventaryObjectOnSelectedPosition(cardName2))
         {
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             gateAnimator2.SetBool("isOpen", true);
             SetActive(false);
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
         }
 
     }
