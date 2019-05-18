@@ -18,6 +18,12 @@ public class InputController : MonoBehaviour
   private Vector3 startDragPosition;
   private bool startedMultiFingerDrag = false;
   private bool isActive = true;
+  private bool _hasZoomedOnce = false;
+
+  private bool canPinch = true;
+  private bool canClick = true;
+  private bool canRotate = true;
+  private bool canDrag = true;
 
   void Awake()
   {
@@ -30,11 +36,8 @@ public class InputController : MonoBehaviour
 
   private void Click(Vector3 position)
   {
-    if (isActive)
-    {
-      _movementController.ActiveItemOrMove(position);
-      _cameraBehaviour.ResetPanZoomDislocation();
-    }
+    _movementController.ActiveItemOrMove(position);
+    _cameraBehaviour.ResetPanZoomDislocation();
   }
 
   public void Drag(TouchPhase touchPhase, Vector3 screenPosition)
@@ -48,19 +51,31 @@ public class InputController : MonoBehaviour
       }
       else if (touchPhase == TouchPhase.Moved)
       {
-        _hasRotated = _cameraBehaviour.RotateCamera(startDragPosition, screenPosition) || _hasRotated;
-        startDragPosition = screenPosition;
+        if (canRotate)
+        {
+          _hasRotated = _cameraBehaviour.RotateCamera(startDragPosition, screenPosition) || _hasRotated;
+          startDragPosition = screenPosition;
+        }
       }
       else if (touchPhase == TouchPhase.Ended)
       {
         if (!_hasRotated)
         {
-          Click(screenPosition);
+          if (canClick)
+          {
+            Click(screenPosition);
+
+            // trigger evento
+            GameEvents.LevelEvents.Clicked.SafeInvoke();
+          }
         }
         else
         {
           _cameraBehaviour.StopRotating();
           _hasRotated = false;
+
+          // trigger evento
+          GameEvents.LevelEvents.Rotated.SafeInvoke();
         }
       }
     }
@@ -68,8 +83,9 @@ public class InputController : MonoBehaviour
 
   public bool Pinch(float zoomAxis, Vector3 screenPosition)
   {
-    if (isActive)
+    if (isActive && canPinch)
     {
+      _hasZoomedOnce = _hasZoomedOnce || _cameraBehaviour.Zoom(zoomAxis, screenPosition);
       return _cameraBehaviour.Zoom(zoomAxis, screenPosition);
     }
     return false;
@@ -77,12 +93,19 @@ public class InputController : MonoBehaviour
 
   public void StopPinch()
   {
-    _cameraBehaviour.StopZoom();
+    if (_hasZoomedOnce)
+    {
+      _hasZoomedOnce = false;
+      _cameraBehaviour.StopZoom();
+
+      // trigger evento
+      GameEvents.LevelEvents.Zoomed.SafeInvoke();
+    }
   }
 
   public bool MultiFingerDrag(Vector3 screenPosition)
   {
-    if (isActive)
+    if (isActive && canDrag)
     {
       if (!startedMultiFingerDrag)
       {
@@ -102,9 +125,13 @@ public class InputController : MonoBehaviour
   {
     if (_hasPannedOnce)
     {
+      _hasPannedOnce = false;
       _cameraBehaviour.StopPan();
+
+      // trigger evento
+      GameEvents.LevelEvents.Panned.SafeInvoke();
     }
-    _hasPannedOnce = false;
+
     startedMultiFingerDrag = false;
   }
 
@@ -124,6 +151,14 @@ public class InputController : MonoBehaviour
     _raycaster.Raycast(_pointerEventData, results);
 
     return results.Count > 0;
+  }
+
+  public void ChangePermissions(bool pinch, bool click, bool rotate, bool drag)
+  {
+    canPinch = pinch;
+    canClick = click;
+    canRotate = rotate;
+    canDrag = drag;
   }
 
   public static bool IsPointOnBoard(Vector3 screenPosition, out RaycastHit hit)
