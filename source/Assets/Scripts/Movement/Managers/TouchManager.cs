@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TouchManager : MonoBehaviour
 {
 
-  [SerializeField] private CameraBehaviour camera;
+  [SerializeField] private CameraBehaviour cameraBehaviour;
   private InputController controller;
   [SerializeField] private float pinchScale = 0.2f;
 
@@ -35,8 +35,6 @@ public class TouchManager : MonoBehaviour
     }
 
     int touchCount = Input.touches.Length;
-
-
 
     if (touchCount == 0)
     {
