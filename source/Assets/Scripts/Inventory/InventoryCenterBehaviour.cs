@@ -36,8 +36,6 @@ public class InventoryCenterBehaviour : MonoBehaviour
         for (int i = 0; i < _clientItems.Count; i++)
         {
             IEnumerable<InventoryItemBehaviour> hasItem = _items.Where(x => x.Item != null && x.Item.Name == _clientItems[i]);
-            Debug.Log(hasItem.Any());
-            Debug.Log(hasItem);
             if (!hasItem.Any())
             {
                 haveAllItems = false;
