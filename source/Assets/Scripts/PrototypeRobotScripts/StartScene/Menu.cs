@@ -7,12 +7,9 @@ namespace StartMenu
     {
         [SerializeField] private string _nextScene;
 
-        void Update()
+        public void Play()
         {
-            if (Input.anyKey)
-            {
-                SceneManager.LoadScene(_nextScene, LoadSceneMode.Single);
-            }
+            SceneManager.LoadScene(_nextScene, LoadSceneMode.Single);
         }
     }
 }
