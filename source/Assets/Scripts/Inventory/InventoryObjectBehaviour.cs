@@ -12,6 +12,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
     [SerializeField] public int Position;
     [SerializeField] public AudioClip _audioClip;
     private Animator _animator;
+    private bool _isEnabled = true;
 
     private void Awake()
     {
@@ -20,11 +21,15 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
-        if (character != null)
+        if (_isEnabled)
         {
-            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-            StartCoroutine(WaitToIncludeOnInventary(1f));
+            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+            if (character != null)
+            {
+                _isEnabled = false;
+                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+                StartCoroutine(WaitToIncludeOnInventary(1f));
+            }
         }
     }
 
