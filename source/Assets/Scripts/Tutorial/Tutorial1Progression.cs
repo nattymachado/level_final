@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Tutorial1Progression : MonoBehaviour
 {
@@ -8,21 +10,27 @@ public class Tutorial1Progression : MonoBehaviour
   [SerializeField] private Animator moveAnimator;
   [SerializeField] private Animator useAnimator;
   [SerializeField] private InputController inputController;
+  [SerializeField] private TutorialLeverBehaviour levelInteractable;
+  [SerializeField] Animator doorAnimator;
+  [SerializeField] ParticleSystem finishParticles;
+  [SerializeField] Collider finishCollider;
+  [SerializeField] CharacterBehaviour character;
+  [SerializeField] NavMeshObstacle doorStopObstacle;
   public delegate void StepStart();
   public delegate bool StepCompletion();
 
   private bool hasPinched;
   private bool hasMoved;
   private bool hasUsed;
+  private bool finished;
 
   private TutorialStep currentStep;
   private List<TutorialStep> steps = new List<TutorialStep>();
 
-
   void OnEnable()
   {
     // registra eventos
-    GameEvents.LevelEvents.LevelIntroStarted += StartTutorial;
+    GameEvents.LevelEvents.LevelStarted += StartTutorial;
     GameEvents.LevelEvents.Zoomed += RegisterPinch;
     GameEvents.LevelEvents.Moved += RegisterMove;
     GameEvents.LevelEvents.Used += RegisterUse;
@@ -30,7 +38,7 @@ public class Tutorial1Progression : MonoBehaviour
   void OnDisable()
   {
     // registra eventos
-    GameEvents.LevelEvents.LevelIntroStarted -= StartTutorial;
+    GameEvents.LevelEvents.LevelStarted -= StartTutorial;
     GameEvents.LevelEvents.Zoomed -= RegisterPinch;
     GameEvents.LevelEvents.Moved -= RegisterMove;
     GameEvents.LevelEvents.Used -= RegisterUse;
@@ -42,21 +50,20 @@ public class Tutorial1Progression : MonoBehaviour
     TutorialStep pinchStep = new TutorialStep(pinchAnimator, new StepStart(PinchStart), new StepCompletion(PinchCompletion));
     TutorialStep moveStep = new TutorialStep(moveAnimator, new StepStart(MoveStart), new StepCompletion(MoveCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator, new StepStart(UseStart), new StepCompletion(UseCompletion));
+    TutorialStep finishStep = new TutorialStep(null, new StepStart(FinishStart), new StepCompletion(FinishCompletion));
 
     steps.Add(pinchStep);
     steps.Add(moveStep);
     steps.Add(useStep);
-  }
+    steps.Add(finishStep);
 
-  void Start()
-  {
     inputController.ChangePermissions(false, false, false, false);
   }
 
   void Update()
   {
 
-    if (currentStep != null)
+    if (currentStep != null && !finished)
     {
       if (currentStep.TestCompletion())
       {
@@ -71,8 +78,23 @@ public class Tutorial1Progression : MonoBehaviour
   private bool PinchCompletion() { return hasPinched; }
   private void MoveStart() { inputController.ChangePermissions(true, true, false, false); }
   private bool MoveCompletion() { return hasMoved; }
-  private void UseStart() { inputController.ChangePermissions(true, true, false, false); }
+  private void UseStart()
+  {
+    inputController.ChangePermissions(true, true, false, false);
+    levelInteractable.TurnParticlesOn();
+  }
   private bool UseCompletion() { return hasUsed; }
+  private void FinishStart()
+  {
+    levelInteractable.TurnParticlesOff();
+    doorAnimator.SetTrigger("abrir");
+    finishParticles.Play();
+    doorStopObstacle.enabled = false;
+  }
+  private bool FinishCompletion()
+  {
+    return finishCollider.bounds.Contains(character.transform.position);
+  }
   private void RegisterPinch() { hasPinched = true; }
   private void RegisterMove() { hasMoved = true; }
   private void RegisterUse() { hasUsed = true; }
@@ -80,7 +102,6 @@ public class Tutorial1Progression : MonoBehaviour
 
   private void NextStep()
   {
-    Debug.Log("ping");
     if (currentStep == null)
     {
       currentStep = steps[0];
@@ -94,10 +115,8 @@ public class Tutorial1Progression : MonoBehaviour
       int index = steps.IndexOf(currentStep);
       if (index == steps.Count - 1)
       {
-        FinishTutorial();
-      }
-      else
-      {
+        Finish();
+      }else{
         currentStep = steps[index + 1];
       }
     }
@@ -109,9 +128,12 @@ public class Tutorial1Progression : MonoBehaviour
     currentStep.ActivateAnimator(true);
   }
 
-  void FinishTutorial()
+  private void Finish()
   {
+    finished = true;
 
+    // muda cena
+    Debug.Log("muda cena");
   }
 
   private class TutorialStep
@@ -140,7 +162,8 @@ public class Tutorial1Progression : MonoBehaviour
 
     public void ActivateAnimator(bool active)
     {
-      animator.SetBool("appear", active);
+      if (animator != null)
+        animator.SetBool("appear", active);
     }
 
   }

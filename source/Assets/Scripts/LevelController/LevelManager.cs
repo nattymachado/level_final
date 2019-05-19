@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     PreventPlayerInteraction();
 
     // animate camera
-    cameraAnimation.Approach(AllowPlayerInteraction);
+    cameraAnimation.Approach(FinishCameraApproach);
 
     // triger do evento
     GameEvents.LevelEvents.LevelIntroStarted.SafeInvoke();
