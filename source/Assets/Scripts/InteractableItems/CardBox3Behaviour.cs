@@ -14,11 +14,22 @@ public class CardBox3Behaviour : InteractableItemBehaviour
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-            card.SetActive(true);
-            gateAnimator.SetBool("isOpen", true);
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false);
+            StartCoroutine(WaitToOpenGateAndActivateItem(1f));
         }
 
+    }
+
+    IEnumerator WaitToOpenGateAndActivateItem(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        OpenGateAndActivateItem();
+    }
+
+    private void OpenGateAndActivateItem()
+    {
+        card.SetActive(true);
+        gateAnimator.SetBool("isOpen", true);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
     }
 
 

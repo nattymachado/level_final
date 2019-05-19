@@ -48,9 +48,10 @@ public class MouseManager : MonoBehaviour
         {
             return;
         }
-
+        
         if (isEnabled)
         {
+            
             mousewheelAxis = Input.GetAxis("Mouse ScrollWheel");
 
             if (mousewheelAxis != 0)

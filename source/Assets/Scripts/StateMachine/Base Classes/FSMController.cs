@@ -71,13 +71,16 @@ public class FSMController
     //Set Next State
     public void SetNextState(GameEnums.FSMInteractionEnum requestedAction)
     {
-        FSMState state;
-        if(_dictionaryEnumToState.TryGetValue(requestedAction, out state))
+        if(!lockedByInteraction)
         {
-            if (state != _currentState)
+            FSMState state;
+            if (_dictionaryEnumToState.TryGetValue(requestedAction, out state))
             {
-                _nextState = state;
-                _requestChangeState = true;
+                if (state != _currentState)
+                {
+                    _nextState = state;
+                    _requestChangeState = true;
+                }
             }
         }
     }

@@ -10,7 +10,6 @@ public class FSMState_Idle : FSMState
     //Methods
     public override void OnStateEnter()
     {
-        FSMControllerRef.LockedByInteraction = false;
         FSMControllerRef.characterBehavior.animator.SetBool("Moving", false);
     }
 

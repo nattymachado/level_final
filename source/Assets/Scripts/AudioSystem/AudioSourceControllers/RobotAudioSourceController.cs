@@ -30,19 +30,19 @@ public class RobotAudioSourceController : MonoBehaviour
             if (_currentAudio == 0)
             {
                 _currentAudio = 1;
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Alarm", false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Alarm", false, false);
                 _currentTimer = _delayNotifications;
             }
             else if (_currentAudio == 1)
             {
                 _currentAudio = 2;
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Transmission", false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Transmission", false, false);
                 _currentTimer = _delayNotifications;
             }
             else if (_currentAudio == 2)
             {
                 _currentAudio = 0;
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Binary", false);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Binary", false, false);
                 _currentTimer = _timeToNotificationRepeat;
             }
         }

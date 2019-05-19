@@ -10,12 +10,13 @@ public class FSMState_ActivateItem : FSMState
     //Methods
     public override void OnStateEnter()
     {
-        FSMControllerRef.characterBehavior.animator.SetTrigger("ActivateItem");
         FSMControllerRef.LockedByInteraction = true;
+        FSMControllerRef.characterBehavior.animator.SetTrigger("ActivateItem");
     }
 
     public override void OnStateExit()
     {
+        FSMControllerRef.LockedByInteraction = false;
         FSMControllerRef.SetNextState(GameEnums.FSMInteractionEnum.Idle);
     }
 

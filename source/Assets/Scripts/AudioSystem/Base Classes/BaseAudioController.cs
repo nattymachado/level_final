@@ -16,6 +16,7 @@ public abstract class BaseAudioController : MonoBehaviour
     protected virtual void Awake()
     {
         _audioSource.playOnAwake = false;
+        _audioSource.Stop();
         _audioSource.spatialBlend = 0f;
         _desiredVolume = _baseVolume;
     }

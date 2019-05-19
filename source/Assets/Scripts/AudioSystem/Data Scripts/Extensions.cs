@@ -28,4 +28,12 @@ public static class Extensions
             action.Invoke(objT, objU);
         }
     }
+
+    public static void SafeInvoke<T, U, V>(this Action<T, U, V> action, T objT, U objU, V objV)
+    {
+        if (action != null)
+        {
+            action.Invoke(objT, objU, objV);
+        }
+    }
 }
