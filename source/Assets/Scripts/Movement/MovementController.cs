@@ -82,7 +82,7 @@ public class MovementController : MonoBehaviour
         activateItem = true;
 
         // trigger event
-        GameEvents.LevelEvents.Used.SafeInvoke();
+        GameEvents.LevelEvents.UsedInteractable.SafeInvoke();
       }
 
     }

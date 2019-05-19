@@ -34,6 +34,9 @@ public static class GameEvents
     public static Action Clicked;
     public static Action Panned;
     public static Action Moved;
-    public static Action Used;
+    public static Action UsedInteractable;
+    public static Action PickedItem;
+    public static Action SelectedItem;
+    public static Action UsedItem;
   }
 }

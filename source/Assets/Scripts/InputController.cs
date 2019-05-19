@@ -13,13 +13,13 @@ public class InputController : MonoBehaviour
   [SerializeField] private EventSystem _eventSystem;
   private MovementController _movementController;
   private bool _hasRotated = false;
+  private bool _hasRotatedOnce = false;
   private bool _hasPannedOnce = false;
   private Vector3 startMultiFingersDragPosition;
   private Vector3 startDragPosition;
   private bool startedMultiFingerDrag = false;
   private bool isActive = true;
   private bool _hasZoomedOnce = false;
-
   private bool canPinch = true;
   private bool canClick = true;
   private bool canRotate = true;
@@ -54,6 +54,13 @@ public class InputController : MonoBehaviour
         if (canRotate)
         {
           _hasRotated = _cameraBehaviour.RotateCamera(startDragPosition, screenPosition) || _hasRotated;
+
+          if (_hasRotated && !_hasRotatedOnce)
+          {
+            _hasRotatedOnce = true;
+            // trigger evento
+            GameEvents.LevelEvents.Rotated.SafeInvoke();
+          }
           startDragPosition = screenPosition;
         }
       }
@@ -73,9 +80,7 @@ public class InputController : MonoBehaviour
         {
           _cameraBehaviour.StopRotating();
           _hasRotated = false;
-
-          // trigger evento
-          GameEvents.LevelEvents.Rotated.SafeInvoke();
+          _hasRotatedOnce = false;
         }
       }
     }
