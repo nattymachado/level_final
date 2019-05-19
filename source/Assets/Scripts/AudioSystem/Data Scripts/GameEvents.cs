@@ -38,5 +38,7 @@ public static class GameEvents
     public static Action PickedItem;
     public static Action SelectedItem;
     public static Action UsedItem;
+    public static Action OpenedInventory;
+    public static Action ClosedInventory;
   }
 }

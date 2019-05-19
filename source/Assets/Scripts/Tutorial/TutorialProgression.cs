@@ -9,7 +9,7 @@ public class TutorialProgression : MonoBehaviour
   public delegate void StepStart();
   public delegate bool StepCompletion();
   private bool finished;
-  private TutorialStep currentStep;
+  protected TutorialStep currentStep;
   protected List<TutorialStep> steps = new List<TutorialStep>();
   [SerializeField] protected InputController inputController;
   [SerializeField] private Animator doorAnimator;
@@ -62,6 +62,14 @@ public class TutorialProgression : MonoBehaviour
     return finishCollider.bounds.Contains(character.transform.position);
   }
 
+  protected void ChangeToStep(int index)
+  {
+    currentStep.ActivateAnimator(false);
+    currentStep = steps[index];
+
+    StartCurrentStep();
+  }
+
   private void NextStep()
   {
     if (currentStep == null)
@@ -85,6 +93,11 @@ public class TutorialProgression : MonoBehaviour
       }
     }
 
+    StartCurrentStep();
+  }
+
+  private void StartCurrentStep()
+  {
     // inicia estado
     currentStep.Start();
 
