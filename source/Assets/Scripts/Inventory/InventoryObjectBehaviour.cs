@@ -27,7 +27,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
             if (character != null)
             {
                 _isEnabled = false;
-                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
+                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
                 StartCoroutine(WaitToIncludeOnInventary(1f));
             }
         }

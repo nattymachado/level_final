@@ -11,5 +11,10 @@ namespace StartMenu
         {
             SceneManager.LoadScene(_nextScene, LoadSceneMode.Single);
         }
+
+        public void Configuration()
+        {
+            
+        }
     }
 }
