@@ -48,7 +48,6 @@ public class MouseManager : MonoBehaviour
         {
             return;
         }
-        
         if (isEnabled)
         {
             

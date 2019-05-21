@@ -68,9 +68,6 @@ public class CharacterBehaviour : MonoBehaviour
         if (hasItem)
         {
             inventaryCenter.UseSelectedItem();
-
-            // trigger event
-            GameEvents.LevelEvents.UsedItem.SafeInvoke();
         }
         return hasItem;
     }

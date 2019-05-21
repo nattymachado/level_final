@@ -9,10 +9,22 @@ public class TutorialLeverBehaviour : InteractableItemBehaviour
 
   protected override void ExecuteAction(Collider other)
   {
-    SetActive(false);
+        // trigger event
+        SetActive(false);
+        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+        StartCoroutine(WaitToOpenDoor(1f));
   }
 
-  public void TurnParticlesOn()
+  IEnumerator WaitToOpenDoor(float seconds)
+  {
+        yield return new WaitForSeconds(seconds);
+        transform.Rotate(0, 0, 180);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("EletronicSound", false, false);
+        GameEvents.LevelEvents.UsedInteractable.SafeInvoke();
+        
+    }
+
+    public void TurnParticlesOn()
   {
     particles.Play();
   }

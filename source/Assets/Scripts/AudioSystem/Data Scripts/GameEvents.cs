@@ -9,8 +9,9 @@ public static class GameEvents
   {
     public static Action<GameEnums.PatientEnum> OpenPatientRecord;
     public static Action<bool> OpenMenu;
-    public static Action<bool> OpenDialogBox;
-  }
+    public static Action OpenTutorialDialogBox;
+    public static Action CloseTutorialDialogBox;
+    }
 
   public static class AudioEvents
   {

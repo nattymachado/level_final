@@ -16,6 +16,7 @@ public class InteractableItemBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Trigou o dr.. 1");
         if (_isActive)
         {
             ExecuteAction(other);
@@ -25,6 +26,7 @@ public class InteractableItemBehaviour : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        Debug.Log("Trigou o dr.. 1");
         if (_isActive)
         {
             ExecuteAction(other);

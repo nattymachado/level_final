@@ -27,8 +27,10 @@ public class MovementController : MonoBehaviour
 
     RaycastHit[] hits = new RaycastHit[1];
     RaycastHit hit;
+
     if (InputController.IsPointOnBoard(position, out hit))
     {
+
       MoveToPosition(hit.collider.GetComponent<GridBehaviour>(), hit.point);
 
       // trigger event
@@ -41,6 +43,7 @@ public class MovementController : MonoBehaviour
     Node boardNode = grid.NodeFromWorldPosition(point);
     pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
     _character.Move(pointer.transform.position);
+        Debug.Log("Position:" + pointer.transform.position);
   }
 
   public void ActiveItemOrMove(Vector3 position)
@@ -81,8 +84,7 @@ public class MovementController : MonoBehaviour
         }
         activateItem = true;
 
-        // trigger event
-        GameEvents.LevelEvents.UsedInteractable.SafeInvoke();
+        
       }
 
     }
