@@ -26,6 +26,6 @@ public class PauseMenuController : MonoBehaviour
     public void ExitLevelButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("start", LoadSceneMode.Single);
+        SceneManager.LoadScene("hospital", LoadSceneMode.Single);
     }
 }
