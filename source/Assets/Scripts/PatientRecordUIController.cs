@@ -34,20 +34,6 @@ public class PatientRecordUIController : MonoBehaviour
         }
     }
 
-    //Close Patient Record
-    public void ClosePatientRecord(GameEnums.PatientEnum requestedPatient)
-    {
-        foreach (PatientRecordController patientRecord in _patientRecordArray)
-        {
-            if (patientRecord.patient == requestedPatient)
-            {
-                patientRecord.gameObject.SetActive(false);
-                GameEvents.UIEvents.OpenMenu.SafeInvoke(false);
-                return;
-            }
-        }
-    }
-
     //Load Scene
     public void LoadScene(string scene)
     {

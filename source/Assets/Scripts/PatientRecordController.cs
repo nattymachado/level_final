@@ -10,7 +10,14 @@ public class PatientRecordController : MonoBehaviour
     [SerializeField] private string _sceneToLoad;
     [SerializeField] private VideoClip _loadingVideo;
     public GameEnums.PatientEnum patient;
-        
+    private Animator _animator;
+
+    //Start
+    private void Awake()
+    {
+        _animator = this.GetComponent<Animator>();
+    }
+
     //Request Load Scene
     public void RequestLoadScene()
     {
@@ -63,9 +70,16 @@ public class PatientRecordController : MonoBehaviour
         vp.playbackSpeed = vp.playbackSpeed / 10.0F;
     }*/
 
+    //OnEnable
+    private void OnEnable()
+    {
+        _animator.SetBool("Opened", true);
+    }
+
     //Close Patient Record
     public void RequestClosePatientRecord()
     {
-        GetComponentInParent<PatientRecordUIController>().ClosePatientRecord(patient);
+        _animator.SetBool("Opened", false);
+        GameEvents.UIEvents.OpenMenu.SafeInvoke(false);
     }
 }
