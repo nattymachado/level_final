@@ -24,6 +24,7 @@ public abstract class BaseAudioController : MonoBehaviour
     //Adjust Volume
     protected virtual void SetDesiredVolume(float newVolume)
     {
+        Debug.Log(newVolume);
         if(newVolume > _baseVolume) _desiredVolume = Mathf.Min(_baseVolume + (newVolume - _baseVolume), 1f);
         else _desiredVolume = Mathf.Max(_baseVolume + (_baseVolume - newVolume), 0f);
     }
