@@ -7,21 +7,23 @@ public class PatientRecordController : MonoBehaviour
 {
     //Control Variables
     [Header("Control Variables")]
-    [SerializeField] private string _sceneToLoad;
-    [SerializeField] private VideoClip _loadingVideo;
+    [SerializeField] private LevelDefs levelToLoad;
     public GameEnums.PatientEnum patient;
     private Animator _animator;
+    private PatientRecordUIController recordController;
 
     //Start
     private void Awake()
     {
         _animator = this.GetComponent<Animator>();
+        recordController = GetComponentInParent<PatientRecordUIController>();
     }
 
     //Request Load Scene
     public void RequestLoadScene()
     {
-        GetComponentInParent<PatientRecordUIController>().LoadScene(_sceneToLoad);
+ 
+        recordController.LoadScene(levelToLoad);
     }
 
     //OnEnable
