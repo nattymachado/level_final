@@ -14,7 +14,8 @@ public class PacientOnDreamBehaviour : InteractableItemBehaviour
         {
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
-            SceneManager.LoadScene(SCENE);
+            SceneChanger.Instance.ChangeToScene(SCENE);
+            // SceneManager.LoadScene(SCENE);
         }
     }
 }

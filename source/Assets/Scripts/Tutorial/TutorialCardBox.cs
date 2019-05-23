@@ -13,17 +13,13 @@ public class TutorialCardBox : InteractableItemBehaviour
     {
       SetActive(false);
       GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-            StartCoroutine(WaitToOpenDoor(1f));
+      StartCoroutine(WaitToOpenDoor(1f));
     }
   }
 
-    IEnumerator WaitToOpenDoor(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
-        GameEvents.LevelEvents.UsedItem.SafeInvoke();
-    }
-
-
-
+  IEnumerator WaitToOpenDoor(float seconds)
+  {
+    yield return new WaitForSeconds(seconds);
+    GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
+  }
 }

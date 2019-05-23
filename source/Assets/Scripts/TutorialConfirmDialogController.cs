@@ -21,7 +21,8 @@ public class TutorialConfirmDialogController : MonoBehaviour
     {
         if (isYes)
         {
-            SceneManager.LoadScene(_tutorialScene);
+            SceneChanger.Instance.ChangeToScene(_tutorialScene);
+            // SceneManager.LoadScene(_tutorialScene);
         } else
         {
             GameEvents.UIEvents.CloseTutorialDialogBox.SafeInvoke();

@@ -37,6 +37,7 @@ public class PatientRecordUIController : MonoBehaviour
     //Load Scene
     public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        SceneChanger.Instance.ChangeToScene(scene);
+        // SceneManager.LoadScene(scene);
     }
 }

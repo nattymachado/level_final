@@ -12,7 +12,8 @@ namespace StartMenu
 
         public void Play()
         {
-            SceneManager.LoadScene(_nextScene, LoadSceneMode.Single);
+            SceneChanger.Instance.ChangeToScene(_nextScene);
+            // SceneManager.LoadScene(_nextScene, LoadSceneMode.Single);
         }
 
         public void Configuration()

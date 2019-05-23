@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class SceneChanger : Singleton<SceneChanger>
+{
+  [SerializeField] private float fadeInDuration = 1f;
+  [SerializeField] private float fadeOutDuration = 2f;
+  [SerializeField] private CanvasGroup canvasGroup;
+  private AsyncOperation async;
+  private Scene currentScene;
+
+  public void ChangeToScene(string sceneName)
+  {
+    StartCoroutine(SceneChange(sceneName, null));
+  }
+  public void ChangeToScene(string sceneName, Action callback)
+  {
+    StartCoroutine(SceneChange(sceneName, callback));
+  }
+
+  IEnumerator SceneChange(string nextSceneName, Action callback)
+  {
+    currentScene = SceneManager.GetActiveScene();
+
+    // fade
+    yield return StartCoroutine(FadeOut());
+
+    // load scene
+    async = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Single);
+    while (!async.isDone)
+    {
+      yield return null;
+    }
+
+    // // unload scene
+    // async = SceneManager.UnloadSceneAsync(currentScene);
+    // while (!async.isDone)
+    // {
+    //   yield return null;
+    // }
+
+    // fade 
+    yield return StartCoroutine(FadeIn());
+
+    // execute callback
+    if (callback != null) callback.Invoke();
+
+  }
+
+  IEnumerator FadeIn()
+  {
+    canvasGroup.alpha = 1;
+    float timer = 0;
+    while (timer < fadeInDuration)
+    {
+      canvasGroup.alpha = 1 - timer / fadeInDuration;
+      timer += Time.deltaTime;
+      yield return null;
+    }
+    canvasGroup.alpha = 0;
+    canvasGroup.gameObject.SetActive(false);
+  }
+
+  IEnumerator FadeOut()
+  {
+    canvasGroup.gameObject.SetActive(true);
+    canvasGroup.alpha = 0;
+    float timer = 0;
+    while (timer < fadeOutDuration)
+    {
+      canvasGroup.alpha = timer / fadeOutDuration;
+      timer += Time.deltaTime;
+      yield return null;
+    }
+    canvasGroup.alpha = 1;
+  }
+}
