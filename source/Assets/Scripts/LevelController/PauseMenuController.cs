@@ -27,6 +27,5 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneChanger.Instance.ChangeToScene("hospital");
-        // SceneManager.LoadScene("hospital", LoadSceneMode.Single);
     }
 }

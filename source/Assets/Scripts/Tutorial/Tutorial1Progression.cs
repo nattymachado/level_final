@@ -76,7 +76,6 @@ public class Tutorial1Progression : TutorialProgression
 
     // muda cena
     SceneChanger.Instance.ChangeToScene("Tutorial2");
-    // SceneManager.LoadScene("Tutorial2");
   }
 }
 

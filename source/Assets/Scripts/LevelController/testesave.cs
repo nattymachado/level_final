@@ -22,7 +22,7 @@ public class testesave : MonoBehaviour
 
     public void AddLevel()
     {
-        SaveManager.AddLevelToProgress(LevelName.Cachorro, true);
+        SaveManager.AddLevelToProgress(LevelName.Robot, true);
         progress = SaveManager.currentProgress;
     }
 

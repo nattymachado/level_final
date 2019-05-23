@@ -99,6 +99,5 @@ public class Tutorial2Progression : TutorialProgression
 
     // muda cena
     SceneChanger.Instance.ChangeToScene("hospital");
-    // SceneManager.LoadScene("hospital");
   }
 }

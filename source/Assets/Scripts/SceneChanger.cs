@@ -15,14 +15,18 @@ public class SceneChanger : Singleton<SceneChanger>
 
   public void ChangeToScene(string sceneName)
   {
-    StartCoroutine(SceneChange(sceneName, null));
+    StartCoroutine(SceneChange(sceneName, null, null));
   }
   public void ChangeToScene(string sceneName, Action callback)
   {
-    StartCoroutine(SceneChange(sceneName, callback));
+    StartCoroutine(SceneChange(sceneName, null, callback));
+  }
+  public void ChangeToScene(string sceneName, Action beforeFadeIn, Action afterFadeIn)
+  {
+    StartCoroutine(SceneChange(sceneName, beforeFadeIn, afterFadeIn));
   }
 
-  IEnumerator SceneChange(string nextSceneName, Action callback)
+  IEnumerator SceneChange(string nextSceneName, Action beforeFadeIn, Action afterFadeIn)
   {
     currentScene = SceneManager.GetActiveScene();
 
@@ -36,18 +40,14 @@ public class SceneChanger : Singleton<SceneChanger>
       yield return null;
     }
 
-    // // unload scene
-    // async = SceneManager.UnloadSceneAsync(currentScene);
-    // while (!async.isDone)
-    // {
-    //   yield return null;
-    // }
+    // execute action
+    if (beforeFadeIn != null) beforeFadeIn.Invoke();
 
     // fade 
     yield return StartCoroutine(FadeIn());
 
     // execute callback
-    if (callback != null) callback.Invoke();
+    if (afterFadeIn != null) afterFadeIn.Invoke();
 
   }
 

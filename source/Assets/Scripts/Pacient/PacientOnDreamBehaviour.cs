@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 public class PacientOnDreamBehaviour : InteractableItemBehaviour
 {
     [SerializeField] public string itemName;
-    const string SCENE = "hospital";
-
 
     protected override void ExecuteAction(Collider other)
     {
@@ -14,8 +12,7 @@ public class PacientOnDreamBehaviour : InteractableItemBehaviour
         {
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
-            SceneChanger.Instance.ChangeToScene(SCENE);
-            // SceneManager.LoadScene(SCENE);
+            SceneChanger.Instance.ChangeToScene("hospital");
         }
     }
 }
