@@ -17,6 +17,26 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3869568879349873149, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: maxFoV
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869568879349873149, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 618484042356908271}
+    - target: {fileID: 3869568879349873149, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: childCamera
+      value: 
+      objectReference: {fileID: 618484043011022714}
+    - target: {fileID: 3869568879349873149, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: deadArea
+      value: 
+      objectReference: {fileID: 8829016364645553508}
     - target: {fileID: 3495668208182603050, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -113,5 +133,56 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8585288522442019332, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: cameraAnimator
+      value: 
+      objectReference: {fileID: 7708094875668261996}
+    - target: {fileID: 1169927628344569676, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: center
+      value: 
+      objectReference: {fileID: 6716529962298620107}
+    - target: {fileID: 9153210452760734697, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 4337281459340182265}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12eabdcbcc9eeed4c878178af95ffa76, type: 3}
+--- !u!4 &618484042356908271 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3495668208182603050, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041505965423971781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7708094875668261996 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5975985543203316137, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041505965423971781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &618484043011022714 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3495668206689620671, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041505965423971781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6716529962298620107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7287871110339917070, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041505965423971781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &4337281459340182265 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 299294498065469244, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041505965423971781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &8829016364645553508 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 4796518150386014369, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041505965423971781}
+  m_PrefabAsset: {fileID: 0}
