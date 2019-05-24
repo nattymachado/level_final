@@ -20,6 +20,6 @@ public class TutorialCardBox : InteractableItemBehaviour
   IEnumerator WaitToOpenDoor(float seconds)
   {
     yield return new WaitForSeconds(seconds);
-    GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
+    GameEvents.AudioEvents.TriggerSFXOnPosition("InsertedKeycard", this.transform.position);
   }
 }

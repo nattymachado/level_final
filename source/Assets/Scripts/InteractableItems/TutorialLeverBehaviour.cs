@@ -19,7 +19,7 @@ public class TutorialLeverBehaviour : InteractableItemBehaviour
   {
         yield return new WaitForSeconds(seconds);
         transform.Rotate(0, 0, 180);
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("EletronicSound", false, false);
+        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("EletronicSound", this.transform.position);
         GameEvents.LevelEvents.UsedInteractable.SafeInvoke();
         
     }

@@ -43,7 +43,6 @@ public class MovementController : MonoBehaviour
     Node boardNode = grid.NodeFromWorldPosition(point);
     pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
     _character.Move(pointer.transform.position);
-        Debug.Log("Position:" + pointer.transform.position);
   }
 
   public void ActiveItemOrMove(Vector3 position)

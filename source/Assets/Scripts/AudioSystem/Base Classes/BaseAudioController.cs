@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameEnums;
 
 public abstract class BaseAudioController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public abstract class BaseAudioController : MonoBehaviour
     [Header("General Configurations")]
     [SerializeField] protected float _baseVolume;
     [SerializeField] protected AudioSource _audioSource;
+    [SerializeField] protected AudioTypeEnum _audioType;
 
     //Internal Variables
     protected float _desiredVolume;
@@ -18,15 +20,14 @@ public abstract class BaseAudioController : MonoBehaviour
         _audioSource.playOnAwake = false;
         _audioSource.Stop();
         _audioSource.spatialBlend = 0f;
-        _desiredVolume = _baseVolume;
+        
     }
 
     //Adjust Volume
     protected virtual void SetDesiredVolume(float newVolume)
     {
-        Debug.Log(newVolume);
-        if(newVolume > _baseVolume) _desiredVolume = Mathf.Min(_baseVolume + (newVolume - _baseVolume), 1f);
-        else _desiredVolume = Mathf.Max(_baseVolume + (_baseVolume - newVolume), 0f);
+       
+        
     }
 }
 

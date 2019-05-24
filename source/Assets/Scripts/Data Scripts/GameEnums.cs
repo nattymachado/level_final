@@ -22,4 +22,10 @@ public static class GameEnums
         UseLadder,
         Victory
     }
+
+    public enum AudioTypeEnum
+    {
+        BGM,
+        SFX
+    }
 }

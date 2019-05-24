@@ -9,8 +9,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
     [SerializeField] public string Name;
     [SerializeField] public Image objectImage;
     [SerializeField] public InventoryCenterBehaviour inventaryCenter;
-    [SerializeField] public int Position;
-    [SerializeField] public AudioClip _audioClip;
     private Animator _animator;
     private bool _isEnabled = true;
 
@@ -42,7 +40,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     private void PlayClipAtPosition()
     {
-        if (_audioClip != null) AudioSource.PlayClipAtPoint(_audioClip, this.transform.position);
+        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("PickUp", this.transform.position);
     }
 
     private void IncludeItemOnInventary()
