@@ -13,13 +13,11 @@ public class GameConfiguration : Singleton<GameConfiguration>
 
   public void SetBGMVolume(float volume)
   {
-        Debug.Log(volume);
         bgmVolume = volume;
   }
 
   public void SetSFXVolume(float volume)
   {
-        Debug.Log(volume);
         sfxVolume = volume;
   }
 
