@@ -17,7 +17,9 @@ public class TutorialProgression : MonoBehaviour
   [SerializeField] private Collider finishCollider;
   [SerializeField] private CharacterBehaviour character;
   [SerializeField] private NavMeshObstacle doorStopObstacle;
+  [SerializeField] protected InventoryCenterBehaviour inventary;
   protected TutorialStep finishStep;
+  private Coroutine delay;
 
   protected virtual void OnEnable()
   {
@@ -35,6 +37,11 @@ public class TutorialProgression : MonoBehaviour
     finishStep = new TutorialStep(null, new StepStart(FinishStart), new StepCompletion(FinishCompletion));
 
     inputController.ChangePermissions(false, false, false, false);
+  }
+
+  protected virtual void Start()
+  {
+    inventary.EnableDisable(false);
   }
 
   void Update()
@@ -78,6 +85,10 @@ public class TutorialProgression : MonoBehaviour
     }
     else
     {
+      // cancela corotina de delay de animação
+      if(delay!=null)
+        StopCoroutine(delay);
+
       // desativa animação passo atual
       currentStep.ActivateAnimator(false);
 
@@ -102,6 +113,24 @@ public class TutorialProgression : MonoBehaviour
     currentStep.Start();
 
     // liga animação do próximo passo
+    if(currentStep.AnimatorDelay>0f)
+    {
+      delay = StartCoroutine(WaitToActivateAnimator(currentStep.AnimatorDelay));
+    } else {
+      currentStep.ActivateAnimator(true);
+    }
+  }
+
+
+  private IEnumerator WaitToActivateAnimator(float animatorDelay)
+  {
+    float timer = 0f;
+    while (timer < animatorDelay)
+    {
+      timer += Time.deltaTime;
+      yield return null;
+    }
+
     currentStep.ActivateAnimator(true);
   }
 
@@ -114,20 +143,24 @@ public class TutorialProgression : MonoBehaviour
   {
     private bool completed = false;
     private Animator animator;
+    private float animatorDelay = 0f;
     private StepStart stepStart;
     private StepCompletion stepCompletion;
+    public float AnimatorDelay { get => animatorDelay;}
 
-    public TutorialStep(Animator anim, StepStart stepSt, StepCompletion stepConc)
+    public TutorialStep(Animator anim, StepStart stepSt, StepCompletion stepConc, float animDelay = 0f)
     {
       animator = anim;
       stepStart = stepSt;
       stepCompletion = stepConc;
+      animatorDelay = animDelay;
     }
 
     public void Start()
     {
       stepStart.Invoke();
     }
+
     public bool TestCompletion()
     {
       return stepCompletion.Invoke();
@@ -136,11 +169,11 @@ public class TutorialProgression : MonoBehaviour
     public void ActivateAnimator(bool active)
     {
       if (animator != null)
+      {
         animator.SetBool("appear", active);
+      }
     }
-
   }
-
 }
 
 

@@ -14,7 +14,14 @@ public class InventoryCenterBehaviour : MonoBehaviour
   [SerializeField] private List<string> _clientItems;
   [SerializeField] private Image _centerImage;
   [SerializeField] private Animator _animator;
+  [SerializeField] private CanvasGroup canvasGroup;
+  private Image inventaryBackground;
   private bool _isOpen = false;
+
+  private void Awake()
+  {
+    inventaryBackground = GetComponent<Image>();
+  }
 
   public void AddNewItem(InventoryObjectBehaviour item)
   {
@@ -144,5 +151,13 @@ public class InventoryCenterBehaviour : MonoBehaviour
     _isOpen = !_isOpen;
     SetAnimation(_isOpen);
     if (!_isOpen && _item == null) ShowBag();
+  }
+
+  public void EnableDisable(bool enabled)
+  {
+    canvasGroup.interactable = enabled;
+    canvasGroup.blocksRaycasts = enabled;
+    inventaryBackground.color = enabled ? Color.white : Color.gray;
+    _centerImage.color = enabled ? Color.white : new Color(1,1,1,0.5f);
   }
 }
