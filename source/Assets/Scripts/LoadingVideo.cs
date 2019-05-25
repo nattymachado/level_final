@@ -33,6 +33,7 @@ public class LoadingVideo : MonoBehaviour
     player.Stop();
     player.clip = video;
     player.isLooping = true;
+    player.waitForFirstFrame = true;
     player.Play();
   }
 
