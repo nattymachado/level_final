@@ -32,9 +32,6 @@ public class MovementController : MonoBehaviour
     {
 
       MoveToPosition(hit.collider.GetComponent<GridBehaviour>(), hit.point);
-
-      // trigger event
-      GameEvents.LevelEvents.Moved.SafeInvoke();
     }
   }
 
@@ -43,6 +40,9 @@ public class MovementController : MonoBehaviour
     Node boardNode = grid.NodeFromWorldPosition(point);
     pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
     _character.Move(pointer.transform.position);
+
+    // trigger event
+    GameEvents.LevelEvents.Moved.SafeInvoke();
   }
 
   public void ActiveItemOrMove(Vector3 position)
