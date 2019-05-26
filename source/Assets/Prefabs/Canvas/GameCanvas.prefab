@@ -2764,6 +2764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6443376610170660534}
+  - component: {fileID: 8679260464000200118}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2792,6 +2793,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &8679260464000200118
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443376610170660533}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6443376610211626385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +2948,7 @@ MonoBehaviour:
   - placa2
   _centerImage: {fileID: 8058473900311097898}
   _animator: {fileID: 776835366654706794}
+  canvasGroup: {fileID: 8679260464000200118}
 --- !u!114 &6443376610361389378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,6 +3048,7 @@ MonoBehaviour:
   - t4
   _centerImage: {fileID: 8058473900311097898}
   _animator: {fileID: 0}
+  canvasGroup: {fileID: 8679260464000200118}
 --- !u!114 &755430033862913204
 MonoBehaviour:
   m_ObjectHideFlags: 0

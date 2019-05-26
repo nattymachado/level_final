@@ -49,10 +49,12 @@ public class Tutorial2Progression : TutorialProgression
   {
     base.Awake();
 
+
+
     // cria os passos do tutorial
     TutorialStep swipeStep = new TutorialStep(swipeAnimator, new StepStart(SwipeStart), new StepCompletion(SwipeCompletion));
     TutorialStep pickStep = new TutorialStep(pickAnimator, new StepStart(PickStart), new StepCompletion(PickCompletion));
-    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion));
+    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion),2f);
     TutorialStep selectItemStep = new TutorialStep(selectItemAnimator, new StepStart(SelectItemStart), new StepCompletion(SelectItemCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator, new StepStart(UseStart), new StepCompletion(UseCompletion));
 
@@ -71,7 +73,7 @@ public class Tutorial2Progression : TutorialProgression
   private bool SwipeCompletion() { return hasSwiped; }
   private void PickStart() { inputController.ChangePermissions(true, true, true, true); }
   private bool PickCompletion() { return hasPicked; }
-  private void OpenInventoryStart() { return; }
+  private void OpenInventoryStart() { inventary.EnableDisable(true); }
   private bool OpenInventoryCompletion() { return hasOpenedInventary; }
   private void SelectItemStart() { return; }
   private bool SelectItemCompletion() { return hasSelectedItem; }
