@@ -26,41 +26,33 @@ public class InventoryObjectBehaviour : MonoBehaviour
             {
                 _isEnabled = false;
                 GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-                StartCoroutine(WaitToIncludeOnInventary(1f));
+                StartCoroutine(WaitToIncludeOnInventory(1f));
             }
         }
     }
 
-    IEnumerator WaitToIncludeOnInventary(float seconds)
+    IEnumerator WaitToIncludeOnInventory(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        IncludeItemOnInventary();
-        PlayClipAtPosition();
+        IncludeItemOnInventory();
     }
 
-    private void PlayClipAtPosition()
+    private void IncludeItemOnInventory()
     {
-        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("PickUp", this.transform.position);
-    }
-
-    private void IncludeItemOnInventary()
-    {
+        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("ItemPickup", this.transform.position);
         if (_animator != null)
         {
             _animator.SetBool("IsGoingToInventary", true);
         }
         inventaryCenter.AddNewItem(this);
-        StartCoroutine(WaitToCloseOrOpenInventary(1));
-        StartCoroutine(WaitToCloseOrOpenInventary(2));
         if (_animator == null)
         {
             gameObject.SetActive(false);
         }
     }
 
-    IEnumerator WaitToCloseOrOpenInventary(float seconds)
+    public void AnimateItemPickup()
     {
-        yield return new WaitForSeconds(seconds);
-        inventaryCenter.CloseOrOpen();
+        GameEvents.UIEvents.TriggerItemPickupAnimation.SafeInvoke(objectImage.sprite);
     }
 }

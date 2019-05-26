@@ -11,6 +11,7 @@ public static class GameEvents
     public static Action<bool> OpenMenu;
     public static Action OpenTutorialDialogBox;
     public static Action CloseTutorialDialogBox;
+    public static Action<Sprite> TriggerItemPickupAnimation;
     }
 
   public static class AudioEvents
@@ -19,7 +20,7 @@ public static class GameEvents
     public static Action<float> SetSFXVolume;
     public static Action<string, bool, bool> TriggerSFX;
     public static Action<string, bool, bool> TriggerRandomSFX;
-        public static Action<string, Vector3> TriggerSFXOnPosition;
+    public static Action<string, Vector3> TriggerSFXOnPosition;
     }
 
   public static class FSMEvents
