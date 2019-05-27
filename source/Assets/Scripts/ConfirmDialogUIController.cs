@@ -26,7 +26,7 @@ public class ConfirmDialogUIController : MonoBehaviour
     //Open OpenDialogBox
     private void OpenTutorialDialogBox()
     {
-        tutorialConfirmDialog.SetQuestion("Do you want to play the tutorial?");
+        GameEvents.UIEvents.OpenMenu.SafeInvoke(true);
         tutorialConfirmDialog.gameObject.SetActive(true);
     }
 
@@ -39,6 +39,7 @@ public class ConfirmDialogUIController : MonoBehaviour
     IEnumerator WaitToCloseDialog(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        GameEvents.UIEvents.OpenMenu.SafeInvoke(false);
         tutorialConfirmDialog.gameObject.SetActive(false);
     }
 

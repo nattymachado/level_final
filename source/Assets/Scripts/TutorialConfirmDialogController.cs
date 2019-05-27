@@ -11,11 +11,6 @@ public class TutorialConfirmDialogController : MonoBehaviour
     [SerializeField] private string _tutorialScene;
     [SerializeField] private Text _titleText;
 
-    public void SetQuestion(string question)
-    {
-        _titleText.text = question;
-    }
-
     //Confirm the action
     public void Confirm(bool isYes)
     {

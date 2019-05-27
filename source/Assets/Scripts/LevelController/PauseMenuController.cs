@@ -28,4 +28,10 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1f;
         SceneChanger.Instance.ChangeToScene("hospital");
     }
+
+    public void ReturnTitleScreenButton()
+    {
+        Time.timeScale = 1f;
+        SceneChanger.Instance.ChangeToScene("start");
+    }
 }
