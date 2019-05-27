@@ -6,6 +6,7 @@ public class CardBox3Behaviour : InteractableItemBehaviour
 {
     [SerializeField] CharacterBehaviour character;
     [SerializeField] Animator gateAnimator;
+    [SerializeField] SphereCollider itemCollider;
     [SerializeField] GameObject card;
     [SerializeField] string cardName;
 
@@ -29,6 +30,7 @@ public class CardBox3Behaviour : InteractableItemBehaviour
     {
         card.SetActive(true);
         gateAnimator.SetBool("isOpen", true);
+        itemCollider.isTrigger = true;
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
     }
 
