@@ -9,6 +9,7 @@ public class PatientEndPositionBehaviour : MonoBehaviour
         if (other.GetComponent<CharacterBehaviour>() == null)
         {
             other.gameObject.SetActive(false);
+            GameStatus.Instance.IncludeDeactivatePatient(other.transform.parent.GetComponent<PatientOnHospitalBehaviour>().patient);
         }
     }
 }
