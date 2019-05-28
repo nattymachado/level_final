@@ -12,6 +12,13 @@ public static class GameEnums
         Operator
     }
 
+    public enum LevelEnum
+    {
+        None,
+        Robot,
+        Night
+    }
+
     public enum FSMInteractionEnum
     {
         None,

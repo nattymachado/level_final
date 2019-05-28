@@ -7,28 +7,28 @@ using UnityEngine.UI;
 
 public class GameConfiguration : Singleton<GameConfiguration>
 {
-  [SerializeField] private float bgmVolume = 0f;
-  [SerializeField] private float sfxVolume = 0f;
-  
+  [SerializeField] private float _bgmVolume = 0f;
+  [SerializeField] private float _sfxVolume = 0f;
 
-  public void SetBGMVolume(float volume)
+
+    public void SetBGMVolume(float volume)
   {
-        bgmVolume = volume;
+        _bgmVolume = volume;
   }
 
   public void SetSFXVolume(float volume)
   {
-        sfxVolume = volume;
+        _sfxVolume = volume;
   }
 
   public float GetBGMVolume()
   {
-        return bgmVolume;
+        return _bgmVolume;
   }
 
   public float GetSFXVolume()
   {
-    return sfxVolume;
+    return _sfxVolume;
   }
 
 }
