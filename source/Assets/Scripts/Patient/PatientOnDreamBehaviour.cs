@@ -5,6 +5,12 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
 {
     [SerializeField] public string itemName;
     [SerializeField] private GameEnums.LevelEnum _patientLevel;
+    [SerializeField] private VictoryCanvasController victoryCanvas;
+    
+    private void Awake(){
+        // garantia de preenchimento
+        if (victoryCanvas == null) Debug.LogError("victory canvas empty on patient");
+    }
 
     protected override void ExecuteAction(Collider other)
     {
@@ -14,7 +20,7 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
             GameStatus.Instance.SetLastLevel(_patientLevel);
-            SceneChanger.Instance.ChangeToScene("hospital");
+            victoryCanvas.Open();
         }
     }
 }
