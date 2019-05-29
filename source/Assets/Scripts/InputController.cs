@@ -90,8 +90,15 @@ public class InputController : MonoBehaviour
   {
     if (isActive && canPinch)
     {
-      _hasZoomedOnce = _hasZoomedOnce || _cameraBehaviour.Zoom(zoomAxis, screenPosition);
-      return _cameraBehaviour.Zoom(zoomAxis, screenPosition);
+      bool zoomed = _cameraBehaviour.Zoom(zoomAxis, screenPosition);
+      if (!_hasZoomedOnce && zoomed){
+        _hasZoomedOnce = true;
+        
+        // trigger evento
+        GameEvents.LevelEvents.Zoomed.SafeInvoke();
+      }
+
+      return zoomed;
     }
     return false;
   }
@@ -102,9 +109,6 @@ public class InputController : MonoBehaviour
     {
       _hasZoomedOnce = false;
       _cameraBehaviour.StopZoom();
-
-      // trigger evento
-      GameEvents.LevelEvents.Zoomed.SafeInvoke();
     }
   }
 
@@ -118,7 +122,12 @@ public class InputController : MonoBehaviour
         startedMultiFingerDrag = true;
       }
       bool panned = _cameraBehaviour.Pan(startMultiFingersDragPosition, screenPosition);
-      _hasPannedOnce = panned || _hasPannedOnce;
+      if (!_hasPannedOnce && panned){
+        _hasPannedOnce = true;
+        
+        // trigger evento
+        GameEvents.LevelEvents.Panned.SafeInvoke();
+      }
       if (panned) startMultiFingersDragPosition = screenPosition;
 
       return panned;
@@ -132,9 +141,6 @@ public class InputController : MonoBehaviour
     {
       _hasPannedOnce = false;
       _cameraBehaviour.StopPan();
-
-      // trigger evento
-      GameEvents.LevelEvents.Panned.SafeInvoke();
     }
 
     startedMultiFingerDrag = false;
@@ -144,6 +150,7 @@ public class InputController : MonoBehaviour
   {
     if (!_raycaster || !_eventSystem)
       return false;
+   
     //Set up the new Pointer Event
     PointerEventData _pointerEventData = new PointerEventData(_eventSystem);
     //Set the Pointer Event Position to that of the mouse position

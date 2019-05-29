@@ -153,7 +153,7 @@ public class CameraBehaviour : MonoBehaviour
             }
         }
 
-        if ((targetPosition - playerTargetPosition).magnitude > 0.01)
+        if ((targetPosition - playerTargetPosition).magnitude > 0.01f)
         {
             isFollowingPlayer = false;
         }
