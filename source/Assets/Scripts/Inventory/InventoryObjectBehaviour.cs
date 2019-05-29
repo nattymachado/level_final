@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
+[RequireComponent(typeof(Animator))]
 public class InventoryObjectBehaviour : MonoBehaviour
 {
 
@@ -45,10 +45,11 @@ public class InventoryObjectBehaviour : MonoBehaviour
             _animator.SetBool("IsGoingToInventary", true);
         }
         inventaryCenter.AddNewItem(this);
-        if (_animator == null)
-        {
-            gameObject.SetActive(false);
-        }
+    }
+
+    public void DisableItem()
+    {
+        gameObject.SetActive(false);
     }
 
     public void AnimateItemPickup()
