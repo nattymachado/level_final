@@ -73,7 +73,7 @@ public class InventoryCenterBehaviour : MonoBehaviour
 
         if (haveAllItems)
         {
-            StartCoroutine(WaitToGetSpecialItem(1f));
+            StartCoroutine(WaitToGetSpecialItem(0.15f));
         }
 
     }
