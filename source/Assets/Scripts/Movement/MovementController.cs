@@ -48,6 +48,7 @@ public class MovementController : MonoBehaviour
 
     public void ActiveItemOrMove(Vector3 position)
     {
+        Debug.Log("Vou ver");
         bool hasItem = ActiveItem(position);
         if (!hasItem)
         {
@@ -69,6 +70,7 @@ public class MovementController : MonoBehaviour
         Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskItem);
         if (hits[0].collider != null)
         {
+            Debug.Log("Cliquei em algo");
             InteractableItemBehaviour item = hits[0].collider.GetComponent<InteractableItemBehaviour>();
             if (item)
             {
@@ -83,7 +85,6 @@ public class MovementController : MonoBehaviour
                     Move(position);
                 }
                 activateItem = true;
-
 
             }
 

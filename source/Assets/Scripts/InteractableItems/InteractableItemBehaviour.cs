@@ -11,6 +11,7 @@ public class InteractableItemBehaviour : MonoBehaviour
     protected bool _isLocked = false;
     private float _elapsed = 0f;
     private bool toUp = true;
+    protected bool executeWhenActivate = false;
     [SerializeField] public Vector3 pointOnNavMesh;
     [SerializeField] public GridBehaviour grid;
 
@@ -69,6 +70,12 @@ public class InteractableItemBehaviour : MonoBehaviour
 
     public void SetActive(bool isActive)
     {
+        if (executeWhenActivate)
+        {
+            Debug.Log("will execute action");
+            ExecuteAction();
+            return;
+        }
         _isActive = isActive;
         if (isActive)
         {
@@ -84,6 +91,12 @@ public class InteractableItemBehaviour : MonoBehaviour
     }
 
     protected virtual void ExecuteAction(Collider other)
+    {
+
+    }
+
+
+    protected virtual void ExecuteAction()
     {
 
     }

@@ -12,7 +12,8 @@ public static class GameEvents
     public static Action OpenTutorialDialogBox;
     public static Action CloseTutorialDialogBox;
     public static Action<Sprite> TriggerItemPickupAnimation;
-    }
+    public static Action TriggerItemsJoinAnimation;
+  }
 
   public static class AudioEvents
   {
