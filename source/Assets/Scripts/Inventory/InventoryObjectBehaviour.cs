@@ -26,7 +26,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
             {
                 _isEnabled = false;
                 GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-                StartCoroutine(WaitToIncludeOnInventory(1f));
+                IncludeItemOnInventory();
             }
         }
     }
