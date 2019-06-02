@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,6 +11,9 @@ public class CharacterBehaviour : MonoBehaviour
     public CameraBehaviour cameraBehaviour;
     public Animator animator;
     public InventoryCenterBehaviour inventaryCenter;
+    public float rotationSpeed;
+    public Transform targetToRotation;
+    private Quaternion _lookRotation;
 
     //Control Variables
     private FSMController _FSMController;
@@ -52,7 +56,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void EnableNavegation()
     {
-        
+
         _navMeshAgent.enabled = true;
     }
 
@@ -78,7 +82,53 @@ public class CharacterBehaviour : MonoBehaviour
     //Update
     private void Update()
     {
-        if(this.transform.position == _navMeshAgent.destination) _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
+        if (this.transform.position == _navMeshAgent.destination) _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
         _FSMController.UpdateFSM();
+
+
+    }
+
+    //Update
+    private void FixedUpdate()
+    {
+
+        if (targetToRotation != null)
+        {
+            RotateTo();
+        }
+    }
+
+    public void SetRotation(Transform target)
+    {
+        if (targetToRotation == null)
+        {
+            targetToRotation = target;
+        }
+
+    }
+
+    private void RotateTo()
+    {
+
+        //find the vector pointing from our position to the target
+        Vector3 direction = (targetToRotation.position - transform.position).normalized;
+
+        //create the rotation we need to be in to look at the target
+        _lookRotation = Quaternion.LookRotation(direction);
+
+        if (Math.Abs(transform.rotation.eulerAngles.y - _lookRotation.eulerAngles.y) < 1)
+        {
+            targetToRotation = null;
+            return;
+        }
+        //rotate us over time according to speed until we are in the required rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * rotationSpeed);
+
+
+
+
+
+
+
     }
 }

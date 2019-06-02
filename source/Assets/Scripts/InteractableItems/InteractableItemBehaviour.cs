@@ -14,11 +14,16 @@ public class InteractableItemBehaviour : MonoBehaviour
     protected bool executeWhenActivate = false;
     [SerializeField] public Vector3 pointOnNavMesh;
     [SerializeField] public GridBehaviour grid;
+    [SerializeField] public bool executeRotation = true;
 
     void OnTriggerEnter(Collider other)
     {
         if (_isActive)
         {
+            if (executeRotation)
+            {
+                SetRotation(other);
+            }
             ExecuteAction(other);
         }
 
@@ -29,6 +34,15 @@ public class InteractableItemBehaviour : MonoBehaviour
         if (_isActive)
         {
             ExecuteAction(other);
+        }
+    }
+
+    private void SetRotation(Collider collider)
+    {
+        CharacterBehaviour character = collider.GetComponent<CharacterBehaviour>();
+        if (character != null)
+        {
+            character.SetRotation(transform);
         }
     }
 
@@ -72,7 +86,6 @@ public class InteractableItemBehaviour : MonoBehaviour
     {
         if (executeWhenActivate)
         {
-            Debug.Log("will execute action");
             ExecuteAction();
             return;
         }

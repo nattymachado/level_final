@@ -177,6 +177,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 005852f90b73b924bbb1ad6dbf83e615, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005852f90b73b924bbb1ad6dbf83e615, type: 3}
 --- !u!4 &13412433 stripped
@@ -325,6 +329,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ff55063f2f8be2b4687fedd7651b828b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff55063f2f8be2b4687fedd7651b828b, type: 3}
 --- !u!4 &34365328 stripped
@@ -458,6 +466,7 @@ GameObject:
   - component: {fileID: 71525564}
   - component: {fileID: 71525563}
   - component: {fileID: 71525562}
+  - component: {fileID: 71525568}
   m_Layer: 13
   m_Name: pinkCard
   m_TagString: Untagged
@@ -527,7 +536,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.55960363, y: 0.059050485, z: 0.6334369}
+  m_Size: {x: 0.77, y: 0.36, z: 0.6334369}
   m_Center: {x: -0.023311585, y: -0.029525347, z: 0.9418392}
 --- !u!114 &71525565
 MonoBehaviour:
@@ -586,6 +595,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71525560}
   m_Mesh: {fileID: 4300064, guid: c20f9047877d48c4fb2200a0205b8f28, type: 3}
+--- !u!208 &71525568
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71525560}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.22, y: 0.12, z: 0.285}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.02331159, y: -0.02952535, z: 0.9418392}
+  m_TimeToStationary: 0.5
 --- !u!1001 &95366580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,6 +676,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c9ead828294c2214e8085d936667b8df, type: 2}
     - target: {fileID: 2300000, guid: 548f9bfba43f89a4eb09a6a6b3c1bcf1, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 548f9bfba43f89a4eb09a6a6b3c1bcf1, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -825,6 +854,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c9ead828294c2214e8085d936667b8df, type: 2}
     - target: {fileID: 2300000, guid: f92cd510c08fe024c983a2870638ad05, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f92cd510c08fe024c983a2870638ad05, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1019,6 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   shape: triangle
   isRight: 0
 --- !u!95 &179326310
@@ -1231,6 +1265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   shape: circle
   isRight: 0
 --- !u!95 &227464488
@@ -1653,6 +1688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 1
   itemName: specialItem
   _patientLevel: 1
   victoryCanvas: {fileID: 1402543266}
@@ -6723,6 +6759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   shape: dunuts
   isRight: 0
 --- !u!135 &539032777
@@ -7153,8 +7190,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91306555, y: 0.26183477, z: 0.52268606}
-  m_Center: {x: -0.000019788742, y: -0.06604599, z: 0.21849851}
+  m_Size: {x: 0.91306555, y: 0.84392637, z: 0.52268606}
+  m_Center: {x: -0.000019788742, y: -0.3570932, z: 0.21850006}
 --- !u!114 &607609591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7167,8 +7204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7b926c52227634d8eea120bc36fb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 5.25, y: -17, z: -1.8}
+  pointOnNavMesh: {x: 5.25, y: -17, z: -1.5}
   grid: {fileID: 1931163444}
+  executeRotation: 1
   character: {fileID: 2021885578}
   gateAnimator: {fileID: 281362671}
   gateAnimator2: {fileID: 1155687683}
@@ -7303,6 +7341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   color: blue
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: 69e99949afe24d34d9f42b0d666149c9, type: 2}
@@ -7418,6 +7457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   color: green
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: 772241f78b4ff7140a19ffc0e52a0873, type: 2}
@@ -7901,6 +7941,10 @@ PrefabInstance:
       propertyPath: inventaryCenter
       value: 
       objectReference: {fileID: 297227684}
+    - target: {fileID: 1096371232, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4300158490982185806, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7955,6 +7999,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096371231, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: m_Radius
+      value: 0.20729801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096371231, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: m_Center.x
+      value: 0.030916039
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096371231, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: m_Center.z
+      value: -5.936201e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096371231, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: m_Height
+      value: 1.1590357
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096371231, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: m_Center.y
+      value: 0.47199845
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
@@ -10450,6 +10514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: -1.052337, y: -20.203, z: 0.713}
   grid: {fileID: 128242540}
+  executeRotation: 1
   character: {fileID: 2021885578}
   colorController: {fileID: 1155687807}
   cardName: yellowCard
@@ -10763,6 +10828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: -4.613, y: -23.02897, z: 7.319}
   grid: {fileID: 1041775328}
+  executeRotation: 1
   character: {fileID: 2021885578}
   gateAnimator: {fileID: 1155687712}
   itemCollider: {fileID: 1609273698}
@@ -20012,6 +20078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   color: yellow
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: 5d7d231c448f9204784e986cc7812785, type: 2}
@@ -20285,6 +20352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   color: red
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: f5bbcc093baafe14e9ff492a1b3a8c0c, type: 2}
@@ -25947,6 +26015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  executeRotation: 0
   shape: square
   isRight: 0
 --- !u!95 &2014170981
@@ -26642,6 +26711,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525758846578443479, guid: 75ff74a1871be1b41b93fddfc884d53e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523439635486557746, guid: 75ff74a1871be1b41b93fddfc884d53e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523439635486557746, guid: 75ff74a1871be1b41b93fddfc884d53e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523439635486557746, guid: 75ff74a1871be1b41b93fddfc884d53e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7525758845831162253, guid: 75ff74a1871be1b41b93fddfc884d53e,
         type: 3}

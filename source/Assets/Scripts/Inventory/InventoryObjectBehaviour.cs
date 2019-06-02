@@ -25,19 +25,27 @@ public class InventoryObjectBehaviour : MonoBehaviour
             if (character != null)
             {
                 _isEnabled = false;
-                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-                IncludeItemOnInventory();
+                GetItem(character);
             }
         }
     }
 
-    IEnumerator WaitToIncludeOnInventory(float seconds)
+    private void GetItem(CharacterBehaviour character)
     {
-        yield return new WaitForSeconds(seconds);
-        IncludeItemOnInventory();
+        character.SetRotation(transform);
+        
+        
+        StartCoroutine(WaitToIncludeOnInventory(0f, character));
     }
 
-    private void IncludeItemOnInventory()
+    IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+        IncludeItemOnInventory(character);
+    }
+
+    private void IncludeItemOnInventory(CharacterBehaviour character)
     {
         GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("ItemPickup", this.transform.position);
         if (_animator != null)
