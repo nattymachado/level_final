@@ -71,7 +71,7 @@ public class InventoryCenterBehaviour : MonoBehaviour
             }
         }
 
-        if (haveAllItems)
+        if (!haveAllItems)
         {
             StartCoroutine(WaitToGetSpecialItem(0.15f));
         }
