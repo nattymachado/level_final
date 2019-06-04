@@ -13,19 +13,26 @@ public class SpecialItemJoinAnimationController : MonoBehaviour
     void Start()
     {
         _animator = this.GetComponent<Animator>();
-        SpecialItemCanvasBehaviour[] animationItems = _items.GetComponentsInChildren<SpecialItemCanvasBehaviour>();
-        Debug.Log("Items:" + animationItems.Length);
-        Debug.Log("Images:" + _images.Length);
-        for (int i=0; i < animationItems.Length; i++)
+        if (_images != null && _images.Length > 0)
         {
-            animationItems[i].GetComponentInChildren<Image>().sprite = _images[i].sprite;
+            SpecialItemCanvasBehaviour[] animationItems = _items.GetComponentsInChildren<SpecialItemCanvasBehaviour>();
+            for (int i = 0; i < animationItems.Length; i++)
+            {
+                if (_images[i]!= null)
+                    animationItems[i].GetComponentInChildren<Image>().sprite = _images[i].sprite;
+
+
+            }
+            GameEvents.UIEvents.TriggerItemsJoinAnimation += Animate;
         }
-        GameEvents.UIEvents.TriggerItemsJoinAnimation += Animate;
+        
+        
     }
 
     private void OnDestroy()
     {
-        GameEvents.UIEvents.TriggerItemsJoinAnimation -= Animate;
+        if (_images != null)
+            GameEvents.UIEvents.TriggerItemsJoinAnimation -= Animate;
     }
 
     private void Animate()

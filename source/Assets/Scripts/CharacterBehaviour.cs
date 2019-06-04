@@ -109,7 +109,8 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void RotateTo()
     {
-
+        Debug.Log("Will rotate");
+        Debug.Log("Positionto rotate:" + targetToRotation);
         //find the vector pointing from our position to the target
         Vector3 direction = (targetToRotation.position - transform.position).normalized;
 
@@ -118,11 +119,13 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (Math.Abs(transform.rotation.eulerAngles.y - _lookRotation.eulerAngles.y) < 1)
         {
+            Debug.Log("going home");
             targetToRotation = null;
             return;
         }
+        Debug.Log("rotating ..." + rotationSpeed);
         //rotate us over time according to speed until we are in the required rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);
 
 
 
