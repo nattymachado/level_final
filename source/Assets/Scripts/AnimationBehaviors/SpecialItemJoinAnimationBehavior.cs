@@ -9,6 +9,6 @@ public class SpecialItemJoinAnimationBehavior : StateMachineBehaviour
     {
         InventoryObjectBehaviour scriptRef = animator.GetComponent<InventoryObjectBehaviour>();
         scriptRef.DisableItem();
-        scriptRef.AnimateItemPickup();
+        scriptRef.TriggerMovementAnimation();
     }
 }

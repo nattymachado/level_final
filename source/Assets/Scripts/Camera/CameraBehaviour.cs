@@ -57,6 +57,7 @@ public class CameraBehaviour : MonoBehaviour
     private float deadAreaOriginalScale;
     private float initialCharHeightDiff;
     private Vector3 lastCharacterPosition;
+    private bool isActive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -75,9 +76,19 @@ public class CameraBehaviour : MonoBehaviour
         // transform.eulerAngles = new Vector3(XAngle, targetAngle, ZAngle);
 
         // changeAngle();
+        GameEvents.CameraEvents.SetCameraActive += SetCameraActive;
 
     }
 
+    private void OnDestroy()
+    {
+        GameEvents.CameraEvents.SetCameraActive -= SetCameraActive;
+    }
+
+    private void SetCameraActive(bool status)
+    {
+        isActive = status;
+    }
 
     // private void ExecuteInitAnimation()
     // {
@@ -99,9 +110,12 @@ public class CameraBehaviour : MonoBehaviour
 
     private void LateUpdate()
     {
-        UpdateTranslation();
-        UpdateRotation();
-        UpdateZoom();
+        if(isActive)
+        {
+            UpdateTranslation();
+            UpdateRotation();
+            UpdateZoom();
+        }
     }
 
     private void UpdateZoom()
