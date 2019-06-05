@@ -51,7 +51,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
     private void IncludeItemOnInventory(CharacterBehaviour character)
     {
         GameEvents.CameraEvents.SetCameraActive.SafeInvoke(false);
-        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("ItemPickup", this.transform.position);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
         if (_animator != null)
         {
             _animator.SetBool("IsGoingToInventary", true);
