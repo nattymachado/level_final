@@ -8,15 +8,24 @@ public class Switch1Behaviour : InteractableItemBehaviour
 
     protected override void ExecuteAction(Collider other)
     {
-        if (_isLocked)
+        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+        if (_isLocked || (character != null && !character.IsStoped()))
         {
             return;
         }
-        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
+
+        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+        _isLocked = true;
+        StartCoroutine(WaitToOpenGate(0.7f));
+    }
+
+    IEnumerator WaitToOpenGate(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
         transform.Rotate(0, -180, 0);
         gateAnimator.SetBool("isOpen", true);
         SetActive(false);
-        _isLocked = true;
+        
     }
 
 

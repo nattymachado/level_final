@@ -17,7 +17,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     //Control Variables
     private FSMController _FSMController;
-    private NavMeshAgent _navMeshAgent;
+    public NavMeshAgent _navMeshAgent;
 
     private void Awake()
     {
@@ -30,6 +30,11 @@ public class CharacterBehaviour : MonoBehaviour
     private void Start()
     {
         _FSMController = new FSMController(this);
+    }
+
+    public bool IsStoped()
+    {
+        return transform.position == _navMeshAgent.destination;
     }
 
     //OnDestroy
@@ -115,19 +120,13 @@ public class CharacterBehaviour : MonoBehaviour
         //create the rotation we need to be in to look at the target
         _lookRotation = Quaternion.LookRotation(direction);
 
-        if (Math.Abs(transform.rotation.eulerAngles.y - _lookRotation.eulerAngles.y) < 1)
+        if (Math.Abs(transform.rotation.eulerAngles.y - _lookRotation.eulerAngles.y) < 0.1)
         {
             targetToRotation = null;
+            Debug.Log("Finish the rotation!");
             return;
         }
         //rotate us over time according to speed until we are in the required rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);
-
-
-
-
-
-
-
     }
 }

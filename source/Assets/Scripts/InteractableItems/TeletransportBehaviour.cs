@@ -7,13 +7,13 @@ namespace prototypeRobot
     public class TeletransportBehaviour : InteractableItemBehaviour
     {
         [SerializeField] Transform endPosition;
-        private CharacterBehaviour _character;
+        public CharacterBehaviour character;
         private bool _canMove = false;
 
         protected override void ExecuteAction(Collider other)
         {
-            _character = other.GetComponent<CharacterBehaviour>();
-            if (_character && !_canMove)
+            character = other.GetComponent<CharacterBehaviour>();
+            if (character && !_canMove)
             {
                 _canMove = true;
             }
@@ -28,22 +28,22 @@ namespace prototypeRobot
         private void Update()
         {
             //base.Shine();
-            if (_canMove && _character != null)
+            if (_canMove && character != null)
             {
                 _canMove = false;
-                _character.DisableNavegation();
-                _character.transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+                character.DisableNavegation();
+                character.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 StartCoroutine(WaitToMove());
             }
         }
 
         private void Move()
         {
-            if (!_character)
+            if (!character)
                 return;
-            _character.transform.position = new Vector3(endPosition.position.x, endPosition.position.y + 0.1f, endPosition.position.z);
-            _character.EnableNavegation();
-            _character = null;
+            character.transform.position = new Vector3(endPosition.position.x, endPosition.position.y + 0.1f, endPosition.position.z);
+            character.EnableNavegation();
+            character = null;
         }
     }
 }

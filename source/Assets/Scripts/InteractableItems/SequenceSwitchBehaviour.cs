@@ -14,12 +14,20 @@ namespace prototypeRobot
             if (!_isOn)
             {
                 SetActive(false);
-                transform.parent.transform.Rotate(0, 0, 180);
-                GetComponentInParent<SwitchControllerBehaviour>().CheckSwitchPosition(id);
-                _isOn = true;
-                _isLocked = true;
+                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+                StartCoroutine(WaitToChangeState(0.5f));
             }
             
+        }
+
+        IEnumerator WaitToChangeState(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            transform.parent.transform.Rotate(0, 0, 180);
+            GetComponentInParent<SwitchControllerBehaviour>().CheckSwitchPosition(id);
+            _isOn = true;
+            _isLocked = true;
+
         }
 
         public void Clear()
