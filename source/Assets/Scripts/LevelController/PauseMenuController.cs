@@ -21,6 +21,7 @@ public class PauseMenuController : MonoBehaviour
     public void OpenClosePatientReport(bool state)
     {
         patientReportGameObject.SetActive(state);
+        if(state) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("OpenPatientRecord", false, false);
     }
 
     public void ExitLevelButton()

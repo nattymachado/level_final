@@ -57,18 +57,19 @@ public class ConfigurationMenu : MonoBehaviour
 
     public void UpdateSFXVolume()
     {
+        GameConfiguration.Instance.SetSFXVolume(_sfxSlider.value);
         GameEvents.AudioEvents.SetSFXVolume.SafeInvoke(_sfxSlider.value);
     }
 
     public void UpdateBGMVolume()
     {
+        GameConfiguration.Instance.SetBGMVolume(_bgmSlider.value);
         GameEvents.AudioEvents.SetBGMVolume.SafeInvoke(_bgmSlider.value);
     }
 
     public void Quit()
     {
         Application.Quit();
-
     }
 }
 

@@ -7,7 +7,7 @@ public abstract class BaseAudioController : MonoBehaviour
 {
     //Control Variables
     [Header("General Configurations")]
-    [SerializeField] protected float _baseVolume;
+    [SerializeField] protected float _baseVolumeFactor = 1f;
     [SerializeField] protected AudioSource _audioSource;
     [SerializeField] protected AudioTypeEnum _audioType;
 
@@ -20,14 +20,10 @@ public abstract class BaseAudioController : MonoBehaviour
         _audioSource.playOnAwake = false;
         _audioSource.Stop();
         _audioSource.spatialBlend = 0f;
-        
+        _audioSource.volume = _baseVolumeFactor;
     }
 
     //Adjust Volume
-    protected virtual void SetDesiredVolume(float newVolume)
-    {
-       
-        
-    }
+    protected virtual void SetDesiredVolume(float newVolume) { }
 }
 

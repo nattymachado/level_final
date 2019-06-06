@@ -33,10 +33,7 @@ public class SFXAudioController : BaseAudioController
     //Adjust Volume
     protected override void SetDesiredVolume(float newVolume)
     {
-        /*if(newVolume > _baseVolume) _desiredVolume = Mathf.Min(_baseVolume + (newVolume - _baseVolume), 1f);
-        else _desiredVolume = Mathf.Max(_baseVolume + (_baseVolume - newVolume), 0f);*/
-        _desiredVolume = newVolume;
-        GameConfiguration.Instance.SetSFXVolume(_desiredVolume);
+        _audioSource.volume = newVolume * _baseVolumeFactor;
     }
 
     //OnDestroy Memory Leak Safeguard
@@ -101,19 +98,5 @@ public class SFXAudioController : BaseAudioController
         {
             AudioSource.PlayClipAtPoint(clip, position, _desiredVolume);
         }
-    }
-
-    //Update
-    protected virtual void Update()
-    {
-        /*if (_audioSource.volume != _desiredVolume)
-        {
-            Debug.Log("Upadting:" +  _desiredVolume);
-            if (_audioSource.volume < _desiredVolume) _audioSource.volume = Mathf.Min(_audioSource.volume + (_volumeFadeFactor * Time.deltaTime), 1f);
-            else _audioSource.volume = Mathf.Max(_audioSource.volume - (_volumeFadeFactor * Time.deltaTime), 0f);
-        }*/
-        _desiredVolume = 1;
-        if (GameConfiguration.Instance) _desiredVolume = GameConfiguration.Instance.GetSFXVolume();
-        _audioSource.volume = _desiredVolume;
     }
 }

@@ -21,18 +21,19 @@ public class PatientRecordUIController : MonoBehaviour
     GameEvents.UIEvents.OpenPatientRecord -= OpenPatientRecord;
   }
 
-  //Open Patient Record
-  private void OpenPatientRecord(GameEnums.PatientEnum requestedPatient)
-  {
-    foreach (PatientRecordController patientRecord in _patientRecordArray)
+    //Open Patient Record
+    private void OpenPatientRecord(GameEnums.PatientEnum requestedPatient)
     {
-      if (patientRecord.patient == requestedPatient)
-      {
-        patientRecord.gameObject.SetActive(true);
-        return;
-      }
+        foreach (PatientRecordController patientRecord in _patientRecordArray)
+        {
+            if (patientRecord.patient == requestedPatient)
+            {
+                patientRecord.gameObject.SetActive(true);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("OpenPatientRecord", false, false);
+                return;
+            }
+        }
     }
-  }
 
   //Load Scene
   public void LoadScene(LevelDefs level)

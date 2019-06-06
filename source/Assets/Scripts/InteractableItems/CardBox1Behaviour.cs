@@ -23,7 +23,7 @@ public class CardBox1Behaviour : InteractableItemBehaviour
         if (_cardNumber > 0)
         {
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-            StartCoroutine(WaitToOpenGate(1f, _cardNumber));
+            StartCoroutine(WaitToOpenGate(0f, _cardNumber));
         }
 
     }

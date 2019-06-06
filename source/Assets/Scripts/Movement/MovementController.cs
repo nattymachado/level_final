@@ -22,7 +22,7 @@ public class MovementController : MonoBehaviour
 
     private void PositionOnBoard(Vector3 position)
     {
-        Debug.Log(position);
+        //Debug.Log(position);
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit[] hits = new RaycastHit[1];
@@ -37,7 +37,7 @@ public class MovementController : MonoBehaviour
 
     public void MoveToPosition(GridBehaviour grid, Vector3 point)
     {
-        Debug.Log("POINT:" + point);
+        //Debug.Log(point);
         Node boardNode = grid.NodeFromWorldPosition(point);
         pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
         _character.Move(pointer.transform.position);
@@ -48,7 +48,6 @@ public class MovementController : MonoBehaviour
 
     public void ActiveItemOrMove(Vector3 position)
     {
-        Debug.Log("Vou ver");
         bool hasItem = ActiveItem(position);
         if (!hasItem)
         {
@@ -58,6 +57,7 @@ public class MovementController : MonoBehaviour
 
     public void Move(Vector3 position)
     {
+        //Debug.Log(position);
         PositionOnBoard(position);
     }
 
@@ -70,7 +70,6 @@ public class MovementController : MonoBehaviour
         Physics.RaycastNonAlloc(ray, hits, 500f, _raycastMaskItem);
         if (hits[0].collider != null)
         {
-            Debug.Log("Cliquei em algo");
             InteractableItemBehaviour item = hits[0].collider.GetComponent<InteractableItemBehaviour>();
             if (item)
             {

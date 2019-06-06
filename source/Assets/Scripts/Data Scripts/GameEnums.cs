@@ -33,6 +33,7 @@ public static class GameEnums
     public enum AudioTypeEnum
     {
         BGM,
-        SFX
+        SFX,
+        UISFX
     }
 }

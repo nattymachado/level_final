@@ -5,12 +5,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 public class InventoryObjectBehaviour : MonoBehaviour
 {
-
+    public Transform objectCenter;
     [SerializeField] public string Name;
     [SerializeField] public Image objectImage;
     [SerializeField] public InventoryCenterBehaviour inventaryCenter;
     private Animator _animator;
     private bool _isEnabled = true;
+    private Vector3 _targetMovementLocation = Vector3.zero;
+    private float animationMovementSpeed;
+    private float animationTime = 1f;
 
     private void Awake()
     {
@@ -25,21 +28,30 @@ public class InventoryObjectBehaviour : MonoBehaviour
             if (character != null)
             {
                 _isEnabled = false;
-                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-                StartCoroutine(WaitToIncludeOnInventory(1f));
+                GetItem(character);
             }
         }
     }
 
-    IEnumerator WaitToIncludeOnInventory(float seconds)
+    private void GetItem(CharacterBehaviour character)
     {
-        yield return new WaitForSeconds(seconds);
-        IncludeItemOnInventory();
+        character.SetRotation(transform);
+        
+        
+        StartCoroutine(WaitToIncludeOnInventory(0f, character));
     }
 
-    private void IncludeItemOnInventory()
+    IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
     {
-        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("ItemPickup", this.transform.position);
+        yield return new WaitForSeconds(seconds);
+        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+        IncludeItemOnInventory(character);
+    }
+
+    private void IncludeItemOnInventory(CharacterBehaviour character)
+    {
+        GameEvents.CameraEvents.SetCameraActive.SafeInvoke(false);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
         if (_animator != null)
         {
             _animator.SetBool("IsGoingToInventary", true);
@@ -52,8 +64,26 @@ public class InventoryObjectBehaviour : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void AnimateItemPickup()
+    public void TriggerMovementAnimation()
     {
-        GameEvents.UIEvents.TriggerItemPickupAnimation.SafeInvoke(objectImage.sprite);
+        _targetMovementLocation = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth - 150, Camera.main.pixelHeight - 150, 5f));
+        animationMovementSpeed = Vector3.Distance(objectCenter.position, _targetMovementLocation) / animationTime;
+    }
+
+    private void Update()
+    {
+        if(_targetMovementLocation != Vector3.zero)
+        {
+            if (this.transform.position == _targetMovementLocation)
+            {
+                _targetMovementLocation = Vector3.zero;
+                DisableItem();
+                GameEvents.CameraEvents.SetCameraActive.SafeInvoke(true);
+            }
+            else
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, _targetMovementLocation, animationMovementSpeed * Time.deltaTime);
+            }
+        }
     }
 }
