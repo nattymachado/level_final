@@ -23,6 +23,8 @@ public class FSMController
         }
         set
         {
+            characterBehavior.inputController.SetActive(!value);
+            characterBehavior.cameraBehaviour.ResetPanZoomDislocation();
             characterBehavior.SetNavMeshStopped(value);
             lockedByInteraction = value;
         }

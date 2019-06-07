@@ -44,13 +44,12 @@ public class InventoryObjectBehaviour : MonoBehaviour
     IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
     {
         yield return new WaitForSeconds(seconds);
-        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+        GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
         IncludeItemOnInventory(character);
     }
 
     private void IncludeItemOnInventory(CharacterBehaviour character)
     {
-        GameEvents.CameraEvents.SetCameraActive.SafeInvoke(false);
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
         if (_animator != null)
         {
@@ -61,6 +60,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     public void DisableItem()
     {
+        GameEvents.FSMEvents.FinishedInteraction.SafeInvoke(); //Unlock Inputs
         gameObject.SetActive(false);
     }
 
@@ -78,7 +78,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
             {
                 _targetMovementLocation = Vector3.zero;
                 DisableItem();
-                GameEvents.CameraEvents.SetCameraActive.SafeInvoke(true);
             }
             else
             {

@@ -9,6 +9,7 @@ public class CharacterBehaviour : MonoBehaviour
     //Reference Variables
     [Header("Required References")]
     public CameraBehaviour cameraBehaviour;
+    public InputController inputController;
     public Animator animator;
     public InventoryCenterBehaviour inventaryCenter;
     public float rotationSpeed;

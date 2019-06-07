@@ -373,9 +373,8 @@ Transform:
   - {fileID: 1972110173}
   - {fileID: 1155922206}
   - {fileID: 1248175918}
-  - {fileID: 2021885575}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &67202568
 GameObject:
@@ -2114,6 +2113,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564435941}
   m_Mesh: {fileID: 4300032, guid: 7c657f192eceea84e90a9dc8722873d6, type: 3}
+--- !u!114 &574809908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5339269897629462348, guid: f9e676c119cb72841b03f516e9dd9270,
+    type: 3}
+  m_PrefabInstance: {fileID: 97110876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff495a3e5ce291488e1106afbe52789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &576050182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,7 +3202,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 59990947}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4300158490982185843, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
         type: 3}
@@ -3206,6 +3217,10 @@ PrefabInstance:
       propertyPath: inventaryCenter
       value: 
       objectReference: {fileID: 297227684}
+    - target: {fileID: 1096371232, guid: ff0151261dd8ed0478cdf5d54ac6cdb1, type: 3}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 574809908}
     - target: {fileID: 4300158490982185806, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3244,7 +3259,7 @@ PrefabInstance:
     - target: {fileID: 4300158490982185806, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4300158490982185806, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
         type: 3}
@@ -3406,7 +3421,7 @@ PrefabInstance:
     - target: {fileID: 263164497332804029, guid: 598aa38df6c23e64b9b06a6b73ef3a75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 263164497332804029, guid: 598aa38df6c23e64b9b06a6b73ef3a75,
         type: 3}
@@ -10940,12 +10955,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.64444304, y: 0.6964637, z: 0.27353737}
   m_Center: {x: -0.011855364, y: -0.49801219, z: 0.029652731}
---- !u!4 &2021885575 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4300158490982185806, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
-    type: 3}
-  m_PrefabInstance: {fileID: 824787724}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2021885578 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1096371232, guid: ff0151261dd8ed0478cdf5d54ac6cdb1,
@@ -11079,7 +11088,7 @@ PrefabInstance:
     - target: {fileID: 2666528915245237392, guid: 6accffa5d89b79e44a10454b434ab4ba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2666528915245237392, guid: 6accffa5d89b79e44a10454b434ab4ba,
         type: 3}
@@ -11655,6 +11664,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
+        type: 3}
+      propertyPath: _specialItem
+      value: 
+      objectReference: {fileID: 564435943}
     - target: {fileID: 6593110794255580151, guid: b95d008847d7246458c23ff17960c217,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12035,11 +12049,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
-        type: 3}
-      propertyPath: _specialItem
-      value: 
-      objectReference: {fileID: 564435943}
     - target: {fileID: 297373978998595024, guid: b95d008847d7246458c23ff17960c217,
         type: 3}
       propertyPath: m_SizeDelta.x

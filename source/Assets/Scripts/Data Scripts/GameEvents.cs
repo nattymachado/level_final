@@ -45,9 +45,4 @@ public static class GameEvents
         public static Action OpenedInventory;
         public static Action ClosedInventory;
     }
-
-    public static class CameraEvents
-    {
-        public static Action<bool> SetCameraActive;
-    }
 }
