@@ -23,4 +23,8 @@ public class DogLevelDoor : MonoBehaviour
     if(opened) Close(); else Open();
   }
 
+  public void ForceOpen(){
+    Open();
+  }
+
 }
