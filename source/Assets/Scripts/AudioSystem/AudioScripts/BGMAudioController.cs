@@ -20,7 +20,6 @@ public class BGMAudioController : BaseAudioController
         _audioSource.loop = true;
         _audioSource.spatialBlend = 0f;
         _audioSource.Play();
-        _audioType = GameEnums.AudioTypeEnum.BGM;
         GameEvents.AudioEvents.SetBGMVolume += SetDesiredVolume;
     }
 

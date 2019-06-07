@@ -23,7 +23,6 @@ public class SFXAudioController : BaseAudioController
         _audioSource.minDistance = _minHearingDistance;
         _audioSource.maxDistance = _maxHearingDistance;
         _audioSource.rolloffMode = AudioRolloffMode.Linear;
-        _audioType = GameEnums.AudioTypeEnum.SFX;
         GameEvents.AudioEvents.SetSFXVolume += SetDesiredVolume;
         GameEvents.AudioEvents.TriggerSFX += TriggerAudioClip;
         GameEvents.AudioEvents.TriggerRandomSFX += TriggerRandomAudioClip;
