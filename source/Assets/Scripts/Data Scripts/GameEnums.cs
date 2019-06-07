@@ -27,7 +27,9 @@ public static class GameEnums
         PickupItem,
         ActivateItem,
         UseLadder,
-        Victory
+        Victory,
+        EnterOnPortal,
+        ExitOfPortal
     }
 
     public enum AudioTypeEnum

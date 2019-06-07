@@ -21,7 +21,7 @@ namespace prototypeRobot
 
         IEnumerator WaitToMove()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             Move();
         }
 
@@ -30,18 +30,20 @@ namespace prototypeRobot
             //base.Shine();
             if (_canMove && character != null)
             {
-                _canMove = false;
                 character.DisableNavegation();
                 character.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.EnterOnPortal);
                 StartCoroutine(WaitToMove());
             }
         }
 
         private void Move()
         {
+            _canMove = false;
             if (!character)
                 return;
             character.transform.position = new Vector3(endPosition.position.x, endPosition.position.y + 0.1f, endPosition.position.z);
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.EnterOnPortal);
             character.EnableNavegation();
             character = null;
         }

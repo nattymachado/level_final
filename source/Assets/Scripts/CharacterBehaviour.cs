@@ -50,6 +50,9 @@ public class CharacterBehaviour : MonoBehaviour
             _navMeshAgent.destination = position;
             _navMeshAgent.isStopped = false;
             _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Moving);
+        } else
+        {
+            Debug.Log("Is locked!");
         }
     }
 

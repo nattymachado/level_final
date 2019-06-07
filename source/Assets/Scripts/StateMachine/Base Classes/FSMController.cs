@@ -63,6 +63,8 @@ public class FSMController
         _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.Moving, new FSMState_Moving(this));
         _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.ActivateItem, new FSMState_ActivateItem(this));
         _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.PickupItem, new FSMState_PickupItem(this));
+        _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.EnterOnPortal, new FSMState_EnterOnPortal(this));
+        _dictionaryEnumToState.Add(GameEnums.FSMInteractionEnum.ExitOfPortal, new FSMState_ExitOfPortal(this));
 
         //Finally...
         _currentState = _dictionaryEnumToState[GameEnums.FSMInteractionEnum.Idle];
