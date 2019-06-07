@@ -127,7 +127,6 @@ public class CharacterBehaviour : MonoBehaviour
         if (Math.Abs(transform.rotation.eulerAngles.y - _lookRotation.eulerAngles.y) < 0.1)
         {
             targetToRotation = null;
-            Debug.Log("Finish the rotation!");
             return;
         }
         //rotate us over time according to speed until we are in the required rotation

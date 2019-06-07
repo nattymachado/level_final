@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 public class InventoryObjectBehaviour : MonoBehaviour
 {
+    public GameEnums.ItemTypeEnum itemType;
     public Transform objectCenter;
     [SerializeField] public string Name;
     [SerializeField] public Image objectImage;
@@ -36,8 +37,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
     private void GetItem(CharacterBehaviour character)
     {
         character.SetRotation(transform);
-        
-        
         StartCoroutine(WaitToIncludeOnInventory(0f, character));
     }
 
@@ -51,15 +50,16 @@ public class InventoryObjectBehaviour : MonoBehaviour
     private void IncludeItemOnInventory(CharacterBehaviour character)
     {
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
-        if (_animator != null)
-        {
-            _animator.SetBool("IsGoingToInventary", true);
-        }
-        inventaryCenter.AddNewItem(this);
+        if (_animator != null) _animator.SetBool("IsGoingToInventary", true);
     }
 
     public void DisableItem()
     {
+        //Add to Inventory
+        if(itemType == GameEnums.ItemTypeEnum.Generic) inventaryCenter.AddNewItem(this);
+        else if (itemType == GameEnums.ItemTypeEnum.Collectible) CollectibleInventoryController.Instance.AddItem(objectImage.sprite);
+
+        //Finally...
         GameEvents.FSMEvents.FinishedInteraction.SafeInvoke(); //Unlock Inputs
         gameObject.SetActive(false);
     }
@@ -67,6 +67,13 @@ public class InventoryObjectBehaviour : MonoBehaviour
     public void TriggerMovementAnimation()
     {
         _targetMovementLocation = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth - 150, Camera.main.pixelHeight - 150, 5f));
+        animationMovementSpeed = Vector3.Distance(objectCenter.position, _targetMovementLocation) / animationTime;
+    }
+
+    public void TriggerCollectibleItemMovementAnimation()
+    {
+        Vector2 screenPosition = CollectibleInventoryController.Instance.GetNextVacantSlotScreenPosition();
+        _targetMovementLocation = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, Vector3.Distance(Camera.main.transform.position, this.transform.position)));
         animationMovementSpeed = Vector3.Distance(objectCenter.position, _targetMovementLocation) / animationTime;
     }
 
