@@ -16,7 +16,8 @@ public static class GameEnums
     {
         None,
         Robot,
-        Night
+        Night,
+        Dog
     }
 
     public enum FSMInteractionEnum
