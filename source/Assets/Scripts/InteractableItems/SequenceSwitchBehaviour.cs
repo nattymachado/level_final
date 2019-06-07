@@ -11,6 +11,12 @@ namespace prototypeRobot
 
         protected override void ExecuteAction(Collider other)
         {
+            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+            if  (character != null && !character.IsStoped())
+            {
+                return;
+            }
+        
             if (!_isOn)
             {
                 SetActive(false);

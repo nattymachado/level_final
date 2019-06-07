@@ -4,7 +4,6 @@ using System.Collections;
 public class Switch1Behaviour : InteractableItemBehaviour
 {
     [SerializeField] Animator gateAnimator;
-    private bool _isLocked=false;
 
     protected override void ExecuteAction(Collider other)
     {

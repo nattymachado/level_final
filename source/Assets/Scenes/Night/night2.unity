@@ -41697,7 +41697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
-  executeRotation: 1
+  executeRotation: 0
   endPosition: {fileID: 1879274114}
   character: {fileID: 1326188283}
 --- !u!1 &1879371422
@@ -42265,6 +42265,7 @@ GameObject:
   - component: {fileID: 1881567240}
   - component: {fileID: 1879371467}
   - component: {fileID: 1879371465}
+  - component: {fileID: 1879371469}
   m_Layer: 9
   m_Name: alavanca.001
   m_TagString: Untagged
@@ -42283,8 +42284,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.020670256, y: 0.02645454, z: 0.014124015}
-  m_Center: {x: 0.00033568346, y: -0.00031992234, z: 0.0069740685}
+  m_Size: {x: 0.024070898, y: 0.02645454, z: 0.014124015}
+  m_Center: {x: -0.0013646346, y: -0.00031992234, z: 0.006974068}
 --- !u!1 &1879371466
 GameObject:
   m_ObjectHideFlags: 0
@@ -42315,7 +42316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea804156e57d34c8ca963cf3716921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {x: 7.5, y: 5, z: 4.4}
   grid: {fileID: 0}
   executeRotation: 1
   id: 0
@@ -42337,6 +42338,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &1879371469
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371464}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.01, y: 0.01, z: 0.015}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.007}
+  m_TimeToStationary: 0.5
 --- !u!1 &1879371470
 GameObject:
   m_ObjectHideFlags: 0
@@ -42350,6 +42367,7 @@ GameObject:
   - component: {fileID: 1881567246}
   - component: {fileID: 1879371473}
   - component: {fileID: 1879371471}
+  - component: {fileID: 1879371475}
   m_Layer: 9
   m_Name: alavanca.002
   m_TagString: Untagged
@@ -42368,8 +42386,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.019231215, y: 0.02293349, z: 0.014124016}
-  m_Center: {x: -0.00019214851, y: -0.00019605797, z: 0.006974053}
+  m_Size: {x: 0.026075527, y: 0.025602983, z: 0.014124016}
+  m_Center: {x: -0.0013248761, y: 0.0004174919, z: 0.0069740536}
 --- !u!1 &1879371472
 GameObject:
   m_ObjectHideFlags: 0
@@ -42400,8 +42418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea804156e57d34c8ca963cf3716921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
-  grid: {fileID: 0}
+  pointOnNavMesh: {x: 7.5, y: 5.9, z: 5}
+  grid: {fileID: 1214867927}
   executeRotation: 1
   id: 1
 --- !u!1 &1879371474
@@ -42422,6 +42440,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &1879371475
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371470}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.01, y: 0.01, z: 0.015}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.007}
+  m_TimeToStationary: 0.5
 --- !u!1 &1879371476
 GameObject:
   m_ObjectHideFlags: 0
@@ -42435,6 +42469,7 @@ GameObject:
   - component: {fileID: 1881567252}
   - component: {fileID: 1879371479}
   - component: {fileID: 1879371477}
+  - component: {fileID: 1879371481}
   m_Layer: 9
   m_Name: alavanca.007
   m_TagString: Untagged
@@ -42453,8 +42488,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.016556496, y: 0.021770036, z: 0.014124018}
-  m_Center: {x: -0.00031029998, y: 0.00044158957, z: 0.0069740666}
+  m_Size: {x: 0.021226652, y: 0.026047047, z: 0.014124018}
+  m_Center: {x: 0.00063679134, y: 0.00081167836, z: 0.0069740666}
 --- !u!1 &1879371478
 GameObject:
   m_ObjectHideFlags: 0
@@ -42485,8 +42520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea804156e57d34c8ca963cf3716921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
-  grid: {fileID: 0}
+  pointOnNavMesh: {x: 5.5, y: 5.8, z: 5.5}
+  grid: {fileID: 1214867927}
   executeRotation: 1
   id: 2
 --- !u!1 &1879371480
@@ -42507,6 +42542,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &1879371481
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371476}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.01, y: 0.01, z: 0.015}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.007}
+  m_TimeToStationary: 0.5
 --- !u!1 &1879371482
 GameObject:
   m_ObjectHideFlags: 0
@@ -42520,6 +42571,7 @@ GameObject:
   - component: {fileID: 1881567258}
   - component: {fileID: 1879371485}
   - component: {fileID: 1879371483}
+  - component: {fileID: 1879371488}
   m_Layer: 9
   m_Name: alavanca.008
   m_TagString: Untagged
@@ -42538,8 +42590,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.018917127, y: 0.024863686, z: 0.0141240135}
-  m_Center: {x: -0.0000008823854, y: 0.0006710732, z: 0.0069740657}
+  m_Size: {x: 0.022859318, y: 0.024863686, z: 0.0141240135}
+  m_Center: {x: 0.0019702069, y: 0.0006710739, z: 0.0069740657}
 --- !u!1 &1879371484
 GameObject:
   m_ObjectHideFlags: 0
@@ -42572,8 +42624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea804156e57d34c8ca963cf3716921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
-  grid: {fileID: 0}
+  pointOnNavMesh: {x: 5.5, y: 5.8, z: 5.5}
+  grid: {fileID: 1214867927}
   executeRotation: 1
   id: 3
 --- !u!114 &1879371486
@@ -42611,6 +42663,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000007, y: 2.0000007, z: 7.73473}
   m_Center: {x: -0.0000028888956, y: 0.000000021384352, z: -2.8673294}
+--- !u!208 &1879371488
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.01, y: 0.01, z: 0.015}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.007}
+  m_TimeToStationary: 0.5
 --- !u!1 &1879371616
 GameObject:
   m_ObjectHideFlags: 0
@@ -43905,7 +43973,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1879371420}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -54972,7 +55040,7 @@ MonoBehaviour:
   - {fileID: 1881567424}
   right: {fileID: 2100000, guid: eb1df594b4b2ca548aa2be07271cbde4, type: 2}
   wrong: {fileID: 2100000, guid: 1103aa32d484c234183b102e4c589bc6, type: 2}
-  off: {fileID: 2100000, guid: cb177386511fbab4d892efd8a08418dc, type: 2}
+  off: {fileID: 2100000, guid: c9ead828294c2214e8085d936667b8df, type: 2}
   gateAnimator: {fileID: 1223337221}
   item: {fileID: 5558076659560268693}
   initRamp: {fileID: 0}
