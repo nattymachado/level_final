@@ -6,7 +6,7 @@ namespace prototypeRobot
 {
     public class ShapeControllerBehaviour : MonoBehaviour
     {
-
+        [HideInInspector] public bool isActive = true;
         [SerializeField] public string[] sequece = new string[4];
         [SerializeField] public Material right;
         [SerializeField] public Material wrong;
@@ -23,8 +23,10 @@ namespace prototypeRobot
                 shapeMesh.material = right;
                 position += 1;
                 isRight = true;
-            } else
+            }
+            else
             {
+                isActive = false;
                 shapeMesh.material = wrong;
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Does-not-compute", false, true);
                 IEnumerator  coroutine = WaitAndClear(1.0f);
@@ -40,7 +42,6 @@ namespace prototypeRobot
             return isRight;
         }
 
- 
         private IEnumerator WaitAndClear(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
@@ -50,9 +51,7 @@ namespace prototypeRobot
                 buttons[i].Clear();
             }
             position = 0;
-           
+            isActive = true;
         }
-
-
     }
 }

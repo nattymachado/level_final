@@ -26,7 +26,6 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
 
     public Vector2 GetNextVacantSlotScreenPosition()
     {
-        Debug.Log(specialSlots[currentSlot].transform.position);
         return specialSlots[currentSlot].transform.position;
     }
 

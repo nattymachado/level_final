@@ -30,11 +30,8 @@ namespace prototypeRobot
 
         protected override void ExecuteAction(Collider other)
         {
-            if (!isOn)
-            {
-                return;
-            }
-            if (!isRight)
+            if (!isOn) return;
+            else if (!isRight && GetComponentInParent<ColorControllerBehaviour>().isActive)
             {
                 _animator.SetBool("isPressed", true);
                 GetComponentInChildren<MeshRenderer>().material = colorMaterial;

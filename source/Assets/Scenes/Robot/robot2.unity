@@ -2851,6 +2851,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6850677613243868161, guid: 81a6fa123e5032248ac130c0bcae6a1d,
+        type: 3}
+      propertyPath: _maxHearingDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850677613243868161, guid: 81a6fa123e5032248ac130c0bcae6a1d,
+        type: 3}
+      propertyPath: _minHearingDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a6fa123e5032248ac130c0bcae6a1d, type: 3}
 --- !u!1 &774833606
@@ -5713,6 +5723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b67fabe0aa65544d8f724e060e9d0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   sequece:
   - dunuts
   - triangle
@@ -5786,6 +5797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178b02a76c0716b49bf243542be9d560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   sequece:
   - red
   - yellow
