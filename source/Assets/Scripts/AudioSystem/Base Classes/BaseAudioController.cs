@@ -9,7 +9,6 @@ public abstract class BaseAudioController : MonoBehaviour
     [Header("General Configurations")]
     [SerializeField] protected float _baseVolumeFactor = 1f;
     [SerializeField] protected AudioSource _audioSource;
-    [SerializeField] protected AudioTypeEnum _audioType;
 
     //Internal Variables
     protected float _desiredVolume;

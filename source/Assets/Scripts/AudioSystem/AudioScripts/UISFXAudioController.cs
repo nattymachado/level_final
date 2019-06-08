@@ -15,7 +15,6 @@ public class UISFXAudioController : BaseAudioController
         _audioSource.spatialBlend = 1f;
         _audioSource.loop = true;
         _audioSource.spatialBlend = 0f;
-        _audioType = GameEnums.AudioTypeEnum.UISFX;
         GameEvents.AudioEvents.SetSFXVolume += SetDesiredVolume;
         GameEvents.AudioEvents.TriggerSFX += TriggerAudioClip;
     }

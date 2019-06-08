@@ -6,7 +6,7 @@ namespace prototypeRobot
 {
     public class ColorControllerBehaviour : MonoBehaviour
     {
-
+        [HideInInspector] public bool isActive = true;
         [SerializeField] public string[] sequece = new string[4];
         [SerializeField] public Material wrongColor;
         [SerializeField] public GameObject card;
@@ -22,10 +22,12 @@ namespace prototypeRobot
                 colorButton.SetRightColor();
                 isRight = true;
                 position += 1;
-            } else
+            }
+            else
             {
+                isActive = false;
                 colorButton.SetWrongColor(wrongColor);
-                IEnumerator  coroutine = WaitAndClear(1.0f);
+                IEnumerator coroutine = WaitAndClear(1.0f);
                 StartCoroutine(coroutine);
             }
             if (position == sequece.Length)
@@ -36,7 +38,6 @@ namespace prototypeRobot
             }
             return isRight;
         }
-
  
         private IEnumerator WaitAndClear(float waitTime)
         {
@@ -48,7 +49,7 @@ namespace prototypeRobot
                 buttons[i].Clear();
             }
             position = 0;
-           
+            isActive = true;
         }
 
         public void turnOnColors()

@@ -39,4 +39,11 @@ public static class GameEnums
         SFX,
         UISFX
     }
+
+    public enum ItemTypeEnum
+    {
+        None,
+        Generic,
+        Collectible
+    }
 }

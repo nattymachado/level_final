@@ -20,10 +20,12 @@ namespace prototypeRobot
 
         protected override void ExecuteAction(Collider other)
         {
-            if (isRight)
-                return;
-            _animator.SetBool("isPressed", true);
-            isRight = GetComponentInParent<ShapeControllerBehaviour>().CheckShapePosition(shape, GetComponentInChildren<MeshRenderer>());
+            if (isRight) return;
+            else if (GetComponentInParent<ShapeControllerBehaviour>().isActive)
+            {
+                _animator.SetBool("isPressed", true);
+                isRight = GetComponentInParent<ShapeControllerBehaviour>().CheckShapePosition(shape, GetComponentInChildren<MeshRenderer>());
+            }
         }
 
         public void Clear()
