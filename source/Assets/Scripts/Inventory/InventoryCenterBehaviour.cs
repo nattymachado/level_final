@@ -110,7 +110,6 @@ public class InventoryCenterBehaviour : MonoBehaviour
 
     public bool CheckItem(string itemName)
     {
-        Debug.Log(_item);
         return _item != null && _item.Name == itemName;
     }
 

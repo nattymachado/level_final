@@ -28,6 +28,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
             CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
             if (character != null)
             {
+                Debug.Log("Vai incluir item");
                 _isEnabled = false;
                 GetItem(character);
             }
@@ -42,6 +43,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
     {
+        Debug.Log("Include item");
         yield return new WaitForSeconds(seconds);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
         IncludeItemOnInventory(character);
@@ -49,16 +51,20 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     private void IncludeItemOnInventory(CharacterBehaviour character)
     {
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
+        //GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
+
+        Debug.Log("Vai incluir item 2");
         if (_animator != null) _animator.SetBool("IsGoingToInventary", true);
     }
 
     public void DisableItem()
     {
         //Add to Inventory
-        if(itemType == GameEnums.ItemTypeEnum.Generic) inventaryCenter.AddNewItem(this);
+        Debug.Log("Vai incluir item 3");
+        if (itemType == GameEnums.ItemTypeEnum.Generic) inventaryCenter.AddNewItem(this);
         else if (itemType == GameEnums.ItemTypeEnum.Collectible) CollectibleInventoryController.Instance.AddItem(objectImage.sprite);
 
+        Debug.Log("Finally");
         //Finally...
         GameEvents.FSMEvents.FinishedInteraction.SafeInvoke(); //Unlock Inputs
         gameObject.SetActive(false);
@@ -79,7 +85,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if(_targetMovementLocation != Vector3.zero)
+        /*if(_targetMovementLocation != Vector3.zero)
         {
             if (this.transform.position == _targetMovementLocation)
             {
@@ -90,6 +96,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, _targetMovementLocation, animationMovementSpeed * Time.deltaTime);
             }
-        }
+        }*/
     }
 }

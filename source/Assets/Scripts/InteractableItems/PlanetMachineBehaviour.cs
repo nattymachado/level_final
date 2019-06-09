@@ -19,6 +19,8 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
         {
             itemSpecial.gameObject.SetActive(true);
             itemSpecial.GetComponent<SphereCollider>().enabled = false;
+            
+            Debug.Log(itemSpecial.transform.childCount);
             int index = 0;
             foreach (MeshRenderer renderer in objects)
             {
@@ -57,8 +59,13 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
 
         if (allPlanetsOnSameAngle)
         {
-            itemSpecial.GetComponent<MeshRenderer>().material = sunSpacialMaterial;
+            itemSpecial.GetComponentInChildren<MeshRenderer>().material = sunSpacialMaterial;
             itemSpecial.GetComponent<SphereCollider>().enabled = true;
+            int index = 0;
+            for (index = 0; index < itemSpecial.transform.childCount; index++)
+            {
+                itemSpecial.transform.GetChild(index).gameObject.SetActive(true);
+            }
         }
 
 

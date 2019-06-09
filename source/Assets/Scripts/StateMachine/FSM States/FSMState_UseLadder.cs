@@ -18,6 +18,7 @@ public class FSMState_UseLadder : FSMState
     {
         FSMControllerRef.characterBehavior.animator.SetBool("UsingLadder", false);
         FSMControllerRef.SetNextState(GameEnums.FSMInteractionEnum.Idle);
+        FSMControllerRef.LockedByInteraction = false;
     }
 
     public override void OnStateUpdate() { }
