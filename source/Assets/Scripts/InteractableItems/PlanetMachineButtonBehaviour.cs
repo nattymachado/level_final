@@ -6,6 +6,7 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
 {
     [SerializeField] public GameObject planet;
     [SerializeField] GameObject support;
+    [SerializeField] GameObject planetAndSupport;
     [SerializeField] float speed;
     [SerializeField] public bool isOn = false;
     [SerializeField] public PlanetMachineBehaviour planetMachine;
@@ -14,11 +15,13 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
     [SerializeField] private Material _materialWithLight;
     [SerializeField]  private Material _originalMaterial;
     private MeshRenderer _renderer;
+    private Animator _animator;
     private bool _canRotate = false;
 
     private void Start()
     {
         _renderer = GetComponent<MeshRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
 
@@ -47,11 +50,11 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
         {
             return;
         }
-        if (_canRotate && planet != null)
+        if (_canRotate && planetAndSupport != null)
         {
 
-            planet.transform.RotateAround(rotatePoint.position, Vector3.up, speed);
-            support.transform.RotateAround(rotatePoint.position, Vector3.up, speed);
+            _animator.SetTrigger("Pressed");
+            planetAndSupport.GetComponent<Animator>().SetTrigger("Rotate");
             _canRotate = false;
             SetActive(false);
             position++;

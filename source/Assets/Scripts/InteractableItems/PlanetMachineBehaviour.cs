@@ -17,10 +17,10 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
     {
         if (character && character.CheckInventaryObjectOnSelectedPosition(itemName))
         {
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             itemSpecial.gameObject.SetActive(true);
             itemSpecial.GetComponent<SphereCollider>().enabled = false;
-            
-            Debug.Log(itemSpecial.transform.childCount);
+
             int index = 0;
             foreach (MeshRenderer renderer in objects)
             {
