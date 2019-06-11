@@ -19,8 +19,8 @@ public static class GameEvents
         public static Action<float> SetBGMVolume;
         public static Action<float> SetSFXVolume;
         public static Action<string> PlayBGM;
-        public static Action<string, bool, bool> TriggerSFX; //(Trigger, Override, Loop)
-        public static Action<string, bool, bool> TriggerRandomSFX; //(Trigger, Override, Loop)
+        public static Action<string, bool, bool> TriggerSFX; //(Trigger, Loop, Override)
+        public static Action<string, bool, bool> TriggerRandomSFX; //(Trigger, Loop, Override)
         public static Action<string, Vector3> TriggerSFXOnPosition;
     }
 

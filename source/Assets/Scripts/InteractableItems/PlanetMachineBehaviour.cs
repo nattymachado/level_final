@@ -17,6 +17,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
     {
         if (character && character.CheckInventaryObjectOnSelectedPosition(itemName))
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("PlaceSun", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             itemSpecial.gameObject.SetActive(true);
             itemSpecial.GetComponent<SphereCollider>().enabled = false;
@@ -59,6 +60,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
 
         if (allPlanetsOnSameAngle)
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("EmpowerSun", false, false);
             itemSpecial.GetComponentInChildren<MeshRenderer>().material = sunSpacialMaterial;
             itemSpecial.GetComponent<SphereCollider>().enabled = true;
             int index = 0;
@@ -67,9 +69,5 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
                 itemSpecial.transform.GetChild(index).gameObject.SetActive(true);
             }
         }
-
-
     }
-
-
 }

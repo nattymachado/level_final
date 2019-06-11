@@ -33,11 +33,8 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
         }
         _canRotate = true;
         _renderer.material = _materialWithLight;
-        
-
-
-
-}
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Rattle", false, true);
+    }
 
     private void OnTriggerExit(Collider other)
     {

@@ -21,6 +21,7 @@ namespace prototypeRobot
 
         IEnumerator WaitToMove()
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Teleport", false, false);
             yield return new WaitForSeconds(0.5f);
             Move();
         }

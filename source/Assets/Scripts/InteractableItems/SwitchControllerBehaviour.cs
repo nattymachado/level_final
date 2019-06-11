@@ -32,6 +32,7 @@ namespace prototypeRobot
             if (_position == sequece.Length)
             {
                 gateAnimator.SetBool("isOpen", true);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gate2", false, false);
                 item.SetActive(true);
             }
         }

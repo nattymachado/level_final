@@ -30,10 +30,19 @@ namespace prototypeRobot
         {
             yield return new WaitForSeconds(seconds);
             transform.parent.transform.Rotate(0, 0, 180);
+            PlaySFXSound();
             GetComponentInParent<SwitchControllerBehaviour>().CheckSwitchPosition(id);
             _isOn = true;
             _isLocked = true;
 
+        }
+
+        private void PlaySFXSound()
+        {
+            if (id == 0) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Lever2", false, false);
+            else if (id == 1) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Lever3", false, false);
+            else if (id == 2) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Lever4", false, false);
+            else if (id == 3) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Lever5", false, false);
         }
 
         public void Clear()
