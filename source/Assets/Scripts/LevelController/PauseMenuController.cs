@@ -7,21 +7,41 @@ public class PauseMenuController : MonoBehaviour
 {
     //Reference Variables
     [Header("Required References")]
-    [SerializeField] private GameObject pauseMenuGameObject;
+    [SerializeField] private GameObject pauseOverlayGameObject;
+    [SerializeField] private GameObject pausePanelGameObject;
     [SerializeField] private GameObject patientReportGameObject;
+    [SerializeField] private GameObject raycastBlocker;
+    [SerializeField] private ConfigurationMenu configurationPanel;
+
+    //Control Variables
+    private bool isOpen = false;
 
     public void OpenClosePauseMenu(bool state)
     {
+        raycastBlocker.SetActive(state);
+        isOpen = state;
         if (state) Time.timeScale = 0f;
         else Time.timeScale = 1f;
-        pauseMenuGameObject.SetActive(state);
+        pauseOverlayGameObject.SetActive(state);
         GameEvents.UIEvents.OpenMenu.SafeInvoke(state);
+    }
+
+    public void OpenClosePauseMenuDynamic()
+    {
+        if (isOpen)
+        {
+            configurationPanel.CloseConfiguration();
+            OpenClosePatientReport(false);
+            OpenClosePauseMenu(false);
+        }
+        else OpenClosePauseMenu(true);
     }
 
     public void OpenClosePatientReport(bool state)
     {
         patientReportGameObject.SetActive(state);
-        if(state) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("OpenPatientRecord", false, false);
+        pausePanelGameObject.SetActive(!state);
+        if (state) GameEvents.AudioEvents.TriggerSFX.SafeInvoke("OpenPatientRecord", false, false);
     }
 
     public void ExitLevelButton()

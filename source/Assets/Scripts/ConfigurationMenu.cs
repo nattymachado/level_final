@@ -31,7 +31,7 @@ public class ConfigurationMenu : MonoBehaviour
 
         this.gameObject.SetActive(true);
         _configurationPanel.SetActive(true);
-        _previousPanel.SetActive(false);
+        if(_previousPanel != null) _previousPanel.SetActive(false);
         _creditsPanel.SetActive(false);
     }
 
@@ -45,7 +45,7 @@ public class ConfigurationMenu : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         _configurationPanel.SetActive(false);
-        _previousPanel.SetActive(true);
+        if (_previousPanel != null) _previousPanel.SetActive(true);
         _creditsPanel.SetActive(false);
     }
 
