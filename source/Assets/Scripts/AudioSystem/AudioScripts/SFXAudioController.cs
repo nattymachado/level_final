@@ -29,10 +29,9 @@ public class SFXAudioController : BaseAudioController
         GameEvents.AudioEvents.TriggerSFXOnPosition += TriggerAudioClipOnPosition;
     }
 
-    //Adjust Volume
-    protected override void SetDesiredVolume(float newVolume)
+    private void Start()
     {
-        _audioSource.volume = newVolume * _baseVolumeFactor;
+        SetDesiredVolume(GameConfiguration.Instance.GetSFXVolume());
     }
 
     //OnDestroy Memory Leak Safeguard
@@ -41,6 +40,13 @@ public class SFXAudioController : BaseAudioController
         GameEvents.AudioEvents.SetSFXVolume -= SetDesiredVolume;
         GameEvents.AudioEvents.TriggerSFX -= TriggerAudioClip;
         GameEvents.AudioEvents.TriggerRandomSFX -= TriggerRandomAudioClip;
+        GameEvents.AudioEvents.TriggerSFXOnPosition -= TriggerAudioClipOnPosition;
+    }
+
+    //Adjust Volume
+    protected override void SetDesiredVolume(float newVolume)
+    {
+        _audioSource.volume = newVolume * _baseVolumeFactor;
     }
 
     //Trigger Audio Clip
@@ -48,10 +54,8 @@ public class SFXAudioController : BaseAudioController
     {
         foreach (AudioClipTriggerInfo triggerInfo in _audioClips)
         {
-            if (triggerInfo.trigger.Equals(audioClip)) PlayClipOnPosition(triggerInfo.audioClip, position); ;
-
+            if (triggerInfo.trigger.Equals(audioClip)) PlayClipOnPosition(triggerInfo.audioClip, position);
         }
-       
     }
 
     //Trigger Audio Clip
@@ -62,7 +66,6 @@ public class SFXAudioController : BaseAudioController
             foreach (AudioClipTriggerInfo triggerInfo in _audioClips)
             {
                 if (triggerInfo.trigger.Equals(AudioClip)) PlayClip(triggerInfo.audioClip, loop);
-                    
             }
         }
     }
@@ -95,7 +98,7 @@ public class SFXAudioController : BaseAudioController
     {
         if (clip != null)
         {
-            AudioSource.PlayClipAtPoint(clip, position, _desiredVolume);
+            AudioSource.PlayClipAtPoint(clip, position, _audioSource.volume);
         }
     }
 }

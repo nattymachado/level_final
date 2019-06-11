@@ -12,18 +12,21 @@ public class UISFXAudioController : BaseAudioController
     protected override void Awake()
     {
         base.Awake();
-        _audioSource.spatialBlend = 1f;
-        _audioSource.loop = true;
+        _audioSource.loop = false;
         _audioSource.spatialBlend = 0f;
         GameEvents.AudioEvents.SetSFXVolume += SetDesiredVolume;
         GameEvents.AudioEvents.TriggerSFX += TriggerAudioClip;
     }
 
+    private void Start()
+    {
+        SetDesiredVolume(GameConfiguration.Instance.GetSFXVolume());
+    }
+
     //Adjust Volume
     protected override void SetDesiredVolume(float newVolume)
     {
-        _desiredVolume = newVolume;
-        GameConfiguration.Instance.SetSFXVolume(_desiredVolume);
+        _audioSource.volume = newVolume * _baseVolumeFactor;
     }
 
     //OnDestroy Memory Leak Safeguard
