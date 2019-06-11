@@ -21,7 +21,6 @@ public static class GameEvents
         public static Action<string> PlayBGM;
         public static Action<string, bool, bool> TriggerSFX; //(Trigger, Loop, Override)
         public static Action<string, bool, bool> TriggerRandomSFX; //(Trigger, Loop, Override)
-        public static Action<string, Vector3> TriggerSFXOnPosition;
     }
 
     public static class FSMEvents

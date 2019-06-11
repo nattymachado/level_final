@@ -60,10 +60,17 @@ public class TutorialProgression : MonoBehaviour
 
   protected virtual void FinishStart()
   {
-    doorAnimator.SetTrigger("abrir");
-    finishParticles.Play();
-    doorStopObstacle.enabled = false;
+    StartCoroutine(WaitToOpenDoor(0.8f));   
   }
+
+    IEnumerator WaitToOpenDoor(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        doorAnimator.SetTrigger("abrir");
+        finishParticles.Play();
+        doorStopObstacle.enabled = false;
+    }
+
   private bool FinishCompletion()
   {
     return finishCollider.bounds.Contains(character.transform.position);

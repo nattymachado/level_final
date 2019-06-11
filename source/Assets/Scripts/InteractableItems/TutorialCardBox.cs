@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class TutorialCardBox : InteractableItemBehaviour
 {
-  [SerializeField] CharacterBehaviour character;
-  [SerializeField] string cardName;
+    [SerializeField] CharacterBehaviour character;
+    [SerializeField] string cardName;
 
-  protected override void ExecuteAction(Collider other)
-  {
-    if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
+    protected override void ExecuteAction(Collider other)
     {
-      SetActive(false);
-      GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-      StartCoroutine(WaitToOpenDoor(1f));
+        if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
+        {
+            GameEvents.AudioEvents.TriggerSFX("InsertedKeycard", false, false);
+            SetActive(false);
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+            
+        }
     }
-  }
-
-  IEnumerator WaitToOpenDoor(float seconds)
-  {
-    yield return new WaitForSeconds(seconds);
-    GameEvents.AudioEvents.TriggerSFXOnPosition("InsertedKeycard", this.transform.position);
-  }
 }

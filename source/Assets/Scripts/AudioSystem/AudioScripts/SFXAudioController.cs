@@ -26,7 +26,6 @@ public class SFXAudioController : BaseAudioController
         GameEvents.AudioEvents.SetSFXVolume += SetDesiredVolume;
         GameEvents.AudioEvents.TriggerSFX += TriggerAudioClip;
         GameEvents.AudioEvents.TriggerRandomSFX += TriggerRandomAudioClip;
-        GameEvents.AudioEvents.TriggerSFXOnPosition += TriggerAudioClipOnPosition;
     }
 
     private void Start()
@@ -40,22 +39,12 @@ public class SFXAudioController : BaseAudioController
         GameEvents.AudioEvents.SetSFXVolume -= SetDesiredVolume;
         GameEvents.AudioEvents.TriggerSFX -= TriggerAudioClip;
         GameEvents.AudioEvents.TriggerRandomSFX -= TriggerRandomAudioClip;
-        GameEvents.AudioEvents.TriggerSFXOnPosition -= TriggerAudioClipOnPosition;
     }
 
     //Adjust Volume
     protected override void SetDesiredVolume(float newVolume)
     {
         _audioSource.volume = newVolume * _baseVolumeFactor;
-    }
-
-    //Trigger Audio Clip
-    public void TriggerAudioClipOnPosition(string audioClip, Vector3 position)
-    {
-        foreach (AudioClipTriggerInfo triggerInfo in _audioClips)
-        {
-            if (triggerInfo.trigger.Equals(audioClip)) PlayClipOnPosition(triggerInfo.audioClip, position);
-        }
     }
 
     //Trigger Audio Clip
@@ -90,15 +79,6 @@ public class SFXAudioController : BaseAudioController
             _audioSource.clip = clip;
             _audioSource.loop = loop;
             _audioSource.Play();
-        }
-    }
-
-    //Play Clip
-    private void PlayClipOnPosition(AudioClip clip, Vector3 position)
-    {
-        if (clip != null)
-        {
-            AudioSource.PlayClipAtPoint(clip, position, _audioSource.volume);
         }
     }
 }

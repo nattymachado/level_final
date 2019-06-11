@@ -12,16 +12,15 @@ public class TutorialLeverBehaviour : InteractableItemBehaviour
         // trigger event
         SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-        StartCoroutine(WaitToOpenDoor(1f));
+        StartCoroutine(WaitToOpenDoor(0.8f));
   }
 
   IEnumerator WaitToOpenDoor(float seconds)
   {
         yield return new WaitForSeconds(seconds);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Lever", false, false);
         transform.Rotate(0, 0, 180);
-        GameEvents.AudioEvents.TriggerSFXOnPosition.SafeInvoke("EletronicSound", this.transform.position);
         GameEvents.LevelEvents.UsedInteractable.SafeInvoke();
-        
     }
 
     public void TurnParticlesOn()
