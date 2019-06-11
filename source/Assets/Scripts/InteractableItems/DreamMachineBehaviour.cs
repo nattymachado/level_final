@@ -17,6 +17,8 @@ public class DreamMachineBehaviour : InteractableItemBehaviour
         //Instantiate our one-off particle system
         GameObject explosionEffect = Instantiate(particleSystemPrefab, this.transform );
         explosionEffect.transform.position = transform.position;
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Explosion", false, false);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Spark", false, false);
         //play it
 
 
