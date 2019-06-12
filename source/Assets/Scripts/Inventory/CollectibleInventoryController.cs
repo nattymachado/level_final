@@ -8,8 +8,7 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
     //Refence Variables
     [Header("Required References")]
     public GameObject[] specialSlots;
-    public InventoryCenterBehaviour inventoryCenter;
-    public InventoryObjectBehaviour specialItem;
+    public CharacterBehaviour character;
 
     //Control Variables
     [Header("Control Variables")]
@@ -34,7 +33,6 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
 
     public void AddItem(Sprite imageSprite)
     {
-        Debug.Log("Add Item");
         Image imageRef = specialSlots[currentSlot].transform.GetChild(0).GetComponent<Image>();
         imageRef.sprite = imageSprite;
         imageRef.enabled = true;
@@ -49,13 +47,13 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
     {
         yield return new WaitForSeconds(seconds);
         GameEvents.UIEvents.TriggerItemsJoinAnimation.SafeInvoke();
-        StartCoroutine(WaitToStartSpecialItemAnimation(1f));
+        StartCoroutine(WaitToStartSpecialItemAnimation(0.5f));
     }
 
     IEnumerator WaitToStartSpecialItemAnimation(float seconds)
     {
         yield return new WaitForSeconds(seconds);
 
-        inventoryCenter.AddNewItem(specialItem);
+        character.ActivateSpecialItem();
     }
 }

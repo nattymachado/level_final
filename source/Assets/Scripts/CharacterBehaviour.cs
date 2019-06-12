@@ -14,6 +14,7 @@ public class CharacterBehaviour : MonoBehaviour
     public InventoryCenterBehaviour inventaryCenter;
     public float rotationSpeed;
     public Transform targetToRotation;
+    public GameObject specialCompleteItem;
     private Quaternion _lookRotation;
 
     //Control Variables
@@ -25,6 +26,8 @@ public class CharacterBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = true;
+        if (specialCompleteItem != null)
+            specialCompleteItem.SetActive(false);
     }
 
     //Start
@@ -36,6 +39,11 @@ public class CharacterBehaviour : MonoBehaviour
     public bool IsStoped()
     {
         return transform.position == _navMeshAgent.destination;
+    }
+
+    public void ActivateSpecialItem()
+    {
+        specialCompleteItem.SetActive(true);
     }
 
     //OnDestroy
@@ -86,6 +94,12 @@ public class CharacterBehaviour : MonoBehaviour
             GameEvents.LevelEvents.UsedItem.SafeInvoke();
         }
         return hasItem;
+    }
+
+
+    public bool CheckIfSpecialIsActivated()
+    {
+        return specialCompleteItem.activeSelf;
     }
 
     //Update

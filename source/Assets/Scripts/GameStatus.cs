@@ -28,7 +28,6 @@ public class GameStatus : Singleton<GameStatus>
 
     public bool CheckIfPatientIsDeactivated(GameEnums.PatientEnum deactivatedPatient)
     {
-        Debug.Log("Checking...");
         return _deactivatedPatients.Contains(deactivatedPatient);
     }
 
