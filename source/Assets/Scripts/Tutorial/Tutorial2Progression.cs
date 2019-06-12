@@ -49,12 +49,10 @@ public class Tutorial2Progression : TutorialProgression
   {
     base.Awake();
 
-
-
     // cria os passos do tutorial
     TutorialStep swipeStep = new TutorialStep(swipeAnimator, new StepStart(SwipeStart), new StepCompletion(SwipeCompletion));
     TutorialStep pickStep = new TutorialStep(pickAnimator, new StepStart(PickStart), new StepCompletion(PickCompletion));
-    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion),2f);
+    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion),1f);
     TutorialStep selectItemStep = new TutorialStep(selectItemAnimator, new StepStart(SelectItemStart), new StepCompletion(SelectItemCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator, new StepStart(UseStart), new StepCompletion(UseCompletion));
 
