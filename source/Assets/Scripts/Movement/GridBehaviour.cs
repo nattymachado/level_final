@@ -27,6 +27,11 @@ public class GridBehaviour : MonoBehaviour
         CreateGrid();
     }
 
+    private void Update()
+    {
+        CreateGrid();
+    }
+
     public void CreateGrid()
     {
 
