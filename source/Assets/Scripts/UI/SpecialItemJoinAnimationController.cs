@@ -7,6 +7,7 @@ public class SpecialItemJoinAnimationController : MonoBehaviour
 {
     [SerializeField] private Image[] _images;
     [SerializeField] private GameObject _items;
+    [SerializeField] private GameObject _specialSlotsCanvas;
     private Animator _animator;
 
     // Start is called before the first frame update
@@ -38,5 +39,6 @@ public class SpecialItemJoinAnimationController : MonoBehaviour
     private void Animate()
     {
         _animator.SetTrigger("Animate");
+        _specialSlotsCanvas.GetComponent<Animator>().SetTrigger("Hide");
     }
 }
