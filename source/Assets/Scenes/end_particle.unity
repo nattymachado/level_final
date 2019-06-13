@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9684,7 +9684,7 @@ RectTransform:
   - {fileID: 279306263}
   - {fileID: 213502824}
   m_Father: {fileID: 1384160767}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 37.2, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19304,8 +19304,9 @@ RectTransform:
   - {fileID: 1143017963}
   - {fileID: 1808620983}
   - {fileID: 1466258404}
+  - {fileID: 1843202272}
   m_Father: {fileID: 1384160767}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24368,10 +24369,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 409937962}
-  - {fileID: 1843202272}
-  - {fileID: 963671409}
   - {fileID: 1917206790}
   - {fileID: 276717241}
+  - {fileID: 963671409}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34096,15 +34096,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843202271}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20.480274}
-  m_LocalScale: {x: 0.3521236, y: 0.3521236, z: 0.3521236}
+  m_LocalPosition: {x: 0, y: 0, z: -58.244663}
+  m_LocalScale: {x: 0.24865727, y: 0.24865727, z: 0.24865727}
   m_Children: []
-  m_Father: {fileID: 1384160767}
-  m_RootOrder: 1
+  m_Father: {fileID: 963671409}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 739, y: 337}
+  m_AnchoredPosition: {x: 20, y: -1426}
   m_SizeDelta: {x: 1022, y: 797}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843202273
@@ -34127,7 +34127,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c360caf42fcd9164d8bf0c8f4b0ff4e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bb44dcf984e4c741b5956341621fd97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34253,7 +34253,7 @@ RectTransform:
   - {fileID: 1717638682}
   - {fileID: 1021975355}
   m_Father: {fileID: 1384160767}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34273,7 +34273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 14526eb0dd765e145bfbb4c0755525e4, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -34541,7 +34541,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0.9914956, a: 1}
