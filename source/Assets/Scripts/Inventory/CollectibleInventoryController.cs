@@ -39,7 +39,7 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
         currentSlot++;
         if (currentSlot == totalSpecialSlots)
         {
-            StartCoroutine(WaitToGetSpecialItem(0.5f));   
+            StartCoroutine(WaitToGetSpecialItem(0.1f));   
         }
     }
 
@@ -47,7 +47,7 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
     {
         yield return new WaitForSeconds(seconds);
         GameEvents.UIEvents.TriggerItemsJoinAnimation.SafeInvoke();
-        StartCoroutine(WaitToStartSpecialItemAnimation(1f));
+        StartCoroutine(WaitToStartSpecialItemAnimation(3f));
     }
 
     IEnumerator WaitToStartSpecialItemAnimation(float seconds)
