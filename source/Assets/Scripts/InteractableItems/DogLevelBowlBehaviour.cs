@@ -9,6 +9,7 @@ public class DogLevelBowlBehaviour : InteractableItemBehaviour
     [SerializeField] Animator fallingBowlAnimator;
     [SerializeField] Animator selfAnimator;
     [SerializeField] DogLevelDoggy dog;
+    [SerializeField] GameObject dogFood;
     private bool activated = false;
     private bool revealed = false;
 
@@ -17,6 +18,7 @@ public class DogLevelBowlBehaviour : InteractableItemBehaviour
        if (character && revealed && !activated && character.CheckInventaryObjectOnSelectedPosition(activatorItemName))
         {
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+            dogFood.SetActive(true);
             ActivateBowl();
         } 
     }
