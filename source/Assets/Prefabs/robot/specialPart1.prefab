@@ -4693,7 +4693,7 @@ Transform:
   m_GameObject: {fileID: 855197782616848350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9600003, y: 6.54, z: -2.2100005}
-  m_LocalScale: {x: 1.3508184, y: 1.3508184, z: 1.3508184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 855197783200021175}
   - {fileID: 1318864700602825489}
@@ -4713,7 +4713,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &855197782616848343
 MonoBehaviour:
@@ -4727,6 +4727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a840610188f49084ca83e303515a40e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  objectCenter: {fileID: 0}
   Name: placa1
   objectImage: {fileID: 855197782105600584}
   inventaryCenter: {fileID: 0}
@@ -4755,7 +4757,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 48df7144e889cfe43a6f04f80330202d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -4789,7 +4791,7 @@ Transform:
   m_GameObject: {fileID: 7419781736577868526}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.44802472, y: 0.4480244, z: 0.4480244}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 879754137014304731}
   m_Father: {fileID: 855197782616848341}
@@ -9420,7 +9422,7 @@ Transform:
   m_GameObject: {fileID: 8266983218401529174}
   m_LocalRotation: {x: -0.7071067, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.44802472, y: 0.4480244, z: 0.4480244}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 855197782616848341}
   m_RootOrder: 2
@@ -13909,15 +13911,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a18b40c630b9908409094a8aca1d57aa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2969869
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a18b40c630b9908409094a8aca1d57aa, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2969869
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a18b40c630b9908409094a8aca1d57aa, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2969869
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a18b40c630b9908409094a8aca1d57aa, type: 3}
       propertyPath: m_CastShadows

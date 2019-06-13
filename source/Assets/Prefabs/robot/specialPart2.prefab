@@ -9325,7 +9325,7 @@ Transform:
   m_GameObject: {fileID: 6676201667670118339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.59, y: 0.26100004, z: 4.9699993}
-  m_LocalScale: {x: 1.175212, y: 1.175212, z: 1.175212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6676201667638297174}
   - {fileID: 8274294109187475847}
@@ -9346,6 +9346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a840610188f49084ca83e303515a40e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  objectCenter: {fileID: 0}
   Name: placa2
   objectImage: {fileID: 6676201666185821577}
   inventaryCenter: {fileID: 0}
@@ -9360,7 +9362,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45479795
+  m_Radius: 0.55
   m_Center: {x: -0.045202196, y: 0, z: 0}
 --- !u!114 &6676201667670118395
 MonoBehaviour:
@@ -9387,7 +9389,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 48df7144e889cfe43a6f04f80330202d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -9420,7 +9422,7 @@ Transform:
   m_GameObject: {fileID: 8665769766742198552}
   m_LocalRotation: {x: -0.7071067, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6676201667670118392}
   m_RootOrder: 2
@@ -13909,15 +13911,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bebc66fbcbe7ba84faf8b8c8f9335476, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.26515293
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bebc66fbcbe7ba84faf8b8c8f9335476, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.26515293
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bebc66fbcbe7ba84faf8b8c8f9335476, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.26515293
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: bebc66fbcbe7ba84faf8b8c8f9335476, type: 3}
       propertyPath: m_CastShadows
