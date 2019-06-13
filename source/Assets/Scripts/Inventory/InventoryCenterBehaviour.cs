@@ -32,7 +32,7 @@ public class InventoryCenterBehaviour : MonoBehaviour
                 _items[i].AddItem(item);
 
                 // trigger event
-                GameEvents.LevelEvents.PickedItem.SafeInvoke();
+                GameEvents.LevelEvents.ItemAddedToInventory.SafeInvoke();
 
                 break;
             }

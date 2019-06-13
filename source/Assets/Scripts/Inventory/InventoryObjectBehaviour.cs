@@ -38,6 +38,9 @@ public class InventoryObjectBehaviour : MonoBehaviour
     {
         character.SetRotation(transform);
         StartCoroutine(WaitToIncludeOnInventory(0f, character));
+
+        // trigger event
+        GameEvents.LevelEvents.PickedItem.SafeInvoke();
     }
 
     IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
