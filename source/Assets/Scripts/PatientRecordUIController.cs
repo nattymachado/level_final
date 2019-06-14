@@ -38,11 +38,11 @@ public class PatientRecordUIController : MonoBehaviour
   //Load Scene
   public void LoadScene(LevelDefs level)
   {
-    if (level.LoadingVideo != null)
+    if (level.LoadingScreenBackground != null)
     {
       SceneChanger.Instance.ChangeToScene(
-          "loadingVideo",
-          () => { LoadingVideo.StartPlayVideo(level.LoadingVideo, level.LoadingDuration, level.SceneName); },
+          "loading",
+          () => { LoadingScreen.StartPlayLoading(level.LoadingScreenBackground, level.LoadingDuration, level.SceneName); },
           null
       );
     }
