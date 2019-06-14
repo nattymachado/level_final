@@ -12,9 +12,8 @@ public static class GameEnums
         Operator
     }
 
-    public enum LevelEnum
-    {
-        None,
+    public enum LevelName {
+        NULL,
         Robot,
         Night,
         Dog

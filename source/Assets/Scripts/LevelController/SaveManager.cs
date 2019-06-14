@@ -9,14 +9,11 @@ public static class SaveManager
     public static PlayerProgress currentProgress { get; private set; }
     private static string filePath = Application.persistentDataPath + "/gamesave.save";
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void Initialize()
     {
         Debug.Log("Default game save path: " + filePath);
         LoadProgressFile();
-        if (currentProgress == null)
-        {
-            CreateProgressFile("Player");
-        }
     }
 
     public static void LoadProgressFile()
@@ -72,24 +69,23 @@ public static class SaveManager
         }
     }
 
-    public static void AddLevelToProgress(LevelName levelName, bool concluded)
-    {
+    public static LevelProgress GetLevelProgress(GameEnums.LevelName levelName){
         if (currentProgress == null)
         {
             Debug.Log("Progress file not initialized. Cannot add level progress.");
-            return;
+            return null;
         }
 
         for (int i = 0; i < currentProgress.levels.Count; i++)
         {
             if (currentProgress.levels[i].levelName == levelName)
             {
-                currentProgress.levels.RemoveAt(i);
-                break;
+                return currentProgress.levels[i];
             }
         }
-        currentProgress.levels.Add(new LevelProgress(levelName, concluded));
 
-        SaveProgressFile();
+        LevelProgress lp = new LevelProgress(levelName);
+        currentProgress.levels.Add(lp);
+        return lp;
     }
 }

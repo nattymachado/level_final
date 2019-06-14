@@ -38,7 +38,7 @@ public class MovementController : MonoBehaviour
 
     public void MoveToPosition(GridBehaviour grid, Vector3 point)
     {
-        Debug.Log(point);
+        //Debug.Log(point);
         Node boardNode = grid.NodeFromWorldPosition(point);
         pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
         _pointerAnimator.SetTrigger("Clicked");

@@ -106,8 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca789b0f8fae26144a06995f7869f2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuGameObject: {fileID: 5159196776478967842}
+  pauseOverlayGameObject: {fileID: 5159196776478967842}
+  pausePanelGameObject: {fileID: 5159196776016283633}
   patientReportGameObject: {fileID: 8750053414804674427}
+  raycastBlocker: {fileID: 248062320329020583}
+  configurationPanel: {fileID: 2511498187818069391}
 --- !u!1 &299334180699604106
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,9 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7690c6f2a03e549bae08239f286c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseVolume: 1
+  _baseVolumeFactor: 1
   _audioSource: {fileID: 1605046629475186160}
-  _audioType: 2
   _audioClips:
   - trigger: OpenPatientRecord
     audioClip: {fileID: 8300000, guid: eef674b91eb2af749850aebaeb616173, type: 3}
@@ -2389,7 +2391,7 @@ GameObject:
   - component: {fileID: 196576041113006572}
   - component: {fileID: 8007091991476813037}
   m_Layer: 5
-  m_Name: HospitalGameCanvas
+  m_Name: GameCanvas_Hospital
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

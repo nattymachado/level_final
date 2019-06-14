@@ -9,7 +9,10 @@ public class PatientEndPositionBehaviour : MonoBehaviour
         if (other.GetComponent<CharacterBehaviour>() == null)
         {
             other.gameObject.SetActive(false);
-            GameStatus.Instance.IncludeDeactivatePatient(other.transform.parent.GetComponent<PatientOnHospitalBehaviour>().patient);
+            GameEnums.LevelName levelName = other.transform.parent.GetComponent<PatientOnHospitalBehaviour>().LevelName;
+            LevelProgress levelProgress = SaveManager.GetLevelProgress(levelName);
+            levelProgress.patientLeftBed = true;
+            SaveManager.SaveProgressFile();
         }
     }
 }

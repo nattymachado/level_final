@@ -38,6 +38,9 @@ public class InventoryObjectBehaviour : MonoBehaviour
     {
         character.SetRotation(transform);
         StartCoroutine(WaitToIncludeOnInventory(0f, character));
+
+        // trigger event
+        GameEvents.LevelEvents.PickedItem.SafeInvoke();
     }
 
     IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
@@ -47,11 +50,23 @@ public class InventoryObjectBehaviour : MonoBehaviour
         IncludeItemOnInventory(character);
     }
 
+    void MoveToLayer(Transform root, int layer)
+    {
+        root.gameObject.layer = layer;
+        foreach (Transform child in root)
+        {
+            MoveToLayer(child, layer);
+        }
+    }
+
     private void IncludeItemOnInventory(CharacterBehaviour character)
     {
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemPickup", false, false);
-
-        if (_animator != null) _animator.SetBool("IsGoingToInventary", true);
+        if (_animator != null)
+        {
+            MoveToLayer(this.transform, LayerMask.NameToLayer("PickupItemAnimation"));
+            _animator.SetBool("IsGoingToInventary", true);
+        }
     }
 
     public void DisableItem()

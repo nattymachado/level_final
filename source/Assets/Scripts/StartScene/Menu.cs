@@ -6,7 +6,8 @@ namespace StartMenu
 {
     public class Menu : MonoBehaviour
     {
-        [SerializeField] private string _nextScene;
+        [SerializeField] private string _tutorialScene;
+        [SerializeField] private string _hubScene;
         [SerializeField] private GameObject _configurationPanel;
         [SerializeField] private GameObject _principalPanel;
         [SerializeField] private GameObject _creditsPanel;
@@ -15,7 +16,15 @@ namespace StartMenu
 
         public void Play()
         {
-            SceneChanger.Instance.ChangeToScene(_nextScene);
+            if (SaveManager.currentProgress == null)
+            {
+                SaveManager.CreateProgressFile("player");
+                SceneChanger.Instance.ChangeToScene(_tutorialScene);
+            }
+            else
+            {
+                SceneChanger.Instance.ChangeToScene(_hubScene);
+            }
         }
 
         public void Configuration()

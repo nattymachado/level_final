@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class PatientOnHospitalBehaviour : InteractableItemBehaviour
 {
     [SerializeField] public GameEnums.PatientEnum patient;
-    [SerializeField] private GameEnums.LevelEnum _patientLevel;
+    [SerializeField] private GameEnums.LevelName levelName;
     [SerializeField] private GameObject _patientModel;
     [SerializeField] private GameObject _zzz;
     [SerializeField] private Transform _endPosition;
+
+    public GameEnums.LevelName LevelName {get {return levelName;}}
 
 
     protected override void ExecuteAction(Collider other)
@@ -23,7 +25,7 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
 
     private void Start()
     {
-        if (GameStatus.Instance.CheckIfPatientIsDeactivated(patient)) {
+        if (!SaveManager.GetLevelProgress(levelName).patientLeftBed) {
             SetActive(false);
             _zzz.SetActive(false);
             this.GetComponent<MeshRenderer>().enabled = false;
@@ -31,7 +33,7 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
             _patientModel.SetActive(false);
             return;
         }
-        if (!_patientModel || GameStatus.Instance.GetLastLevel() != _patientLevel)
+        if (!_patientModel)
             return;
         this.GetComponent<MeshRenderer>().enabled = false;
         this.GetComponent<BoxCollider>().enabled = false;
