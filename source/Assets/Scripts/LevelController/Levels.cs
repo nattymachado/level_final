@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum LevelName {NULL,Robot,Night}
+public enum LevelName {NULL,Robot,Night,Dog}
 
 [CreateAssetMenu(fileName = "Levels", menuName = "Levels", order = 1)]
 public class Levels : ScriptableObject

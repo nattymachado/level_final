@@ -8,11 +8,11 @@ public class LevelDefs : ScriptableObject
 {
   [SerializeField] private LevelName levelName;
   [SerializeField] private string sceneName;
-  [SerializeField] private VideoClip loadingVideo;
+  [SerializeField] private Sprite loadingScreenBackground;
   [SerializeField] private float loadingDuration = 4f;
 
   public LevelName LevelName { get => levelName; }
   public string SceneName { get => sceneName; }
-  public VideoClip LoadingVideo { get => loadingVideo; }
+  public Sprite LoadingScreenBackground { get => loadingScreenBackground; }
   public float LoadingDuration { get => loadingDuration;}
 }
