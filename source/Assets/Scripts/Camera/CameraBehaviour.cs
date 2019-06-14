@@ -8,6 +8,7 @@ public class CameraBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private Camera childCamera;
+    [SerializeField] private Camera frontgroundCamera;
     [SerializeField] private CharacterBehaviour character;
     [Header("Translation")]
     [SerializeField] private Collider deadArea;
@@ -124,6 +125,7 @@ public class CameraBehaviour : MonoBehaviour
 
             // Clamp the field of view to make sure it's between 0 and 180.
             childCamera.fieldOfView = newFov;
+            frontgroundCamera.fieldOfView = newFov;
 
             // update deadArea scale
             deadArea.transform.localScale = Vector3.one * newFov / initialFoV * deadAreaOriginalScale;
