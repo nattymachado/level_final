@@ -25,7 +25,8 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
 
     private void Start()
     {
-        if (!SaveManager.GetLevelProgress(levelName).patientLeftBed) {
+        if (SaveManager.GetLevelProgress(levelName).patientLeftBed == true) {
+            Debug.Log("Comcluíd2");
             SetActive(false);
             _zzz.SetActive(false);
             this.GetComponent<MeshRenderer>().enabled = false;
@@ -33,8 +34,9 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
             _patientModel.SetActive(false);
             return;
         }
-        if (!_patientModel)
+        if (!SaveManager.GetLevelProgress(levelName).levelConcluded)
             return;
+        Debug.Log("Comcluído");
         this.GetComponent<MeshRenderer>().enabled = false;
         this.GetComponent<BoxCollider>().enabled = false;
         SetActive(false);
