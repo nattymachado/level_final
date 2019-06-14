@@ -17,11 +17,13 @@ public class PlayerProgress
 [System.Serializable]
 public class LevelProgress
 {   
-    public LevelName levelName;
+    public GameEnums.LevelName levelName;
     public bool levelConcluded;
+    public bool patientLeftBed;
 
-    public LevelProgress(LevelName name, bool concluded){
+    public LevelProgress(GameEnums.LevelName name){
         levelName = name;
-        levelConcluded = concluded;
+        levelConcluded = false;
+        patientLeftBed = false;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PatientOnDreamBehaviour : InteractableItemBehaviour
 {
-    [SerializeField] private GameEnums.LevelEnum _patientLevel;
+    [SerializeField] private GameEnums.LevelName levelName;
     [SerializeField] private VictoryCanvasController victoryCanvas;
     private bool specialItemIsUsed = false;
     
@@ -40,7 +40,13 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
     private void OpenVictoryCanvas()
     {
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
-        GameStatus.Instance.SetLastLevel(_patientLevel);
+        // GameStatus.Instance.SetLastLevel(_patientLevel);
+
+        // save
+        LevelProgress levelProgress = SaveManager.GetLevelProgress(levelName);
+        levelProgress.levelConcluded = true;
+        SaveManager.SaveProgressFile();
+
         victoryCanvas.Open();
     }
 }
