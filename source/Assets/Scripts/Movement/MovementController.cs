@@ -12,11 +12,13 @@ public class MovementController : MonoBehaviour
     [SerializeField] private Pointer pointer;
     private float updatePointerTimer = -1;
     private Vector3 positionToMove;
+    private Animator _pointerAnimator;
     private bool _hasMoved;
 
     private void Awake()
     {
         _raycastMaskItem = LayerMask.GetMask(new string[] { "Interactable" });
+        _pointerAnimator = pointer.GetComponent<Animator>();
     }
 
 
@@ -39,6 +41,7 @@ public class MovementController : MonoBehaviour
         Debug.Log(point);
         Node boardNode = grid.NodeFromWorldPosition(point);
         pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
+        _pointerAnimator.SetTrigger("Clicked");
         _character.Move(pointer.transform.position);
 
         // trigger event
