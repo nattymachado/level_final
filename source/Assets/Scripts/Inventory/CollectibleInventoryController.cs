@@ -33,6 +33,7 @@ public class CollectibleInventoryController : ProperSingleton<CollectibleInvento
 
     public void AddItem(Sprite imageSprite)
     {
+        specialSlots[currentSlot].GetComponent<Image>().color = Color.white;
         Image imageRef = specialSlots[currentSlot].transform.GetChild(0).GetComponent<Image>();
         imageRef.sprite = imageSprite;
         imageRef.enabled = true;
