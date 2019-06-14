@@ -600,6 +600,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3495668208182603051, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: m_Name
+      value: Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 3495668208182603050, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -659,11 +664,6 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495668208182603051, guid: 12eabdcbcc9eeed4c878178af95ffa76,
-        type: 3}
-      propertyPath: m_Name
-      value: Camera
       objectReference: {fileID: 0}
     - target: {fileID: 3869568879349873149, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
@@ -24505,6 +24505,7 @@ MonoBehaviour:
   pointOnNavMesh: {x: 2.4, y: 0.8, z: 2}
   grid: {fileID: 1152550035}
   executeRotation: 1
+  sfxtrigger: Lever1
   door: {fileID: 1851261046}
 --- !u!1 &1851260935
 GameObject:
@@ -24657,6 +24658,7 @@ MonoBehaviour:
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
   executeRotation: 1
+  sfxtrigger: Lever3
   door: {fileID: 1851261042}
 --- !u!1 &1851260945
 GameObject:
@@ -24691,6 +24693,7 @@ MonoBehaviour:
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
   executeRotation: 1
+  sfxtrigger: Lever2
   door: {fileID: 1851261044}
 --- !u!1 &1851260947
 GameObject:
@@ -24759,6 +24762,7 @@ MonoBehaviour:
   pointOnNavMesh: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
   executeRotation: 1
+  sfxtrigger: Lever4
   door: {fileID: 1851261048}
 --- !u!1 &1851260951
 GameObject:
@@ -24968,6 +24972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439912d82b9eec440ac30a1a23875075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioTrigger: Door3
   animator: {fileID: 1851261058}
 --- !u!1 &1851261043
 GameObject:
@@ -25002,6 +25007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439912d82b9eec440ac30a1a23875075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioTrigger: Door2
   animator: {fileID: 1851261059}
 --- !u!1 &1851261045
 GameObject:
@@ -25036,6 +25042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439912d82b9eec440ac30a1a23875075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioTrigger: Door1
   animator: {fileID: 1851261057}
 --- !u!1 &1851261047
 GameObject:
@@ -25070,6 +25077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439912d82b9eec440ac30a1a23875075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioTrigger: Door4
   animator: {fileID: 1851261060}
 --- !u!208 &1851261050
 NavMeshObstacle:
@@ -26940,6 +26948,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
+        type: 3}
+      propertyPath: _clientItems.Array.data[0]
+      value: cachorrinho
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
+        type: 3}
+      propertyPath: _clientItems.Array.data[1]
+      value: coleira
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
+        type: 3}
+      propertyPath: _clientItems.Array.data[2]
+      value: osso
+      objectReference: {fileID: 0}
     - target: {fileID: 6593110794255580151, guid: b95d008847d7246458c23ff17960c217,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27439,21 +27462,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
-        type: 3}
-      propertyPath: _clientItems.Array.data[0]
-      value: cachorrinho
-      objectReference: {fileID: 0}
-    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
-        type: 3}
-      propertyPath: _clientItems.Array.data[1]
-      value: coleira
-      objectReference: {fileID: 0}
-    - target: {fileID: 3997256399675763510, guid: b95d008847d7246458c23ff17960c217,
-        type: 3}
-      propertyPath: _clientItems.Array.data[2]
-      value: osso
       objectReference: {fileID: 0}
     - target: {fileID: 3946125448327674540, guid: b95d008847d7246458c23ff17960c217,
         type: 3}
@@ -28040,17 +28048,17 @@ PrefabInstance:
     - target: {fileID: 2462550192258162559, guid: 6cf88cd316b57794b93dbf995de05233,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462550192258162559, guid: 6cf88cd316b57794b93dbf995de05233,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462550192258162559, guid: 6cf88cd316b57794b93dbf995de05233,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462550192258162559, guid: 6cf88cd316b57794b93dbf995de05233,
         type: 3}
