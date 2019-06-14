@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollectibleInventoryController : Singleton<CollectibleInventoryController>
+public class CollectibleInventoryController : ProperSingleton<CollectibleInventoryController>
 {
     //Refence Variables
     [Header("Required References")]
