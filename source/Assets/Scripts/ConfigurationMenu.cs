@@ -16,6 +16,7 @@ public class ConfigurationMenu : MonoBehaviour
 
     public void Configuration()
     {
+        Debug.Log("Estou aqui");
         if (Application.platform == RuntimePlatform.Android)
             _quitButton.gameObject.SetActive(false);
         else

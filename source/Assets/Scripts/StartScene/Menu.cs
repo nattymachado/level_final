@@ -23,6 +23,7 @@ namespace StartMenu
             }
             else
             {
+                Debug.Log("Estou aqui");
                 SceneChanger.Instance.ChangeToScene(_hubScene);
             }
         }

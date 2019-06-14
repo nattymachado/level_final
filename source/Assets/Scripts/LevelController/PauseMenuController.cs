@@ -26,6 +26,13 @@ public class PauseMenuController : MonoBehaviour
         GameEvents.UIEvents.OpenMenu.SafeInvoke(state);
     }
 
+    public void ResetGame()
+    {
+        OpenClosePauseMenu(false);
+        SaveManager.DeleteProgressFile();
+        SceneChanger.Instance.ChangeToScene("start");
+    }
+
     public void OpenClosePauseMenuDynamic()
     {
         if (isOpen)
