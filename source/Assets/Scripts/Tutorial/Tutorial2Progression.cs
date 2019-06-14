@@ -26,7 +26,7 @@ public class Tutorial2Progression : TutorialProgression
 
     // registra eventos
     GameEvents.LevelEvents.Rotated += RegisterSwipe;
-    GameEvents.LevelEvents.PickedItem += RegisterPick;
+    GameEvents.LevelEvents.ItemAddedToInventory += RegisterPick;
     GameEvents.LevelEvents.OpenedInventory += RegisterOpen;
     GameEvents.LevelEvents.ClosedInventory += ReturnToOpenStep;
     GameEvents.LevelEvents.SelectedItem += RegisterSelect;
@@ -38,7 +38,7 @@ public class Tutorial2Progression : TutorialProgression
 
     // registra eventos
     GameEvents.LevelEvents.Rotated -= RegisterSwipe;
-    GameEvents.LevelEvents.PickedItem -= RegisterPick;
+    GameEvents.LevelEvents.ItemAddedToInventory -= RegisterPick;
     GameEvents.LevelEvents.OpenedInventory -= RegisterOpen;
     GameEvents.LevelEvents.ClosedInventory -= ReturnToOpenStep;
     GameEvents.LevelEvents.SelectedItem -= RegisterSelect;

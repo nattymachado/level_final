@@ -29,6 +29,9 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private float camDislocationLerpFactor = 10;
     [SerializeField] private float camDislocationSpeed = 15f;
     [SerializeField] private float minDistToZoom = 0.01f;
+    [SerializeField] private float itemPickupFoV = 10;
+    [SerializeField] private bool mustZoomOnpickup = true;
+    private float tempPickupFoV;
     private Vector3 targetDislocatedPosition;
     private bool isCameraDislocated;
     private float targetFoV;
@@ -58,6 +61,17 @@ public class CameraBehaviour : MonoBehaviour
     private float deadAreaOriginalScale;
     private float initialCharHeightDiff;
     private Vector3 lastCharacterPosition;
+
+    void OnEnable(){
+        GameEvents.LevelEvents.PickedItem += ForceZoomOutItemPickup;
+        GameEvents.LevelEvents.ItemAddedToInventory += ForceZoomInItemPickup;
+    }
+
+    void OnDisable(){
+        GameEvents.LevelEvents.PickedItem -= ForceZoomOutItemPickup;
+        GameEvents.LevelEvents.ItemAddedToInventory -= ForceZoomInItemPickup;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -225,6 +239,20 @@ public class CameraBehaviour : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ForceZoomOutItemPickup(){
+        if(targetFoV > (mustZoomOnpickup ? 0 : childCamera.fieldOfView)){
+            tempPickupFoV = childCamera.fieldOfView;
+            targetFoV = itemPickupFoV;
+        }
+    }
+
+    public void ForceZoomInItemPickup(){
+        if(tempPickupFoV > 0 ){
+            targetFoV = tempPickupFoV;
+            tempPickupFoV = 0;
+        }
     }
 
     public void StopZoom()
