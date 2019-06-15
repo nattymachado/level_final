@@ -33,11 +33,8 @@ public class CollectibleInventoryController : ProperSingleton<CollectibleInvento
 
     public void AddItem(Sprite imageSprite)
     {
-        specialSlots[currentSlot].GetComponent<Image>().color = Color.white;
-        Image imageRef = specialSlots[currentSlot].transform.GetChild(0).GetComponent<Image>();
-        imageRef.sprite = imageSprite;
-        imageRef.enabled = true;
-        currentSlot++;
+        AddItemNoAnimation(imageSprite);
+
         if (currentSlot == totalSpecialSlots)
         {
             StartCoroutine(WaitToGetSpecialItem(0.1f));   
@@ -46,6 +43,15 @@ public class CollectibleInventoryController : ProperSingleton<CollectibleInvento
         // trigger event
         GameEvents.LevelEvents.SpecialItemAddedToInventory.SafeInvoke();
     }
+
+    public void AddItemNoAnimation(Sprite imageSprite){
+        specialSlots[currentSlot].GetComponent<Image>().color = Color.white;
+        Image imageRef = specialSlots[currentSlot].transform.GetChild(0).GetComponent<Image>();
+        imageRef.sprite = imageSprite;
+        imageRef.enabled = true;
+        currentSlot++;
+    }
+
 
     IEnumerator WaitToGetSpecialItem(float seconds)
     {

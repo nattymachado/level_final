@@ -13,9 +13,8 @@ public class TutorialProgression : MonoBehaviour
   protected List<TutorialStep> steps = new List<TutorialStep>();
   [SerializeField] protected InputController inputController;
   [SerializeField] private Animator doorAnimator;
-  [SerializeField] private ParticleSystem finishParticles;
-  [SerializeField] private Collider finishCollider;
-  [SerializeField] private CharacterBehaviour character;
+
+  [SerializeField] protected CharacterBehaviour character;
   [SerializeField] private NavMeshObstacle doorStopObstacle;
   [SerializeField] protected InventoryCenterBehaviour inventary;
   protected TutorialStep finishStep;
@@ -58,22 +57,17 @@ public class TutorialProgression : MonoBehaviour
 
   private void StartTutorial() { NextStep(); }
 
-  protected virtual void FinishStart()
+  protected virtual void FinishStart(){}
+
+  protected IEnumerator WaitToOpenDoor(float seconds)
   {
-    StartCoroutine(WaitToOpenDoor(0.8f));   
+      yield return new WaitForSeconds(seconds);
+      doorAnimator.SetTrigger("abrir");
+      doorStopObstacle.enabled = false;
   }
 
-    IEnumerator WaitToOpenDoor(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        doorAnimator.SetTrigger("abrir");
-        finishParticles.Play();
-        doorStopObstacle.enabled = false;
-    }
-
-  private bool FinishCompletion()
-  {
-    return finishCollider.bounds.Contains(character.transform.position);
+  protected virtual bool FinishCompletion(){
+    return false;
   }
 
   protected void ChangeToStep(int index)

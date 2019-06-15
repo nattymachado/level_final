@@ -1744,8 +1744,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 1075595196}
   doorAnimator: {fileID: 1732701294}
-  finishParticles: {fileID: 1087008299}
-  finishCollider: {fileID: 6104629436167829494}
   character: {fileID: 249183945}
   doorStopObstacle: {fileID: 2140690321}
   inventary: {fileID: 552249407}
@@ -1755,6 +1753,8 @@ MonoBehaviour:
   useAnimator: {fileID: 771687001}
   moveAnimator: {fileID: 709013493}
   levelInteractable: {fileID: 1811171853}
+  finishParticles: {fileID: 1087008299}
+  finishCollider: {fileID: 6104629436167829494}
 --- !u!4 &2004435439
 Transform:
   m_ObjectHideFlags: 0
@@ -2507,6 +2507,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 5728548385921323991, guid: 233fa35141246c544a42ab6c4eddb4f2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 158c795c090d4f946816a107a255d4c4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233fa35141246c544a42ab6c4eddb4f2, type: 3}
 --- !u!4 &5728548385445157174 stripped
@@ -2684,6 +2689,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6250188566066480570, guid: 9a11b967c2e531e499043b13086ac606,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 158c795c090d4f946816a107a255d4c4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a11b967c2e531e499043b13086ac606, type: 3}
 --- !u!4 &6250188566266148362 stripped
@@ -2859,6 +2869,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 8884039596870006400, guid: b8b037f2cf3be2144aaab906a506fc7a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 158c795c090d4f946816a107a255d4c4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b037f2cf3be2144aaab906a506fc7a, type: 3}
 --- !u!4 &8884039597613220406 stripped

@@ -13,6 +13,8 @@ public class Tutorial1Progression : TutorialProgression
   [SerializeField] private Animator useAnimator;
   [SerializeField] private Animator moveAnimator;
   [SerializeField] private TutorialLeverBehaviour levelInteractable;
+  [SerializeField] private ParticleSystem finishParticles;
+  [SerializeField] private Collider finishCollider;
   private bool hasPinched;
   private bool hasPanned;
   private bool hasPicked;
@@ -80,11 +82,10 @@ public class Tutorial1Progression : TutorialProgression
 
   protected override void FinishStart()
   {
-    base.FinishStart();
-
     levelInteractable.TurnOff();
-
     moveAnimator.SetBool("appear", true);
+
+    StartCoroutine(FinishStartRoutine());
   }
 
   protected override void Finish()
@@ -94,6 +95,18 @@ public class Tutorial1Progression : TutorialProgression
     // muda cena
     SceneChanger.Instance.ChangeToScene("Tutorial2");
   }
+
+  private IEnumerator FinishStartRoutine()
+  {
+     yield return StartCoroutine(WaitToOpenDoor(0.8f)); 
+     finishParticles.Play();
+  }
+
+  protected override bool FinishCompletion()
+  {
+    return finishCollider.bounds.Contains(character.transform.position);
+  }
+
 }
 
 
