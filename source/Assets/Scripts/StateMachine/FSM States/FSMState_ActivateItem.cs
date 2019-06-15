@@ -11,6 +11,7 @@ public class FSMState_ActivateItem : FSMState
     public override void OnStateEnter()
     {
         FSMControllerRef.LockedByInteraction = true;
+        Debug.Log("VAI VA....");
         FSMControllerRef.characterBehavior.animator.SetTrigger("ActivateItem");
     }
 

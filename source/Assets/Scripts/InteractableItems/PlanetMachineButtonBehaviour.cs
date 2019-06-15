@@ -25,7 +25,7 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
     }
 
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
         if (!isOn)
         {

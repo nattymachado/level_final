@@ -5,11 +5,10 @@ namespace prototypeRobot
 {
     public class CardBox2Behaviour : InteractableItemBehaviour
     {
-        [SerializeField] CharacterBehaviour character;
         [SerializeField] ColorControllerBehaviour colorController;
         [SerializeField] string cardName;
 
-        protected override void ExecuteAction(Collider other)
+        protected override void ExecuteAction(CharacterBehaviour character)
         {
             if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
             {

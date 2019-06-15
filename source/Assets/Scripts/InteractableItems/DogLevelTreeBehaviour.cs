@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class DogLevelTreeBehaviour : InteractableItemBehaviour
 {
-    [SerializeField] CharacterBehaviour character;
     [SerializeField] string activatorItemName;
     [SerializeField] Animator treeAnimator;
     [SerializeField] DogLevelBowlBehaviour bowl;
     private bool activated = false;
 
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
         if (character && !activated && character.CheckInventaryObjectOnSelectedPosition(activatorItemName))
         {

@@ -14,7 +14,7 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
     public GameEnums.LevelName LevelName {get {return levelName;}}
 
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
         SetActive(false);
         _zzz.SetActive(false);

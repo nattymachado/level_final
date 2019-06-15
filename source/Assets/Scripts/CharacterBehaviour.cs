@@ -20,6 +20,7 @@ public class CharacterBehaviour : MonoBehaviour
     //Control Variables
     private FSMController _FSMController;
     public NavMeshAgent _navMeshAgent;
+    private bool isIdle = false;
 
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class CharacterBehaviour : MonoBehaviour
 
     public bool IsStoped()
     {
+        Debug.Log("Actual Position:" + transform.position);
+        Debug.Log("NavMesh Destination:" + _navMeshAgent.destination);
         return transform.position == _navMeshAgent.destination;
     }
 
@@ -56,6 +59,8 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (!_FSMController.LockedByInteraction)
         {
+            isIdle = false;
+            Debug.Log("Go to:" + position);
             _navMeshAgent.destination = position;
             _navMeshAgent.isStopped = false;
             _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Moving);
@@ -105,7 +110,11 @@ public class CharacterBehaviour : MonoBehaviour
     //Update
     private void Update()
     {
-        if (this.transform.position == _navMeshAgent.destination) _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
+        if (IsStoped() == true && isIdle == false)
+        {
+            StartCoroutine(WaitToStop(0.01f));
+            isIdle = true;
+        }
         _FSMController.UpdateFSM();
 
 
@@ -145,5 +154,11 @@ public class CharacterBehaviour : MonoBehaviour
         }
         //rotate us over time according to speed until we are in the required rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);
+    }
+
+    IEnumerator WaitToStop(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
     }
 }

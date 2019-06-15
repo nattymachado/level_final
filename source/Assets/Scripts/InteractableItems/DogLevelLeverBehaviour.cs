@@ -7,9 +7,10 @@ public class DogLevelLeverBehaviour : InteractableItemBehaviour
 {
   [SerializeField] private DogLevelDoor door;
 
-  protected override void ExecuteAction(Collider other)
+  protected override void ExecuteAction(CharacterBehaviour character)
   {
         // trigger event
+        Debug.Log("Clicked");
         SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
         StartCoroutine(WaitToOpenDoor(1f));

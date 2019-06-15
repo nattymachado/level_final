@@ -28,7 +28,7 @@ namespace prototypeRobot
         }
 
 
-        protected override void ExecuteAction(Collider other)
+        protected override void ExecuteAction(CharacterBehaviour character)
         {
             if (!isOn) return;
             else if (!isRight && GetComponentInParent<ColorControllerBehaviour>().isActive)

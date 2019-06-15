@@ -13,7 +13,7 @@ public class DogLevelBowlBehaviour : InteractableItemBehaviour
     private bool activated = false;
     private bool revealed = false;
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
        if (character && revealed && !activated && character.CheckInventaryObjectOnSelectedPosition(activatorItemName))
         {

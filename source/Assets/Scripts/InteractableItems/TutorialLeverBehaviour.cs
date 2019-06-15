@@ -7,7 +7,7 @@ public class TutorialLeverBehaviour : InteractableItemBehaviour
 {
   [SerializeField] ParticleSystem particles;
 
-  protected override void ExecuteAction(Collider other)
+  protected override void ExecuteAction(CharacterBehaviour character)
   {
         // trigger event
         SetActive(false);

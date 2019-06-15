@@ -1051,9 +1051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31de75a62907e6645afda035c5e2520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   shape: triangle
   isRight: 0
 --- !u!95 &179326310
@@ -1443,9 +1444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31de75a62907e6645afda035c5e2520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   shape: circle
   isRight: 0
 --- !u!95 &227464488
@@ -1866,9 +1868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0a2cf6e79893046ada767eaf569010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 1
+  _movementController: {fileID: 0}
   levelName: 0
   victoryCanvas: {fileID: 1402543266}
 --- !u!136 &439805461
@@ -2119,9 +2122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31de75a62907e6645afda035c5e2520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   shape: dunuts
   isRight: 0
 --- !u!135 &539032777
@@ -2544,10 +2548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7b926c52227634d8eea120bc36fb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 5.25, y: -17, z: -1.5}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 1931163444}
   executeRotation: 1
-  character: {fileID: 2021885578}
+  _movementController: {fileID: 0}
   gateAnimator: {fileID: 281362671}
   gateAnimator2: {fileID: 1155687683}
   cardName: pinkCard
@@ -2673,9 +2677,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7c4b9572a8cb74b9f926b96d338ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   color: blue
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: 69e99949afe24d34d9f42b0d666149c9, type: 2}
@@ -2789,9 +2794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7c4b9572a8cb74b9f926b96d338ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   color: green
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: 772241f78b4ff7140a19ffc0e52a0873, type: 2}
@@ -3514,6 +3520,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 598aa38df6c23e64b9b06a6b73ef3a75, type: 3}
+--- !u!1001 &988658362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1248175918}
+    m_Modifications:
+    - target: {fileID: 3228980388057604139, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_Name
+      value: aura_pacientes
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228980388058102795, guid: 8eb3347fa1de6c14fbdbb4293456d7a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8eb3347fa1de6c14fbdbb4293456d7a1, type: 3}
 --- !u!1 &1005700098
 GameObject:
   m_ObjectHideFlags: 0
@@ -5550,9 +5625,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84d27a174955b94a93deee57d8585c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 1
+  _movementController: {fileID: 0}
   particleSystemPrefab: {fileID: 4522062573091607181, guid: 8a90a0e1e9106434d96e704071aa9d1d,
     type: 3}
 --- !u!1 &1155687742
@@ -5643,10 +5719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bec4cac20d747468c6b31512ec61cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: -1.052337, y: -20.203, z: 0.713}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 128242540}
   executeRotation: 1
-  character: {fileID: 2021885578}
+  _movementController: {fileID: 0}
   colorController: {fileID: 1155687807}
   cardName: yellowCard
 --- !u!1 &1155687782
@@ -5943,10 +6019,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02622e05626144340b6700cff9057e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: -4.613, y: -23.02897, z: 7.319}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 1041775328}
   executeRotation: 1
-  character: {fileID: 2021885578}
+  _movementController: {fileID: 0}
   gateAnimator: {fileID: 1155687712}
   itemCollider: {fileID: 1609273698}
   card: {fileID: 1155687786}
@@ -10242,9 +10318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7c4b9572a8cb74b9f926b96d338ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   color: yellow
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: 5d7d231c448f9204784e986cc7812785, type: 2}
@@ -10465,9 +10542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7c4b9572a8cb74b9f926b96d338ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   color: red
   isRight: 0
   colorMaterial: {fileID: 2100000, guid: f5bbcc093baafe14e9ff492a1b3a8c0c, type: 2}
@@ -11052,9 +11130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31de75a62907e6645afda035c5e2520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointOnNavMesh: {x: 0, y: 0, z: 0}
+  pointOnNavMesh: {fileID: 0}
   grid: {fileID: 0}
   executeRotation: 0
+  _movementController: {fileID: 0}
   shape: square
   isRight: 0
 --- !u!95 &2014170981

@@ -59,6 +59,7 @@ public class MovementController : MonoBehaviour
 
     public void Move(Vector3 position)
     {
+        Debug.Log("Position Clicked:" + position);
         PositionOnBoard(position);
     }
 
@@ -78,7 +79,7 @@ public class MovementController : MonoBehaviour
                 Vector3 point = hits[0].point;
                 if (item.pointOnNavMesh != null && item.grid != null)
                 {
-                    MoveToPosition(item.grid, item.pointOnNavMesh);
+                    MoveToPosition(item.grid, item.pointOnNavMesh.position);
                 }
                 else
                 {

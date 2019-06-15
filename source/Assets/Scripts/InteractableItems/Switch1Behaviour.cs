@@ -5,10 +5,9 @@ public class Switch1Behaviour : InteractableItemBehaviour
 {
     [SerializeField] Animator gateAnimator;
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
-        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
-        if (_isLocked || (character != null && !character.IsStoped()))
+        if (_isLocked)
         {
             return;
         }

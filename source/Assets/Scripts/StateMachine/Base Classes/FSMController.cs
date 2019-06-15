@@ -79,10 +79,20 @@ public class FSMController
         if(!lockedByInteraction)
         {
             FSMState state;
+
+            
             if (_dictionaryEnumToState.TryGetValue(requestedAction, out state))
             {
+                if ( _currentState is FSMState_ActivateItem)
+                {
+                    Debug.Log("Retorna");
+                    return;
+                }
                 if (state != _currentState)
                 {
+                    Debug.Log("Current:" + _currentState);
+                    Debug.Log("Vai executar:" + state);
+                   
                     _nextState = state;
                     _requestChangeState = true;
                 }

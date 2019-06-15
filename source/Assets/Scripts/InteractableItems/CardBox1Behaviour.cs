@@ -3,7 +3,6 @@ using System.Collections;
 
 public class CardBox1Behaviour : InteractableItemBehaviour
 {
-    [SerializeField] CharacterBehaviour character;
     [SerializeField] Animator gateAnimator;
     [SerializeField] Animator gateAnimator2;
     [SerializeField] string cardName;
@@ -11,7 +10,7 @@ public class CardBox1Behaviour : InteractableItemBehaviour
     private int _cardNumber = 0;
     private bool _canOpenDoor = false;
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
         _cardNumber = 0;
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))

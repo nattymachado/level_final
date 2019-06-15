@@ -4,13 +4,12 @@ using System.Collections;
 
 public class CardBox3Behaviour : InteractableItemBehaviour
 {
-    [SerializeField] CharacterBehaviour character;
     [SerializeField] Animator gateAnimator;
     [SerializeField] SphereCollider itemCollider;
     [SerializeField] GameObject card;
     [SerializeField] string cardName;
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {

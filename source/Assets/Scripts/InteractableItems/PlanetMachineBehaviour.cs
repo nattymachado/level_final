@@ -13,7 +13,7 @@ public class PlanetMachineBehaviour : InteractableItemBehaviour
     [SerializeField] Material sunSpacialMaterial;
 
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
         if (character && character.CheckInventaryObjectOnSelectedPosition(itemName))
         {

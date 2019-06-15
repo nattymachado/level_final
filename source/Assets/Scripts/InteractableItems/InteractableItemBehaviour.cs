@@ -12,28 +12,53 @@ public class InteractableItemBehaviour : MonoBehaviour
     private float _elapsed = 0f;
     private bool toUp = true;
     protected bool executeWhenActivate = false;
-    [SerializeField] public Vector3 pointOnNavMesh;
+    [SerializeField] public Transform pointOnNavMesh;
     [SerializeField] public GridBehaviour grid;
     [SerializeField] public bool executeRotation = true;
+    [SerializeField] private MovementController _movementController; 
 
     void OnTriggerEnter(Collider other)
     {
         if (_isActive)
         {
-            if (executeRotation)
+            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+            if (character)
             {
-                SetRotation(other);
+                if (executeRotation)
+                {
+
+                    if (character)
+                    {
+                        SetRotation(other);
+                    }
+
+                }
+                if (pointOnNavMesh != null && grid != null)
+                {
+                    _movementController.MoveToPosition(grid, pointOnNavMesh.position);
+                }
+                CheckIfCanExecuteAction(character);
             }
-            ExecuteAction(other);
+            
+
         }
 
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (_isActive)
+        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+        if (character)
         {
-            ExecuteAction(other);
+            if (_isActive)
+            {
+                if (pointOnNavMesh != null && grid != null)
+                {
+                    Debug.Log("Position fixed:" + pointOnNavMesh.position);
+                    _movementController.MoveToPosition(grid, pointOnNavMesh.position);
+                }
+                CheckIfCanExecuteAction(character);
+            }
         }
     }
 
@@ -84,6 +109,7 @@ public class InteractableItemBehaviour : MonoBehaviour
 
     public void SetActive(bool isActive)
     {
+        Debug.Log("Ativado");
         if (executeWhenActivate)
         {
             ExecuteAction();
@@ -103,7 +129,19 @@ public class InteractableItemBehaviour : MonoBehaviour
         _isActive = false;
     }
 
-    protected virtual void ExecuteAction(Collider other)
+    protected void CheckIfCanExecuteAction(CharacterBehaviour character)
+    {
+
+        Debug.Log("1-" + character.targetToRotation);
+        Debug.Log("2-" + character.IsStoped());
+        if (character.targetToRotation == null && character.IsStoped())
+        {
+            Debug.Log("It is stoped");
+            ExecuteAction(character);
+        }
+    }
+
+    protected virtual void ExecuteAction(CharacterBehaviour character)
     {
 
     }

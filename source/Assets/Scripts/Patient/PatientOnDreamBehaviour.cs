@@ -13,10 +13,9 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
         if (victoryCanvas == null) Debug.LogError("victory canvas empty on patient");
     }
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
-        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
-        if (character && character.CheckIfSpecialIsActivated() && !specialItemIsUsed)
+        if (character.CheckIfSpecialIsActivated() && !specialItemIsUsed)
         {
             specialItemIsUsed = true;
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);

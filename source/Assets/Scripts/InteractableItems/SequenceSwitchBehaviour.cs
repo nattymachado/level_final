@@ -9,14 +9,8 @@ namespace prototypeRobot
         private bool _isOn;
 
 
-        protected override void ExecuteAction(Collider other)
+        protected override void ExecuteAction(CharacterBehaviour character)
         {
-            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
-            if  (character != null && !character.IsStoped())
-            {
-                return;
-            }
-        
             if (!_isOn)
             {
                 SetActive(false);

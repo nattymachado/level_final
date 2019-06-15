@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class TutorialCardBox : InteractableItemBehaviour
 {
-    [SerializeField] CharacterBehaviour character;
     [SerializeField] string cardName;
 
-    protected override void ExecuteAction(Collider other)
+    protected override void ExecuteAction(CharacterBehaviour character)
     {
-        if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
+        if (character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
             GameEvents.AudioEvents.TriggerSFX("InsertedKeycard", false, false);
             SetActive(false);

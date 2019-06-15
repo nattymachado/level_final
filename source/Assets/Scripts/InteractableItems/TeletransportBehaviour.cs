@@ -10,10 +10,9 @@ namespace prototypeRobot
         public CharacterBehaviour character;
         private bool _canMove = false;
 
-        protected override void ExecuteAction(Collider other)
+        protected override void ExecuteAction(CharacterBehaviour character)
         {
-            character = other.GetComponent<CharacterBehaviour>();
-            if (character && !_canMove)
+            if (!_canMove)
             {
                 _canMove = true;
             }
