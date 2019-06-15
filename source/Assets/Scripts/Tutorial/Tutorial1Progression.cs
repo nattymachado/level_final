@@ -9,13 +9,15 @@ public class Tutorial1Progression : TutorialProgression
 {
   [SerializeField] private Animator pinchAnimator;
   [SerializeField] private Animator panAnimator;
-  [SerializeField] private Animator moveAnimator;
+  [SerializeField] private Animator pickAnimator;
   [SerializeField] private Animator useAnimator;
+  [SerializeField] private Animator moveAnimator;
   [SerializeField] private TutorialLeverBehaviour levelInteractable;
   private bool hasPinched;
   private bool hasPanned;
-  private bool hasMoved;
+  private bool hasPicked;
   private bool hasUsed;
+  private bool hasMoved;
 
   protected override void OnEnable()
   {
@@ -24,8 +26,9 @@ public class Tutorial1Progression : TutorialProgression
     // registra eventos
     GameEvents.LevelEvents.Zoomed += RegisterPinch;
     GameEvents.LevelEvents.Panned += RegisterPan;
-    GameEvents.LevelEvents.Moved += RegisterMove;
+    GameEvents.LevelEvents.SpecialItemAddedToInventory += RegisterPick;
     GameEvents.LevelEvents.UsedInteractable += RegisterUse;
+    GameEvents.LevelEvents.Moved += RegisterMove;
   }
   protected override void OnDisable()
   {
@@ -34,8 +37,9 @@ public class Tutorial1Progression : TutorialProgression
     // registra eventos
     GameEvents.LevelEvents.Zoomed -= RegisterPinch;
     GameEvents.LevelEvents.Panned += RegisterPan;
-    GameEvents.LevelEvents.Moved -= RegisterMove;
+    GameEvents.LevelEvents.SpecialItemAddedToInventory -= RegisterPick;
     GameEvents.LevelEvents.UsedInteractable -= RegisterUse;
+    GameEvents.LevelEvents.Moved -= RegisterMove;
   }
 
   protected override void Awake()
@@ -45,12 +49,12 @@ public class Tutorial1Progression : TutorialProgression
     // cria os passos do tutorial
     TutorialStep pinchStep = new TutorialStep(pinchAnimator, new StepStart(PinchStart), new StepCompletion(PinchCompletion));
     TutorialStep panStep = new TutorialStep(panAnimator, new StepStart(PanStart), new StepCompletion(PanCompletion));
-    TutorialStep moveStep = new TutorialStep(moveAnimator, new StepStart(MoveStart), new StepCompletion(MoveCompletion));
+    TutorialStep pickStep = new TutorialStep(pickAnimator, new StepStart(PickStart), new StepCompletion(PickCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator, new StepStart(UseStart), new StepCompletion(UseCompletion));
 
     steps.Add(pinchStep);
     steps.Add(panStep);
-    steps.Add(moveStep);
+    steps.Add(pickStep);
     steps.Add(useStep);
     steps.Add(finishStep);
   }
@@ -59,24 +63,28 @@ public class Tutorial1Progression : TutorialProgression
   private bool PinchCompletion() { return hasPinched; }
   private void PanStart() { inputController.ChangePermissions(true, false, false, true); }
   private bool PanCompletion() { return hasPanned; }
-  private void MoveStart() { inputController.ChangePermissions(true, true, false, true); }
-  private bool MoveCompletion() { return hasMoved; }
+  private void PickStart() { inputController.ChangePermissions(true, true, false, true); }
+  private bool PickCompletion() { return hasPicked; }
   private void UseStart()
   {
     inputController.ChangePermissions(true, true, false, true);
-    levelInteractable.TurnParticlesOn();
+    levelInteractable.TurnOn();
   }
   private bool UseCompletion() { return hasUsed; }
+
   private void RegisterPinch() { hasPinched = true; }
   private void RegisterPan() { hasPanned = true; }
-  private void RegisterMove() { hasMoved = true; }
+  private void RegisterPick() { hasPicked = true; }
   private void RegisterUse() { hasUsed = true; }
+  private void RegisterMove() { hasMoved = true; }
 
   protected override void FinishStart()
   {
     base.FinishStart();
 
-    levelInteractable.TurnParticlesOff();
+    levelInteractable.TurnOff();
+
+    moveAnimator.SetBool("appear", true);
   }
 
   protected override void Finish()

@@ -7,6 +7,10 @@ public class TutorialLeverBehaviour : InteractableItemBehaviour
 {
   [SerializeField] ParticleSystem particles;
 
+  private void Start(){
+    SetActive(false);
+  }
+
   protected override void ExecuteAction(CharacterBehaviour character)
   {
         // trigger event
@@ -23,12 +27,13 @@ public class TutorialLeverBehaviour : InteractableItemBehaviour
         GameEvents.LevelEvents.UsedInteractable.SafeInvoke();
     }
 
-    public void TurnParticlesOn()
+  public void TurnOn()
   {
+    Activate();
     particles.Play();
   }
 
-  public void TurnParticlesOff()
+  public void TurnOff()
   {
     particles.Stop();
   }

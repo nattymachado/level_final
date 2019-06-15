@@ -42,6 +42,9 @@ public class CollectibleInventoryController : ProperSingleton<CollectibleInvento
         {
             StartCoroutine(WaitToGetSpecialItem(0.1f));   
         }
+
+        // trigger event
+        GameEvents.LevelEvents.SpecialItemAddedToInventory.SafeInvoke();
     }
 
     IEnumerator WaitToGetSpecialItem(float seconds)

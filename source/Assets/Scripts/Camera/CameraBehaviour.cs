@@ -65,11 +65,13 @@ public class CameraBehaviour : MonoBehaviour
     void OnEnable(){
         GameEvents.LevelEvents.PickedItem += ForceZoomOutItemPickup;
         GameEvents.LevelEvents.ItemAddedToInventory += ForceZoomInItemPickup;
+        GameEvents.LevelEvents.SpecialItemAddedToInventory += ForceZoomInItemPickup;
     }
 
     void OnDisable(){
         GameEvents.LevelEvents.PickedItem -= ForceZoomOutItemPickup;
         GameEvents.LevelEvents.ItemAddedToInventory -= ForceZoomInItemPickup;
+        GameEvents.LevelEvents.SpecialItemAddedToInventory -= ForceZoomInItemPickup;
     }
 
 

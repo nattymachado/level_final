@@ -120,8 +120,17 @@ public class InteractableItemBehaviour : MonoBehaviour
         {
             StartCoroutine(WaitToInactivate());
         }
-
     }
+    
+    protected void Activate(){
+        _isActive = true;
+        if (executeWhenActivate)
+        {
+            ExecuteAction();
+            return;
+        }
+    }
+
 
     IEnumerator WaitToInactivate()
     {

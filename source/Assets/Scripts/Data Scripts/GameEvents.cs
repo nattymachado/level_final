@@ -49,6 +49,7 @@ public static class GameEvents
         public static Action UsedInteractable;
         public static Action PickedItem;
         public static Action ItemAddedToInventory;
+        public static Action SpecialItemAddedToInventory;
         public static Action SelectedItem;
         public static Action UsedItem;
         public static Action OpenedInventory;
