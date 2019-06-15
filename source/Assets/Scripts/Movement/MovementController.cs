@@ -75,7 +75,7 @@ public class MovementController : MonoBehaviour
             InteractableItemBehaviour item = hits[0].collider.GetComponent<InteractableItemBehaviour>();
             if (item)
             {
-                item.SetActive(true);
+                item.ActivateAndGo(true, _character);
                 Vector3 point = hits[0].point;
                 if (item.pointOnNavMesh != null && item.grid != null)
                 {

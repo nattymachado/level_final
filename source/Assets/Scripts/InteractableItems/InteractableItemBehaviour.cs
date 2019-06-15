@@ -24,19 +24,7 @@ public class InteractableItemBehaviour : MonoBehaviour
             CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
             if (character)
             {
-                if (executeRotation)
-                {
-
-                    if (character)
-                    {
-                        SetRotation(other);
-                    }
-
-                }
-                if (pointOnNavMesh != null && grid != null)
-                {
-                    _movementController.MoveToPosition(grid, pointOnNavMesh.position);
-                }
+                
                 CheckIfCanExecuteAction(character);
             }
             
@@ -52,23 +40,19 @@ public class InteractableItemBehaviour : MonoBehaviour
         {
             if (_isActive)
             {
-                if (pointOnNavMesh != null && grid != null)
+               /* if (pointOnNavMesh != null && grid != null)
                 {
                     Debug.Log("Position fixed:" + pointOnNavMesh.position);
                     _movementController.MoveToPosition(grid, pointOnNavMesh.position);
-                }
+                }*/
                 CheckIfCanExecuteAction(character);
             }
         }
     }
 
-    private void SetRotation(Collider collider)
+    private void SetRotation(CharacterBehaviour character)
     {
-        CharacterBehaviour character = collider.GetComponent<CharacterBehaviour>();
-        if (character != null)
-        {
-            character.SetRotation(transform);
-        }
+        character.SetRotation(transform);
     }
 
     protected void Shine()
@@ -121,7 +105,35 @@ public class InteractableItemBehaviour : MonoBehaviour
             StartCoroutine(WaitToInactivate());
         }
     }
-    
+
+    public void ActivateAndGo(bool isActive, CharacterBehaviour character)
+    {
+        Debug.Log("Ativado");
+        if (executeWhenActivate)
+        {
+            ExecuteAction();
+            return;
+        }
+        _isActive = isActive;
+        if (isActive)
+        {
+            if (executeRotation)
+            {
+
+                if (character)
+                {
+                    SetRotation(character);
+                }
+
+            }
+            if (pointOnNavMesh != null && grid != null)
+            {
+                _movementController.MoveToPosition(grid, pointOnNavMesh.position);
+            }
+            StartCoroutine(WaitToInactivate());
+        }
+    }
+
     protected void Activate(){
         _isActive = true;
         if (executeWhenActivate)
