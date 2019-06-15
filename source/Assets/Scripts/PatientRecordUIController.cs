@@ -50,5 +50,8 @@ public class PatientRecordUIController : MonoBehaviour
     {
       SceneChanger.Instance.ChangeToScene(level.SceneName);
     }
+
+    // trigger event
+    GameEvents.GameStateEvents.LevelEntered.SafeInvoke();
   }
 }

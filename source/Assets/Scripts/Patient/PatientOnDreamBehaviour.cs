@@ -38,7 +38,9 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
 
     private void OpenVictoryCanvas()
     {
+        // trigger events
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
+        GameEvents.GameStateEvents.LevelCompleted.SafeInvoke();
         // GameStatus.Instance.SetLastLevel(_patientLevel);
 
         // save

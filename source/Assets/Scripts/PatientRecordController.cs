@@ -22,7 +22,6 @@ public class PatientRecordController : MonoBehaviour
     //Request Load Scene
     public void RequestLoadScene()
     {
- 
         recordController.LoadScene(levelToLoad);
     }
 

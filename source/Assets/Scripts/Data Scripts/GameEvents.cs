@@ -32,6 +32,9 @@ public static class GameEvents
     public static class GameStateEvents
     {
         public static Action BGMSceneLoaded;
+        public static Action GameStarted;
+        public static Action LevelEntered;
+        public static Action LevelCompleted;
     }
 
     public static class LevelEvents
@@ -50,5 +53,10 @@ public static class GameEvents
         public static Action UsedItem;
         public static Action OpenedInventory;
         public static Action ClosedInventory;
+    }
+
+    public static class Interactables
+    {
+        public static Action DreamMachine;
     }
 }

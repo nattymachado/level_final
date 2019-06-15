@@ -26,6 +26,9 @@ namespace StartMenu
                 Debug.Log("Estou aqui");
                 SceneChanger.Instance.ChangeToScene(_hubScene);
             }
+
+            // trigger event]
+            GameEvents.GameStateEvents.GameStarted.SafeInvoke();
         }
 
         public void Configuration()
