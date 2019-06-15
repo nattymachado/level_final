@@ -23,14 +23,14 @@ public class BGMAudioController : BaseAudioController
         _audioSource.loop = true;
         _audioSource.spatialBlend = 0f;
         _audioSource.Stop();
-        GameEvents.AudioEvents.SetBGMVolume += SetDesiredVolume;
-        GameEvents.AudioEvents.PlayBGM += PlayBGM;
     }
 
     // Start is called before the first frame update
-    private void Start()
+    private void OnEnable()
     {
         SetDesiredVolume(GameConfiguration.Instance.GetBGMVolume());
+        GameEvents.AudioEvents.SetBGMVolume += SetDesiredVolume;
+        GameEvents.AudioEvents.PlayBGM += PlayBGM;
         GameEvents.GameStateEvents.BGMSceneLoaded.SafeInvoke();
     }
 
@@ -71,19 +71,24 @@ public class BGMAudioController : BaseAudioController
     {
         if(_newClip != null)
         {
-            if (_audioSource.volume == 0f || !_audioSource.isPlaying)
+            if(!_audioSource.isPlaying || _audioSource.volume == 0f)
             {
                 _audioSource.clip = _newClip.audioClip;
                 _currentClip = _newClip;
                 _desiredVolume = GameConfiguration.Instance.GetBGMVolume() * _baseVolumeFactor * _currentClip.volumeFactor;
                 _newClip = null;
-                _audioSource.Play();
+
+                if(!_audioSource.isPlaying)
+                {
+                    _audioSource.volume = _desiredVolume;
+                    _audioSource.Play();
+                }
             }
             else if(_audioSource.volume > 0f) _audioSource.volume = Mathf.Max(_audioSource.volume - (_volumeFadeFactor * Time.deltaTime), 0f);
         }
         else if(_audioSource.volume != _desiredVolume)
         {
-            if(_audioSource.volume > _desiredVolume) _audioSource.volume = Mathf.Max(_audioSource.volume - (_volumeFadeFactor * Time.deltaTime), 0f);
+            if (_audioSource.volume > _desiredVolume) _audioSource.volume = Mathf.Max(_audioSource.volume - (_volumeFadeFactor * Time.deltaTime), _desiredVolume);
             else _audioSource.volume = Mathf.Min(_audioSource.volume + (_volumeFadeFactor * Time.deltaTime), _desiredVolume);
         }
     }

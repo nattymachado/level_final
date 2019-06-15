@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollectibleInventoryController : Singleton<CollectibleInventoryController>
+public class CollectibleInventoryController : ProperSingleton<CollectibleInventoryController>
 {
     //Refence Variables
     [Header("Required References")]
@@ -33,6 +33,7 @@ public class CollectibleInventoryController : Singleton<CollectibleInventoryCont
 
     public void AddItem(Sprite imageSprite)
     {
+        specialSlots[currentSlot].GetComponent<Image>().color = Color.white;
         Image imageRef = specialSlots[currentSlot].transform.GetChild(0).GetComponent<Image>();
         imageRef.sprite = imageSprite;
         imageRef.enabled = true;

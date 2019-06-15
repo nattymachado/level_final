@@ -17,6 +17,7 @@ public class DogLevelBowlBehaviour : InteractableItemBehaviour
     {
        if (character && revealed && !activated && character.CheckInventaryObjectOnSelectedPosition(activatorItemName))
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Pour", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             dogFood.SetActive(true);
             ActivateBowl();

@@ -19,7 +19,9 @@ public class DogLevelTreeBehaviour : InteractableItemBehaviour
         } 
     }
 
-    private void ActivateTree(){
+    private void ActivateTree()
+    {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Treeshake", false, false);
         activated = true;
         treeAnimator.SetTrigger("shake");
         bowl.Show();
