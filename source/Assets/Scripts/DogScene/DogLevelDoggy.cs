@@ -81,6 +81,7 @@ public class DogLevelDoggy : MonoBehaviour
         {
           if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
           {
+            transform.LookAt(bowlDestination);
             reached = true;
           }
         }

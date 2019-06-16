@@ -42,6 +42,7 @@ public class DogLevelPacient : MonoBehaviour
     yield return StartCoroutine(FaceFront());
 
     // turn on waiting
+    //agent.enabled = false;
     pacientAnimator.SetTrigger("stopWalking");
   }
 

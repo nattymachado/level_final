@@ -28,7 +28,6 @@ public class SceneChanger : Singleton<SceneChanger>
 
   IEnumerator SceneChange(string nextSceneName, Action beforeFadeIn, Action afterFadeIn)
   {
-        Debug.Log("Estou aqui");
     currentScene = SceneManager.GetActiveScene();
 
     // fade

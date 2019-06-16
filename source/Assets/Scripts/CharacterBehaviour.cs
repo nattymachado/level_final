@@ -39,8 +39,6 @@ public class CharacterBehaviour : MonoBehaviour
 
     public bool IsStoped()
     {
-        Debug.Log("Actual Position:" + transform.position);
-        Debug.Log("NavMesh Destination:" + _navMeshAgent.destination);
         return transform.position == _navMeshAgent.destination;
     }
 
@@ -60,14 +58,10 @@ public class CharacterBehaviour : MonoBehaviour
         if (!_FSMController.LockedByInteraction)
         {
             isIdle = false;
-            Debug.Log("Go to:" + position);
             _navMeshAgent.destination = position;
             _navMeshAgent.isStopped = false;
             _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Moving);
-        } else
-        {
-            Debug.Log("Is locked!");
-        }
+        } 
     }
 
     public void DisableNavegation()
@@ -132,17 +126,18 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void SetRotation(Transform target)
     {
-        if (targetToRotation == null)
+        /*if (targetToRotation == null)
         {
             targetToRotation = target;
-        }
+        }*/
+        transform.LookAt(target);
 
     }
 
     private void RotateTo()
     {
         //find the vector pointing from our position to the target
-        Vector3 direction = (targetToRotation.position - transform.position).normalized;
+        /*Vector3 direction = (targetToRotation.position - transform.position).normalized;
 
         //create the rotation we need to be in to look at the target
         _lookRotation = Quaternion.LookRotation(direction);
@@ -153,7 +148,10 @@ public class CharacterBehaviour : MonoBehaviour
             return;
         }
         //rotate us over time according to speed until we are in the required rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);*/
+        transform.LookAt(Vector3.zero);
+        //targetToRotation = null;
+
     }
 
     IEnumerator WaitToStop(float seconds)

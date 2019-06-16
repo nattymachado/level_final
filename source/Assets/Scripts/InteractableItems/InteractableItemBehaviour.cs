@@ -117,15 +117,7 @@ public class InteractableItemBehaviour : MonoBehaviour
         _isActive = isActive;
         if (isActive)
         {
-            if (executeRotation)
-            {
-
-                if (character)
-                {
-                    SetRotation(character);
-                }
-
-            }
+            
             if (pointOnNavMesh != null && grid != null)
             {
                 _movementController.MoveToPosition(grid, pointOnNavMesh.position);
@@ -157,7 +149,10 @@ public class InteractableItemBehaviour : MonoBehaviour
         Debug.Log("2-" + character.IsStoped());
         if (character.targetToRotation == null && character.IsStoped())
         {
-            Debug.Log("It is stoped");
+            if (executeRotation)
+            {
+                SetRotation(character);
+            }
             ExecuteAction(character);
         }
     }

@@ -79,11 +79,16 @@ public class Tutorial2Progression : TutorialProgression
     openStepIndex = steps.IndexOf(openInventoryStep);
     useStepIndex = steps.IndexOf(useStep);
 
-    // put first item on special itens
-    CollectibleInventoryController.Instance.AddItemNoAnimation(firstSpecialImage.sprite);
+        
   }
 
-  private void SwipeStart() { inputController.ChangePermissions(true, false, true, false); }
+    private void Start()
+    {
+        // put first item on special itens
+        CollectibleInventoryController.Instance.AddItemNoAnimation(firstSpecialImage.sprite);
+    }
+
+    private void SwipeStart() { inputController.ChangePermissions(true, false, true, false); }
   private bool SwipeCompletion() { return hasSwiped; }
   private void PickStart() { inputController.ChangePermissions(true, true, true, true); }
   private bool PickCompletion() { return hasPicked; }

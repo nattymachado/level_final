@@ -14,7 +14,7 @@ public class DogLevelLeverBehaviour : InteractableItemBehaviour
         Debug.Log("Clicked");
         SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-        StartCoroutine(WaitToOpenDoor(1f));
+        StartCoroutine(WaitToOpenDoor(0.2f));
     }
 
     IEnumerator WaitToOpenDoor(float seconds)
