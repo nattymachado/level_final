@@ -41,7 +41,6 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
         // trigger events
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
         GameEvents.GameStateEvents.LevelCompleted.SafeInvoke();
-        // GameStatus.Instance.SetLastLevel(_patientLevel);
 
         // save
         LevelProgress levelProgress = SaveManager.GetLevelProgress(levelName);
