@@ -26,6 +26,13 @@ public class PauseMenuController : MonoBehaviour
         GameEvents.UIEvents.OpenMenu.SafeInvoke(state);
     }
 
+    public void Resume()
+    {
+        raycastBlocker.SetActive(true);
+        isOpen = false;
+        pauseOverlayGameObject.SetActive(false);
+    }
+
     public void ResetGame()
     {
         OpenClosePauseMenu(false);

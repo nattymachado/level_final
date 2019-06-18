@@ -6003,7 +6003,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5bd7376d0be63ee4aba4a6251094466b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 713820e58ca52d6408bfee49d74a5e40, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -41460,6 +41460,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2323775, y: 1.6380827, z: 1.2185475}
   m_Center: {x: -0.021383047, y: -0.02644813, z: -0.081092775}
+--- !u!1 &1837117800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837117803}
+  - component: {fileID: 1837117802}
+  - component: {fileID: 1837117801}
+  m_Layer: 5
+  m_Name: RaycastBlocker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1837117801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837117800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1837117802
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837117800}
+  m_CullTransparentMesh: 0
+--- !u!224 &1837117803
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837117800}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3872, y: 0.3872, z: 0.3872}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 361.5, y: 215}
+  m_SizeDelta: {x: 1867.2283, y: 1110.523}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1993598208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4420896396822414135, guid: fbf0038a56d18124aa43aeea04e1a8a7,
@@ -41705,6 +41779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HospitalGameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795510728912113107, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6289985943995691697, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
         type: 3}
@@ -42197,11 +42276,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8795510728912113107, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2483019574603914040, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
         type: 3}
       propertyPath: m_IsActive
@@ -42329,7 +42403,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3bfeffb7a3e77cc49b75b8d9c9fb8869,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 9061013236972176125, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: raycastBlocker
+      value: 
+      objectReference: {fileID: 4018778628521851881}
+    - target: {fileID: 6604624063677799211, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159196776016283633, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159196775781255787, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenClosePauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159196775781255787, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645540025474693971, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5159196776478967840, guid: bdbbfec3c8a0942459b55f5fb5b4a112, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bdbbfec3c8a0942459b55f5fb5b4a112, type: 3}
 --- !u!114 &4018778628521851879 stripped
 MonoBehaviour:
@@ -42346,6 +42451,12 @@ MonoBehaviour:
 --- !u!224 &4018778628521851880 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5159196776290848779, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
+    type: 3}
+  m_PrefabInstance: {fileID: 4018778628521851878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4018778628521851881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5645540025474693971, guid: bdbbfec3c8a0942459b55f5fb5b4a112,
     type: 3}
   m_PrefabInstance: {fileID: 4018778628521851878}
   m_PrefabAsset: {fileID: 0}
