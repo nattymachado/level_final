@@ -9,7 +9,6 @@ public class TutorialConfirmDialogController : MonoBehaviour
     //Control Variables
     [Header("Control Variables")]
     [SerializeField] private string _tutorialScene;
-    [SerializeField] private Text _titleText;
 
     //Confirm the action
     public void Confirm(bool isYes)

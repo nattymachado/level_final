@@ -115,14 +115,14 @@ public class CharacterBehaviour : MonoBehaviour
     }
 
     //Update
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
 
         if (targetToRotation != null)
         {
             RotateTo();
         }
-    }
+    }*/
 
     public void SetRotation(Transform target)
     {
@@ -130,6 +130,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             targetToRotation = target;
         }*/
+        Debug.Log("Looking to" + transform.position);
         transform.LookAt(target);
 
     }
@@ -149,7 +150,7 @@ public class CharacterBehaviour : MonoBehaviour
         }
         //rotate us over time according to speed until we are in the required rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);*/
-        transform.LookAt(Vector3.zero);
+        //transform.LookAt(Vector3.zero);
         //targetToRotation = null;
 
     }

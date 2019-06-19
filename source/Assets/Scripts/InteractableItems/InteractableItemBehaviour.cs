@@ -145,8 +145,6 @@ public class InteractableItemBehaviour : MonoBehaviour
     protected void CheckIfCanExecuteAction(CharacterBehaviour character)
     {
 
-        Debug.Log("1-" + character.targetToRotation);
-        Debug.Log("2-" + character.IsStoped());
         if (character.targetToRotation == null && character.IsStoped())
         {
             if (executeRotation)

@@ -11,6 +11,8 @@ public static class GameEvents
         public static Action<bool> OpenMenu;
         public static Action OpenTutorialDialogBox;
         public static Action CloseTutorialDialogBox;
+        public static Action OpenResetDialogBox;
+        public static Action CloseResetDialogBox;
         public static Action TriggerItemsJoinAnimation;
     }
 

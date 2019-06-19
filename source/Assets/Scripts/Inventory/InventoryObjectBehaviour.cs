@@ -10,6 +10,7 @@ public class InventoryObjectBehaviour : MonoBehaviour
     [SerializeField] public string Name;
     [SerializeField] public Image objectImage;
     [SerializeField] public InventoryCenterBehaviour inventaryCenter;
+    [SerializeField] public Transform lookPosition;
     private Animator _animator;
     private bool _isEnabled = true;
     private Vector3 _targetMovementLocation = Vector3.zero;
@@ -36,11 +37,9 @@ public class InventoryObjectBehaviour : MonoBehaviour
 
     private void GetItem(CharacterBehaviour character)
     {
+        character.DisableNavegation();
         character.SetRotation(transform);
-        StartCoroutine(WaitToIncludeOnInventory(0f, character));
-
-        // trigger event
-        GameEvents.LevelEvents.PickedItem.SafeInvoke();
+        StartCoroutine(WaitToIncludeOnInventory(0.1f, character));
     }
 
     IEnumerator WaitToIncludeOnInventory(float seconds, CharacterBehaviour character)
@@ -48,6 +47,8 @@ public class InventoryObjectBehaviour : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.PickupItem);
         IncludeItemOnInventory(character);
+        GameEvents.LevelEvents.PickedItem.SafeInvoke();
+        character.EnableNavegation();
     }
 
     void MoveToLayer(Transform root, int layer)
