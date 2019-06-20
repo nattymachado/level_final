@@ -90,6 +90,8 @@ public class InventoryCenterBehaviour : MonoBehaviour
 
     public void SelectItem(InventoryObjectBehaviour item)
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InventoryItemSelect", false, true);
+
         if (item != null)
         {
             if (_item != null)
@@ -105,7 +107,6 @@ public class InventoryCenterBehaviour : MonoBehaviour
             // trigger event
             GameEvents.LevelEvents.SelectedItem.SafeInvoke();
         }
-
     }
 
     public bool CheckItem(string itemName)
@@ -150,12 +151,12 @@ public class InventoryCenterBehaviour : MonoBehaviour
         // trigger event
         if (_isOpen)
         {
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gear_Rotate", false, false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gear_Rotate", false, true);
             GameEvents.LevelEvents.OpenedInventory.SafeInvoke();
         }
         else
         {
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gear_Retract", false, false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gear_Retract", false, true);
             GameEvents.LevelEvents.ClosedInventory.SafeInvoke();
         }
     }

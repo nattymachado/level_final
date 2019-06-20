@@ -16,15 +16,17 @@ public class CardBox1Behaviour : InteractableItemBehaviour
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
             _cardNumber = 1;
-        } else if (character && character.CheckInventaryObjectOnSelectedPosition(cardName2)) {
-            _cardNumber = 2;
-        }
-        if (_cardNumber > 0)
-        {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
-            StartCoroutine(WaitToOpenGate(0f, _cardNumber));
+            StartCoroutine(WaitToOpenGate(0.1f, _cardNumber));
         }
-
+        else if (character && character.CheckInventaryObjectOnSelectedPosition(cardName2))
+        {
+            _cardNumber = 2;
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
+            GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
+            StartCoroutine(WaitToOpenGate(0.5f, _cardNumber));
+        }
     }
 
     IEnumerator WaitToOpenGate(float seconds, int card)
@@ -39,13 +41,12 @@ public class CardBox1Behaviour : InteractableItemBehaviour
         {
             gateAnimator.SetBool("isOpen", true);
             SetActive(false);
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
         }
         else if (card == 2)
         {
             gateAnimator2.SetBool("isOpen", true);
             SetActive(false);
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("TechDoor", false, false);
         }
     }
 
