@@ -10,7 +10,6 @@ public class VictoryCanvasController : MonoBehaviour
   private void Awake()
   {
     overlayPanel.SetActive(false);
-    panelAnimator.SetBool("opened", false);
   }
 
   private void Update(){
