@@ -28,6 +28,7 @@ namespace StartMenu
 
             // trigger event]
             GameEvents.GameStateEvents.GameStarted.SafeInvoke();
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Heavy", false, true);
         }
 
         public void Configuration()

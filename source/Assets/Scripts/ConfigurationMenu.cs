@@ -29,6 +29,7 @@ public class ConfigurationMenu : MonoBehaviour
             _sfxSlider.value = GameConfiguration.Instance.GetSFXVolume();
         }
 
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         this.gameObject.SetActive(true);
         _configurationPanel.SetActive(true);
         if(_previousPanel != null) _previousPanel.SetActive(false);
@@ -37,12 +38,14 @@ public class ConfigurationMenu : MonoBehaviour
 
     public void Credits()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         _configurationPanel.SetActive(false);
         _creditsPanel.SetActive(true);
     }
 
     public void CloseConfiguration()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         this.gameObject.SetActive(false);
         _configurationPanel.SetActive(false);
         if (_previousPanel != null) _previousPanel.SetActive(true);
@@ -51,6 +54,7 @@ public class ConfigurationMenu : MonoBehaviour
 
     public void CloseCredits()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         _configurationPanel.SetActive(true);
         _creditsPanel.SetActive(false);
     }
@@ -69,6 +73,7 @@ public class ConfigurationMenu : MonoBehaviour
 
     public void Quit()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         Application.Quit();
     }
 }
