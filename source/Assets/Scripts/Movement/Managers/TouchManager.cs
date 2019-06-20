@@ -8,135 +8,134 @@ using UnityEngine.UI;
 public class TouchManager : MonoBehaviour
 {
 
-    [SerializeField] private CameraBehaviour cameraBehaviour;
-    private InputController controller;
-    [SerializeField] private float pinchScale = 0.2f;
+  [SerializeField] private CameraBehaviour cameraBehaviour;
+  private InputController controller;
+  [SerializeField] private float pinchScale = 0.2f;
+  [SerializeField] private bool panAndPinchTogether = false;
 
-    private bool isTouching = false;
-    private bool wasDoubleTouching = false;
-    private bool wasTripleTouching;
-    private int firstFingerId = 1000;
-    private float panZoomResetTime = 1f;
-    private float panZoomResetTimer = 1f;
-    private bool isZooming = false;
-    private bool isPanning = false;
-    private Vector2[] lastFrameTouchesPositions = new Vector2[2];
-    private bool isEnabled;
+  private bool isTouching = false;
+  private bool wasDoubleTouching = false;
+  private int firstFingerId = 1000;
+  private float panZoomResetTime = 1f;
+  private float panZoomResetTimer = 1f;
+  private bool isPinching = false;
+  private bool isPanning = false;
+  private Vector2[] lastFrameTouchesPositions = new Vector2[2];
+  private bool isEnabled;
 
-    void Awake()
+  void Awake()
+  {
+    controller = GetComponent<InputController>();
+    isEnabled = true;
+  }
+
+  private void Start()
+  {
+    GameEvents.UIEvents.OpenMenu += setActive;
+  }
+
+  private void OnDestroy()
+  {
+    GameEvents.UIEvents.OpenMenu -= setActive;
+  }
+
+  private void setActive(bool status)
+  {
+    StartCoroutine(changeEnabledState(status));
+  }
+
+  private IEnumerator changeEnabledState(bool status)
+  {
+    yield return null;
+    isEnabled = !status;
+  }
+
+  void Update()
+  {
+    if (controller.IsOnInventary(Input.mousePosition))
     {
-        controller = GetComponent<InputController>();
-        isEnabled = true;
+      return;
     }
 
-    private void Start()
+    if (!isEnabled)
     {
-        GameEvents.UIEvents.OpenMenu += setActive;
+      return;
     }
 
-    private void OnDestroy()
-    {
-        GameEvents.UIEvents.OpenMenu -= setActive;
-    }
+    int touchCount = Input.touches.Length;
 
-    private void setActive(bool status)
+    if (touchCount == 0)
     {
-        StartCoroutine(changeEnabledState(status));
+      isTouching = false;
+      firstFingerId = -1000;
+      if (wasDoubleTouching)
+      {
+        controller.StopMultiFingerDrag();
+        controller.StopPinch();
+        isPanning = false;
+        isPinching = false;
+      }
+      wasDoubleTouching = false;
     }
-
-    private IEnumerator changeEnabledState(bool status)
+    else
     {
-        yield return null;
-        isEnabled = !status;
-    }
+      if (touchCount == 1)
+      {
+        Touch touch = Input.GetTouch(0);
 
-    void Update()
-    {
-        if (controller.IsOnInventary(Input.mousePosition))
+        if (!isTouching)
         {
-            return;
+          firstFingerId = touch.fingerId;
+          isTouching = true;
         }
 
-        if (!isEnabled)
+        if (!wasDoubleTouching)
         {
-            return;
+          if (touch.fingerId == firstFingerId)
+          {
+            controller.Drag(touch.phase, touch.position);
+          }
+        }
+      }
+      else if (touchCount == 2)
+      {
+        // Store both touches.
+        Vector2[] thisFrameTouchesPositions = new Vector2[2] { Input.GetTouch(0).position, Input.GetTouch(1).position };
+
+        if (!wasDoubleTouching)
+        {
+          lastFrameTouchesPositions = thisFrameTouchesPositions;
+          panZoomResetTimer = 1f;
+          wasDoubleTouching = true;
         }
 
-        int touchCount = Input.touches.Length;
+        float newDistance = Vector2.Distance(thisFrameTouchesPositions[0], thisFrameTouchesPositions[1]);
+        float oldDistance = Vector2.Distance(lastFrameTouchesPositions[0], lastFrameTouchesPositions[1]);
+        float deltaMagnitudeDiff = oldDistance - newDistance;
 
-        if (touchCount == 0)
+        Vector2 pontoMedio = thisFrameTouchesPositions[0] + (thisFrameTouchesPositions[1] - thisFrameTouchesPositions[0]) / 2;
+
+
+        if (panAndPinchTogether)
         {
-            isTouching = false;
-            firstFingerId = -1000;
-            if (wasDoubleTouching)
-            {
-                controller.StopMultiFingerDrag();
-                controller.StopPinch();
-            }
-            wasDoubleTouching = false;
-            wasTripleTouching = false;
+          controller.Pinch(deltaMagnitudeDiff * pinchScale, pontoMedio);
+          controller.MultiFingerDrag(pontoMedio);
         }
         else
         {
-            if (wasTripleTouching)
-            {
-                controller.MultiFingerDrag(Input.GetTouch(0).position);
-            }
-            else
-            {
-                if (touchCount == 1)
-                {
-                    Touch touch = Input.GetTouch(0);
+          if (!isPanning)
+          {
+            isPinching = controller.Pinch(deltaMagnitudeDiff * pinchScale, pontoMedio) || isPinching;
+          }
 
-                    if (!isTouching)
-                    {
-                        firstFingerId = touch.fingerId;
-                        isTouching = true;
-                    }
-
-                    if (!wasDoubleTouching && !wasTripleTouching)
-                    {
-                        if (touch.fingerId == firstFingerId)
-                        {
-                            controller.Drag(touch.phase, touch.position);
-                        }
-                    }
-                }
-                else if (touchCount == 2)
-                {
-                    // Store both touches.
-                    Vector2[] thisFrameTouchesPositions = new Vector2[2] { Input.GetTouch(0).position, Input.GetTouch(1).position };
-
-                    if (!wasDoubleTouching)
-                    {
-                        lastFrameTouchesPositions = thisFrameTouchesPositions;
-                        panZoomResetTimer = 1f;
-                        wasDoubleTouching = true;
-                    }
-
-                    float newDistance = Vector2.Distance(thisFrameTouchesPositions[0], thisFrameTouchesPositions[1]);
-                    float oldDistance = Vector2.Distance(lastFrameTouchesPositions[0], lastFrameTouchesPositions[1]);
-                    float deltaMagnitudeDiff = oldDistance - newDistance;
-
-                    Vector2 pontoMedio = thisFrameTouchesPositions[0] + (thisFrameTouchesPositions[1] - thisFrameTouchesPositions[0]) / 2;
-
-                    controller.Pinch(deltaMagnitudeDiff * pinchScale, pontoMedio);
-
-                    lastFrameTouchesPositions = thisFrameTouchesPositions;
-                }
-                else if (touchCount >= 3)
-                {
-                    if (!wasTripleTouching)
-                    {
-                        wasTripleTouching = true;
-                    }
-                }
-            }
-
+          if (!isPinching)
+          {
+            isPanning = controller.MultiFingerDrag(pontoMedio) || isPanning;
+          }
         }
 
-
-
+        lastFrameTouchesPositions = thisFrameTouchesPositions;
+      }
     }
-
+  }
 }
