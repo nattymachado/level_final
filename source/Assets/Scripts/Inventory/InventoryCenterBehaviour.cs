@@ -150,10 +150,12 @@ public class InventoryCenterBehaviour : MonoBehaviour
         // trigger event
         if (_isOpen)
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gear_Rotate", false, false);
             GameEvents.LevelEvents.OpenedInventory.SafeInvoke();
         }
         else
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gear_Retract", false, false);
             GameEvents.LevelEvents.ClosedInventory.SafeInvoke();
         }
     }

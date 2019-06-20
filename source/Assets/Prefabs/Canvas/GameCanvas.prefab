@@ -253,6 +253,10 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: eef674b91eb2af749850aebaeb616173, type: 3}
   - trigger: ItemPickup
     audioClip: {fileID: 8300000, guid: a6731427c91c446458c7a60d409fb63d, type: 3}
+  - trigger: Gear_Rotate
+    audioClip: {fileID: 8300000, guid: a3b89a24ae3dc274fbb5663ccd08cd9e, type: 3}
+  - trigger: Gear_Retract
+    audioClip: {fileID: 8300000, guid: 419b609ec16589a4d8c383600f21c428, type: 3}
 --- !u!82 &1906059283598671030
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15036,6 +15040,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6593110794255580151}
     m_Modifications:
+    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
+      propertyPath: _previousPanel
+      value: 
+      objectReference: {fileID: 1100181143236074977}
+    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
+      propertyPath: _showCredit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5555116828744287358, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
       propertyPath: m_Name
@@ -15160,14 +15172,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
-      propertyPath: _previousPanel
-      value: 
-      objectReference: {fileID: 1100181143236074977}
-    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
-      propertyPath: _showCredit
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5555116829563912524, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
