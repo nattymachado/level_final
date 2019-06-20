@@ -130,9 +130,8 @@ public class CharacterBehaviour : MonoBehaviour
         {
             targetToRotation = target;
         }*/
-        Debug.Log("Looking to" + transform.position);
-        transform.LookAt(target);
-
+        this.transform.LookAt(target);
+        this.transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 
     private void RotateTo()
