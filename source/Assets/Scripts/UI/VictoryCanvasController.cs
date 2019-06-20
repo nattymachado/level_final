@@ -7,11 +7,10 @@ public class VictoryCanvasController : MonoBehaviour
     [SerializeField] GameObject overlayPanel;
     [SerializeField] Animator panelAnimator;
 
-    private void Awake()
-    {
-        overlayPanel.SetActive(false);
-        panelAnimator.SetBool("opened", false);
-    }
+  private void Awake()
+  {
+    overlayPanel.SetActive(false);
+  }
 
     public void Open()
     {
