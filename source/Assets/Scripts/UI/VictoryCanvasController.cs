@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class VictoryCanvasController : MonoBehaviour
 {
-  [SerializeField] GameObject overlayPanel;
-  [SerializeField] Animator panelAnimator;
+    [SerializeField] GameObject overlayPanel;
+    [SerializeField] Animator panelAnimator;
 
   private void Awake()
   {
     overlayPanel.SetActive(false);
-    panelAnimator.SetBool("opened", false);
   }
 
-  private void Update(){
-    // teste
-  }
+    public void Open()
+    {
+        // liga painel
+        overlayPanel.SetActive(true);
 
-  public void Open()
-  {
-    // liga painel
-    overlayPanel.SetActive(true);
+        // executa animação
+        panelAnimator.SetBool("opened", true);
+    }
 
-    // executa animação
-    panelAnimator.SetBool("opened", true);
-  }
-
-  public void Continue()
-  {
-    SceneChanger.Instance.ChangeToScene("hospital");
-  }
+    public void Continue()
+    {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
+        SceneChanger.Instance.ChangeToScene("hospital");
+    }
 }

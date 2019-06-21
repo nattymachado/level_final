@@ -32,13 +32,19 @@ namespace prototypeRobot
             }
             if (position == sequece.Length)
             {
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false, true);
-                card.SetActive(true);
-                gateAnimator.SetBool("isOpen", true);
+                StartCoroutine(nameof(DropCard));
             }
             return isRight;
         }
- 
+
+        private IEnumerator DropCard()
+        {
+            yield return new WaitForSeconds(0.5f);
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Drop_Key_Blue", false, true);
+            card.SetActive(true);
+            gateAnimator.SetBool("isOpen", true);
+        }
+
         private IEnumerator WaitAndClear(float waitTime)
         {
             GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Does-not-compute", false, true);

@@ -13,6 +13,7 @@ public class CardBox3Behaviour : InteractableItemBehaviour
     {
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             StartCoroutine(WaitToOpenGateAndActivateItem(1f));
         }
@@ -27,12 +28,16 @@ public class CardBox3Behaviour : InteractableItemBehaviour
 
     private void OpenGateAndActivateItem()
     {
-        card.SetActive(true);
-        gateAnimator.SetBool("isOpen", true);
         itemCollider.isTrigger = true;
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
+        StartCoroutine(nameof(DropCardCorroutine));
     }
 
-
+    private IEnumerator DropCardCorroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        card.SetActive(true);
+        gateAnimator.SetBool("isOpen", true);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Drop_Key_Pink", false, false);
+    }
 }
 

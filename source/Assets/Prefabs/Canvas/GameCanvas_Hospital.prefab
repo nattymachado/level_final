@@ -760,6 +760,8 @@ MonoBehaviour:
   _audioClips:
   - trigger: OpenPatientRecord
     audioClip: {fileID: 8300000, guid: eef674b91eb2af749850aebaeb616173, type: 3}
+  - trigger: Click_Light
+    audioClip: {fileID: 8300000, guid: 30fc9c6fedb1e28459fb2af25b6f5e68, type: 3}
 --- !u!82 &1605046629475186160
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1946,8 +1948,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9061013236972176125}
-        m_MethodName: OpenClosePauseMenu
-        m_Mode: 6
+        m_MethodName: OpenClosePauseMenuDynamic
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5633,7 +5635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tutorialScene: Tutorial1
-  _titleText: {fileID: 0}
 --- !u!1 &8938673357816429917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6323,6 +6324,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6289985943995691697}
     m_Modifications:
+    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
+      propertyPath: _previousPanel
+      value: 
+      objectReference: {fileID: 248062320329020583}
     - target: {fileID: 5555116828744287358, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
       propertyPath: m_Name
@@ -6438,15 +6443,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1543932163109622421, guid: bbe87fac951b6e84fa8eb315070b9d05,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
-      propertyPath: _previousPanel
-      value: 
-      objectReference: {fileID: 248062320329020583}
     - target: {fileID: 5555116829563912524, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
       propertyPath: m_IsActive
@@ -6540,6 +6536,11 @@ PrefabInstance:
     - target: {fileID: 5555116828458231470, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543932163109622421, guid: bbe87fac951b6e84fa8eb315070b9d05,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:

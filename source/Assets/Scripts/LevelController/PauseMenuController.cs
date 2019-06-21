@@ -18,6 +18,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void OpenClosePauseMenu(bool state)
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         raycastBlocker.SetActive(state);
         isOpen = state;
         if (state) Time.timeScale = 0f;
@@ -35,6 +36,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void ResetGame()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
         OpenClosePauseMenu(false);
         GameEvents.UIEvents.OpenResetDialogBox.SafeInvoke();
     }
@@ -59,12 +61,14 @@ public class PauseMenuController : MonoBehaviour
 
     public void ExitLevelButton()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
         Time.timeScale = 1f;
         SceneChanger.Instance.ChangeToScene("hospital");
     }
 
     public void ReturnTitleScreenButton()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
         Time.timeScale = 1f;
         SceneChanger.Instance.ChangeToScene("start");
     }

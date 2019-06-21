@@ -11,9 +11,11 @@ public class ResetConfirmDialogController : MonoBehaviour
     {
         if (isYes)
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
             SaveManager.DeleteProgressFile();
             SceneChanger.Instance.ChangeToScene("start");
-        } else
+        }
+        else
         {
             GameEvents.UIEvents.CloseResetDialogBox.SafeInvoke();
         }
