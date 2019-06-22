@@ -22,12 +22,17 @@ public class DreamMachineBehaviour : InteractableItemBehaviour
         // trigger events
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Explosion", false, false);
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Spark", false, false);
-        GameEvents.Interactables.DreamMachine.SafeInvoke();
 
+        StartCoroutine(WaitToTrigger());
+       
         //destroy the particle system when its duration is up, right
         //it would play a second time.
         Destroy(explosionEffect, 10f);
+    }
 
+    IEnumerator WaitToTrigger(){
+        yield return new WaitForSeconds(0.5f);
+        GameEvents.Interactables.DreamMachine.SafeInvoke();
     }
 
 }
