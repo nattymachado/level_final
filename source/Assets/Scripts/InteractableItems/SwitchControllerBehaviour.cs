@@ -34,6 +34,7 @@ namespace prototypeRobot
                 gateAnimator.SetBool("isOpen", true);
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Gate2", false, false);
                 item.SetActive(true);
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemAppear", false, false);
             }
         }
 
@@ -44,6 +45,7 @@ namespace prototypeRobot
             SequenceSwitchBehaviour[] buttons = GetComponentsInChildren<SequenceSwitchBehaviour>();
             for (int i = 0; i < buttons.Length; i++)
             {
+                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("PuzzleFail", false, false);
                 buttons[i].Clear();
                 lights[i].material = off;
             }
