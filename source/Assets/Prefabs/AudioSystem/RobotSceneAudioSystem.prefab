@@ -47,7 +47,7 @@ MonoBehaviour:
   _baseVolumeFactor: 1
   _audioSource: {fileID: 4024870297670009454}
   _minHearingDistance: 1
-  _maxHearingDistance: 5
+  _maxHearingDistance: 7
   _audioClips: []
   _randomAudioClips:
   - trigger: ButtonClick
@@ -191,7 +191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7371709294356443619}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8630788148605046817
 MonoBehaviour:
@@ -262,8 +262,6 @@ MonoBehaviour:
   _audioClips:
   - trigger: InsertedKeycard
     audioClip: {fileID: 8300000, guid: 8137a8453f2b7c34cba8c83c589de828, type: 3}
-  - trigger: GenerateKeycard
-    audioClip: {fileID: 8300000, guid: ebcac33acee9f8c42a5081a6e8b9b597, type: 3}
   - trigger: Does-not-compute
     audioClip: {fileID: 8300000, guid: edface2af9974854a950b82cbbf6cacc, type: 3}
   _randomAudioClips: []
@@ -542,7 +540,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7371709294356443619}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6446343074694800058
 MonoBehaviour:
@@ -588,7 +586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7371709294356443619}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1534052561108846619
 MonoBehaviour:
@@ -715,8 +713,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194579266584870664}
-  - component: {fileID: 1901957728315917292}
   - component: {fileID: 1834312268488235859}
+  - component: {fileID: 1901957728315917292}
   m_Layer: 0
   m_Name: DropKey_Pink
   m_TagString: Untagged
@@ -736,8 +734,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7371709294356443619}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834312268488235859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230883172598610427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseVolumeFactor: 1
+  _audioSource: {fileID: 1901957728315917292}
+  _minHearingDistance: 1
+  _maxHearingDistance: 7
+  _audioClips:
+  - trigger: Drop_Key_Pink
+    audioClip: {fileID: 8300000, guid: ab44626bd17c54a48b23ab570ad05afd, type: 3}
+  _randomAudioClips: []
 --- !u!82 &1901957728315917292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -834,26 +852,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1834312268488235859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6230883172598610427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseVolumeFactor: 1
-  _audioSource: {fileID: 1901957728315917292}
-  _minHearingDistance: 1
-  _maxHearingDistance: 5
-  _audioClips:
-  - trigger: Drop_Key
-    audioClip: {fileID: 8300000, guid: ab44626bd17c54a48b23ab570ad05afd, type: 3}
-  _randomAudioClips: []
 --- !u!1 &6593168488583658702
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +899,7 @@ MonoBehaviour:
   _baseVolumeFactor: 1
   _audioSource: {fileID: 1453926112449834719}
   _minHearingDistance: 1
-  _maxHearingDistance: 5
+  _maxHearingDistance: 7
   _audioClips: []
   _randomAudioClips:
   - trigger: ButtonClick
@@ -1505,8 +1503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f178f445e1b23fe4bac218a356bb058b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToNotificationRepeat: 60
-  _initialDelay: 2
   _delayNotifications: 1.85
 --- !u!114 &7371709293829012439
 MonoBehaviour:
@@ -1520,7 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseVolumeFactor: 0.25
+  _baseVolumeFactor: 0.4
   _audioSource: {fileID: 7371709293829012436}
   _minHearingDistance: 1
   _maxHearingDistance: 30
@@ -1664,11 +1660,11 @@ Transform:
   - {fileID: 7619459359895975760}
   - {fileID: 3859684700765539742}
   - {fileID: 2320512879181673736}
-  - {fileID: 481168106116829031}
-  - {fileID: 1209640000746782794}
   - {fileID: 7281146897009448273}
   - {fileID: 1194579266584870664}
   - {fileID: 4123014063080097504}
+  - {fileID: 481168106116829031}
+  - {fileID: 1209640000746782794}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1829,8 +1825,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281146897009448273}
-  - component: {fileID: 116750201}
   - component: {fileID: 116750202}
+  - component: {fileID: 116750201}
   m_Layer: 0
   m_Name: DropKey_Blue
   m_TagString: Untagged
@@ -1846,12 +1842,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8392669981723017231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -12.216, z: 4.96}
+  m_LocalPosition: {x: 8.479, y: -8.816, z: -1.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7371709294356443619}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &116750202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392669981723017231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseVolumeFactor: 1
+  _audioSource: {fileID: 116750201}
+  _minHearingDistance: 1
+  _maxHearingDistance: 7
+  _audioClips:
+  - trigger: Drop_Key_Blue
+    audioClip: {fileID: 8300000, guid: ab44626bd17c54a48b23ab570ad05afd, type: 3}
+  _randomAudioClips: []
 --- !u!82 &116750201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1948,23 +1964,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &116750202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8392669981723017231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseVolumeFactor: 1
-  _audioSource: {fileID: 116750201}
-  _minHearingDistance: 1
-  _maxHearingDistance: 5
-  _audioClips:
-  - trigger: Drop_Key
-    audioClip: {fileID: 8300000, guid: ab44626bd17c54a48b23ab570ad05afd, type: 3}
-  _randomAudioClips: []

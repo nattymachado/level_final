@@ -22,6 +22,7 @@ public class PatientRecordController : MonoBehaviour
     //Request Load Scene
     public void RequestLoadScene()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
         recordController.LoadScene(levelToLoad);
     }
 
@@ -34,6 +35,7 @@ public class PatientRecordController : MonoBehaviour
     //Close Patient Record
     public void RequestClosePatientRecord()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("OpenPatientRecord", false, false);
         _animator.SetBool("Opened", false);
         GameEvents.UIEvents.OpenMenu.SafeInvoke(false);
     }

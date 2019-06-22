@@ -18,6 +18,7 @@ public static class GameEvents
 
     public static class AudioEvents
     {
+        public static Action TriggerRobotTransmission;
         public static Action<float> SetBGMVolume;
         public static Action<float> SetSFXVolume;
         public static Action<string> PlayBGM;

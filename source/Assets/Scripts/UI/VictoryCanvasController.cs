@@ -19,6 +19,7 @@ public class VictoryCanvasController : MonoBehaviour
 
         // executa animação
         panelAnimator.SetBool("opened", true);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fanfare", false, true);
     }
 
     public void Continue()

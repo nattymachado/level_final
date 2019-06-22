@@ -6,8 +6,6 @@ public class RobotAudioSourceController : MonoBehaviour
 {
     //Control Variables
     [Header("Control Variables")]
-    [SerializeField] private float _timeToNotificationRepeat;
-    [SerializeField] private float _initialDelay;
     [SerializeField] private float _delayNotifications;
 
     //Internal Variables
@@ -17,34 +15,49 @@ public class RobotAudioSourceController : MonoBehaviour
     //Start
     private void Start()
     {
-        _currentTimer = _initialDelay;
+        _currentTimer = _delayNotifications / 2f;
         _currentAudio = 0;
+        GameEvents.AudioEvents.TriggerRobotTransmission += TriggerRobotTransmission;
     }
 
-    //Update
-    private void Update()
+    private void OnDestroy()
     {
-        _currentTimer -= Time.deltaTime;
-        if (_currentTimer <= 0f)
+        GameEvents.AudioEvents.TriggerRobotTransmission -= TriggerRobotTransmission;
+    }
+
+    private void TriggerRobotTransmission()
+    {
+        StartCoroutine(nameof(PlayRobotTransmission));
+    }
+
+    private IEnumerator PlayRobotTransmission()
+    {
+        while (true)
         {
-            if (_currentAudio == 0)
+            _currentTimer -= Time.deltaTime;
+            if (_currentTimer <= 0f)
             {
-                _currentAudio = 1;
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Alarm", false, false);
-                _currentTimer = _delayNotifications;
+                if (_currentAudio == 0)
+                {
+                    _currentAudio = 1;
+                    GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Alarm", false, false);
+                    _currentTimer = _delayNotifications;
+                }
+                else if (_currentAudio == 1)
+                {
+                    _currentAudio = 2;
+                    GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Transmission", false, false);
+                    _currentTimer = _delayNotifications;
+                }
+                else if (_currentAudio == 2)
+                {
+                    _currentAudio = 0;
+                    GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Binary", false, false);
+                    _currentTimer = _delayNotifications / 2f;
+                    break;
+                }
             }
-            else if (_currentAudio == 1)
-            {
-                _currentAudio = 2;
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Transmission", false, false);
-                _currentTimer = _delayNotifications;
-            }
-            else if (_currentAudio == 2)
-            {
-                _currentAudio = 0;
-                GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Binary", false, false);
-                _currentTimer = _timeToNotificationRepeat;
-            }
+            yield return null;
         }
     }
 }

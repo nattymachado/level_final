@@ -16,6 +16,7 @@ public class CardBox1Behaviour : InteractableItemBehaviour
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
             _cardNumber = 1;
+            GameEvents.AudioEvents.TriggerRobotTransmission.SafeInvoke();
             GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             StartCoroutine(WaitToOpenGate(0.1f, _cardNumber));
@@ -23,6 +24,7 @@ public class CardBox1Behaviour : InteractableItemBehaviour
         else if (character && character.CheckInventaryObjectOnSelectedPosition(cardName2))
         {
             _cardNumber = 2;
+            GameEvents.AudioEvents.TriggerRobotTransmission.SafeInvoke();
             GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             StartCoroutine(WaitToOpenGate(0.5f, _cardNumber));
