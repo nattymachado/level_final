@@ -114,44 +114,10 @@ public class CharacterBehaviour : MonoBehaviour
 
     }
 
-    //Update
-    /*private void FixedUpdate()
+   public void SetRotation(Transform target)
     {
-
-        if (targetToRotation != null)
-        {
-            RotateTo();
-        }
-    }*/
-
-    public void SetRotation(Transform target)
-    {
-        /*if (targetToRotation == null)
-        {
-            targetToRotation = target;
-        }*/
         this.transform.LookAt(target);
         this.transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-    }
-
-    private void RotateTo()
-    {
-        //find the vector pointing from our position to the target
-        /*Vector3 direction = (targetToRotation.position - transform.position).normalized;
-
-        //create the rotation we need to be in to look at the target
-        _lookRotation = Quaternion.LookRotation(direction);
-
-        if (Math.Abs(transform.rotation.eulerAngles.y - _lookRotation.eulerAngles.y) < 0.1)
-        {
-            targetToRotation = null;
-            return;
-        }
-        //rotate us over time according to speed until we are in the required rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.fixedDeltaTime * rotationSpeed);*/
-        //transform.LookAt(Vector3.zero);
-        //targetToRotation = null;
-
     }
 
     IEnumerator WaitToStop(float seconds)
