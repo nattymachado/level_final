@@ -74,6 +74,36 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!1 &4961282847453713210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9033322371270659234}
+  m_Layer: 0
+  m_Name: lookPositionRegador
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9033322371270659234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961282847453713210}
+  m_LocalRotation: {x: -0, y: 0.000000059604645, z: -0.96080905, w: -0.2772112}
+  m_LocalPosition: {x: 8.808034, y: -5.691876, z: -0.39000034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7335423678372765180}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7335423678372528604
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +116,7 @@ GameObject:
   - component: {fileID: 7335423678372528603}
   - component: {fileID: 233214197998141068}
   - component: {fileID: 1192932366789920816}
+  - component: {fileID: 7335423680148292004}
   m_Layer: 0
   m_Name: regador
   m_TagString: Untagged
@@ -100,7 +131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7335423678372528604}
-  m_LocalRotation: {x: 0.4412187, y: 0.5525632, z: 0.5525632, w: -0.44121867}
+  m_LocalRotation: {x: -0.44121704, y: -0.5525645, z: -0.5525645, w: 0.44121704}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -108,9 +139,10 @@ Transform:
   - {fileID: 3501086637413156952}
   - {fileID: 7013288565796288677}
   - {fileID: 7739620779090880616}
+  - {fileID: 9033322371270659234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -102.786}
 --- !u!114 &7335423678372528603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +191,20 @@ MonoBehaviour:
   Name: regador
   objectImage: {fileID: 8681165191579899104}
   inventaryCenter: {fileID: 0}
+  lookPosition: {fileID: 0}
+--- !u!65 &7335423680148292004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335423678372528604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8371542162245405856
 GameObject:
   m_ObjectHideFlags: 0
