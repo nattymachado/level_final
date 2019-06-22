@@ -707,7 +707,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 83789f743b8e6eb4fb4709654068c313, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -15332,14 +15332,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6593110794255580151}
     m_Modifications:
-    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
-      propertyPath: _previousPanel
-      value: 
-      objectReference: {fileID: 1100181143236074977}
-    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
-      propertyPath: _showCredit
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5555116828744287358, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
       propertyPath: m_Name
@@ -15465,9 +15457,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5555116829563912524, guid: bbe87fac951b6e84fa8eb315070b9d05,
-        type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
+      propertyPath: _previousPanel
+      value: 
+      objectReference: {fileID: 1100181143236074977}
+    - target: {fileID: 276971327, guid: bbe87fac951b6e84fa8eb315070b9d05, type: 3}
+      propertyPath: _showCredit
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5555116827951980716, guid: bbe87fac951b6e84fa8eb315070b9d05,
@@ -15578,6 +15573,11 @@ PrefabInstance:
     - target: {fileID: 5555116828458231470, guid: bbe87fac951b6e84fa8eb315070b9d05,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555116829563912524, guid: bbe87fac951b6e84fa8eb315070b9d05,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
