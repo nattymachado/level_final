@@ -41,4 +41,14 @@ public class SpecialItemJoinAnimationController : MonoBehaviour
         _animator.SetTrigger("Animate");
         _specialSlotsCanvas.GetComponent<Animator>().SetTrigger("Hide");
     }
+
+    public void TriggerWindupSFX()
+    {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Windup", false, false);
+    }
+
+    public void TriggerFanfareCollectibleSFX()
+    {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("FanfareCollectible", false, true);
+    }
 }

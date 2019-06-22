@@ -29,6 +29,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Resume()
     {
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         raycastBlocker.SetActive(true);
         isOpen = false;
         pauseOverlayGameObject.SetActive(false);
@@ -36,7 +37,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void ResetGame()
     {
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         OpenClosePauseMenu(false);
         GameEvents.UIEvents.OpenResetDialogBox.SafeInvoke();
     }
@@ -61,14 +62,14 @@ public class PauseMenuController : MonoBehaviour
 
     public void ExitLevelButton()
     {
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         Time.timeScale = 1f;
         SceneChanger.Instance.ChangeToScene("hospital");
     }
 
     public void ReturnTitleScreenButton()
     {
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         Time.timeScale = 1f;
         SceneChanger.Instance.ChangeToScene("start");
     }

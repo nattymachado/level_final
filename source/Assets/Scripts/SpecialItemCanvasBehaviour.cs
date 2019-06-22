@@ -5,6 +5,4 @@ using UnityEngine.UI;
 
 public class SpecialItemCanvasBehaviour : MonoBehaviour
 {
-    
-
 }
