@@ -14,6 +14,11 @@ public class PatientEndPositionBehaviour : MonoBehaviour
             levelProgress.patientLeftBed = true;
             SaveManager.SaveProgressFile();
         }
+
+        if (SaveManager.GetLevelProgress(GameEnums.LevelName.Dog).levelConcluded && SaveManager.GetLevelProgress(GameEnums.LevelName.Robot).levelConcluded && SaveManager.GetLevelProgress(GameEnums.LevelName.Night).levelConcluded)
+        {
+            Debug.Log("Finalizado a fase");
+        }
     }
 }
 
