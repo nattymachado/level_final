@@ -16,7 +16,6 @@ public class TutorialAssistantBehaviour : InteractableItemBehaviour
             SpecialCompleteItem specialCompleteItem = character.specialCompleteItem.GetComponent<SpecialCompleteItem>();
             specialCompleteItem.GetComponent<Animator>().SetTrigger("GoToPatient");
             StartCoroutine(WaitForSpacialItemGoToPacient(specialCompleteItem));
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fanfare", false, false);
         }
     }
 
@@ -26,7 +25,8 @@ public class TutorialAssistantBehaviour : InteractableItemBehaviour
         {
             yield return null;
         }
-    
+
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fanfare", false, false);
         SceneChanger.Instance.ChangeToScene("hospital");
     }
 }

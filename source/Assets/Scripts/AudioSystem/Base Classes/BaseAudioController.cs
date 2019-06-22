@@ -14,7 +14,6 @@ public abstract class BaseAudioController : MonoBehaviour
     {
         _audioSource.playOnAwake = false;
         _audioSource.Stop();
-        _audioSource.spatialBlend = 0f;
         _audioSource.volume = _baseVolumeFactor;
     }
 

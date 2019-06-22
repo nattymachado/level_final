@@ -24,7 +24,7 @@ public class VictoryCanvasController : MonoBehaviour
 
     public void Continue()
     {
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, false);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
         SceneChanger.Instance.ChangeToScene("hospital");
     }
 }

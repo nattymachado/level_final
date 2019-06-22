@@ -42,6 +42,7 @@ public class PatientRecordUIController : MonoBehaviour
     {
       SceneChanger.Instance.ChangeToScene(
           "loading",
+          null,
           () => { LoadingScreen.StartPlayLoading(level.LoadingScreenBackground, level.LoadingDuration, level.SceneName); },
           null
       );
