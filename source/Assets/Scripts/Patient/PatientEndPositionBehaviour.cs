@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PatientEndPositionBehaviour : MonoBehaviour
 {
+
+    private const string CREDITS_SCENE = "credits";
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CharacterBehaviour>() == null)
@@ -15,9 +17,10 @@ public class PatientEndPositionBehaviour : MonoBehaviour
             SaveManager.SaveProgressFile();
         }
 
-        if (SaveManager.GetLevelProgress(GameEnums.LevelName.Dog).levelConcluded && SaveManager.GetLevelProgress(GameEnums.LevelName.Robot).levelConcluded && SaveManager.GetLevelProgress(GameEnums.LevelName.Night).levelConcluded)
+        if (SaveManager.GetLevelProgress(GameEnums.LevelName.Dog).patientLeftBed && SaveManager.GetLevelProgress(GameEnums.LevelName.Robot).patientLeftBed && SaveManager.GetLevelProgress(GameEnums.LevelName.Night).patientLeftBed)
         {
-            Debug.Log("Finalizado a fase");
+            SaveManager.DeleteProgressFile();
+            SceneChanger.Instance.ChangeToScene(CREDITS_SCENE);
         }
     }
 }
