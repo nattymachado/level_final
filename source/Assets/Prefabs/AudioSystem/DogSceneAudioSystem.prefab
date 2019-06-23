@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseVolumeFactor: 1
+  _baseVolumeFactor: 0.7
   _audioSource: {fileID: 5205400195768145824}
   _minHearingDistance: 1
   _maxHearingDistance: 8
@@ -347,6 +347,10 @@ MonoBehaviour:
   _audioClips:
   - trigger: Pour
     audioClip: {fileID: 8300000, guid: c2d6f94619459894886e12c8d93b253d, type: 3}
+  - trigger: EatFood
+    audioClip: {fileID: 8300000, guid: c56530287eec2dd4c8a08c018af28100, type: 3}
+  - trigger: ItemAppear
+    audioClip: {fileID: 8300000, guid: 5be1d3b2eac2ce54787f53465a73aebf, type: 3}
   _randomAudioClips: []
 --- !u!82 &5854784156582340862
 AudioSource:
@@ -487,7 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc84f2a582d6b24a8e07874b8e1bff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SFXTriggers: []
+  _SFXTriggers:
+  - trigger: Wind
+    loop: 1
   _BGMTriggers:
   - trigger: Dog
     loop: 1
@@ -575,6 +581,7 @@ Transform:
   - {fileID: 8923790848376429065}
   - {fileID: 114571961}
   - {fileID: 4960937074826297692}
+  - {fileID: 3781859910822080206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -622,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseVolumeFactor: 1
+  _baseVolumeFactor: 0.7
   _audioSource: {fileID: 5141486929174194121}
   _minHearingDistance: 1
   _maxHearingDistance: 8
@@ -918,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseVolumeFactor: 1
+  _baseVolumeFactor: 0.7
   _audioSource: {fileID: 8249267139776932237}
   _minHearingDistance: 1
   _maxHearingDistance: 8
@@ -1066,7 +1073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseVolumeFactor: 1
+  _baseVolumeFactor: 0.7
   _audioSource: {fileID: 7656223052326918814}
   _minHearingDistance: 1
   _maxHearingDistance: 8
@@ -1614,3 +1621,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &9211935892782018871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3781859910822080206}
+  - component: {fileID: 8869368560039288217}
+  - component: {fileID: 8003554542164771891}
+  m_Layer: 0
+  m_Name: BarkController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3781859910822080206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211935892782018871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2462550192258162559}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8869368560039288217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211935892782018871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a1a65dd21dff4997eeb304ea954a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialBarkDelay: 2
+  _minBarkDelay: 8
+  _maxBarkDelay: 30
+--- !u!114 &8003554542164771891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211935892782018871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0970bcf25b3d19e419fe36c2e3225ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseVolumeFactor: 1
+  _audioSource: {fileID: 0}
+  _minHearingDistance: 1
+  _maxHearingDistance: 12
+  _audioClips:
+  - trigger: Bark
+    audioClip: {fileID: 8300000, guid: d4afafca5006a4048bfa5f8dc4f070bb, type: 3}
+  _randomAudioClips: []
