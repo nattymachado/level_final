@@ -14,6 +14,7 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
     [SerializeField] public int position;
     [SerializeField] private Material _materialWithLight;
     [SerializeField]  private Material _originalMaterial;
+    [SerializeField] private Animator _planetMachineSupportAnimator;
     private MeshRenderer _renderer;
     private Animator _animator;
     private bool _canRotate = false;
@@ -29,6 +30,10 @@ public class PlanetMachineButtonBehaviour : InteractableItemBehaviour
     {
         if (!isOn)
         {
+            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("NotOn", false, true);
+            _planetMachineSupportAnimator.SetTrigger("highlight");
+            _animator.SetTrigger("Pressed");
+            SetActive(false);
             return;
         }
         _canRotate = true;
