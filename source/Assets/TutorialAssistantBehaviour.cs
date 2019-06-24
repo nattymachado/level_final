@@ -26,6 +26,10 @@ public class TutorialAssistantBehaviour : InteractableItemBehaviour
             yield return null;
         }
 
+        // register finish tutorial on save file
+        SaveManager.currentProgress.completedTutorial = true;
+        SaveManager.SaveProgressFile();
+
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fanfare", false, false);
         SceneChanger.Instance.ChangeToScene("hospital");
     }

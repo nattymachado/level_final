@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerProgress
 {
    public string playerName;
-   public List<LevelProgress> levels;
+   public bool completedTutorial = false;
+   public List<LevelProgress> levels = new List<LevelProgress>();
 
    public PlayerProgress(string name){
        playerName = name;
+       completedTutorial = false;
        levels = new List<LevelProgress>();
    }
 }
