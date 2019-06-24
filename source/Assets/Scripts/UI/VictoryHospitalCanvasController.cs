@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VictoryCanvasController : MonoBehaviour
+public class VictoryHospitalCanvasController : MonoBehaviour
 {
     [SerializeField] GameObject overlayPanel;
-    [SerializeField] Animator panelAnimator;
     [SerializeField] GameObject fireworks;
+    [SerializeField] Animator panelAnimator;
+    [SerializeField] public bool Clicked;
+    private const string CREDITS_SCENE = "credits";
 
     private void Awake()
     {
-        overlayPanel.SetActive(false);
         fireworks.SetActive(false);
+        overlayPanel.SetActive(false);
     }
 
     public void Open()
@@ -25,9 +27,9 @@ public class VictoryCanvasController : MonoBehaviour
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fanfare", false, true);
     }
 
-    public void Continue()
+    public void Click()
     {
-        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Click_Light", false, true);
-        SceneChanger.Instance.ChangeToScene("hospital");
+        SceneChanger.Instance.ChangeToScene(CREDITS_SCENE);
+        Clicked = true;
     }
 }

@@ -61,7 +61,7 @@ public class DogLevelDoggy : MonoBehaviour
     // turn on eating
     doggyAnimator.SetTrigger("stopWalking");
 
-    yield return new WaitForSeconds(4f);
+    yield return new WaitForSeconds(2.5f);
 
     // make special item appear
     specialItemDoggy.gameObject.SetActive(true);
