@@ -57,7 +57,7 @@ public class CollectibleInventoryController : ProperSingleton<CollectibleInvento
     {
         yield return new WaitForSeconds(seconds);
         GameEvents.UIEvents.TriggerItemsJoinAnimation.SafeInvoke();
-        StartCoroutine(WaitToStartSpecialItemAnimation(3f));
+        StartCoroutine(WaitToStartSpecialItemAnimation(2.5f));
     }
 
     IEnumerator WaitToStartSpecialItemAnimation(float seconds)

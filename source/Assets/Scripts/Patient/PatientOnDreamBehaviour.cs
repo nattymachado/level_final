@@ -44,9 +44,12 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
 
         // save
         LevelProgress levelProgress = SaveManager.GetLevelProgress(levelName);
-        levelProgress.levelConcluded = true;
-        SaveManager.SaveProgressFile();
-
+        if (levelProgress != null)
+        {
+            levelProgress.levelConcluded = true;
+            SaveManager.SaveProgressFile();
+        }
+       
         victoryCanvas.Open();
     }
 }
