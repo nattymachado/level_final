@@ -66,6 +66,8 @@ public class DogLevelDoggy : MonoBehaviour
     // make special item appear
     specialItemDoggy.gameObject.SetActive(true);
 
+    GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ItemAppear", false, true);
+
     // deactivate dog
     gameObject.SetActive(false);
   }

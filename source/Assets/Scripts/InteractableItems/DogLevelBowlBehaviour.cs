@@ -10,6 +10,7 @@ public class DogLevelBowlBehaviour : InteractableItemBehaviour
     [SerializeField] Animator selfAnimator;
     [SerializeField] DogLevelDoggy dog;
     [SerializeField] GameObject dogFood;
+    [SerializeField] private BarkAudioSourceController barkController;
     private bool activated = false;
     private bool revealed = false;
 
@@ -24,7 +25,9 @@ public class DogLevelBowlBehaviour : InteractableItemBehaviour
         } 
     }
 
-    private void ActivateBowl(){
+    private void ActivateBowl()
+    {
+        barkController.enabled = false;
         dog.GoToBowl();
     }
 
