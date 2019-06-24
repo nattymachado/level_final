@@ -25,12 +25,7 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
 
     private void Start()
     {
-        if (SaveManager.GetLevelProgress(levelName) == null )
-        {
-            SaveManager.CreateProgressFile("player");
-        }
-        SaveManager.GetLevelProgress(levelName).patientLeftBed = false;
-        SaveManager.GetLevelProgress(levelName).levelConcluded = true;
+
         if (SaveManager.GetLevelProgress(levelName).patientLeftBed == true) {
             SetActive(false);
             _zzz.SetActive(false);
