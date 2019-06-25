@@ -11,7 +11,11 @@ public class VictoryCanvasController : MonoBehaviour
     private void Awake()
     {
         overlayPanel.SetActive(false);
-        fireworks.SetActive(false);
+        if (fireworks != null)
+        {
+            fireworks.SetActive(false);
+        }
+        
     }
 
     public void Open()
