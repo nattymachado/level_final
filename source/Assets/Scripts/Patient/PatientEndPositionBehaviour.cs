@@ -16,15 +16,22 @@ public class PatientEndPositionBehaviour : MonoBehaviour
             other.gameObject.SetActive(false);
             GameEnums.LevelName levelName = other.transform.parent.GetComponent<PatientOnHospitalBehaviour>().LevelName;
             LevelProgress levelProgress = SaveManager.GetLevelProgress(levelName);
-            levelProgress.patientLeftBed = true;
-            SaveManager.SaveProgressFile();
+            if (levelProgress != null) {
+                levelProgress.patientLeftBed = true;
+                SaveManager.SaveProgressFile();
+            } else {
+                Debug.LogError("no save file");
+            }
         }
 
-        if (SaveManager.GetLevelProgress(GameEnums.LevelName.Dog).patientLeftBed && SaveManager.GetLevelProgress(GameEnums.LevelName.Robot).patientLeftBed && SaveManager.GetLevelProgress(GameEnums.LevelName.Night).patientLeftBed)
-        {
-            SaveManager.DeleteProgressFile();
-            OpenVictoryCanvas();
-            //SceneChanger.Instance.ChangeToScene(CREDITS_SCENE);
+        // finish game
+        if(SaveManager.GetLevelProgress(GameEnums.LevelName.Dog) != null && SaveManager.GetLevelProgress(GameEnums.LevelName.Dog).patientLeftBed){
+            if(SaveManager.GetLevelProgress(GameEnums.LevelName.Robot) != null && SaveManager.GetLevelProgress(GameEnums.LevelName.Robot).patientLeftBed){
+                if(SaveManager.GetLevelProgress(GameEnums.LevelName.Night) != null && SaveManager.GetLevelProgress(GameEnums.LevelName.Night).patientLeftBed){
+                    SaveManager.DeleteProgressFile();
+                    OpenVictoryCanvas();
+                }
+            }
         }
     }
 

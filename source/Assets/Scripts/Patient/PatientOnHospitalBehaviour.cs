@@ -25,17 +25,19 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
 
     private void Start()
     {
-
-        if (SaveManager.GetLevelProgress(levelName).patientLeftBed == true) {
-            SetActive(false);
-            _zzz.SetActive(false);
-            this.GetComponent<MeshRenderer>().enabled = false;
-            this.GetComponent<BoxCollider>().enabled = false;
-            _patientModel.SetActive(false);
-            return;
+        LevelProgress lp = SaveManager.GetLevelProgress(levelName);
+        if (lp != null){
+            if (lp.patientLeftBed == true) {
+                SetActive(false);
+                _zzz.SetActive(false);
+                this.GetComponent<MeshRenderer>().enabled = false;
+                this.GetComponent<BoxCollider>().enabled = false;
+                _patientModel.SetActive(false);
+                return;
+            }
+            if (!lp.levelConcluded)
+                return;
         }
-        if (!SaveManager.GetLevelProgress(levelName).levelConcluded)
-            return;
         this.GetComponent<MeshRenderer>().enabled = false;
         this.GetComponent<BoxCollider>().enabled = false;
         SetActive(false);
@@ -44,9 +46,7 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
         _patientModel.GetComponent<Animator>().SetBool("isScared", false);
         _patientModel.GetComponent<Animator>().SetBool("isWalking", true);
         _patientModel.GetComponent<NavMeshAgent>().updateRotation = true;
-        StartCoroutine(WaitToGoAway(1.5f));
-
-        
+        StartCoroutine(WaitToGoAway(1.5f));        
     }
 
     IEnumerator WaitToGoAway(float seconds)
