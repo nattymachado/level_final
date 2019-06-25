@@ -9,7 +9,7 @@ Shader "Custom/OclusionShadow"
     }
     SubShader
     {
-        Tags { "Queue"="Transparent" }
+        Tags { "Queue"="AlphaTest" }
         LOD 200
 
         // 1º pass - renderiza sombra de objetos
