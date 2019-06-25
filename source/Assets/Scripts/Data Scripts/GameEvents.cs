@@ -62,5 +62,6 @@ public static class GameEvents
     public static class Interactables
     {
         public static Action DreamMachine;
+        public static Action LittleRobot;
     }
 }

@@ -22,6 +22,7 @@ public class LittleRobot : InteractableItemBehaviour
             explosionEffect.transform.position = transform.position;
             GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Explosion", false, false);
             GameEvents.AudioEvents.TriggerSFX.SafeInvoke("RobotDistress", false, false);
+            GameEvents.Interactables.LittleRobot.SafeInvoke();
             Destroy(explosionEffect, 10f);
         }
     }
