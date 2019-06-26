@@ -64,7 +64,7 @@ public class Tutorial2Progression : TutorialProgression
     TutorialStep swipeStep = new TutorialStep(swipeAnimator, new StepStart(SwipeStart), new StepCompletion(SwipeCompletion));
     TutorialStep pickStep = new TutorialStep(pickAnimator1, new StepStart(PickStart), new StepCompletion(PickCompletion));
     TutorialStep showItensStep = new TutorialStep(null, new StepStart(ShowItensStart), new StepCompletion(ShowItensCompletion));
-    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion),1f);
+    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion));
     TutorialStep selectItemStep = new TutorialStep(selectItemAnimator, new StepStart(SelectItemStart), new StepCompletion(SelectItemCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator1, new StepStart(UseStart), new StepCompletion(UseCompletion));
     TutorialStep pickSpecialStep = new TutorialStep(pickAnimator2, new StepStart(PickSpecialStart), new StepCompletion(PickSpecialCompletion));
