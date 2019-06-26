@@ -13,8 +13,8 @@ public class Tutorial2Progression : TutorialProgression
   [SerializeField] private Animator useAnimator1;
   [SerializeField] private Animator pickAnimator2;
   [SerializeField] private Animator useAnimator2;
-
   [SerializeField] private Image firstSpecialImage;
+  [SerializeField] private TutorialFadePanel fadePanel;
 
   private bool hasSwiped;
   private bool hasPicked;
@@ -63,13 +63,15 @@ public class Tutorial2Progression : TutorialProgression
     // cria os passos do tutorial
     TutorialStep swipeStep = new TutorialStep(swipeAnimator, new StepStart(SwipeStart), new StepCompletion(SwipeCompletion));
     TutorialStep pickStep = new TutorialStep(pickAnimator1, new StepStart(PickStart), new StepCompletion(PickCompletion));
-    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion),1f);
+    TutorialStep showItensStep = new TutorialStep(null, new StepStart(ShowItensStart), new StepCompletion(ShowItensCompletion));
+    TutorialStep openInventoryStep = new TutorialStep(openInventoryAnimator, new StepStart(OpenInventoryStart), new StepCompletion(OpenInventoryCompletion));
     TutorialStep selectItemStep = new TutorialStep(selectItemAnimator, new StepStart(SelectItemStart), new StepCompletion(SelectItemCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator1, new StepStart(UseStart), new StepCompletion(UseCompletion));
     TutorialStep pickSpecialStep = new TutorialStep(pickAnimator2, new StepStart(PickSpecialStart), new StepCompletion(PickSpecialCompletion));
 
     steps.Add(swipeStep);
     steps.Add(pickStep);
+    steps.Add(showItensStep);
     steps.Add(openInventoryStep);
     steps.Add(selectItemStep);
     steps.Add(useStep);
@@ -82,16 +84,18 @@ public class Tutorial2Progression : TutorialProgression
         
   }
 
-    private void Start()
-    {
-        // put first item on special itens
-        CollectibleInventoryController.Instance.AddItemNoAnimation(firstSpecialImage.sprite);
-    }
+  private void Start()
+  {
+      // put first item on special itens
+      CollectibleInventoryController.Instance.AddItemNoAnimation(firstSpecialImage.sprite);
+  }
 
-    private void SwipeStart() { inputController.ChangePermissions(true, false, true, false); }
+  private void SwipeStart() { inputController.ChangePermissions(true, false, true, false); }
   private bool SwipeCompletion() { return hasSwiped; }
   private void PickStart() { inputController.ChangePermissions(true, true, true, true); }
   private bool PickCompletion() { return hasPicked; }
+  private void ShowItensStart() { fadePanel.ShowItens(); }
+  private bool ShowItensCompletion() { return !fadePanel.IsVisible; }
   private void OpenInventoryStart() { inventary.EnableDisable(true); }
   private bool OpenInventoryCompletion() { return hasOpenedInventary; }
   private void SelectItemStart() { return; }
