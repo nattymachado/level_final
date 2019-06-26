@@ -15,6 +15,8 @@ public class Tutorial1Progression : TutorialProgression
   [SerializeField] private TutorialLeverBehaviour levelInteractable;
   [SerializeField] private ParticleSystem finishParticles;
   [SerializeField] private Collider finishCollider;
+  [SerializeField] private TutorialFadePanel fadePanel;
+
   private bool hasPinched;
   private bool hasPanned;
   private bool hasPicked;
@@ -52,11 +54,13 @@ public class Tutorial1Progression : TutorialProgression
     TutorialStep pinchStep = new TutorialStep(pinchAnimator, new StepStart(PinchStart), new StepCompletion(PinchCompletion));
     TutorialStep panStep = new TutorialStep(panAnimator, new StepStart(PanStart), new StepCompletion(PanCompletion));
     TutorialStep pickStep = new TutorialStep(pickAnimator, new StepStart(PickStart), new StepCompletion(PickCompletion));
+    TutorialStep showSpecialStep = new TutorialStep(null, new StepStart(ShowSpecialStart), new StepCompletion(ShowSpecialCompletion));
     TutorialStep useStep = new TutorialStep(useAnimator, new StepStart(UseStart), new StepCompletion(UseCompletion));
 
     steps.Add(pinchStep);
     steps.Add(panStep);
     steps.Add(pickStep);
+    steps.Add(showSpecialStep);
     steps.Add(useStep);
     steps.Add(finishStep);
   }
@@ -65,8 +69,10 @@ public class Tutorial1Progression : TutorialProgression
   private bool PinchCompletion() { return hasPinched; }
   private void PanStart() { inputController.ChangePermissions(true, false, false, true); }
   private bool PanCompletion() { return hasPanned; }
-  private void PickStart() { inputController.ChangePermissions(true, true, false, true); }
+  private void PickStart() { inputController.ChangePermissions(true, true, false, true);  }
   private bool PickCompletion() { return hasPicked; }
+  private void ShowSpecialStart() { fadePanel.ShowSpecials(); }
+  private bool ShowSpecialCompletion() { return !fadePanel.IsVisible; }
   private void UseStart()
   {
     inputController.ChangePermissions(true, true, false, true);
