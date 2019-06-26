@@ -106,7 +106,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (IsStoped() == true && isIdle == false)
         {
-            StartCoroutine(WaitToStop(0.01f));
+            StartCoroutine(WaitToStop(0.05f));
             isIdle = true;
         }
         _FSMController.UpdateFSM();
@@ -123,6 +123,10 @@ public class CharacterBehaviour : MonoBehaviour
     IEnumerator WaitToStop(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
+        if (IsStoped() == true)
+        {
+            _FSMController.SetNextState(GameEnums.FSMInteractionEnum.Idle);
+        }
+            
     }
 }

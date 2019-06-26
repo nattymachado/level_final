@@ -88,6 +88,7 @@ public class FSMController
                     Debug.Log("Retorna");
                     return;
                 }
+               
                 if (state != _currentState)
                 {
                     Debug.Log("Current:" + _currentState);
