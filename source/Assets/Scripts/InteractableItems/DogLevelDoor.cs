@@ -32,4 +32,9 @@ public class DogLevelDoor : MonoBehaviour
     {
         Open();
     }
+
+    public void ForceClose()
+    {
+        Close();
+    }
 }
