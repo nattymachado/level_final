@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.81
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.791
+  m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 181030093}
-  m_IndirectSpecularColor: {r: 0.39331734, g: 0.43713254, b: 0.50991106, a: 0.791}
+  m_IndirectSpecularColor: {r: 0.43932438, g: 0.48763597, b: 0.56788313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1081,6 +1081,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 9.2
       objectReference: {fileID: 0}
+    - target: {fileID: 299294498065469244, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609682, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_IsActive
@@ -1092,10 +1097,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 90b389f5aab0bf740a8aa6718b2c5348,
         type: 3}
+    - target: {fileID: 4637894638036386600, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637894638036386600, guid: 12eabdcbcc9eeed4c878178af95ffa76,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3495668206509609681, guid: 12eabdcbcc9eeed4c878178af95ffa76,
         type: 3}

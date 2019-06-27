@@ -22,6 +22,9 @@ public class HapticFeedbacks : MonoBehaviour
 
   private void Vibrate()
   {
-    Handheld.Vibrate();
+        /*if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        {
+            //Handheld.Vibrate();
+        }*/
   }
 }
