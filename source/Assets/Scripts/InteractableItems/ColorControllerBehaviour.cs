@@ -11,6 +11,9 @@ namespace prototypeRobot
         [SerializeField] public Material wrongColor;
         [SerializeField] public GameObject card;
         [SerializeField] public Animator gateAnimator;
+        [SerializeField] public GameObject navMeshWithoutButtons;
+        [SerializeField] public GameObject navMeshWithButtons;
+
         private int position = 0;
 
         public bool CheckColorPosition(string color, ColorButtonBehaviour colorButton)
@@ -60,6 +63,8 @@ namespace prototypeRobot
 
         public void turnOnColors()
         {
+            navMeshWithButtons.SetActive(true);
+            navMeshWithoutButtons.SetActive(false);
             ColorButtonBehaviour[] buttons = GetComponentsInChildren<ColorButtonBehaviour>();
             for (int i = 0; i < buttons.Length; i++)
             {
