@@ -79,15 +79,15 @@ public class Tutorial2Progression : TutorialProgression
     steps.Add(finishStep);
 
     openStepIndex = steps.IndexOf(openInventoryStep);
-    useStepIndex = steps.IndexOf(useStep);
-
-        
+    useStepIndex = steps.IndexOf(useStep);        
   }
 
-  private void Start()
+  protected virtual void Start()
   {
-      // put first item on special itens
-      CollectibleInventoryController.Instance.AddItemNoAnimation(firstSpecialImage.sprite);
+    base.Start();
+
+    // put first item on special itens
+    CollectibleInventoryController.Instance.AddItemNoAnimation(firstSpecialImage.sprite);
   }
 
   private void SwipeStart() { inputController.ChangePermissions(true, false, true, false); }
@@ -128,8 +128,9 @@ public class Tutorial2Progression : TutorialProgression
 
   protected override void FinishStart()
   {
-    useAnimator2.SetBool("appear", true);
+    StartCoroutine(WaitToShowDeliverAnimator());
   }
+
 
   protected override bool FinishCompletion()
   {
@@ -142,5 +143,12 @@ public class Tutorial2Progression : TutorialProgression
 
     // muda cena
     SceneChanger.Instance.ChangeToScene("hospital");
+  }
+
+  private IEnumerator WaitToShowDeliverAnimator(){
+    yield return new WaitForSeconds(3f);
+    if(!hasDelivered){
+      useAnimator2.SetBool("appear", true);
+    }
   }
 }

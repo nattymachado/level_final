@@ -27,26 +27,25 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
     {
         LevelProgress lp = SaveManager.GetLevelProgress(levelName);
         if (lp != null){
-            if (lp.patientLeftBed == true) {
+            if (lp.patientLeftBed) {
                 SetActive(false);
                 _zzz.SetActive(false);
                 this.GetComponent<MeshRenderer>().enabled = false;
                 this.GetComponent<BoxCollider>().enabled = false;
                 _patientModel.SetActive(false);
                 return;
+            } else if (lp.levelConcluded){
+                this.GetComponent<MeshRenderer>().enabled = false;
+                this.GetComponent<BoxCollider>().enabled = false;
+                SetActive(false);
+                _zzz.SetActive(false);
+                _patientModel.SetActive(true);
+                _patientModel.GetComponent<Animator>().SetBool("isScared", false);
+                _patientModel.GetComponent<Animator>().SetBool("isWalking", true);
+                _patientModel.GetComponent<NavMeshAgent>().updateRotation = true;
+                StartCoroutine(WaitToGoAway(1.5f));  
             }
-            if (!lp.levelConcluded)
-                return;
-        }
-        this.GetComponent<MeshRenderer>().enabled = false;
-        this.GetComponent<BoxCollider>().enabled = false;
-        SetActive(false);
-        _zzz.SetActive(false);
-        _patientModel.SetActive(true);
-        _patientModel.GetComponent<Animator>().SetBool("isScared", false);
-        _patientModel.GetComponent<Animator>().SetBool("isWalking", true);
-        _patientModel.GetComponent<NavMeshAgent>().updateRotation = true;
-        StartCoroutine(WaitToGoAway(1.5f));        
+        }    
     }
 
     IEnumerator WaitToGoAway(float seconds)

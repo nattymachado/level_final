@@ -28,7 +28,6 @@ public class PatientEndPositionBehaviour : MonoBehaviour
         if(SaveManager.GetLevelProgress(GameEnums.LevelName.Dog) != null && SaveManager.GetLevelProgress(GameEnums.LevelName.Dog).patientLeftBed){
             if(SaveManager.GetLevelProgress(GameEnums.LevelName.Robot) != null && SaveManager.GetLevelProgress(GameEnums.LevelName.Robot).patientLeftBed){
                 if(SaveManager.GetLevelProgress(GameEnums.LevelName.Night) != null && SaveManager.GetLevelProgress(GameEnums.LevelName.Night).patientLeftBed){
-                    SaveManager.DeleteProgressFile();
                     OpenVictoryCanvas();
                 }
             }
@@ -48,6 +47,7 @@ public class PatientEndPositionBehaviour : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         if (!victoryCanvas.Clicked)
         {
+            SaveManager.DeleteProgressFile();
             SceneChanger.Instance.ChangeToScene(CREDITS_SCENE);
         }
         
