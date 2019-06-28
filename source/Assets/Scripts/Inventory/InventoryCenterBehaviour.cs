@@ -172,7 +172,10 @@ public class InventoryCenterBehaviour : MonoBehaviour
     {
         canvasGroup.interactable = enabled;
         canvasGroup.blocksRaycasts = enabled;
-        inventaryBackground.color = enabled ? Color.white : Color.gray;
-        _centerImage.color = enabled ? Color.white : new Color(1, 1, 1, 0.5f);
+    }
+
+    public void Fade(bool faded){
+        inventaryBackground.color = faded ? Color.gray : Color.white;
+        _centerImage.color = faded ? new Color(1, 1, 1, 0.5f) : Color.white;
     }
 }

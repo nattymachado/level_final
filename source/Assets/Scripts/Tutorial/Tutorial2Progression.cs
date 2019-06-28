@@ -94,7 +94,10 @@ public class Tutorial2Progression : TutorialProgression
   private bool SwipeCompletion() { return hasSwiped; }
   private void PickStart() { inputController.ChangePermissions(true, true, true, true); }
   private bool PickCompletion() { return hasPicked; }
-  private void ShowItensStart() { fadePanel.ShowItens(); }
+  private void ShowItensStart() { 
+    fadePanel.ShowItens();
+    inventary.Fade(false);
+  }
   private bool ShowItensCompletion() { return !fadePanel.IsVisible; }
   private void OpenInventoryStart() { inventary.EnableDisable(true); }
   private bool OpenInventoryCompletion() { return hasOpenedInventary; }

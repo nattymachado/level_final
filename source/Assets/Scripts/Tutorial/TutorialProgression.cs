@@ -41,6 +41,7 @@ public class TutorialProgression : MonoBehaviour
   protected virtual void Start()
   {
     inventary.EnableDisable(false);
+    inventary.Fade(true);
   }
 
   void Update()
