@@ -25,6 +25,7 @@ public class VictoryHospitalCanvasController : MonoBehaviour
         // executa animação
         panelAnimator.SetBool("opened", true);
         GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fanfare", false, true);
+        GameEvents.AudioEvents.TriggerSFX.SafeInvoke("Fireworks", true, true);
     }
 
     public void Click()

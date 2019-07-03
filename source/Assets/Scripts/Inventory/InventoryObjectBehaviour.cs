@@ -90,7 +90,6 @@ public class InventoryObjectBehaviour : MonoBehaviour
     public void TriggerCollectibleItemMovementAnimation()
     {
         Vector2 screenPosition = CollectibleInventoryController.Instance.GetNextVacantSlotScreenPosition();
-        Debug.Log("Target:" + _targetMovementLocation);
         _targetMovementLocation = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, Vector3.Distance(Camera.main.transform.position, this.transform.position)));
         animationMovementSpeed = Vector3.Distance(objectCenter.position, _targetMovementLocation) / animationTime;
     }

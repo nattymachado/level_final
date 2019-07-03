@@ -39,7 +39,7 @@ public class PatientEndPositionBehaviour : MonoBehaviour
         // trigger events
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
         victoryCanvas.Open();
-        StartCoroutine(WaitToGoToCredits(5f));
+        StartCoroutine(WaitToGoToCredits(7f));
     }
 
     System.Collections.IEnumerator WaitToGoToCredits(float seconds)

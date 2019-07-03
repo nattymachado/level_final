@@ -14,7 +14,6 @@ public class ConfirmDialogUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Starting dialog");
         GameEvents.UIEvents.OpenTutorialDialogBox += OpenTutorialDialogBox;
         GameEvents.UIEvents.CloseTutorialDialogBox += CloseTutorialDialogBox;
         GameEvents.UIEvents.OpenResetDialogBox += OpenResetDialogBox;

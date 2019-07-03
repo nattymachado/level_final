@@ -57,7 +57,7 @@ public class LoadingScreen : MonoBehaviour
     }
     else
     {
-      Debug.LogError("LoadingVideo nao está instanciado");
+      Debug.LogError("LoadingVideo is not instantiated");
     }
   }
 }

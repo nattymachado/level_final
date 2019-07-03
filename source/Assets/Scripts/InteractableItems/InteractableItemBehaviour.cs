@@ -93,7 +93,6 @@ public class InteractableItemBehaviour : MonoBehaviour
 
     public void SetActive(bool isActive)
     {
-        Debug.Log("Ativado");
         if (executeWhenActivate)
         {
             ExecuteAction();
@@ -108,7 +107,6 @@ public class InteractableItemBehaviour : MonoBehaviour
 
     public void ActivateAndGo(bool isActive, CharacterBehaviour character)
     {
-        Debug.Log("Ativado");
         if (executeWhenActivate)
         {
             ExecuteAction();

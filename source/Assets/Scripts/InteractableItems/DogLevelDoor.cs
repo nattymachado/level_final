@@ -12,14 +12,12 @@ public class DogLevelDoor : MonoBehaviour
     {
         animator.SetBool("opened",true);
         opened = true;
-        // Debug.Log("open");
     }
 
     private void Close()
     {
         animator.SetBool("opened",false);
         opened = false;
-        // Debug.Log("close");
     }
 
     public void Toggle()

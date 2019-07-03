@@ -36,7 +36,7 @@ public class PatientOnDreamBehaviour : InteractableItemBehaviour
         OpenVictoryCanvas();
     }
 
-    private void OpenVictoryCanvas()
+    public void OpenVictoryCanvas()
     {
         // trigger events
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);

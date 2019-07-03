@@ -11,7 +11,6 @@ public class DogLevelLeverBehaviour : InteractableItemBehaviour
   protected override void ExecuteAction(CharacterBehaviour character)
   {
         // trigger event
-        Debug.Log("Clicked");
         SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
         StartCoroutine(WaitToOpenDoor(0.2f));

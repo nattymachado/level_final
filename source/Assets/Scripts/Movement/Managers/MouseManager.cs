@@ -9,6 +9,7 @@ public class MouseManager : MonoBehaviour
 
     private InputController controller;
     [SerializeField] private float mouseWheelScale = 0.2f;
+    [SerializeField] private PatientOnDreamBehaviour patient;
     private float mousewheelAxis;
     private bool botaoEsquerdo = false;
     private bool botaoDireito = false;
@@ -44,6 +45,11 @@ public class MouseManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C) && patient != null) 
+        {
+            patient.OpenVictoryCanvas();
+        }
+
         if (controller.IsOnInventary(Input.mousePosition))
         {
             return;
