@@ -1,15 +1,17 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TutorialIconReskin : MonoBehaviour
 {
 
   private enum Platform { PC, Mobile };
   private Platform currentPlatform = Platform.Mobile;
-  public SpriteRenderer renderers;
+  public List<SpriteRenderer> renderers;
+  public List<Image> images;
   public List<IconPair> iconPairs = new List<IconPair>();
-  string currentSpriteName;
+  string currentSpriteName, currentImageName;
 
   void Awake()
   {
@@ -40,7 +42,19 @@ public class TutorialIconReskin : MonoBehaviour
         {
           if (pair.mobileSprite.name == currentSpriteName)
           {
-            renderer.sprite = iconPairs.pcSprite;
+            renderer.sprite = pair.pcSprite;
+            break;
+          }
+        }
+      }
+      foreach (var image in images)
+      {
+        currentImageName = image.sprite.name;
+        foreach (var pair in iconPairs)
+        {
+          if (pair.mobileSprite.name == currentImageName)
+          {
+            image.sprite = pair.pcSprite;
             break;
           }
         }
