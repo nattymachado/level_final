@@ -31,7 +31,7 @@ public class DreamMachineBehaviour : InteractableItemBehaviour
     }
 
     IEnumerator WaitToTrigger(){
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         GameEvents.Interactables.DreamMachine.SafeInvoke();
     }
 

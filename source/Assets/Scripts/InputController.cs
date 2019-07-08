@@ -61,7 +61,7 @@ public class InputController : MonoBehaviour
             // trigger evento
             GameEvents.LevelEvents.Rotated.SafeInvoke();
           }
-          startDragPosition = screenPosition;
+          // startDragPosition = screenPosition;
         }
       }
       else if (touchPhase == TouchPhase.Ended)

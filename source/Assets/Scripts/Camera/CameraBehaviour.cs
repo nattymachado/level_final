@@ -22,6 +22,9 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10;
     [SerializeField] private float rotationLerpFactor = 10;
     private bool isRotating;
+    private Vector3 startRotationAngles;
+    private Vector3 targetEulerAngles;
+    private Vector3 currentEulerAngles;
     private Quaternion targetRotation;
     [Header("Zoom")]
     [SerializeField] private float minFoV = 5f;
@@ -136,9 +139,15 @@ public class CameraBehaviour : MonoBehaviour
 
     private void UpdateRotation()
     {
-        if (Mathf.Abs(targetRotation.eulerAngles.y - transform.rotation.eulerAngles.y) > 0.005f)
+        // if (Mathf.Abs(targetRotation.eulerAngles.y - transform.rotation.eulerAngles.y) > 0.005f)
+        // {
+        //     transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationLerpFactor * Time.deltaTime);
+        // }
+        if (Mathf.Abs(targetEulerAngles.y - transform.rotation.eulerAngles.y) > 0.005f)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationLerpFactor * Time.deltaTime);
+            currentEulerAngles = Vector3.Lerp(currentEulerAngles,targetEulerAngles,rotationLerpFactor * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(currentEulerAngles);
+            // transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationLerpFactor * Time.deltaTime);
         }
     }
 
@@ -185,16 +194,24 @@ public class CameraBehaviour : MonoBehaviour
 
     public bool RotateCamera(Vector3 startPos, Vector3 position)
     {
-        Vector3 positionViewport = childCamera.ScreenToViewportPoint(position);
-        Vector3 startPosViewport = childCamera.ScreenToViewportPoint(startPos);
+        // Vector3 positionViewport = childCamera.ScreenToViewportPoint(position);
+        // Vector3 startPosViewport = childCamera.ScreenToViewportPoint(startPos);
+        Vector3 positionViewport = position;
+        Vector3 startPosViewport = startPos;
 
         float swipeDistHorizontal = positionViewport.x - startPosViewport.x;
         float absSwipeDist = Mathf.Abs(swipeDistHorizontal);
 
-        if (isRotating || absSwipeDist > minDistToRotate)
-        {
+        if(!isRotating && absSwipeDist > minDistToRotate){
             isRotating = true;
-            targetRotation = transform.rotation * Quaternion.Euler(0, swipeDistHorizontal * rotationSpeed, 0);
+            startRotationAngles = transform.rotation.eulerAngles;
+            currentEulerAngles = startRotationAngles;
+            targetEulerAngles = currentEulerAngles;
+            return true;
+        } else if(isRotating){
+            // targetRotation = transform.rotation * Quaternion.Euler(0, swipeDistHorizontal * rotationSpeed, 0);
+            // targetRotation = Quaternion.Euler(0, startRotationAngle + swipeDistHorizontal * rotationSpeed, 0);
+            targetEulerAngles = startRotationAngles + Vector3.up * (swipeDistHorizontal * rotationSpeed);
             return true;
         }
         return false;
@@ -264,8 +281,10 @@ public class CameraBehaviour : MonoBehaviour
 
     public bool Pan(Vector3 startPos, Vector3 position)
     {
-        Vector3 positionViewport = childCamera.ScreenToViewportPoint(position);
-        Vector3 startPosViewport = childCamera.ScreenToViewportPoint(startPos);
+        // Vector3 positionViewport = childCamera.ScreenToViewportPoint(position);
+        // Vector3 startPosViewport = childCamera.ScreenToViewportPoint(startPos);
+        Vector3 positionViewport = position;
+        Vector3 startPosViewport = startPos;
 
         float swipeDistHorizontal = positionViewport.x - startPosViewport.x;
         float swipeDistVertical = positionViewport.y - startPosViewport.y;
