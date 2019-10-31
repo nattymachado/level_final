@@ -30,6 +30,7 @@ public class VictoryHospitalCanvasController : MonoBehaviour
 
     public void Click()
     {
+        SaveManager.DeleteProgressFile();
         SceneChanger.Instance.ChangeToScene(CREDITS_SCENE);
         Clicked = true;
     }
