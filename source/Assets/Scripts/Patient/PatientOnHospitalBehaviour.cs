@@ -17,7 +17,6 @@ public class PatientOnHospitalBehaviour : InteractableItemBehaviour
     protected override void ExecuteAction(CharacterBehaviour character)
     {
         SetActive(false);
-        _zzz.SetActive(false);
         GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.Victory);
         GameEvents.UIEvents.OpenPatientRecord.SafeInvoke(patient);
         GameEvents.UIEvents.OpenMenu.SafeInvoke(true);
