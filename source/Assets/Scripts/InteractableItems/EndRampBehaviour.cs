@@ -9,20 +9,13 @@ public class EndRampBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
-
-        if (!isActive)
-            return;
-        character.Move(initPosition.position);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (!isActive && init.isActive)
+        Vector3 toTarget = (other.gameObject.transform.position - transform.position).normalized;
+        Debug.Log(Vector3.Dot(toTarget, transform.forward));
+        if (Vector3.Dot(toTarget, transform.forward) > 0)
         {
-            isActive = true;
-            init.isActive = false;
+            //Descendo
+            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+            character.Move(initPosition.position);
         }
-            
     }
 }
