@@ -8,6 +8,7 @@ namespace prototypeRobot
     {
         [SerializeField] Transform endPosition;
         public CharacterBehaviour character;
+        public GameObject nextPortal;
         private bool _canMove = false;
 
         protected override void ExecuteAction(CharacterBehaviour character)

@@ -18,5 +18,17 @@ public class InitRampBehaviour : MonoBehaviour
             character.Move(endPosition.position);
         }
     }
-    
+
+    void OnTriggerExit(Collider other)
+    {
+
+        Vector3 toTarget = (other.gameObject.transform.position - transform.position).normalized;
+        if (Vector3.Dot(toTarget, transform.forward) > 0)
+        {
+            //Subindo
+            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+            character.Move(endPosition.position);
+        }
+    }
+
 }
