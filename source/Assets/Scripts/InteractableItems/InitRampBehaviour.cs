@@ -5,23 +5,17 @@ public class InitRampBehaviour : MonoBehaviour
 {
     [SerializeField] Transform endPosition;
     [SerializeField] EndRampBehaviour end;
-    public bool isActive = false;
+    public bool isActive = false; 
 
     void OnTriggerEnter(Collider other)
     {
-        CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
 
-        if (!isActive)
-            return;
-        character.Move(endPosition.position); 
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (!isActive && end.isActive)
+        Vector3 toTarget = (other.gameObject.transform.position - transform.position).normalized;
+        if (Vector3.Dot(toTarget, transform.forward) <= 0)
         {
-            isActive = true;
-            end.isActive = false;
+            //Subindo
+            CharacterBehaviour character = other.GetComponent<CharacterBehaviour>();
+            character.Move(endPosition.position);
         }
     }
     
