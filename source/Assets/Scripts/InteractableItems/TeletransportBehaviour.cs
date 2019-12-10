@@ -26,6 +26,12 @@ namespace prototypeRobot
             Move();
         }
 
+        IEnumerator WaitToDisablePortal()
+        {
+            yield return new WaitForSeconds(0.5f);
+            nextPortal.SetActive(false);
+        }
+
         private void Update()
         {
             //base.Shine();
@@ -46,6 +52,7 @@ namespace prototypeRobot
             character.transform.position = new Vector3(endPosition.position.x, endPosition.position.y + 0.1f, endPosition.position.z);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.EnterOnPortal);
             character.EnableNavegation();
+            StartCoroutine(WaitToDisablePortal());
             character = null;
         }
     }
