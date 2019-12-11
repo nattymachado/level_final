@@ -13,7 +13,7 @@ public class CardBox3Behaviour : InteractableItemBehaviour
     {
         if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
         {
-            GameEvents.AudioEvents.TriggerRobotTransmission.SafeInvoke();
+            //GameEvents.AudioEvents.TriggerRobotTransmission.SafeInvoke();
             GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
             GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
             StartCoroutine(WaitToOpenGateAndActivateItem(1f));

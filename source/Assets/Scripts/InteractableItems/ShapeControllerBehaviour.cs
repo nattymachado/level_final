@@ -37,7 +37,6 @@ namespace prototypeRobot
             {
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("GenerateKeycard", false, true);
                 card.SetActive(true);
-                //item1.SetActive(true);
             }
             return isRight;
         }

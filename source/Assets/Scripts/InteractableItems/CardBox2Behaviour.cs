@@ -12,7 +12,7 @@ namespace prototypeRobot
         {
             if (character && character.CheckInventaryObjectOnSelectedPosition(cardName))
             {
-                GameEvents.AudioEvents.TriggerRobotTransmission.SafeInvoke();
+                //GameEvents.AudioEvents.TriggerRobotTransmission.SafeInvoke();
                 GameEvents.AudioEvents.TriggerSFX.SafeInvoke("InsertedKeycard", false, false);
                 GameEvents.FSMEvents.StartInteraction.SafeInvoke(GameEnums.FSMInteractionEnum.ActivateItem);
                 StartCoroutine(WaitToTurnOn(1f));
@@ -29,7 +29,7 @@ namespace prototypeRobot
         private void TurnOn()
         {
             colorController.turnOnColors();
-            GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ComputerBeeps", true, false);
+            //GameEvents.AudioEvents.TriggerSFX.SafeInvoke("ComputerBeeps", true, false);
         }
 
 
