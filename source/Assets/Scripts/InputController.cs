@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 public class InputController : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class InputController : MonoBehaviour
     _movementController = GetComponent<MovementController>();
 
     _raycastMaskFloor = LayerMask.GetMask(new string[] { "Floor" });
+  }
+
+  private static RaycastHit[] FilterInvalidHits(RaycastHit[] input)
+  {
+        return input.Where(c => c.collider).ToArray();
   }
 
   private void Click(Vector3 position)
@@ -177,11 +183,10 @@ public class InputController : MonoBehaviour
   {
     Ray ray = Camera.main.ScreenPointToRay(screenPosition);
 
-    RaycastHit[] hits = new RaycastHit[2];
+    RaycastHit[] hits = new RaycastHit[1];
 
     Physics.RaycastNonAlloc(ray, hits, 100f, _raycastMaskFloor);
     hit = hits[0];
-
     if (hits[0].collider != null && hits[0].collider.GetComponent<GridBehaviour>())
     {
       return true;

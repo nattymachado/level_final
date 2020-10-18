@@ -5,7 +5,7 @@ using System.Linq;
 
 public class LightGateBehaviour : MonoBehaviour
 {
-    [SerializeField] List<GameObject> _lights;
+    [SerializeField] List<LightGateController.LightIdsEnum> lightIds;
     Animator _gateAnimator;
 
     private void Start()
@@ -15,11 +15,28 @@ public class LightGateBehaviour : MonoBehaviour
 
     public IEnumerator OpenGate()
     {
-        if (!(_lights.Any(i => i.activeSelf == false))) {
-            yield return new WaitForSeconds(0.1f);
-            _gateAnimator.SetBool("Open", true);
-        }
+        yield return new WaitForSeconds(0.1f);
+        _gateAnimator.SetBool("Open", true);
        
+    }
+
+    public IEnumerator CloseGate()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _gateAnimator.SetBool("Open", false);
+
+    }
+
+    public void CheckToCloseOrOpen(List<LightGateController.LightIdsEnum> activeLights)
+    {
+        var hasInactiveLight = lightIds.Any(lightId => !activeLights.Contains(lightId));
+        if (hasInactiveLight)
+        {
+            StartCoroutine(CloseGate());
+        } else
+        {
+            StartCoroutine(OpenGate());
+        }
     }
 
 

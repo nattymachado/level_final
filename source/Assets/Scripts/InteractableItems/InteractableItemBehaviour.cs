@@ -6,7 +6,7 @@ using System.Linq;
 public class InteractableItemBehaviour : MonoBehaviour
 {
 
-    private bool _isActive = false;
+    protected bool _isActive = false;
     private bool _isHighlighted = false;
     protected bool _isLocked = false;
     private float _elapsed = 0f;
@@ -29,7 +29,7 @@ public class InteractableItemBehaviour : MonoBehaviour
             }
             
 
-        }
+        } 
 
     }
 
@@ -47,6 +47,7 @@ public class InteractableItemBehaviour : MonoBehaviour
                 }*/
                 CheckIfCanExecuteAction(character);
             }
+            
         }
     }
 
@@ -140,7 +141,7 @@ public class InteractableItemBehaviour : MonoBehaviour
         _isActive = false;
     }
 
-    protected void CheckIfCanExecuteAction(CharacterBehaviour character)
+    private void CheckIfCanExecuteAction(CharacterBehaviour character)
     {
 
         if (character.targetToRotation == null && character.IsStoped())

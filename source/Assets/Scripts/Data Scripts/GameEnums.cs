@@ -9,14 +9,16 @@ public static class GameEnums
         None,
         Deliveryman,
         Security,
-        Operator
+        Operator,
+        Singer
     }
 
     public enum LevelName {
         NULL,
         Robot,
         Night,
-        Dog
+        Dog,
+        Light
     }
 
     public enum FSMInteractionEnum

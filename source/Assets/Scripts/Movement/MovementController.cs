@@ -24,6 +24,7 @@ public class MovementController : MonoBehaviour
 
     private void PositionOnBoard(Vector3 position)
     {
+        Debug.Log("testig");
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit[] hits = new RaycastHit[1];
@@ -31,16 +32,18 @@ public class MovementController : MonoBehaviour
 
         if (InputController.IsPointOnBoard(position, out hit))
         {
-
+            Debug.Log(hit.collider);
             MoveToPosition(hit.collider.GetComponent<GridBehaviour>(), hit.point);
         }
     }
 
     public void MoveToPosition(GridBehaviour grid, Vector3 point)
     {
+        Debug.Log("testig");
         Node boardNode = grid.NodeFromWorldPosition(point);
         pointer.transform.position = new Vector3(boardNode.worldPosition.x, boardNode.worldPosition.y + grid.pointerPosition, boardNode.worldPosition.z);
         _pointerAnimator.SetTrigger("Clicked");
+        Debug.Log(pointer.transform.position);
         _character.Move(pointer.transform.position);
 
         // trigger event
