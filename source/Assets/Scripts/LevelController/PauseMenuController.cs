@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class PauseMenuController : MonoBehaviour
     [Header("Required References")]
     [SerializeField] private GameObject pauseOverlayGameObject;
     [SerializeField] private GameObject pausePanelGameObject;
+    [SerializeField] private GameObject quitButtonPanelGameObject;
     [SerializeField] private GameObject patientReportGameObject;
     [SerializeField] private GameObject raycastBlocker;
     [SerializeField] private ConfigurationMenu configurationPanel;
@@ -25,6 +27,11 @@ public class PauseMenuController : MonoBehaviour
         else Time.timeScale = 1f;
         pauseOverlayGameObject.SetActive(state);
         GameEvents.UIEvents.OpenMenu.SafeInvoke(state);
+    }
+
+    public void EnableQuitButtonPanel(bool isEnabled)
+    {
+        quitButtonPanelGameObject.SetActive(isEnabled);
     }
 
     public void Resume()
