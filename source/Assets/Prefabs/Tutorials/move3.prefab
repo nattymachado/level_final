@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8884039596870006400}
   - component: {fileID: 8884039596870006401}
   - component: {fileID: 2107447246117670320}
+  - component: {fileID: 4485670052272422143}
   m_Layer: 0
   m_Name: move3
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884039596870006406}
-  m_LocalRotation: {x: 0, y: 0.86602545, z: 0, w: 0.49999994}
+  m_LocalRotation: {x: 0, y: 0.70793426, z: 0, w: 0.7062783}
   m_LocalPosition: {x: -2.06, y: 1.14, z: -0.18}
   m_LocalScale: {x: 0.17787457, y: 0.17787458, z: 0.17787457}
   m_Children: []
@@ -47,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -58,6 +60,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -112,3 +115,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ca1e1f753180b43aca9f859587ee94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4485670052272422143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884039596870006406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0a22a3c32582440b4509437f8d9fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fovToScale: 0.01
