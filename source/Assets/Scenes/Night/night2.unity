@@ -71981,6 +71981,7 @@ GameObject:
   - component: {fileID: 1879371425}
   - component: {fileID: 1879371429}
   - component: {fileID: 1879371435}
+  - component: {fileID: 1879371439}
   m_Layer: 9
   m_Name: buttonPlanet3
   m_TagString: Untagged
@@ -72029,6 +72030,7 @@ GameObject:
   - component: {fileID: 1879371427}
   - component: {fileID: 1879371431}
   - component: {fileID: 1879371437}
+  - component: {fileID: 1879371441}
   m_Layer: 9
   m_Name: buttonPlanet2
   m_TagString: Untagged
@@ -72254,6 +72256,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1879371439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
 --- !u!1 &1879371440
 GameObject:
   m_ObjectHideFlags: 0
@@ -72273,6 +72292,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1879371441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
 --- !u!1 &1879371442
 GameObject:
   m_ObjectHideFlags: 0
@@ -72482,6 +72518,7 @@ GameObject:
   - component: {fileID: 1879371467}
   - component: {fileID: 1879371465}
   - component: {fileID: 1879371469}
+  - component: {fileID: 1879371494}
   m_Layer: 9
   m_Name: alavanca.001
   m_TagString: Untagged
@@ -72585,6 +72622,7 @@ GameObject:
   - component: {fileID: 1879371473}
   - component: {fileID: 1879371471}
   - component: {fileID: 1879371475}
+  - component: {fileID: 1879371493}
   m_Layer: 9
   m_Name: alavanca.002
   m_TagString: Untagged
@@ -72616,6 +72654,7 @@ GameObject:
   - component: {fileID: 1879274224}
   - component: {fileID: 1882665680}
   - component: {fileID: 1881567248}
+  - component: {fileID: 1879371495}
   m_Layer: 9
   m_Name: alavanca.005
   m_TagString: Untagged
@@ -72651,6 +72690,7 @@ GameObject:
   - component: {fileID: 1879274226}
   - component: {fileID: 1882665682}
   - component: {fileID: 1881567250}
+  - component: {fileID: 1879371496}
   m_Layer: 9
   m_Name: alavanca.004
   m_TagString: Untagged
@@ -72688,6 +72728,7 @@ GameObject:
   - component: {fileID: 1879371479}
   - component: {fileID: 1879371477}
   - component: {fileID: 1879371481}
+  - component: {fileID: 1879371492}
   m_Layer: 9
   m_Name: alavanca.007
   m_TagString: Untagged
@@ -72791,6 +72832,7 @@ GameObject:
   - component: {fileID: 1879371485}
   - component: {fileID: 1879371483}
   - component: {fileID: 1879371488}
+  - component: {fileID: 1879371491}
   m_Layer: 9
   m_Name: alavanca.008
   m_TagString: Untagged
@@ -72825,6 +72867,7 @@ GameObject:
   - component: {fileID: 1879371486}
   - component: {fileID: 1879371487}
   - component: {fileID: 1879371489}
+  - component: {fileID: 1879371490}
   m_Layer: 9
   m_Name: buttonPlanet1
   m_TagString: Untagged
@@ -72924,6 +72967,125 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1879371490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
+--- !u!114 &1879371491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
+--- !u!114 &1879371492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
+--- !u!114 &1879371493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
+--- !u!114 &1879371494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
+--- !u!114 &1879371495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
+--- !u!114 &1879371496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879371474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3.5
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
 --- !u!1 &1879371616
 GameObject:
   m_ObjectHideFlags: 0

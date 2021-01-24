@@ -1989,6 +1989,24 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.02, y: 0.011000001, z: 0.314}
   m_TimeToStationary: 0.5
+--- !u!114 &1811171851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811171849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectRenderer: {fileID: 1811171854}
+  minDistance: 3
+  subdivisions: 2
+  frequencyIntensifier: 12
+  blinkSizeMultiplier: 1
+  thicknessIntensifier: 2
 --- !u!65 &1811171852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2019,6 +2037,12 @@ MonoBehaviour:
   executeRotation: 1
   _movementController: {fileID: 827836882}
   particles: {fileID: 506259831}
+--- !u!23 &1811171854 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: c76f5dc504523824e8ab1742a132f41b,
+    type: 3}
+  m_PrefabInstance: {fileID: 737597657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1836523754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2371247594992014478, guid: 63e47c0306ab778449d28165fcd9cda5,
@@ -2330,7 +2354,7 @@ PrefabInstance:
     - target: {fileID: 1958029070902789264, guid: 1c7dda452bfe8204f9b0967a4790bd70,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -55.50006
+      value: -55.5
       objectReference: {fileID: 0}
     - target: {fileID: 2695469708479573151, guid: 1c7dda452bfe8204f9b0967a4790bd70,
         type: 3}

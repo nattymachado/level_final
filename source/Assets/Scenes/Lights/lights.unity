@@ -2401,6 +2401,7 @@ GameObject:
   - component: {fileID: 457684152}
   - component: {fileID: 457684154}
   - component: {fileID: 457684155}
+  - component: {fileID: 457684156}
   m_Layer: 9
   m_Name: spotlightRed2
   m_TagString: Untagged
@@ -2549,6 +2550,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.023000002, z: 0.006}
   m_TimeToStationary: 0.5
+--- !u!114 &457684156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457684148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  subdivisions: 2
+  frequencyIntensifier: 12
+  blinkSizeMultiplier: 0.25
+  thicknessIntensifier: 0.25
 --- !u!1 &461288419
 GameObject:
   m_ObjectHideFlags: 0
@@ -7848,6 +7866,7 @@ GameObject:
   - component: {fileID: 904267392}
   - component: {fileID: 904267393}
   - component: {fileID: 904267389}
+  - component: {fileID: 904267394}
   m_Layer: 9
   m_Name: spotlightBlue
   m_TagString: Untagged
@@ -7994,6 +8013,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0.023000002, z: 0.006}
   m_TimeToStationary: 0.5
+--- !u!114 &904267394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904267386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  subdivisions: 2
+  frequencyIntensifier: 12
+  blinkSizeMultiplier: 0.25
+  thicknessIntensifier: 0.25
 --- !u!1001 &929058401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8273,6 +8309,7 @@ GameObject:
   - component: {fileID: 988429263}
   - component: {fileID: 988429262}
   - component: {fileID: 988429267}
+  - component: {fileID: 988429268}
   m_Layer: 9
   m_Name: spotlightBlue2
   m_TagString: Untagged
@@ -8420,6 +8457,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.023000002, z: 0.006}
   m_TimeToStationary: 0.5
+--- !u!114 &988429268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988429260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  subdivisions: 2
+  frequencyIntensifier: 12
+  blinkSizeMultiplier: 0.25
+  thicknessIntensifier: 0.25
 --- !u!1 &991678603
 GameObject:
   m_ObjectHideFlags: 0
@@ -9052,6 +9106,7 @@ GameObject:
   - component: {fileID: 1271337966}
   - component: {fileID: 1271337970}
   - component: {fileID: 1271337971}
+  - component: {fileID: 1271337972}
   m_Layer: 9
   m_Name: spotlightGreen
   m_TagString: Untagged
@@ -9199,6 +9254,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.003, y: 0.015000001, z: 0.0050000004}
   m_TimeToStationary: 0.5
+--- !u!114 &1271337972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271337964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  subdivisions: 2
+  frequencyIntensifier: 10
+  blinkSizeMultiplier: 0.5
+  thicknessIntensifier: 0.5
 --- !u!1 &1273954484
 GameObject:
   m_ObjectHideFlags: 0
@@ -11155,6 +11227,7 @@ GameObject:
   - component: {fileID: 1759179219}
   - component: {fileID: 1759179223}
   - component: {fileID: 1759179220}
+  - component: {fileID: 1759179224}
   m_Layer: 9
   m_Name: spotlightRed
   m_TagString: Untagged
@@ -11281,6 +11354,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0.02, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1759179224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759179217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e3badc34195340ab9be6d4fee5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  subdivisions: 2
+  frequencyIntensifier: 12
+  blinkSizeMultiplier: 0.25
+  thicknessIntensifier: 0.25
 --- !u!1 &1797468342
 GameObject:
   m_ObjectHideFlags: 0
