@@ -58,9 +58,9 @@ public class Tutorial1Progression : TutorialProgression
     TutorialStep useStep = new TutorialStep(useAnimator, new StepStart(UseStart), new StepCompletion(UseCompletion));
 
     steps.Add(pinchStep);
-    steps.Add(panStep);
     steps.Add(pickStep);
     steps.Add(showSpecialStep);
+    steps.Add(panStep);
     steps.Add(useStep);
     steps.Add(finishStep);
   }
