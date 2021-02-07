@@ -8,6 +8,9 @@ namespace prototypeRobot
 
         private Animator _animator;
         [SerializeField] public GameObject card;
+
+        [SerializeField] public Material colorMaterial;
+
         private bool isOn = false;
         private bool isUsed = false;
 
@@ -24,6 +27,7 @@ namespace prototypeRobot
             isOn = true;
             
             _animator.SetBool("isPressed", true);
+            GetComponentInChildren<MeshRenderer>().material = colorMaterial;
             ShowCard();
         }
 
